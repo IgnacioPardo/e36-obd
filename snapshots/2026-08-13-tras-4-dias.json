@@ -1,0 +1,34 @@
+{
+  "taken_at": "2026-08-13T16:42:33+00:00",
+  "raw": "6468183f3224723a8832",
+  "note": "13-ago, tras 4 d\u00edas de uso",
+  "codes": [
+    {
+      "number": 100,
+      "description": "Amplifier/output stage 1 in DME",
+      "condition": 104,
+      "conditions": [
+        "invalid working area",
+        "stored after re-bouncing delay",
+        "error present now (not historic)"
+      ],
+      "frequency": 50,
+      "rpm": 960,
+      "volts": 4.29
+    },
+    {
+      "number": 36,
+      "description": "EVAP / tank-ventilation canister valve",
+      "condition": 114,
+      "conditions": [
+        "short to ground",
+        "exhaust-gas relevant",
+        "stored after re-bouncing delay",
+        "error present now (not historic)"
+      ],
+      "frequency": 50,
+      "rpm": 2320,
+      "volts": 9.26
+    }
+  ]
+}

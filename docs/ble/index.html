@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="E36">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.webmanifest">
+<title>E36 OBD</title>
+<style>
+:root{
+  --bg:#000; --panel:#0b0705; --line:#241608; --line2:#3a2410;
+  --ink:#ff8551; --ink2:#8a4526; --ink3:#56301c; --hot:#e0521a;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg)}
+body{
+  color:var(--ink);font:14px/1.5 var(--mono);
+  padding:max(14px,env(safe-area-inset-top)) 14px
+          max(14px,env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+h1{font-size:12px;letter-spacing:.22em;margin:0 0 3px;font-weight:600}
+.sub{color:var(--ink3);font-size:10px;letter-spacing:.16em;margin-bottom:16px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:3px;
+  overflow:hidden;margin-bottom:12px}
+.cell{background:var(--panel);padding:13px 14px}
+.k{font-size:9px;letter-spacing:.18em;color:var(--ink3);text-transform:uppercase}
+.v{font-size:30px;line-height:1.1;margin-top:4px;
+   font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.v small{font-size:11px;color:var(--ink3);margin-left:4px;letter-spacing:.06em}
+.v.off{color:var(--ink3)}
+
+button{width:100%;background:var(--panel);color:var(--ink);
+  border:1px solid var(--line2);border-radius:3px;padding:15px;
+  font:600 12px var(--mono);letter-spacing:.14em;margin-bottom:8px;
+  -webkit-appearance:none;text-transform:uppercase}
+button:active{background:var(--line)}
+button:disabled{color:var(--ink3);border-color:var(--line)}
+button.on{border-color:var(--hot);color:var(--hot)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+.st{font-size:10.5px;color:var(--ink2);letter-spacing:.06em;
+  margin:6px 0 12px;min-height:15px}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:var(--ink3);margin-right:7px;vertical-align:middle}
+.dot.ok{background:#0ca30c}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:3px;
+  padding:12px;font-size:11px;line-height:1.6;white-space:pre-wrap;
+  color:var(--ink2);margin:0;max-height:42vh;overflow:auto}
+.warn{background:#1a0f06;border:1px solid #5a3315;border-radius:3px;
+  padding:14px;font-size:12px;line-height:1.65;color:var(--ink2);
+  margin-bottom:14px}
+.warn b{color:var(--ink);font-weight:600}
+</style>
+</head>
+<body>
+
+<h1>E36 &middot; MOTRONIC 1.7.2</h1>
+<div class="sub">M43B16 &middot; 1994 &middot; KWP71 @ 0x10 &middot; BLE</div>
+
+<div id="nosoportado" class="warn" hidden>
+  <b>Este navegador no expone Web Bluetooth.</b><br>
+  En iOS depende de si Apple lo implementó en WebKit; en escritorio funciona en
+  Chrome, Edge y Opera. Y en cualquier caso la página tiene que venir de
+  <b>HTTPS</b> o de <b>localhost</b> — por HTTP plano la API queda bloqueada.
+</div>
+
+<div class="grid">
+  <div class="cell"><div class="k">Régimen</div>
+    <div class="v off" id="rpm">&mdash;<small>rpm</small></div></div>
+  <div class="cell"><div class="k">Carga</div>
+    <div class="v off" id="carga">&mdash;<small>ms</small></div></div>
+  <div class="cell"><div class="k">Refrigerante</div>
+    <div class="v off" id="refrig">&mdash;<small>&deg;C</small></div></div>
+  <div class="cell"><div class="k">Batería</div>
+    <div class="v off" id="bat">&mdash;<small>V</small></div></div>
+</div>
+
+<button id="conectar">Conectar</button>
+<div class="row">
+  <button id="vivo" disabled>En vivo</button>
+  <button id="fallas" disabled>Fallas</button>
+</div>
+
+<div class="st"><span class="dot" id="led"></span><span id="estado">sin conectar</span></div>
+
+<pre id="log">Tocá Conectar y elegí E36-OBD.
+
+El ESP32 tiene que estar energizado del auto
+y la llave en posición 2. Para que los sensores
+den algo distinto de cero, el motor tiene que
+estar en marcha: con contacto solo, el DME no
+puebla esas posiciones de RAM.</pre>
+
+<script>
+const NUS  = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
+const C_RX = '6e400002-b5a3-f393-e0a9-e50e24dcca9e';  // le escribimos
+const C_TX = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';  // nos notifica
+
+const $ = i => document.getElementById(i);
+let dev = null, rx = null, buf = '', vivo = false, hz = [];
+
+function est(t, ok) {
+  $('estado').textContent = t;
+  $('led').className = 'dot' + (ok ? ' ok' : '');
+}
+function log(t) {
+  const p = $('log');
+  p.textContent = (t + '\n' + p.textContent).split('\n').slice(0, 60).join('\n');
+}
+function val(id, v, u) {
+  const e = $(id);
+  e.innerHTML = v + '<small>' + u + '</small>';
+  e.className = 'v';
+}
+
+if (!navigator.bluetooth) $('nosoportado').hidden = false;
+
+$('conectar').onclick = async () => {
+  try {
+    est('elegí el dispositivo…');
+    dev = await navigator.bluetooth.requestDevice({
+      filters: [{ namePrefix: 'E36' }],
+      optionalServices: [NUS],
+    });
+    dev.addEventListener('gattserverdisconnected', () => {
+      est('desconectado'); vivo = false;
+      $('vivo').disabled = $('fallas').disabled = true;
+      $('vivo').className = ''; $('conectar').textContent = 'Conectar';
+    });
+    est('conectando…');
+    const gatt = await dev.gatt.connect();
+    const svc = await gatt.getPrimaryService(NUS);
+    rx = await svc.getCharacteristic(C_RX);
+    const tx = await svc.getCharacteristic(C_TX);
+    await tx.startNotifications();
+    tx.addEventListener('characteristicvaluechanged', e => {
+      buf += new TextDecoder().decode(e.target.value);
+      let i;
+      while ((i = buf.indexOf('\n')) >= 0) {
+        linea(buf.slice(0, i).replace(/\r/g, '').trim());
+        buf = buf.slice(i + 1);
+      }
+    });
+    est('conectado a ' + dev.name, true);
+    $('conectar').textContent = 'Desconectar';
+    $('vivo').disabled = $('fallas').disabled = false;
+    log('conectado a ' + dev.name);
+  } catch (e) {
+    est('falló: ' + e.message);
+    log('error: ' + e.message);
+  }
+};
+
+// El firmware manda "D rpm carga refrig bat ms" en una linea: legible en una
+// terminal BLE y parseable aca. Todo lo demas es texto y va al registro.
+function linea(l) {
+  if (!l) return;
+  if (l[0] === 'D' && l[1] === ' ') {
+    const p = l.split(/\s+/);
+    if (p.length >= 6) {
+      val('rpm', p[1], 'rpm');
+      val('carga', p[2], 'ms');
+      val('refrig', p[3], '°C');
+      val('bat', p[4], 'V');
+      const ms = +p[5];
+      hz.push(ms); if (hz.length > 8) hz.shift();
+      const m = hz.reduce((a, b) => a + b, 0) / hz.length;
+      est('en vivo · ' + m.toFixed(0) + ' ms · ' + (1000 / m).toFixed(2) + ' Hz', true);
+      return;
+    }
+  }
+  log(l);
+}
+
+async function enviar(c) {
+  if (!rx) return;
+  await rx.writeValue(new TextEncoder().encode(c));
+}
+
+$('vivo').onclick = async () => {
+  vivo = !vivo;
+  $('vivo').className = vivo ? 'on' : '';
+  hz = [];
+  await enviar(vivo ? 'v' : 's');
+  if (!vivo) est('detenido', true);
+};
+
+$('fallas').onclick = async () => {
+  vivo = false; $('vivo').className = '';
+  est('leyendo memoria de fallas…', true);
+  await enviar('f');
+};
+</script>
+</body>
+</html>
