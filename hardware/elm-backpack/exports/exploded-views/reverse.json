@@ -1,0 +1,49 @@
+{
+  "title": "OBD end / opposite corner",
+  "subtitle": "Converter retention and the original adapter beneath",
+  "camera": [
+    0.34,
+    -0.28,
+    0.25
+  ],
+  "target": [
+    0,
+    -0.006,
+    0
+  ],
+  "scale": 0.38,
+  "view": "reverse",
+  "projected_anchors": {
+    "lid": [
+      0.5122941732406616,
+      0.8221641778945923
+    ],
+    "buck": [
+      0.44672539830207825,
+      0.614169180393219
+    ],
+    "esp": [
+      0.6055248379707336,
+      0.6849891543388367
+    ],
+    "base": [
+      0.5502734780311584,
+      0.5326191186904907
+    ],
+    "elm": [
+      0.4262351095676422,
+      0.16309873759746552
+    ],
+    "screw": [
+      0.6985746622085571,
+      0.46120718121528625
+    ]
+  },
+  "source_scene_sha256": "dbfbdad65777757c364fdf8468aa981d0749867f77597137cff2f935677edc36",
+  "dimensions_mm": [
+    162,
+    48,
+    30.4
+  ],
+  "explosion": "Display offsets only; printed geometry is unchanged."
+}

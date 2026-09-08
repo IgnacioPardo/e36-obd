@@ -146,10 +146,12 @@ class Panel:
             dt = time.ticks_diff(time.ticks_ms(), t0)
             n += 1
             # Una sola linea, legible en una terminal Y parseable por la web:
-            # el prefijo D la identifica y los campos van separados por espacio.
-            self.enviar("D %d %.2f %.1f %.2f %d"
+            # D rpm carga refrig bateria ms [aire]. La admision se agrega al
+            # final para preservar los campos de clientes anteriores. Ya viene
+            # en leer_core(): no agrega otra consulta ni cambia el round trip.
+            self.enviar("D %d %.2f %.1f %.2f %d %.1f"
                         % (d["rpm"], d["carga"], d["refrig"],
-                           d["bateria"], dt))
+                           d["bateria"], dt, d["aire"]))
         self._vivo = False
         self.enviar("detenido (%d muestras)" % n)
 

@@ -1,0 +1,52 @@
+{
+  "base": {
+    "vertices": 6044,
+    "triangles": 12264,
+    "closed_manifold": true,
+    "consistent_winding": true,
+    "connected_components": 1,
+    "signed_volume_mm3": 43470.705,
+    "z_min_mm": 0.0,
+    "z_max_mm": 28.0
+  },
+  "lid": {
+    "vertices": 3398,
+    "triangles": 6984,
+    "closed_manifold": true,
+    "consistent_winding": true,
+    "connected_components": 1,
+    "signed_volume_mm3": 17860.568,
+    "z_min_mm": -0.0,
+    "z_max_mm": 9.9
+  },
+  "buck-keeper": {
+    "vertices": 322,
+    "triangles": 644,
+    "closed_manifold": true,
+    "consistent_winding": true,
+    "connected_components": 1,
+    "signed_volume_mm3": 88.996,
+    "z_min_mm": 0.0,
+    "z_max_mm": 2.4
+  },
+  "fit-gauge": {
+    "vertices": 1312,
+    "triangles": 2636,
+    "closed_manifold": true,
+    "consistent_winding": true,
+    "connected_components": 1,
+    "signed_volume_mm3": 3403.446,
+    "z_min_mm": 0.0,
+    "z_max_mm": 7.0
+  },
+  "3mf": {
+    "units": "millimeter",
+    "objects": 3,
+    "build_items": 6,
+    "bed_layout_mm": [
+      110.0,
+      182.0
+    ],
+    "printer_profile_included": false
+  }
+}

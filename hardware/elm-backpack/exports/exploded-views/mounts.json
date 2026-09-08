@@ -1,0 +1,49 @@
+{
+  "title": "Board mounts / retention",
+  "subtitle": "Buck keepers, ESP seats, floor entry and tie positions",
+  "camera": [
+    0.25,
+    0.14,
+    0.49
+  ],
+  "target": [
+    0,
+    0,
+    0.028
+  ],
+  "scale": 0.246,
+  "view": "mounts",
+  "projected_anchors": {
+    "lid": [
+      0.4999999701976776,
+      0.7247073650360107
+    ],
+    "buck": [
+      0.3865032196044922,
+      0.623949408531189
+    ],
+    "esp": [
+      0.6613780856132507,
+      0.46183058619499207
+    ],
+    "base": [
+      0.45431748032569885,
+      0.3962409198284149
+    ],
+    "elm": [
+      0.3510354459285736,
+      0.23026897013187408
+    ],
+    "screw": [
+      0.7303981781005859,
+      0.11617399752140045
+    ]
+  },
+  "source_scene_sha256": "dbfbdad65777757c364fdf8468aa981d0749867f77597137cff2f935677edc36",
+  "dimensions_mm": [
+    162,
+    48,
+    30.4
+  ],
+  "explosion": "Display offsets only; printed geometry is unchanged."
+}

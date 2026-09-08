@@ -19,6 +19,89 @@ Hardware assumed:
 
 ---
 
+## App nativa para iPhone
+
+El proyecto **`ios/E36OBD.xcodeproj`** implementa el tablero por BLE, sin servidor ni internet. Requiere iOS 18 o posterior. Tiene instrumentos BMW de los 90 en vertical y horizontal, cinco sensores, lectura de fallas del DME, grabación automática, SQLite local, historial con gráficos y exportación de sensores/eventos a CSV.
+
+El tablero mantiene las esferas fijas dentro de cada orientación. Los avisos ocupan una franja reservada; conexión, fallas, sesiones y ajustes abren paneles superpuestos. Las escalas naranja rojizo, agujas anchas, centros negros e indicadores auxiliares en abanico siguen el cuadro E36 fotografiado. Los valores usan pequeños displays ámbar segmentados. En horizontal, admisión y estado de grabación se integran en la barra inferior. La crítica y las decisiones de diseño están en [`ios/DESIGN.md`](ios/DESIGN.md).
+
+### Abrir y probar
+
+```sh
+open ios/E36OBD.xcodeproj
+```
+
+- **E36OBD Demo**: esquema compartido para simulador, sin radio BLE. El selector de escenarios permite probar ralentí, carga baja, temperatura alta, motor apagado, saturación y desconexión. Las sesiones y archivos exportados de demostración se identifican como DEMO.
+- **E36OBD**: esquema para el lector real. En **Signing & Capabilities**, seleccionar tu equipo de desarrollo; habilitar **Developer Mode** en el iPhone y elegirlo como destino. Las credenciales y el equipo de firma son configuración local.
+- Si Xcode pide una plataforma de iOS, instalarla en **Settings → Components**. La existencia de un SDK en `xcodebuild -showsdks` no implica que todos los componentes necesarios estén instalados.
+
+No hay dependencias de terceros en la app. El proyecto está versionado; `python3 ios/tools/generate_project.py` lo regenera al agregar archivos Swift. El núcleo es un paquete Swift local que se prueba sin simulador:
+
+```sh
+swift test --package-path ios/Core
+python3 -B -m unittest discover -s firmware/tests -v
+```
+
+Consultar [`ios/VALIDATION.md`](ios/VALIDATION.md) para las pruebas de Xcode y la validación contra el auto. El simulador no prueba BLE real.
+
+Para reinstalar o renovar la firma en el iPhone conectado, guardar `DEVELOPMENT_TEAM = TU_TEAM_ID` en `ios/Local.xcconfig` (ignorado por git). Elegir el identificador del teléfono con `xcrun devicectl list devices` y usar su UDID como destino de Xcode:
+
+```sh
+xcodebuild -project ios/E36OBD.xcodeproj -scheme E36OBD -configuration Debug \
+  -destination 'platform=iOS,id=UDID_DEL_IPHONE' -derivedDataPath .context/iphone-build \
+  -xcconfig ios/Local.xcconfig -allowProvisioningUpdates -allowProvisioningDeviceRegistration build
+xcrun devicectl device install app --device ID_DEL_IPHONE \
+  .context/iphone-build/Build/Products/Debug-iphoneos/E36OBD.app
+```
+
+La primera instalación requiere Developer Mode y, si iOS lo solicita, confiar en el certificado en Ajustes → General → VPN y gestión de dispositivos. Registrar el App Group para ambos targets siguiendo [`ios/WIDGETS.md`](ios/WIDGETS.md). La actualización conserva las sesiones; no desinstalar la app para renovar su firma.
+
+### Widget para iPhone y CarPlay
+
+La app incluye **Instrumento E36**, un widget pequeño configurable para cualquiera de los cinco sensores. En CarPlay con iOS 26 o posterior: **Ajustes del iPhone → General → CarPlay → tu auto → Widgets → Agregar widgets**. También se agrega desde la galería de la pantalla de inicio del iPhone.
+
+Muestra la última lectura con su antigüedad; WidgetKit controla cuándo se actualiza. La flecha vuelve a leer los datos compartidos por la app. El ESP32 continúa conectado exclusivamente a la app, que conserva la adquisición y las alertas. Los datos DEMO usan un origen separado. Consultar [`ios/WIDGETS.md`](ios/WIDGETS.md) para configuración, firma, actualización y pruebas.
+
+### Uso y captura
+
+1. Energizar el ESP32 y liberar cualquier conexión BLE de otra computadora o teléfono.
+2. Abrir **BLE → Buscar lector** y seleccionar **E36-OBD**. El descubrimiento inicial por nombre requiere la app visible.
+3. **En vivo** inicia automáticamente una sesión. Girar el iPhone, bloquearlo o cambiar de app no solicita detener la captura. **Detener** o **Desconectar** la finaliza.
+4. **Fallas → Leer DME** consulta solamente el DME. Si se estaba grabando, hace una pausa y después reanuda la misma sesión. El texto original queda disponible en **Registro**.
+5. En **Sesiones**, abrir una salida, recorrer los cinco gráficos con el cursor compartido y tocar el ícono de compartir (**Exportar CSV**) para exportar sensores y eventos. Los intervalos sin datos quedan separados en los gráficos.
+
+El panel **BLE** muestra el tiempo de consulta de la ECU y la frecuencia real de recepción por separado. Las lecturas saturadas en 2550 rpm se identifican explícitamente. Con RAM vacía, el refrigerante convertido puede dar −32,5 °C y la admisión −33,5 °C: la app muestra **DME sin datos**, con el estado completo en el panel BLE, en lugar de tratarlos como temperaturas reales.
+
+Los avisos iniciales son carga menor a 1,5 ms entre 600–1200 rpm, refrigerante a partir de 110 °C y admisión a partir de 60 °C. Se ajustan en **Ajustes** y son configuración de la app, no límites oficiales del fabricante. La carga baja se detecta desde una muestra; las temperaturas requieren dos segundos. Hay rearme con histéresis y 30 segundos de separación entre avisos sonoros/hápticos de una misma regla. Todo episodio se registra aunque el sonido esté limitado.
+
+Bluetooth y notificaciones tienen permisos independientes. Denegar notificaciones no impide grabar ni mostrar avisos dentro de la app. En segundo plano, sonido y vibración respetan los ajustes del iPhone. Cerrar la app desde el selector interrumpe el registro; al abrirla se conserva la sesión como interrumpida. Un fallo de almacenamiento retira el indicador REC y muestra un error.
+
+Los archivos usan protección que permite escribir después del primer desbloqueo del teléfono. La app declara `bluetooth-central` y restaura el periférico conocido; espera a comprobar el flujo antes de enviar comandos. Una pausa o reconexión conserva la sesión y muestra **PAUSA** en el display. Las notificaciones de demostración llevan el prefijo **DEMO**.
+
+### Contrato BLE y admisión
+
+El lector anuncia **solo el nombre**, no el UUID del servicio. La app verifica Nordic UART después de conectar. Conserva servicio `6E400001-B5A3-F393-E0A9-E50E24DCCA9E`, escritura RX `6E400002-…` y notificaciones TX `6E400003-…`. Los comandos son un carácter ASCII: `v`, `s`, `f`, `?`. Cualquier comando corta el modo vivo.
+
+```text
+D <rpm> <carga_ms> <refrigerante_C> <bateria_V> <consulta_ms> [admision_C]
+D 930 0.70 63.1 13.48 341 23.7
+```
+
+`firmware/mp/ble.py` agrega admisión al final usando la misma lectura de RAM. Mantiene CRLF y trozos de hasta 20 bytes con 12 ms entre notificaciones. La app acepta firmware anterior sin admisión; la PWA existente ignora el campo adicional. El resto de las líneas se guarda como texto. Para reconocer el fin de Fallas, la app encola `?` solo después de recibir el inicio de esa operación y espera la última línea de ayuda.
+
+### Actualizar o restaurar solamente BLE en el ESP32
+
+Usar el conector USB **COM** y realizar la actualización con la adquisición detenida. El puerto se descubre cada vez. El script comprueba que sea un ESP32 con el BLE de E36-OBD, respalda `ble.py`, copia la versión nueva, la vuelve a leer para comprobar sus bytes y reinicia el ESP32. Si falla la copia o verificación, intenta restaurar y verificar el respaldo antes del reinicio. No reflashea MicroPython ni cambia K-line.
+
+```sh
+uv tool install mpremote
+python3 ios/tools/update_ble.py --list
+python3 ios/tools/update_ble.py
+# Si hay varios puertos USB, agregar --port con uno de los enumerados.
+# Para restaurar, usar la ruta de respaldo que imprimió el script:
+python3 ios/tools/update_ble.py --restore .context/firmware-backups/FECHA/ble.py
+```
+
 ## Setup
 
 The virtualenv already exists at `.venv` with `pyserial` installed (Python 3.14, pyserial 3.5). Nothing to build.
@@ -297,6 +380,7 @@ See the safety note below before running it.
 
 | Symptom | Likely cause | What to do |
 |---|---|---|
+| iPhone repeatedly logs `One or more parameters were invalid` while reconnecting | An older iOS build sends the reconnect delay as a floating-point number, which was rejected immediately on the physical phone | Install the current build, which uses integer seconds and stops retrying invalid parameters. Check `ios/VALIDATION.md` for the physical retest status. A preceding `sin respuesta de la ECU` is a separate K-line interruption and still needs investigation. |
 | `No serial port found` | Cable not enumerated, or macOS hasn't claimed it | `ls /dev/cu.*`; try another USB port or cable; check for a non-FTDI clone chip with `system_profiler SPUSBDataType`. Pass `--port` explicitly if the device name differs. |
 | `doctor` opens the port but BREAK control fails | The `/dev/tty.*` device was selected instead of `/dev/cu.*`, or a third-party FTDI kext is interfering | Always use `/dev/cu.*` — `/dev/tty.*` blocks on carrier detect, which never asserts on a K-line cable. Uninstall any vendor FTDI driver and reboot. |
 | `scan` finds no responding address | Almost always electrical, not software | Work the pre-flight list in order: pins 7–8 bridged? adapter passing +12V and ground? +12V present at the round connector? ignition in position 2? Only after all four, widen the address list. |

@@ -1,0 +1,49 @@
+{
+  "title": "Exploded assembly",
+  "subtitle": "Lid, complete boards, base and ELM mounting stack",
+  "camera": [
+    0.37,
+    0.21,
+    0.26
+  ],
+  "target": [
+    0,
+    -0.004,
+    0.01
+  ],
+  "scale": 0.34,
+  "view": "assembly",
+  "projected_anchors": {
+    "lid": [
+      0.5101842284202576,
+      0.817538857460022
+    ],
+    "buck": [
+      0.42871227860450745,
+      0.6498887538909912
+    ],
+    "esp": [
+      0.6260272264480591,
+      0.5746545195579529
+    ],
+    "base": [
+      0.47631558775901794,
+      0.49141940474510193
+    ],
+    "elm": [
+      0.40325233340263367,
+      0.16831350326538086
+    ],
+    "screw": [
+      0.6746833324432373,
+      0.26258236169815063
+    ]
+  },
+  "source_scene_sha256": "dbfbdad65777757c364fdf8468aa981d0749867f77597137cff2f935677edc36",
+  "dimensions_mm": [
+    162,
+    48,
+    30.4
+  ],
+  "explosion": "Display offsets only; printed geometry is unchanged."
+}

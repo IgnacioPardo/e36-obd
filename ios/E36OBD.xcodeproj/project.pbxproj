@@ -1,0 +1,762 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04DFEC3981F2D3562ABE6B19 /* WidgetContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9A13232AACAF4C6CEAFF0 /* WidgetContractTests.swift */; };
+		09D1193067984D70061B1E24 /* Instruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3B43A39B8C1FC241C2F794 /* Instruments.swift */; };
+		0AE51DE36D0528E5B91295DA /* SessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77023D1311DFD72707A44F2 /* SessionsView.swift */; };
+		0F6A8D8D817FBD65DE152644 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE372956914E89B983EBD0A /* SettingsView.swift */; };
+		126120711FB37DF289D1F4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28AAD1477D5182D66D4B03B3 /* Assets.xcassets */; };
+		14B73FC62CA66DD9391A5CFD /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643ECCBD65A2B8C00CA2D9AA /* AppModel.swift */; };
+		1675C92C1456D9216F9CD437 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B894E2FC664DCABC579E33 /* DashboardTests.swift */; };
+		1C7C6F9DA2FB8FC23D56B774 /* RefreshE36WidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F162A4826E680FB5C5BFEA5 /* RefreshE36WidgetIntent.swift */; };
+		1F6101B99DCFB6221CCBB538 /* E36OBDWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DADF20EC4D82887E7AAD87AF /* E36OBDWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2AE12DA2A071E8CDF9E52335 /* InspectorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB31738C2FCC6761FA823BD /* InspectorPanel.swift */; };
+		2F33FD2EA4C48F4A99F02E84 /* E36WidgetFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C1DD2947E016C0BBC7853 /* E36WidgetFace.swift */; };
+		388A4449D6D6AFD05B82384A /* E36Core in Frameworks */ = {isa = PBXBuildFile; productRef = 40441BEF46BCE73E9FB01150 /* E36Core */; };
+		38D3E06A2C2199E65C1E1539 /* alert.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A4DAA0198A24A61030F3B8B /* alert.wav */; };
+		593E865BFF0680761578D747 /* AppContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075077D858CD9379054B2C5 /* AppContractTests.swift */; };
+		6080199A839DB666611FB91A /* E36OBDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF03BED5C9677D9FE158B87A /* E36OBDApp.swift */; };
+		6E435083B11A052ED2C68316 /* E36WidgetFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C1DD2947E016C0BBC7853 /* E36WidgetFace.swift */; };
+		7D5219C644EB8650B931C09B /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB199C816A65A95D4BAA30D /* Transport.swift */; };
+		8429BAF990C065CC74868FCE /* SegmentDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A615CE7C06CE1D95FE78D /* SegmentDisplay.swift */; };
+		8467974CAC5C29D443901AC0 /* E36Core in Frameworks */ = {isa = PBXBuildFile; productRef = 1C14CC6643CF6957886F7DBF /* E36Core */; };
+		8C55C2394838EA07945B44B7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E080E53A35B7D2E8E616779 /* RootView.swift */; };
+		92997F5AA4665FBC12B369F3 /* InstrumentDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FC399D034961259282B43 /* InstrumentDial.swift */; };
+		BE0C58D275BDC66A2968D5FF /* DemoTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868BB0C4BBD9BA26E3A66705 /* DemoTransport.swift */; };
+		C240964BF9902D3CE4E81B4A /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB15B07029CB7A5299F72F2 /* AlertPresenter.swift */; };
+		C6D78D3146BC616AD71D8597 /* RefreshE36WidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F162A4826E680FB5C5BFEA5 /* RefreshE36WidgetIntent.swift */; };
+		CE3ED49E3E3C24981675988F /* WidgetPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3BB0BDFFD9750823A6B2C /* WidgetPublisher.swift */; };
+		DCAC48C89F5DA4B174EFA2E7 /* E36Core in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9893F8109EE7357ACB234F /* E36Core */; };
+		E4846FCCA6CD6E9DD18EED4F /* WidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C45821788CD6D92C65BD5FA /* WidgetConfiguration.swift */; };
+		E8AECD1D8FB7C2EB206643E8 /* E36InstrumentWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1790B1A36FD3420418C371F /* E36InstrumentWidget.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62385B65FDA3FF9759D019C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B174F23AFA9AA4C0916B453;
+			remoteInfo = E36OBD;
+		};
+		73E09613E25D2C80CC10EF63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B174F23AFA9AA4C0916B453;
+			remoteInfo = E36OBD;
+		};
+		D78E27401F9D7DB127D58CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69B582C17E390B9E4CE14726;
+			remoteInfo = E36OBDWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		369C8252B007961673CCD1FF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1F6101B99DCFB6221CCBB538 /* E36OBDWidgets.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1B2F9EB89FB84E8839DE76DC /* E36OBD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = E36OBD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DE5000BF5F53C60A9A01EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28AAD1477D5182D66D4B03B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3075077D858CD9379054B2C5 /* AppContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContractTests.swift; sourceTree = "<group>"; };
+		3C45821788CD6D92C65BD5FA /* WidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfiguration.swift; sourceTree = "<group>"; };
+		3F162A4826E680FB5C5BFEA5 /* RefreshE36WidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshE36WidgetIntent.swift; sourceTree = "<group>"; };
+		4EB199C816A65A95D4BAA30D /* Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
+		643ECCBD65A2B8C00CA2D9AA /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		7A4DAA0198A24A61030F3B8B /* alert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alert.wav; sourceTree = "<group>"; };
+		7B594B6DB375E1BF3F23CDD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CE372956914E89B983EBD0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7F7FC399D034961259282B43 /* InstrumentDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentDial.swift; sourceTree = "<group>"; };
+		82F18604FC7BFEFEA8918844 /* E36OBDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = E36OBDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B894E2FC664DCABC579E33 /* DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTests.swift; sourceTree = "<group>"; };
+		868BB0C4BBD9BA26E3A66705 /* DemoTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTransport.swift; sourceTree = "<group>"; };
+		8E080E53A35B7D2E8E616779 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		92AC94569B25CCF7E49F0B6B /* E36OBDWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = E36OBDWidgets.entitlements; sourceTree = "<group>"; };
+		92D3BB0BDFFD9750823A6B2C /* WidgetPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPublisher.swift; sourceTree = "<group>"; };
+		9E96051C17286081577F6E63 /* E36OBDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = E36OBDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB31738C2FCC6761FA823BD /* InspectorPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorPanel.swift; sourceTree = "<group>"; };
+		BED9A13232AACAF4C6CEAFF0 /* WidgetContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContractTests.swift; sourceTree = "<group>"; };
+		BF03BED5C9677D9FE158B87A /* E36OBDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E36OBDApp.swift; sourceTree = "<group>"; };
+		CE5A615CE7C06CE1D95FE78D /* SegmentDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentDisplay.swift; sourceTree = "<group>"; };
+		CEB15B07029CB7A5299F72F2 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		D0D98C0CBA9F473A821118D1 /* E36OBD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = E36OBD.entitlements; sourceTree = "<group>"; };
+		D1790B1A36FD3420418C371F /* E36InstrumentWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E36InstrumentWidget.swift; sourceTree = "<group>"; };
+		D77023D1311DFD72707A44F2 /* SessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsView.swift; sourceTree = "<group>"; };
+		DA1C1DD2947E016C0BBC7853 /* E36WidgetFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E36WidgetFace.swift; sourceTree = "<group>"; };
+		DA3B43A39B8C1FC241C2F794 /* Instruments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruments.swift; sourceTree = "<group>"; };
+		DADF20EC4D82887E7AAD87AF /* E36OBDWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = E36OBDWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E10F526B93772D7A73FF276 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8467974CAC5C29D443901AC0 /* E36Core in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48FFA12F7F01B20E171618E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE0915423F2A3B9B9AF3ED39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				388A4449D6D6AFD05B82384A /* E36Core in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2444DF1086412BD60AF7219 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCAC48C89F5DA4B174EFA2E7 /* E36Core in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A9DC2C608D27943F6E5BC34 /* E36OBDWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				D1790B1A36FD3420418C371F /* E36InstrumentWidget.swift */,
+				3C45821788CD6D92C65BD5FA /* WidgetConfiguration.swift */,
+				92AC94569B25CCF7E49F0B6B /* E36OBDWidgets.entitlements */,
+				1DE5000BF5F53C60A9A01EF0 /* Info.plist */,
+			);
+			path = E36OBDWidgets;
+			sourceTree = "<group>";
+		};
+		615B463D1028E4E24B674CF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B2F9EB89FB84E8839DE76DC /* E36OBD.app */,
+				DADF20EC4D82887E7AAD87AF /* E36OBDWidgets.appex */,
+				82F18604FC7BFEFEA8918844 /* E36OBDTests.xctest */,
+				9E96051C17286081577F6E63 /* E36OBDUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		870B3294C0CBD48AF6BBCC1B = {
+			isa = PBXGroup;
+			children = (
+				CEEC93DB33F4A6C2BAE6F412 /* E36OBD */,
+				1A9DC2C608D27943F6E5BC34 /* E36OBDWidgets */,
+				BA87AD41386678A655731552 /* E36OBDTests */,
+				B630CEF72E1DAB19B3CED0FD /* E36OBDUITests */,
+				B76D6BB2405CBB9EE4565D4A /* WidgetShared */,
+				615B463D1028E4E24B674CF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B630CEF72E1DAB19B3CED0FD /* E36OBDUITests */ = {
+			isa = PBXGroup;
+			children = (
+				84B894E2FC664DCABC579E33 /* DashboardTests.swift */,
+			);
+			path = E36OBDUITests;
+			sourceTree = "<group>";
+		};
+		B76D6BB2405CBB9EE4565D4A /* WidgetShared */ = {
+			isa = PBXGroup;
+			children = (
+				DA1C1DD2947E016C0BBC7853 /* E36WidgetFace.swift */,
+				3F162A4826E680FB5C5BFEA5 /* RefreshE36WidgetIntent.swift */,
+			);
+			path = WidgetShared;
+			sourceTree = "<group>";
+		};
+		BA87AD41386678A655731552 /* E36OBDTests */ = {
+			isa = PBXGroup;
+			children = (
+				3075077D858CD9379054B2C5 /* AppContractTests.swift */,
+				BED9A13232AACAF4C6CEAFF0 /* WidgetContractTests.swift */,
+			);
+			path = E36OBDTests;
+			sourceTree = "<group>";
+		};
+		CEEC93DB33F4A6C2BAE6F412 /* E36OBD */ = {
+			isa = PBXGroup;
+			children = (
+				CEB15B07029CB7A5299F72F2 /* AlertPresenter.swift */,
+				643ECCBD65A2B8C00CA2D9AA /* AppModel.swift */,
+				868BB0C4BBD9BA26E3A66705 /* DemoTransport.swift */,
+				BF03BED5C9677D9FE158B87A /* E36OBDApp.swift */,
+				ACB31738C2FCC6761FA823BD /* InspectorPanel.swift */,
+				7F7FC399D034961259282B43 /* InstrumentDial.swift */,
+				DA3B43A39B8C1FC241C2F794 /* Instruments.swift */,
+				8E080E53A35B7D2E8E616779 /* RootView.swift */,
+				CE5A615CE7C06CE1D95FE78D /* SegmentDisplay.swift */,
+				D77023D1311DFD72707A44F2 /* SessionsView.swift */,
+				7CE372956914E89B983EBD0A /* SettingsView.swift */,
+				4EB199C816A65A95D4BAA30D /* Transport.swift */,
+				92D3BB0BDFFD9750823A6B2C /* WidgetPublisher.swift */,
+				D0D98C0CBA9F473A821118D1 /* E36OBD.entitlements */,
+				28AAD1477D5182D66D4B03B3 /* Assets.xcassets */,
+				7A4DAA0198A24A61030F3B8B /* alert.wav */,
+				7B594B6DB375E1BF3F23CDD6 /* Info.plist */,
+			);
+			path = E36OBD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		071F5F3C1BD58A3813F97194 /* E36OBDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB63898706F6783C79D40F23 /* Build configuration list for PBXNativeTarget "E36OBDTests" */;
+			buildPhases = (
+				FED5166C0B1193817A049455 /* Sources */,
+				0E10F526B93772D7A73FF276 /* Frameworks */,
+				F74D48EBAD85B3A2AC9DD505 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F04820246DD6B593CC3A22BF /* PBXTargetDependency */,
+			);
+			name = E36OBDTests;
+			packageProductDependencies = (
+				1C14CC6643CF6957886F7DBF /* E36Core */,
+			);
+			productName = E36OBDTests;
+			productReference = 82F18604FC7BFEFEA8918844 /* E36OBDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4B174F23AFA9AA4C0916B453 /* E36OBD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4F874803FFD1D167216436A /* Build configuration list for PBXNativeTarget "E36OBD" */;
+			buildPhases = (
+				D2F5D04A2196BD52F2AAF158 /* Sources */,
+				F2444DF1086412BD60AF7219 /* Frameworks */,
+				79AD834D84FE951918821682 /* Resources */,
+				369C8252B007961673CCD1FF /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C5FBC3AE799F47DF7530EE14 /* PBXTargetDependency */,
+			);
+			name = E36OBD;
+			packageProductDependencies = (
+				3D9893F8109EE7357ACB234F /* E36Core */,
+			);
+			productName = E36OBD;
+			productReference = 1B2F9EB89FB84E8839DE76DC /* E36OBD.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69B582C17E390B9E4CE14726 /* E36OBDWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67F276660AA1DFF267397A99 /* Build configuration list for PBXNativeTarget "E36OBDWidgets" */;
+			buildPhases = (
+				98C2282C44F88B73EF49D64F /* Sources */,
+				DE0915423F2A3B9B9AF3ED39 /* Frameworks */,
+				50ED73DB189354B666670F70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = E36OBDWidgets;
+			packageProductDependencies = (
+				40441BEF46BCE73E9FB01150 /* E36Core */,
+			);
+			productName = E36OBDWidgets;
+			productReference = DADF20EC4D82887E7AAD87AF /* E36OBDWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		981D9A3941E6D9A55E0ADF06 /* E36OBDUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3FE83794BC0BDE4835E7240 /* Build configuration list for PBXNativeTarget "E36OBDUITests" */;
+			buildPhases = (
+				1F2C11579716B1B5856D7E55 /* Sources */,
+				48FFA12F7F01B20E171618E6 /* Frameworks */,
+				9AE82128BBA81F8774350158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3731E54EB2DFCE0CBEA2FCE9 /* PBXTargetDependency */,
+			);
+			name = E36OBDUITests;
+			packageProductDependencies = (
+			);
+			productName = E36OBDUITests;
+			productReference = 9E96051C17286081577F6E63 /* E36OBDUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					4B174F23AFA9AA4C0916B453 = {
+						CreatedOnToolsVersion = 26.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					69B582C17E390B9E4CE14726 = {
+						CreatedOnToolsVersion = 26.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 4BA304E783CFBB9FA6E56552 /* Build configuration list for PBXProject "E36OBD" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = es;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				es,
+				en,
+				Base,
+			);
+			mainGroup = 870B3294C0CBD48AF6BBCC1B;
+			packageReferences = (
+				B747EAD6A8D7189EE159E1E4 /* XCLocalSwiftPackageReference "Core" */,
+			);
+			productRefGroup = 615B463D1028E4E24B674CF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B174F23AFA9AA4C0916B453 /* E36OBD */,
+				69B582C17E390B9E4CE14726 /* E36OBDWidgets */,
+				071F5F3C1BD58A3813F97194 /* E36OBDTests */,
+				981D9A3941E6D9A55E0ADF06 /* E36OBDUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50ED73DB189354B666670F70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79AD834D84FE951918821682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				126120711FB37DF289D1F4F6 /* Assets.xcassets in Resources */,
+				38D3E06A2C2199E65C1E1539 /* alert.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AE82128BBA81F8774350158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F74D48EBAD85B3A2AC9DD505 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F2C11579716B1B5856D7E55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1675C92C1456D9216F9CD437 /* DashboardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C2282C44F88B73EF49D64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8AECD1D8FB7C2EB206643E8 /* E36InstrumentWidget.swift in Sources */,
+				E4846FCCA6CD6E9DD18EED4F /* WidgetConfiguration.swift in Sources */,
+				6E435083B11A052ED2C68316 /* E36WidgetFace.swift in Sources */,
+				1C7C6F9DA2FB8FC23D56B774 /* RefreshE36WidgetIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2F5D04A2196BD52F2AAF158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C240964BF9902D3CE4E81B4A /* AlertPresenter.swift in Sources */,
+				14B73FC62CA66DD9391A5CFD /* AppModel.swift in Sources */,
+				BE0C58D275BDC66A2968D5FF /* DemoTransport.swift in Sources */,
+				6080199A839DB666611FB91A /* E36OBDApp.swift in Sources */,
+				2AE12DA2A071E8CDF9E52335 /* InspectorPanel.swift in Sources */,
+				92997F5AA4665FBC12B369F3 /* InstrumentDial.swift in Sources */,
+				09D1193067984D70061B1E24 /* Instruments.swift in Sources */,
+				8C55C2394838EA07945B44B7 /* RootView.swift in Sources */,
+				8429BAF990C065CC74868FCE /* SegmentDisplay.swift in Sources */,
+				0AE51DE36D0528E5B91295DA /* SessionsView.swift in Sources */,
+				0F6A8D8D817FBD65DE152644 /* SettingsView.swift in Sources */,
+				7D5219C644EB8650B931C09B /* Transport.swift in Sources */,
+				CE3ED49E3E3C24981675988F /* WidgetPublisher.swift in Sources */,
+				2F33FD2EA4C48F4A99F02E84 /* E36WidgetFace.swift in Sources */,
+				C6D78D3146BC616AD71D8597 /* RefreshE36WidgetIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FED5166C0B1193817A049455 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				593E865BFF0680761578D747 /* AppContractTests.swift in Sources */,
+				04DFEC3981F2D3562ABE6B19 /* WidgetContractTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3731E54EB2DFCE0CBEA2FCE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B174F23AFA9AA4C0916B453 /* E36OBD */;
+			targetProxy = 73E09613E25D2C80CC10EF63 /* PBXContainerItemProxy */;
+		};
+		C5FBC3AE799F47DF7530EE14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69B582C17E390B9E4CE14726 /* E36OBDWidgets */;
+			targetProxy = D78E27401F9D7DB127D58CB5 /* PBXContainerItemProxy */;
+		};
+		F04820246DD6B593CC3A22BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B174F23AFA9AA4C0916B453 /* E36OBD */;
+			targetProxy = 62385B65FDA3FF9759D019C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5283471FF90C511CFE244FFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_TESTABILITY = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Release;
+		};
+		56112971F54BA041DE8889B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = E36OBD/E36OBD.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HCKM93SL7T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = E36OBD/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		68281A137064B7E900C3F2DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obdtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/E36OBD.app/E36OBD";
+			};
+			name = Debug;
+		};
+		6D725E30C112ECADF1014DFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obdtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/E36OBD.app/E36OBD";
+			};
+			name = Release;
+		};
+		A36AD939930A79DE0BB2BC85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = E36OBDWidgets/E36OBDWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HCKM93SL7T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = E36OBDWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obd.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AB52CB08E0FDF02BF6C67C33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Debug;
+		};
+		CC15DF77736821DC4F429710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = E36OBDWidgets/E36OBDWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HCKM93SL7T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = E36OBDWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obd.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E632A86C439EEF9605094639 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obduitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = E36OBD;
+			};
+			name = Release;
+		};
+		F029BCCF175DA92237C297C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obduitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = E36OBD;
+			};
+			name = Debug;
+		};
+		FD271C082E2820606A5BFFE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = E36OBD/E36OBD.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HCKM93SL7T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = E36OBD/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ignaciopardo.e36obd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BA304E783CFBB9FA6E56552 /* Build configuration list for PBXProject "E36OBD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB52CB08E0FDF02BF6C67C33 /* Debug */,
+				5283471FF90C511CFE244FFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67F276660AA1DFF267397A99 /* Build configuration list for PBXNativeTarget "E36OBDWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36AD939930A79DE0BB2BC85 /* Debug */,
+				CC15DF77736821DC4F429710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4F874803FFD1D167216436A /* Build configuration list for PBXNativeTarget "E36OBD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD271C082E2820606A5BFFE2 /* Debug */,
+				56112971F54BA041DE8889B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3FE83794BC0BDE4835E7240 /* Build configuration list for PBXNativeTarget "E36OBDUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F029BCCF175DA92237C297C6 /* Debug */,
+				E632A86C439EEF9605094639 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB63898706F6783C79D40F23 /* Build configuration list for PBXNativeTarget "E36OBDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68281A137064B7E900C3F2DE /* Debug */,
+				6D725E30C112ECADF1014DFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B747EAD6A8D7189EE159E1E4 /* XCLocalSwiftPackageReference "Core" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Core;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C14CC6643CF6957886F7DBF /* E36Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B747EAD6A8D7189EE159E1E4 /* XCLocalSwiftPackageReference "Core" */;
+			productName = E36Core;
+		};
+		3D9893F8109EE7357ACB234F /* E36Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B747EAD6A8D7189EE159E1E4 /* XCLocalSwiftPackageReference "Core" */;
+			productName = E36Core;
+		};
+		40441BEF46BCE73E9FB01150 /* E36Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B747EAD6A8D7189EE159E1E4 /* XCLocalSwiftPackageReference "Core" */;
+			productName = E36Core;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+}

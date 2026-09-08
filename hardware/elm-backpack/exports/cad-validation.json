@@ -1,0 +1,66 @@
+{
+  "base": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 43471.07,
+    "bbox_mm": [
+      48.0,
+      162.0,
+      28.0
+    ]
+  },
+  "lid": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 17860.91,
+    "bbox_mm": [
+      48.0,
+      162.0,
+      9.9
+    ]
+  },
+  "buck-keeper": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 89.006,
+    "bbox_mm": [
+      7.9,
+      6.4,
+      2.4
+    ]
+  },
+  "fit-gauge": {
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 3403.639,
+    "bbox_mm": [
+      74.0,
+      74.5,
+      7.0
+    ]
+  },
+  "interferences": [],
+  "physical_fit_verified": false,
+  "exterior": {
+    "style": "M50-inspired",
+    "lid_relief_depth_mm": 0.4,
+    "lid_minimum_skin_mm": 2.0,
+    "floor_minimum_skin_mm": 1.4,
+    "side_panel_depth_mm": 0.0,
+    "added_enclosure_height_mm": 0,
+    "vent_layout": "side_banks",
+    "lid_caption": "",
+    "silver_finish": "optional paint reference, excluded from all print meshes"
+  },
+  "nominal_clearances_mm": {
+    "buck_roof": 2.0,
+    "esp_roof": 14.0,
+    "esp_wire_turn": 3.5,
+    "buck_solder_to_floor": 1.0,
+    "lid_per_side": 0.35
+  },
+  "notes": [
+    "Nominal/photo-derived envelopes; not a scan of actual boards.",
+    "Physical support contact areas, wire bends and USB plug fit still need checking."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "title": "Underside / hidden fasteners",
+  "subtitle": "Four lid screws enter through the bottom of the case",
+  "camera": [
+    0.34,
+    0.23,
+    -0.36
+  ],
+  "target": [
+    0,
+    0,
+    0.01
+  ],
+  "scale": 0.3,
+  "view": "underside",
+  "projected_anchors": {
+    "lid": [
+      0.49999985098838806,
+      0.813159704208374
+    ],
+    "buck": [
+      0.411649614572525,
+      0.5737991333007812
+    ],
+    "esp": [
+      0.6256228685379028,
+      0.6841506958007812
+    ],
+    "base": [
+      0.4570428133010864,
+      0.580730676651001
+    ],
+    "elm": [
+      0.3840402066707611,
+      0.08043751120567322
+    ],
+    "screw": [
+      0.6732410192489624,
+      0.5218870043754578
+    ]
+  },
+  "source_scene_sha256": "dbfbdad65777757c364fdf8468aa981d0749867f77597137cff2f935677edc36",
+  "dimensions_mm": [
+    162,
+    48,
+    30.4
+  ],
+  "explosion": "Display offsets only; printed geometry is unchanged."
+}
