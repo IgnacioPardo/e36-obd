@@ -62,4 +62,53 @@ struct AcquisitionTests {
         _ = machine.connected(restored: false, now: 40); _ = machine.text("detenido", now: 41)
         #expect(machine.text("error: sin respuesta", now: 42) == [.resetLink])
     }
+
+    @Test func ecuRecoveryKeepsBLEAndResumesWithoutCommands() {
+        var machine = connectedMachine()
+        _ = machine.setLiveIntent(true, now: 1)
+        _ = machine.sample(now: 2)
+        #expect(machine.text("recuperando DME (1/5): sin respuesta de la ECU", now: 18).isEmpty)
+        #expect(machine.phase == .recoveringDME)
+        #expect(machine.wantsLive)
+        // The old sample is over 30 s old, but a new ECU attempt is in progress.
+        #expect(machine.text("recuperando DME (2/5): sin respuesta de la ECU", now: 27).isEmpty)
+        #expect(machine.tick(now: 33).isEmpty)
+        #expect(machine.text("en vivo. cualquier tecla corta.", now: 34).isEmpty)
+        #expect(machine.sample(now: 34.5).isEmpty)
+        #expect(machine.phase == .live)
+        #expect(machine.wantsLive)
+    }
+
+    @Test func ecuRecoveryCanBeStoppedOrInterruptedForFaults() {
+        var machine = connectedMachine()
+        _ = machine.setLiveIntent(true, now: 1)
+        _ = machine.text("recuperando DME (1/5): sin respuesta", now: 8)
+        #expect(machine.setLiveIntent(false, now: 9) == [.write(.stop)])
+        #expect(machine.text("recuperando DME (2/5): sin respuesta", now: 9.1).isEmpty)
+        #expect(machine.text("en vivo. cualquier tecla corta.", now: 9.2).isEmpty)
+        #expect(machine.phase == .stopping)
+        _ = machine.text("detenido (0 muestras)", now: 9.3)
+        _ = machine.text("detenido", now: 9.4)
+        #expect(machine.phase == .idle)
+        _ = machine.setLiveIntent(true, now: 10)
+        _ = machine.text("recuperando DME (1/5): sin respuesta", now: 16)
+        #expect(machine.requestFaults(now: 17) == [.write(.faults)])
+        #expect(machine.text("abriendo sesion...", now: 18) == [.write(.help)])
+        #expect(machine.text("?  esta ayuda", now: 24) == [.faultsCompleted, .write(.live)])
+    }
+
+    @Test func ecuRecoveryRestorationDoesNotToggleTheWorker() {
+        var machine = AcquisitionMachine()
+        _ = machine.setLiveIntent(true, now: 0)
+        _ = machine.connected(restored: true, now: 1)
+        #expect(machine.text("recuperando DME (2/5): sin respuesta", now: 1.5).isEmpty)
+        #expect(machine.tick(now: 3).isEmpty)
+        #expect(machine.sample(now: 9).isEmpty)
+        #expect(machine.phase == .live)
+        #expect(machine.text("recuperando DME (1/5): sin respuesta", now: 20).isEmpty)
+        #expect(machine.tick(now: 50) == [.resetLink])
+        _ = machine.connected(restored: true, now: 51)
+        _ = machine.text("recuperando DME (5/5): sin respuesta", now: 52)
+        #expect(machine.text("se corto: sin respuesta", now: 53) == [.resetLink])
+    }
 }

@@ -40,6 +40,98 @@ import XCTest
         }
     }
 
+    func testFailedFaultReadDoesNotClaimZeroFaults() {
+        let app = launch()
+        app.buttons["liveButton"].tap()
+        waitLabel("Conectado · detenido", on: app.buttons["connectButton"])
+        scenario("DME sin respuesta", in: app)
+        app.buttons["faultsTab"].tap()
+        let read = app.buttons["readFaultsButton"]
+        XCTAssertTrue(read.waitForExistence(timeout: 5))
+        read.tap()
+        let error = app.staticTexts["faultReadError"]
+        XCTAssertTrue(error.waitForExistence(timeout: 5))
+        waitLabel("sin respuesta de la ECU", on: error)
+        expectation(for: NSPredicate(format: "enabled == true"), evaluatedWith: read)
+        waitForExpectations(timeout: 5)
+        XCTAssertFalse(app.staticTexts["faultsComplete"].exists)
+        XCTAssertFalse(app.staticTexts["0 registros"].exists)
+        capture("Fault read · ECU unavailable")
+    }
+
+    func testVehicleOverviewAndInstrumentsShareTheSameCapture() {
+        XCUIDevice.shared.orientation = .portrait
+        let app = XCUIApplication()
+        app.launchArguments = ["--demo", "--uitesting"]
+        app.launch()
+        XCTAssertTrue(element("vehicleOverview", in: app).waitForExistence(timeout: 10))
+        let car = element("vehicle3D", in: app)
+        XCTAssertTrue(car.waitForExistence(timeout: 10))
+        expectation(for: NSPredicate(format: "value == %@", "Vista delantera"), evaluatedWith: car)
+        waitForExpectations(timeout: 45)
+        car.pinch(withScale: 1.2, velocity: 1)
+        capture("Vehicle · native 3D zoom")
+        car.doubleTap()
+        car.swipeLeft()
+        expectation(for: NSPredicate(format: "value == %@", "Vista trasera"), evaluatedWith: car)
+        waitForExpectations(timeout: 5)
+        capture("Vehicle · orbit")
+        car.doubleTap()
+        expectation(for: NSPredicate(format: "value == %@", "Vista delantera"), evaluatedWith: car)
+        waitForExpectations(timeout: 5)
+        capture("Vehicle · overview")
+        let live = app.buttons["liveButton"]
+        expectation(for: NSPredicate(format: "enabled == true"), evaluatedWith: live)
+        waitForExpectations(timeout: 10)
+        live.tap()
+        XCTAssertTrue(app.otherElements["gauge-rpm"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["recordingIndicator"].waitForExistence(timeout: 5))
+        app.buttons["vehicleTab"].tap()
+        XCTAssertTrue(element("vehicleOverview", in: app).waitForExistence(timeout: 5))
+        XCTAssertEqual(live.label, "Detener")
+        capture("Vehicle · live overview")
+        let liveCar = element("vehicle3D", in: app)
+        liveCar.swipeLeft()
+        expectation(for: NSPredicate(format: "value == %@", "Vista trasera"), evaluatedWith: liveCar)
+        waitForExpectations(timeout: 5)
+        XCUIDevice.shared.orientation = .landscapeLeft
+        XCTAssertTrue(app.buttons["overviewInstrumentsButton"].waitForExistence(timeout: 5))
+        let landscapeCar = element("vehicle3D", in: app)
+        expectation(for: NSPredicate(format: "value == %@", "Vista trasera"), evaluatedWith: landscapeCar)
+        waitForExpectations(timeout: 5)
+        landscapeCar.doubleTap()
+        expectation(for: NSPredicate(format: "value == %@", "Vista delantera"), evaluatedWith: landscapeCar)
+        waitForExpectations(timeout: 5)
+        capture("Vehicle · landscape")
+        app.buttons["overviewInstrumentsButton"].tap()
+        XCTAssertTrue(app.otherElements["gauge-rpm"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["recordingIndicator"].exists)
+        live.tap()
+        app.buttons["sessionsTab"].tap()
+        XCTAssertTrue(app.buttons["sessionRow"].firstMatch.waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["sessionCount"].label, "1 captura")
+    }
+
+    // Visual review artifacts come from the shipped Metal renderer and geometry,
+    // using the same cameras as the reference photographs in the authoring scene.
+    func testVehicleReferenceCameraScreenshots() {
+        XCUIDevice.shared.orientation = .portrait
+        let app = XCUIApplication()
+        for preset in ["nose", "rear", "side"] {
+            app.launchArguments = ["--demo", "--uitesting", "--vehicle-review=\(preset)"]
+            app.launch()
+            let car = element("vehicle3D", in: app)
+            XCTAssertTrue(car.waitForExistence(timeout: 10))
+            expectation(for: NSPredicate(format: "value == %@", "Referencia \(preset)"), evaluatedWith: car)
+            waitForExpectations(timeout: 45)
+            let attachment = XCTAttachment(screenshot: car.screenshot())
+            attachment.name = "Metal reference · \(preset)"
+            attachment.lifetime = .keepAlways
+            add(attachment)
+            app.terminate()
+        }
+    }
+
     func testCaptureBothOrientationsFaultsAndHistory() {
         let app = launch()
         XCTAssertTrue(element("reading-battery", in: app).waitForExistence(timeout: 5))

@@ -9,6 +9,52 @@ Compiled 2026-08-09.
 
 ---
 
+## Ciclo de consulta del ESP — 9 de septiembre de 2026
+
+Esta sección describe el firmware actual; las hipótesis de cableado y del inicio
+de sesión del documento original, más abajo, no son un diagnóstico del corte
+actual. En las capturas del 9 de septiembre, el iPhone conserva todas las muestras
+transmitidas por el ESP. El primer error observado es un byte ausente durante un
+intercambio KWP71; los registros no identifican su causa eléctrica o temporal.
+
+Se adoptó un ciclo conservador para DME:
+
+- Acuses de 2 ms, como `e36obd/kwp71.py`, y guardia de 50 ms entre bloques.
+- Una lectura contigua de once bytes; después de publicarla, al menos un turno
+  NOP completo antes de la siguiente. Mínimo de 750 ms entre comienzos de RAM,
+  con pausas de hasta 100 ms servidas en pasos cancelables de 25 ms y NOP durante
+  la espera. Una consulta o NOP fallido invalida el intercambio y activa la
+  recuperación existente; no se repiten datos anteriores como muestras nuevas.
+- UART no bloqueante (`timeout=0`, `timeout_char=0`), con buffers reutilizables.
+  `_rx` conserva el único plazo de espera. La implementación ESP32 de MicroPython
+  libera y recupera el GIL en `read` si alguno de los timeouts es positivo, incluso
+  cuando antes se comprobó `any()`. Se elimina ese cambio de contexto innecesario
+  en cada byte; no se afirma que haya causado los fallos capturados.
+
+Fuentes primarias y alcance:
+
+- [Captura INPA de un BMW 850i con Motronic 1.7](https://www.km5tz.com/BMW%20850iP11.htm):
+  muestra dos intercambios NOP entre solicitudes de sensores. Nuestro `command`
+  ya incluye el primero para cerrar ReadRAM; el turno explícito añade el segundo.
+  El autor observó valores sin actualizar al omitirlos. Es otro DME, no una
+  validación de continuidad del M43B16 de este proyecto.
+- [EdiabasLib, EdInterfaceObd.cs](https://github.com/uholeschak/ediabaslib/blob/master/EdiabasLib/EdiabasLib/EdInterfaceObd.cs):
+  `ProcessKwp1281` espera 50 ms antes del siguiente bloque; Concept 2 utiliza este
+  motor de intercambio. Es una referencia de temporización, no evidencia de que
+  los 10 ms anteriores expliquen el byte perdido en el M1.7.2.
+- [MicroPython v1.29.0, UART para ESP32](https://github.com/micropython/micropython/blob/v1.29.0/ports/esp32/machine_uart.c):
+  `mp_machine_uart_read`, configuración de timeouts y umbral de recepción.
+
+Los 750 ms son una decisión conservadora del producto, no un límite oficial de
+BMW ni una frecuencia medida después del cambio. Los CSV antiguos del ordenador
+también contienen huecos de unos 13 s; no sirven como prueba de un enlace previo
+sin cortes. Las pruebas de host verifican secuencia, temporización, cancelación
+y fallos inyectados. No se ha validado todavía continuidad al acelerar con este
+ciclo; no se atribuye el problema al cableado ni se considera resuelto por una
+simulación.
+
+---
+
 ## 0. URGENT — read this first if you are at the car
 
 The live test reported total silence at addresses `0x12`, `0x11`, `0x10`, `0x01`,

@@ -7,3 +7,8 @@ __pycache__/
 .venv/
 venv/
 .cadenv/
+
+# Blender auto-backups (regenerated on every save)
+*.blend1
+*.blend2
+*.blend@

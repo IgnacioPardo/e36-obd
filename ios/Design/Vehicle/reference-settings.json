@@ -1,0 +1,64 @@
+{
+  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "nose": {
+    "location": [
+      1.5981098413467407,
+      -3.6229512691497803,
+      1.4964381456375122
+    ],
+    "rotation_euler": [
+      1.1484588384628296,
+      0.07979319244623184,
+      0.7505972385406494
+    ],
+    "lens_mm": 61.06119155883789,
+    "resolution": [
+      1080,
+      1440
+    ],
+    "sensor_fit": "HORIZONTAL",
+    "exposure": 0.6499999761581421,
+    "lighting": "Reconstructed daylight and Pine Picnic; approximate photographic match, not a measured light probe"
+  },
+  "rear": {
+    "location": [
+      -2.230820655822754,
+      5.917295455932617,
+      1.8037223815917969
+    ],
+    "rotation_euler": [
+      1.3539620637893677,
+      -0.10091641545295715,
+      -2.821474313735962
+    ],
+    "lens_mm": 105.41899871826172,
+    "resolution": [
+      1080,
+      1440
+    ],
+    "sensor_fit": "HORIZONTAL",
+    "exposure": 0.6499999761581421,
+    "lighting": "Reconstructed daylight and Pine Picnic; approximate photographic match, not a measured light probe",
+    "frontWheelSteeringDegrees": -18
+  },
+  "side": {
+    "location": [
+      16.3799991607666,
+      -0.052000001072883606,
+      0.8500000238418579
+    ],
+    "rotation_euler": [
+      1.5707963705062866,
+      -0.0,
+      1.5707963705062866
+    ],
+    "lens_mm": 100.0,
+    "resolution": [
+      1080,
+      1440
+    ],
+    "sensor_fit": "HORIZONTAL",
+    "exposure": 0.6499999761581421,
+    "lighting": "Reconstructed daylight and Pine Picnic; approximate photographic match, not a measured light probe"
+  }
+}

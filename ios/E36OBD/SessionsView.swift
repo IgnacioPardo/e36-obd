@@ -22,7 +22,12 @@ struct SessionsView: View {
                             }.accessibilityLabel("Actualizar sesiones")
                         }
                         if model.sessions.isEmpty {
-                            Text("Iniciá En vivo para grabar.").font(.footnote).foregroundStyle(ClusterTheme.muted)
+                            VStack(alignment: .leading, spacing: 16) {
+                                Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
+                                    .font(.system(size: 34, weight: .ultraLight)).foregroundStyle(ClusterTheme.accent)
+                                Text("Cada recorrido,\nun registro.").font(.system(size: 27, weight: .light)).tracking(-0.5)
+                                Text("Iniciá En vivo para grabar.").font(.footnote).foregroundStyle(ClusterTheme.muted)
+                            }.frame(maxWidth: .infinity, alignment: .leading).padding(22).modifier(CockpitSurface())
                         }
                         ForEach(model.sessions) { session in
                             Button { selected = session } label: {
@@ -35,9 +40,8 @@ struct SessionsView: View {
                                     Text("\(duration(session.elapsed)) · \(session.sampleCount) muestras · \(session.eventCount) eventos")
                                         .font(.system(.caption, design: .monospaced))
                                     Text(status(session)).font(.caption).foregroundStyle(session.status == .interrupted ? ClusterTheme.danger : ClusterTheme.muted)
-                                }.frame(maxWidth: .infinity, alignment: .leading).padding(.vertical, 8).contentShape(Rectangle())
+                                }.frame(maxWidth: .infinity, alignment: .leading).padding(18).modifier(CockpitSurface(radius: 16)).contentShape(Rectangle())
                             }.buttonStyle(.plain).accessibilityIdentifier("sessionRow")
-                            Divider()
                         }
                     }.padding(.vertical, 4)
                 }
@@ -112,7 +116,7 @@ struct SessionDetailView: View {
                             }
                         }
                         chart(sensor)
-                    }
+                    }.padding(14).modifier(CockpitSurface(radius: 14))
                 }
                 Text("Eventos").font(.headline).padding(.top, 12)
                 ForEach(events.filter { [.alertStarted, .alertEnded, .gap, .configuration, .recording, .engineState].contains($0.kind) }) { event in
@@ -138,7 +142,7 @@ struct SessionDetailView: View {
         return Chart {
             ForEach(points) { point in
                 LineMark(x: .value("Tiempo", point.elapsed), y: .value(sensor.unit, point.value), series: .value("Tramo", point.segment))
-                    .foregroundStyle(ClusterTheme.ink).lineStyle(StrokeStyle(lineWidth: 1.4))
+                    .foregroundStyle(ClusterTheme.accent).lineStyle(StrokeStyle(lineWidth: 1.6))
                 if alertIDs.contains(point.id) {
                     PointMark(x: .value("Tiempo", point.elapsed), y: .value(sensor.unit, point.value))
                         .foregroundStyle(ClusterTheme.lcd).symbolSize(28)

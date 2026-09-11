@@ -79,7 +79,7 @@ private enum AppAction: Sendable {
     func refreshSessions() { continuation.yield(.refreshSessions) }
     func requestNotifications() { continuation.yield(.permission) }
     var canStart: Bool { connected && phase == .idle && storageError == nil }
-    var canReadFaults: Bool { connected && (phase == .idle || phase == .live) }
+    var canReadFaults: Bool { connected && (phase == .idle || phase == .live || phase == .recoveringDME) }
     var displayTelemetry: Telemetry? { telemetry?.validity == .populated ? telemetry : nil }
     var recordingElapsed: Double { recording == nil ? 0 : elapsedOffset + max(0, now - elapsedOrigin) }
 
@@ -220,6 +220,7 @@ private enum AppAction: Sendable {
                     if reading { faultReport.receive(text) }
                     await record(.message, text, at: receivedAt)
                     apply(machine.text(text, now: uptime))
+                    if machine.phase == .recoveringDME { await markGap("Recuperando conexión con el DME") }
                 }
             }
         }
@@ -323,6 +324,7 @@ private enum AppAction: Sendable {
         case .restoring: status = "Restaurando flujo…"
         case .synchronizing: status = "Sincronizando lector…"
         case .starting: status = "Abriendo sesión del DME…"
+        case .recoveringDME: status = "Reconectando DME…"
         case .stopping: status = "Deteniendo…"
         case .faultOpening, .faultBarrier: status = "Leyendo fallas del DME…"
         case .live:

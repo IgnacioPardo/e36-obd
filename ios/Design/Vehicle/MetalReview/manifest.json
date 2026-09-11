@@ -1,0 +1,18 @@
+{
+  "side": {
+    "sourceAttachment": "B23E8C8D-5C68-47C1-BF65-F002C4072EF6.png",
+    "timestamp": 1789088030.317
+  },
+  "rear": {
+    "sourceAttachment": "B7A063F3-B871-4B58-BC4A-10A6E88CDB57.png",
+    "timestamp": 1789088021.321
+  },
+  "nose": {
+    "sourceAttachment": "C7A395EE-50A0-43F9-A872-ADA7F4EBBB8F.png",
+    "timestamp": 1789088012.389
+  },
+  "modelSHA256": "95f0c26d583d3aa118b6770c10986d945df826a25f5209addc1bbb011f3bc271",
+  "shaderSHA256": "1516f6c8d57c1913337bb33c02a13b7af1ddedb2c9613cd05f3e62d94eb20b32",
+  "source": "SamoablauDelivery.xcresult, iPhone 16 Pro simulator / iOS 18.6",
+  "limitations": "Color and grille corrections verified. Fine lamp optics and some body reflections still need refinement for the active photographic realism goal."
+}

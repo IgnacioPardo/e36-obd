@@ -1,0 +1,18 @@
+{
+  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "samples": 256,
+  "dimensions": [
+    2400,
+    1400
+  ],
+  "views": {
+    "front": {
+      "azimuthRadians": 0.58,
+      "sha256": "5e28a5387a629f648171946eb619f7b00db036684275e0e720132c86fdd37137"
+    },
+    "rear": {
+      "azimuthRadians": 3.641592653589793,
+      "sha256": "200707a5be6be91f281f93436017bdd144ff9e12962d2e253c9df553dcaf99d8"
+    }
+  }
+}

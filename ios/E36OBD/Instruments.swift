@@ -2,17 +2,40 @@ import SwiftUI
 import E36Core
 
 enum ClusterTheme {
-    static let background = Color(white: 0.035)
-    static let panel = Color(red: 0.075, green: 0.085, blue: 0.095)
-    static let ink = Color(red: 0.89, green: 0.88, blue: 0.83)
-    static let lcd = Color(red: 1, green: 0.64, blue: 0.28)
+    static let background = Color(red: 0.047, green: 0.051, blue: 0.055)
+    static let panel = Color(red: 0.080, green: 0.087, blue: 0.094)
+    static let ink = Color(red: 0.94, green: 0.93, blue: 0.90)
+    static let lcd = Color(red: 1, green: 0.65, blue: 0.34)
+    static let accent = Color(red: 0.91, green: 0.57, blue: 0.31)
+    static let ready = Color(red: 0.60, green: 0.76, blue: 0.66)
     static let scale = Color(red: 1, green: 0.34, blue: 0.23)
     static let unavailableScale = Color(red: 0.43, green: 0.21, blue: 0.17)
     static let needle = Color(red: 1, green: 0.46, blue: 0.23)
-    static let muted = Color(red: 0.48, green: 0.51, blue: 0.53)
+    static let muted = Color(red: 0.57, green: 0.60, blue: 0.62)
     static let dead = Color(red: 0.24, green: 0.26, blue: 0.27)
     static let danger = Color(red: 1, green: 0.38, blue: 0.22)
     static let line = Color.white.opacity(0.09)
+}
+
+struct CockpitSurface: ViewModifier {
+    var radius: CGFloat = 20
+    func body(content: Content) -> some View {
+        content
+            .background(LinearGradient(colors: [Color.white.opacity(0.045), Color.white.opacity(0.015)],
+                                       startPoint: .topLeading, endPoint: .bottomTrailing),
+                        in: RoundedRectangle(cornerRadius: radius))
+            .overlay(RoundedRectangle(cornerRadius: radius).strokeBorder(
+                LinearGradient(colors: [Color.white.opacity(0.10), Color.white.opacity(0.025)],
+                               startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 0.5))
+    }
+}
+
+struct Eyebrow: View {
+    let title: String
+    var body: some View {
+        Text(title.uppercased()).font(.system(size: 9, weight: .semibold, design: .monospaced))
+            .tracking(2).foregroundStyle(ClusterTheme.muted)
+    }
 }
 
 /// Only available size determines these frames. Warning, link and panel state never do.
@@ -126,8 +149,9 @@ struct PhysicalButton: ButtonStyle {
             .font(.system(.subheadline, weight: .semibold))
             .frame(maxWidth: .infinity, minHeight: 48)
             .foregroundStyle(selected ? ClusterTheme.background : ClusterTheme.ink)
-            .background(selected ? ClusterTheme.ink : Color.white.opacity(configuration.isPressed ? 0.12 : 0.06), in: RoundedRectangle(cornerRadius: 12))
-            .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(ClusterTheme.line, lineWidth: 0.5))
+            .background(selected ? ClusterTheme.ink : Color.white.opacity(configuration.isPressed ? 0.12 : 0.055), in: RoundedRectangle(cornerRadius: 14))
+            .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(ClusterTheme.line, lineWidth: 0.5))
+            .scaleEffect(configuration.isPressed ? 0.985 : 1)
             .opacity(configuration.isPressed ? 0.75 : 1)
     }
 }

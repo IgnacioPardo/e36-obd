@@ -35,16 +35,10 @@ KEYWORDS = 2           # el DME manda 55 00 81: el 55 es sincronismo, quedan DOS
 # de direcciones daba falsos negativos: es un error que ya cometimos.
 BUS_IDLE_MS = 2600
 BIT_MS = 200         # 5 baudios
-# El DME aguanta 5 ms entre bytes; la CAJA necesita 15. Con 5 la sesion de la
-# caja se abre, manda su identificacion, y despues ningun comando contesta --
-# se ve como "servicio no soportado" y no lo es. En macOS nunca aparecio porque
-# los 231 ms por lectura del driver FTDI hacian todo lentisimo por accidente.
-# El DME aguanta 5 ms entre bytes; la CAJA necesita 15. Con 5 la sesion de la
-# caja se abre, manda su identificacion, y despues NINGUN comando contesta --
-# se ve como "servicio no soportado" y no lo es. En macOS nunca aparecio porque
-# los 231 ms por lectura del driver FTDI hacian todo lentisimo por accidente.
-INTER_BYTE_MS = 5
-INTER_BYTE_EGS_MS = 15
+# Acuse DME como e36obd/kwp71.py. El ritmo de consultas se controla ENTRE
+# intercambios, no demorando cada acuse mientras el DME espera una respuesta.
+INTER_BYTE_DME_MS = 2
+INTER_BYTE_MS = INTER_BYTE_DME_MS
 # Medido 2026-09-07: con 5 ms la sesion de la caja se abre y ningun comando
 # contesta. Con 15 funciona TODO (RAM, fallas, ROM) pero SOLO con el motor
 # apagado. Andando muere en el bloque 5 de 6 de identificacion, y no lo
@@ -52,18 +46,27 @@ INTER_BYTE_EGS_MS = 15
 # seguidas, cero exitos. A 4800 cada bit dura el doble que a 9600, o sea el
 # doble de exposicion al ruido de encendido por byte. El DME a 9600 aguanta.
 INTER_BYTE_EGS_MS = 15
-BYTE_TIMEOUT_MS = 1200
+BYTE_TIMEOUT_MS = 2000       # igual que LiveReader en la computadora
+# Guardia de cambio de turno usada por EdiabasLib (ProcessKwp1281).
+# El patron BMW de NOP entre consultas esta documentado en PROTOCOL_NOTES.md.
+INTER_BLOCK_MS = 50
+SYNC_TIMEOUT_MS = 1500
+CLOSE_TIMEOUT_MS = 300      # despedida best effort, plazo total (no por byte)
 
 READ_RAM = 0x01
 DISCONNECT = 0x06
 READ_FAULTS = 0x07
 READ_ADC = 0x08
 EMPTY = 0x09
+NACK = 0x0A
 NOT_SUPPORTED = 0x0B
 BLOCK_END = 0x03
 
 _uart = None
 _seq = 0
+_rx_byte = bytearray(1)
+_tx_byte = bytearray(1)
+_recv_buf = bytearray(256)
 
 
 class KLineError(Exception):
@@ -75,17 +78,22 @@ def _rx(timeout_ms=BYTE_TIMEOUT_MS):
     t0 = time.ticks_ms()
     while time.ticks_diff(time.ticks_ms(), t0) < timeout_ms:
         if _uart.any():
-            return _uart.read(1)[0]
+            # El UART es no bloqueante: _rx es el unico dueno del plazo.
+            # readinto evita crear un objeto bytes por cada eco/acuse/dato.
+            if _uart.readinto(_rx_byte) == 1:
+                return _rx_byte[0]
         time.sleep_ms(1)
     raise KLineError("sin respuesta de la ECU")
 
 
-def _tx(b):
+def _tx(b, timeout_ms=300):
     """Escribe un byte y se come su propio eco."""
-    while _uart.any():
-        _uart.read(1)
-    _uart.write(bytes([b]))
-    echo = _rx(300)
+    # No vaciar RX dentro de una sesion: puede contener respuesta del DME.
+    # El cliente de escritorio tampoco descarta bytes antes de escribir.
+    _tx_byte[0] = b
+    if _uart.write(_tx_byte) != 1:
+        raise KLineError("UART no acepto el byte")
+    echo = _rx(timeout_ms)
     if echo != b:
         raise KLineError("eco malo: mande %02X y volvio %02X" % (b, echo))
 
@@ -96,14 +104,9 @@ EGS_BAUD = 4800
 
 def _ritmo(address):
     """Cada modulo tiene su propio aire entre bytes."""
-    global INTER_BYTE_MS
-    INTER_BYTE_MS = INTER_BYTE_EGS_MS if address == EGS else 5
-
-
-def _ritmo(address):
-    """Cada modulo tiene su propio aire entre bytes."""
-    global INTER_BYTE_MS
-    INTER_BYTE_MS = INTER_BYTE_EGS_MS if address == EGS else 5
+    global INTER_BYTE_MS, INTER_BLOCK_MS
+    INTER_BYTE_MS = INTER_BYTE_EGS_MS if address == EGS else INTER_BYTE_DME_MS
+    INTER_BLOCK_MS = 10 if address == EGS else 50
 
 
 def init(address=DME, keywords=KEYWORDS, verbose=True, baud=BAUD):
@@ -135,16 +138,23 @@ def init(address=DME, keywords=KEYWORDS, verbose=True, baud=BAUD):
     tx.value(1)
 
     _uart = UART(1, baudrate=baud, bits=8, parity=None, stop=1,
-                 tx=TX_PIN, rx=RX_PIN, timeout=200)
+                 tx=TX_PIN, rx=RX_PIN, timeout=0, timeout_char=0, rxbuf=512)
     while _uart.any():
         _uart.read(1)
 
-    b = _rx(500)
-    if b != 0x55:
+    # Igual que _await_sync del cliente de escritorio: ignorar ruido previo,
+    # con un unico plazo total; no confundirlo con el comienzo del protocolo.
+    start = time.ticks_ms()
+    while True:
+        remaining = SYNC_TIMEOUT_MS - time.ticks_diff(time.ticks_ms(), start)
+        if remaining <= 0:
+            raise KLineError("sin sincronismo de la ECU")
+        b = _rx(remaining)
+        if b == 0x55:
+            break
         if b == 0x66 and baud == 9600:
             # Un 0x55 a 4800 muestreado a 9600 se lee 0x66. Asi encontramos la caja.
             raise KLineError("llego 0x66: la ECU esta a 4800, no a 9600")
-        raise KLineError("se esperaba 0x55 y llego 0x%02X" % b)
     if verbose:
         print("  0x55 sincronismo OK")
 
@@ -153,30 +163,39 @@ def init(address=DME, keywords=KEYWORDS, verbose=True, baud=BAUD):
         print("  keywords:", " ".join("%02X" % k for k in kws))
 
     # La ultima keyword se reconoce invertida y ahi arranca la sesion.
-    time.sleep_ms(INTER_BYTE_MS * 5)
-    _uart.write(bytes([(~kws[-1]) & 0xFF]))
-    try:
-        _rx(300)
-    except KLineError:
-        pass
+    time.sleep_ms(5)
+    _tx((~kws[-1]) & 0xFF)
     _seq = 0
     return kws
 
 
-def send_block(title, payload=b""):
+def _remaining_ms(start, timeout_ms):
+    left = timeout_ms - time.ticks_diff(time.ticks_ms(), start)
+    if left <= 0:
+        raise KLineError("plazo del bloque agotado")
+    return left
+
+
+def send_block(title, payload=b"", timeout_ms=None):
     global _seq
+    if len(payload) > 252:
+        raise KLineError("payload demasiado largo")
     _seq = (_seq + 1) & 0xFF
     length = 1 + 1 + len(payload) + 1
     buf = bytes([length, _seq, title]) + bytes(payload) + bytes([BLOCK_END])
+    start = time.ticks_ms() if timeout_ms is not None else 0
     for i, b in enumerate(buf):
-        _tx(b)
+        if timeout_ms is None:
+            _tx(b)
+        else:
+            _tx(b, min(300, _remaining_ms(start, timeout_ms)))
         if i < length:                      # todos menos el ultimo van con acuse
-            ack = _rx()
+            ack = _rx() if timeout_ms is None else _rx(_remaining_ms(start, timeout_ms))
             if ack != ((~b) & 0xFF):
                 raise KLineError(
                     "acuse malo en byte %d: esperaba %02X, llego %02X"
                     % (i, (~b) & 0xFF, ack))
-        time.sleep_ms(INTER_BYTE_MS)
+        time.sleep_ms(INTER_BYTE_MS if timeout_ms is None else min(INTER_BYTE_MS, _remaining_ms(start, timeout_ms)))
 
 
 def recv_block():
@@ -186,30 +205,40 @@ def recv_block():
     time.sleep_ms(INTER_BYTE_MS)
     _tx((~length) & 0xFF)
 
-    raw = [length]
+    raw = _recv_buf
+    raw[0] = length
     for i in range(1, length + 1):
-        raw.append(_rx())
+        raw[i] = _rx()
         if i < length:
             time.sleep_ms(INTER_BYTE_MS)
             _tx((~raw[i]) & 0xFF)
     global _seq
+    if raw[length] != BLOCK_END:
+        raise KLineError("terminador invalido: %02X" % raw[length])
     _seq = raw[1]
     return raw[2], bytes(raw[3:length])     # titulo, payload
 
 
 def command(title, payload=b""):
     """Manda un bloque y junta la respuesta hasta el Empty."""
+    time.sleep_ms(INTER_BLOCK_MS)
     send_block(title, payload)
     out = []
     while True:
         t, p = recv_block()
-        if t == NOT_SUPPORTED:
+        if t in (NACK, NOT_SUPPORTED):
             raise KLineError("la ECU no soporta el titulo 0x%02X" % title)
         if t == EMPTY:
             return out
         out.append(p)
-        time.sleep_ms(INTER_BYTE_MS)
+        time.sleep_ms(INTER_BLOCK_MS)
         send_block(EMPTY)
+
+
+def keepalive():
+    """Ceder un turno completo al DME sin consultar otra vez la RAM."""
+    if command(EMPTY):
+        raise KLineError("respuesta inesperada al keepalive")
 
 
 def drenar_id(verbose=False):
@@ -217,29 +246,60 @@ def drenar_id(verbose=False):
     Hay que consumirlas antes de mandar cualquier comando, o el largo del
     bloque de ID se confunde con el acuse del nuestro."""
     ids = []
-    for _ in range(10):
-        try:
-            t, p = recv_block()
-        except KLineError:
-            break
+    for _ in range(32):
+        t, p = recv_block()
         if t == EMPTY:
-            break
+            return ids
         txt = "".join(chr(c) if 32 <= c < 127 else "." for c in p)
         ids.append(txt)
         if verbose:
             print("id:", txt)
-        time.sleep_ms(INTER_BYTE_MS)
+        time.sleep_ms(INTER_BLOCK_MS)
         send_block(EMPTY)
-    return ids
+    raise KLineError("identificacion sin bloque final")
+
+
+def liberar_uart():
+    """Cerrar el transporte y dejar TX alto antes del proximo wake-up."""
+    global _uart
+    uart, _uart = _uart, None
+    try:
+        if uart is not None:
+            uart.deinit()
+    finally:
+        Pin(TX_PIN, Pin.OUT, value=1)
+
+
+def desconectar():
+    """Misma despedida best effort que KWP71Session.disconnect + KLine.close.
+
+    Tambien se usa al recuperar una lectura fallida. Un cierre sin acuse no
+    permite seguir consultando: siempre liberamos UART y hacemos otro init.
+    """
+    try:
+        if _uart is not None:
+            send_block(DISCONNECT, timeout_ms=CLOSE_TIMEOUT_MS)
+    except Exception as error:
+        print("DME: cierre sin acuse:", error)
+    finally:
+        liberar_uart()
 
 
 def conectar(address=DME, verbose=True, baud=BAUD):
     """Init + drenaje de identificacion. Deja la sesion lista para comandos."""
     _ritmo(address)
-    _ritmo(address)
-    kws = init(address, verbose=verbose, baud=baud)
-    ids = drenar_id(verbose=verbose)
-    return kws, ids
+    initialized = False
+    try:
+        kws = init(address, verbose=verbose, baud=baud)
+        initialized = True
+        ids = drenar_id(verbose=verbose)
+        return kws, ids
+    except Exception:
+        if initialized:
+            desconectar()
+        else:
+            liberar_uart()
+        raise
 
 
 def read_ram(address, count):

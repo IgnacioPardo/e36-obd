@@ -10,5 +10,17 @@ import SwiftUI
 
 @main struct E36OBDApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var delegate
-    var body: some Scene { WindowGroup { RootView(model: delegate.model) } }
+    var body: some Scene {
+        WindowGroup {
+#if DEBUG
+            if VehicleReferenceReview.requested {
+                VehicleReferenceReview()
+            } else {
+                RootView(model: delegate.model)
+            }
+#else
+            RootView(model: delegate.model)
+#endif
+        }
+    }
 }

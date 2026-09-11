@@ -45,6 +45,9 @@ _IRQ_WRITE = 3
 # todo lo que sale se parte. No es cosmetico: un texto largo de una sola vez
 # se trunca sin aviso.
 TROZO = 20
+MAX_RECUPERACIONES = 5       # igual que LiveReader del cliente de escritorio
+PERIODO_MUESTRA_MS = 750     # minimo entre comienzos de consultas RAM
+REPOSO_VIVO_MS = 100         # mantener turnos NOP durante la espera
 
 
 def _publicidad(nombre):
@@ -65,6 +68,7 @@ class Panel:
         self._conn = None
         self._cmd = None
         self._vivo = False
+        self._sesion = False
         self._anunciar()
 
     def _anunciar(self):
@@ -106,10 +110,31 @@ class Panel:
         self.enviar("s  detener")
         self.enviar("?  esta ayuda")
 
+    def _abrir_sesion(self):
+        self._cerrar_sesion()
+        kline.conectar(verbose=False)
+        self._sesion = True
+
+    def _cerrar_sesion(self):
+        # Solo desde el hilo del panel, nunca desde el callback BLE. Dejar de
+        # leer no cierra KWP71: otro init sobre esa sesion puede ser ignorado.
+        if not self._sesion:
+            return
+        self._sesion = False
+        try:
+            if hasattr(kline, "desconectar"):
+                kline.desconectar()
+            else:  # permite actualizar solo BLE sobre el transporte anterior
+                kline.send_block(kline.DISCONNECT)
+        except Exception as e:
+            # No sustituir una lectura correcta por un fallo al despedirnos.
+            # El proximo comando abrira una sesion desde cero.
+            print("DME: cierre sin acuse:", e)
+
     def fallas(self):
         self.enviar("abriendo sesion...")
         try:
-            kline.conectar(verbose=False)
+            self._abrir_sesion()
             hubo = False
             for blk in kline.command(kline.READ_FAULTS):
                 for i in range(0, len(blk) - 4, 5):
@@ -123,37 +148,84 @@ class Panel:
                 self.enviar("sin fallas almacenadas")
         except Exception as e:
             self.enviar("error: %s" % e)
+        finally:
+            self._cerrar_sesion()
 
     def vivo(self):
         self.enviar("abriendo sesion...")
-        try:
-            kline.conectar(verbose=False)
-        except Exception as e:
-            self.enviar("error: %s" % e)
-            return
-        self.enviar("en vivo. cualquier tecla corta.")
         self._vivo = True
         n = 0
-        while self._vivo and self._conn is not None:
-            if self._cmd is not None:      # cualquier tecla corta
-                break
-            t0 = time.ticks_ms()
-            try:
-                d = kline.leer_core()
-            except Exception as e:
-                self.enviar("se corto: %s" % e)
-                break
-            dt = time.ticks_diff(time.ticks_ms(), t0)
-            n += 1
-            # Una sola linea, legible en una terminal Y parseable por la web:
-            # D rpm carga refrig bateria ms [aire]. La admision se agrega al
-            # final para preservar los campos de clientes anteriores. Ya viene
-            # en leer_core(): no agrega otra consulta ni cambia el round trip.
-            self.enviar("D %d %.2f %.1f %.2f %d %.1f"
-                        % (d["rpm"], d["carga"], d["refrig"],
-                           d["bateria"], dt, d["aire"]))
-        self._vivo = False
+        recuperaciones = 0
+        muestra_anterior = None
+        try:
+            while self._seguir_vivo():
+                try:
+                    if not self._sesion:
+                        self._abrir_sesion()
+                        if not self._seguir_vivo():
+                            break
+                        self.enviar("en vivo. cualquier tecla corta.")
+                        muestra_anterior = None
+                    if muestra_anterior is not None:
+                        if not self._esperar_muestra(muestra_anterior):
+                            break
+                    t0 = time.ticks_ms()
+                    d = kline.leer_core()
+                except Exception as e:
+                    # La computadora reconstruye la sesion K-line aqui. BLE
+                    # es solo el transporte del resultado: no hay que cortarlo.
+                    if not self._seguir_vivo():
+                        break
+                    recuperaciones += 1
+                    if recuperaciones > MAX_RECUPERACIONES:
+                        self.enviar("se corto: %s" % e)
+                        break
+                    self.enviar("recuperando DME (%d/%d): %s"
+                                % (recuperaciones, MAX_RECUPERACIONES, e))
+                    self._cerrar_sesion()
+                    # Espera del LiveReader, cancelable por Stop/Fallas/BLE.
+                    for _ in range(6):
+                        if not self._seguir_vivo():
+                            break
+                        time.sleep_ms(50)
+                    continue
+                dt = time.ticks_diff(time.ticks_ms(), t0)
+                muestra_anterior = t0
+                recuperaciones = 0
+                n += 1
+                # Una sola linea, legible en una terminal Y parseable por la web:
+                # D rpm carga refrig bateria ms [aire]. La admision se agrega al
+                # final para preservar los campos de clientes anteriores. Ya viene
+                # en leer_core(): no agrega otra consulta ni cambia el round trip.
+                self.enviar("D %d %.2f %.1f %.2f %d %.1f"
+                            % (d["rpm"], d["carga"], d["refrig"],
+                               d["bateria"], dt, d["aire"]))
+        finally:
+            self._vivo = False
+            self._cerrar_sesion()
         self.enviar("detenido (%d muestras)" % n)
+
+    def _seguir_vivo(self):
+        return self._vivo and self._conn is not None and self._cmd is None
+
+    def _esperar_muestra(self, comienzo):
+        # El bloque EMPTY que termina ReadRAM no sustituye el turno NOP
+        # entre consultas. Mantener el dialogo mientras se limita la tasa;
+        # dormir todo el intervalo sin intercambiar bloques perderia KWP71.
+        while self._seguir_vivo():
+            if hasattr(kline, "keepalive"):
+                kline.keepalive()
+            # Compatibilidad con instalaciones antiguas de solo ble.py:
+            # conservan el ritmo, aunque necesitan actualizar kline.py para NOP.
+            falta = PERIODO_MUESTRA_MS - time.ticks_diff(time.ticks_ms(), comienzo)
+            if falta <= 0:
+                return self._seguir_vivo()
+            espera = min(REPOSO_VIVO_MS, falta)
+            while espera > 0 and self._seguir_vivo():
+                paso = min(25, espera)
+                time.sleep_ms(paso)
+                espera -= paso
+        return False
 
     def bucle(self):
         while True:
@@ -167,6 +239,7 @@ class Panel:
                 self.fallas()
             elif c == "s":
                 self._vivo = False
+                self._cerrar_sesion()
                 self.enviar("detenido")
             else:
                 self.ayuda()

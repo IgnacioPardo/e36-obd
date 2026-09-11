@@ -1,0 +1,2714 @@
+{
+  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "objects": [
+    {
+      "name": "e36_headlights_box_black",
+      "vertices": 400,
+      "faces": 414,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_side_reflector_clear",
+      "vertices": 80,
+      "faces": 142,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "group008",
+      "vertices": 775,
+      "faces": 1040,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "group009",
+      "vertices": 40,
+      "faces": 38,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "group012",
+      "vertices": 40,
+      "faces": 38,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "fan_SUB1",
+      "vertices": 60,
+      "faces": 72,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "bmw_plastic_side_in_car",
+      "vertices": 1826,
+      "faces": 2245,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB11",
+      "vertices": 3780,
+      "faces": 3950,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "headlightr_a_SUB7",
+      "vertices": 68,
+      "faces": 105,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "headlightr_a_SUB0",
+      "vertices": 87,
+      "faces": 64,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "headlightl_a_SUB0",
+      "vertices": 87,
+      "faces": 64,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_front_stock_clear_SUB1",
+      "vertices": 82,
+      "faces": 80,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_front_stock_clear_SUB06",
+      "vertices": 64,
+      "faces": 62,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_wind_cleaners_lhd_SUB1",
+      "vertices": 2066,
+      "faces": 1652,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_wind_cleaners_lhd_SUB0",
+      "vertices": 124,
+      "faces": 112,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_trunk_SUB1",
+      "vertices": 224,
+      "faces": 207,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_rear_stock_SUB0",
+      "vertices": 569,
+      "faces": 1010,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_rear_stock_SUB1",
+      "vertices": 64,
+      "faces": 62,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_rear_stock_SUB2",
+      "vertices": 56,
+      "faces": 48,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bonnet_SUB1",
+      "vertices": 120,
+      "faces": 220,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB0",
+      "vertices": 160,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB1",
+      "vertices": 36,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB3",
+      "vertices": 778,
+      "faces": 684,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB4",
+      "vertices": 450,
+      "faces": 402,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB7",
+      "vertices": 1194,
+      "faces": 1206,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB8",
+      "vertices": 2769,
+      "faces": 1990,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB9",
+      "vertices": 259,
+      "faces": 23,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB10",
+      "vertices": 886,
+      "faces": 862,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bonnet_SUB0",
+      "vertices": 2764,
+      "faces": 5066,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bonnet_SUB2",
+      "vertices": 336,
+      "faces": 394,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_front_stock_clear_SUB4",
+      "vertices": 2468,
+      "faces": 2752,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_bumper_rear_stock_SUB3",
+      "vertices": 33967,
+      "faces": 66917,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_headlights_glass",
+      "vertices": 276,
+      "faces": 482,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB2",
+      "vertices": 642,
+      "faces": 508,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_chassis_SUB5",
+      "vertices": 2373,
+      "faces": 2538,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_body_color",
+      "vertices": 9547,
+      "faces": 17744,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_limo_windows_out",
+      "vertices": 629,
+      "faces": 952,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36_trunk_SUB0",
+      "vertices": 37463,
+      "faces": 36924,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glassltl_a_SUB1",
+      "vertices": 314,
+      "faces": 562,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glassltl_a_SUB2",
+      "vertices": 211,
+      "faces": 364,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glassltl_a_SUB3",
+      "vertices": 396,
+      "faces": 662,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "group010",
+      "vertices": 636,
+      "faces": 1230,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "group011",
+      "vertices": 636,
+      "faces": 1230,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "headlightl_a_SUB4",
+      "vertices": 68,
+      "faces": 105,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightl_a_SUB1",
+      "vertices": 684,
+      "faces": 957,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightl_a_SUB2",
+      "vertices": 36,
+      "faces": 34,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightl_a_SUB3",
+      "vertices": 14,
+      "faces": 12,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightl_a_SUB4",
+      "vertices": 19,
+      "faces": 18,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightl_a_SUB5",
+      "vertices": 16,
+      "faces": 15,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightr_a_SUB1",
+      "vertices": 684,
+      "faces": 957,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightr_a_SUB3",
+      "vertices": 14,
+      "faces": 12,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightr_a_SUB4",
+      "vertices": 19,
+      "faces": 18,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "taillightr_a_SUB5",
+      "vertices": 16,
+      "faces": 15,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere003",
+      "vertices": 38,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere004",
+      "vertices": 38,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glassltl_a_SUB004",
+      "vertices": 314,
+      "faces": 562,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object010",
+      "vertices": 222,
+      "faces": 168,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere009",
+      "vertices": 38,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere010",
+      "vertices": 76,
+      "faces": 64,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere012",
+      "vertices": 76,
+      "faces": 64,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere016",
+      "vertices": 152,
+      "faces": 128,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GeoSphere018",
+      "vertices": 38,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glasslhl_a_SUB2",
+      "vertices": 156,
+      "faces": 275,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object005",
+      "vertices": 136,
+      "faces": 232,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object029",
+      "vertices": 126,
+      "faces": 214,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object023",
+      "vertices": 156,
+      "faces": 275,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object026",
+      "vertices": 280,
+      "faces": 454,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object028",
+      "vertices": 76,
+      "faces": 64,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object027",
+      "vertices": 46,
+      "faces": 44,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glassltl_a_SUB006",
+      "vertices": 914,
+      "faces": 1562,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object006",
+      "vertices": 211,
+      "faces": 364,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object030",
+      "vertices": 312,
+      "faces": 550,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object031",
+      "vertices": 80,
+      "faces": 142,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "glassltl_a_SUB005",
+      "vertices": 426,
+      "faces": 728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "susp_lf_001",
+      "vertices": 51,
+      "faces": 77,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Disk_LF_Satic",
+      "vertices": 435,
+      "faces": 336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "susp_lr",
+      "vertices": 36,
+      "faces": 47,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Disk_LR_Satic",
+      "vertices": 435,
+      "faces": 336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Disk_RF_Satic",
+      "vertices": 435,
+      "faces": 336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "susp_rf_001",
+      "vertices": 51,
+      "faces": 77,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "susp_rr",
+      "vertices": 36,
+      "faces": 47,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Disk_RR_Satic",
+      "vertices": 435,
+      "faces": 336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_dash_plastic",
+      "vertices": 3904,
+      "faces": 3910,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_badge_alpha_SUB1",
+      "vertices": 12,
+      "faces": 10,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_badge_alpha_SUB0",
+      "vertices": 172,
+      "faces": 86,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_mirror_centr",
+      "vertices": 26,
+      "faces": 24,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_plastic",
+      "vertices": 15431,
+      "faces": 11535,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_carpet",
+      "vertices": 337,
+      "faces": 327,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_solid",
+      "vertices": 165,
+      "faces": 133,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_leather_black",
+      "vertices": 622,
+      "faces": 567,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_needle_fuel",
+      "vertices": 116,
+      "faces": 109,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_needle_milleage",
+      "vertices": 24,
+      "faces": 12,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_needle_speed",
+      "vertices": 209,
+      "faces": 109,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_needle_tach",
+      "vertices": 209,
+      "faces": 109,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_needle_temp",
+      "vertices": 116,
+      "faces": 109,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_glass",
+      "vertices": 136,
+      "faces": 226,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_gauges",
+      "vertices": 199,
+      "faces": 188,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_general",
+      "vertices": 531,
+      "faces": 547,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_badge_emissive",
+      "vertices": 354,
+      "faces": 198,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_blinkers_button",
+      "vertices": 4,
+      "faces": 2,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_displays",
+      "vertices": 58,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_wood",
+      "vertices": 696,
+      "faces": 810,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_speakers",
+      "vertices": 20,
+      "faces": 12,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346_doorway_plastic",
+      "vertices": 2147,
+      "faces": 1629,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_blinkers_left",
+      "vertices": 7,
+      "faces": 5,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_blinkers_right",
+      "vertices": 7,
+      "faces": 5,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_leather_white",
+      "vertices": 650,
+      "faces": 614,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GEO_Steer_HR_SUB0",
+      "vertices": 1240,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GEO_Steer_HR_SUB1_SUB1",
+      "vertices": 120,
+      "faces": 180,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GEO_Steer_HR_SUB1_SUB0",
+      "vertices": 279,
+      "faces": 390,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GEO_Steer_HR_SUB2",
+      "vertices": 232,
+      "faces": 362,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GEO_Steer_HR_SUB5_SUB0",
+      "vertices": 34,
+      "faces": 20,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "GEO_Steer_HR_SUB5_SUB1",
+      "vertices": 260,
+      "faces": 274,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "BMW_Emblem",
+      "vertices": 136,
+      "faces": 180,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_nardi_SUB0",
+      "vertices": 1412,
+      "faces": 1264,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_dash_plastic_l",
+      "vertices": 1041,
+      "faces": 946,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_leather_white_l",
+      "vertices": 991,
+      "faces": 1053,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_plastic_l",
+      "vertices": 534,
+      "faces": 479,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_speakers_l",
+      "vertices": 38,
+      "faces": 36,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_wood_l",
+      "vertices": 67,
+      "faces": 68,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_badge_alpha_l",
+      "vertices": 4,
+      "faces": 2,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_dash_plastic_r",
+      "vertices": 995,
+      "faces": 910,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_leather_white_r",
+      "vertices": 993,
+      "faces": 1052,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_plastic_r",
+      "vertices": 746,
+      "faces": 630,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_speakers_r",
+      "vertices": 38,
+      "faces": 36,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_ao_wood_r",
+      "vertices": 62,
+      "faces": 68,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e346int_badge_alpha_r",
+      "vertices": 4,
+      "faces": 2,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36int_limo_lhd_base_1_SUB4",
+      "vertices": 592,
+      "faces": 598,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "e36int_limo_lhd_base_2_SUB1",
+      "vertices": 1689,
+      "faces": 1564,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object033",
+      "vertices": 110,
+      "faces": 98,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Object337",
+      "vertices": 140,
+      "faces": 140,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Grey cloth seats",
+      "vertices": 7538,
+      "faces": 5399,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "M bumper \u2022 diamond grille",
+      "vertices": 2520,
+      "faces": 630,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Recessed radiator behind intake",
+      "vertices": 8,
+      "faces": 6,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve stem.004",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve stem.003",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve stem.002",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve stem.001",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve cap.004",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve cap.003",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve cap.002",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Valve cap.001",
+      "vertices": 320,
+      "faces": 290,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Road tyre continuous casing.004",
+      "vertices": 24480,
+      "faces": 24480,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Road tyre continuous casing.003",
+      "vertices": 24480,
+      "faces": 24480,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Road tyre continuous casing.002",
+      "vertices": 24480,
+      "faces": 24480,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Road tyre continuous casing.001",
+      "vertices": 24480,
+      "faces": 24480,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.024",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.023",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.022",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.021",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.020",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.019",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.018",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.017",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.016",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.015",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.014",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.013",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.012",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.011",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.010",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.009",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.008",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.007",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.006",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Five wheel bolts.005",
+      "vertices": 228,
+      "faces": 224,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Bonnet Roundel face.004",
+      "vertices": 12545,
+      "faces": 12545,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Bonnet Roundel rolled ring.004",
+      "vertices": 960,
+      "faces": 866,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Boot Roundel face.004",
+      "vertices": 12545,
+      "faces": 12545,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Boot Roundel rolled ring.004",
+      "vertices": 960,
+      "faces": 866,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Fitted M bumper impact trim",
+      "vertices": 2456,
+      "faces": 2450,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Stock dark rocker moulding",
+      "vertices": 14,
+      "faces": 9,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Stock dark rocker moulding.001",
+      "vertices": 14,
+      "faces": 9,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Rear exhaust silencer",
+      "vertices": 1474,
+      "faces": 1536,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Single exhaust",
+      "vertices": 576,
+      "faces": 480,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "316i cast chrome badge",
+      "vertices": 550,
+      "faces": 589,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Smooth halogen reflector cup",
+      "vertices": 6336,
+      "faces": 6144,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Smooth halogen reflector cup.001",
+      "vertices": 6336,
+      "faces": 6144,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Smooth halogen reflector cup.002",
+      "vertices": 6336,
+      "faces": 6144,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Smooth halogen reflector cup.003",
+      "vertices": 6336,
+      "faces": 6144,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Pressed circular headlamp lens",
+      "vertices": 6146,
+      "faces": 6336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Pressed circular headlamp lens.001",
+      "vertices": 6146,
+      "faces": 6336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Pressed circular headlamp lens.002",
+      "vertices": 6146,
+      "faces": 6336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Pressed circular headlamp lens.003",
+      "vertices": 6146,
+      "faces": 6336,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Stock muffler connection",
+      "vertices": 1986,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 continuous 18-spoke casting.001",
+      "vertices": 306812,
+      "faces": 433097,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 7J barrel and rolled flanges.001",
+      "vertices": 81920,
+      "faces": 81920,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 continuous 18-spoke casting.002",
+      "vertices": 306812,
+      "faces": 433097,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 7J barrel and rolled flanges.002",
+      "vertices": 81920,
+      "faces": 81920,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 continuous 18-spoke casting.003",
+      "vertices": 306812,
+      "faces": 433097,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 7J barrel and rolled flanges.003",
+      "vertices": 81920,
+      "faces": 81920,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 continuous 18-spoke casting.004",
+      "vertices": 306812,
+      "faces": 433097,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Style 13 7J barrel and rolled flanges.004",
+      "vertices": 81920,
+      "faces": 81920,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel chrome edge.001",
+      "vertices": 2048,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel domed black enamel.001",
+      "vertices": 8450,
+      "faces": 8704,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.002",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification J.001",
+      "vertices": 896,
+      "faces": 1004,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification x.001",
+      "vertices": 296,
+      "faces": 329,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.004",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 5.001",
+      "vertices": 1496,
+      "faces": 1679,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification I.001",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification S.001",
+      "vertices": 2896,
+      "faces": 3254,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 4.001",
+      "vertices": 112,
+      "faces": 122,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.003",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification B.001",
+      "vertices": 2184,
+      "faces": 2461,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification M.001",
+      "vertices": 208,
+      "faces": 230,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification W.001",
+      "vertices": 504,
+      "faces": 563,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.005",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.006",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 8.001",
+      "vertices": 3072,
+      "faces": 3460,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.002",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.003",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 6.001",
+      "vertices": 2408,
+      "faces": 2709,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 9.001",
+      "vertices": 2512,
+      "faces": 2824,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification -.001",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.007",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 2.001",
+      "vertices": 1568,
+      "faces": 1760,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel chrome edge.002",
+      "vertices": 2048,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel domed black enamel.002",
+      "vertices": 8450,
+      "faces": 8704,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.004",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification J.002",
+      "vertices": 896,
+      "faces": 1004,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification x.002",
+      "vertices": 296,
+      "faces": 329,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.008",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 5.002",
+      "vertices": 1496,
+      "faces": 1679,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification I.002",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification S.002",
+      "vertices": 2896,
+      "faces": 3254,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 4.002",
+      "vertices": 112,
+      "faces": 122,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.005",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification B.002",
+      "vertices": 2184,
+      "faces": 2461,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification M.002",
+      "vertices": 208,
+      "faces": 230,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification W.002",
+      "vertices": 504,
+      "faces": 563,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.009",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.010",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 8.002",
+      "vertices": 3072,
+      "faces": 3460,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.004",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.005",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 6.002",
+      "vertices": 2408,
+      "faces": 2709,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 9.002",
+      "vertices": 2512,
+      "faces": 2824,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification -.002",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.011",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 2.002",
+      "vertices": 1568,
+      "faces": 1760,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel chrome edge.003",
+      "vertices": 2048,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel domed black enamel.003",
+      "vertices": 8450,
+      "faces": 8704,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.006",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification J.003",
+      "vertices": 896,
+      "faces": 1004,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification x.003",
+      "vertices": 296,
+      "faces": 329,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.012",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 5.003",
+      "vertices": 1496,
+      "faces": 1679,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification I.003",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification S.003",
+      "vertices": 2896,
+      "faces": 3254,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 4.003",
+      "vertices": 112,
+      "faces": 122,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.007",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification B.003",
+      "vertices": 2184,
+      "faces": 2461,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification M.003",
+      "vertices": 208,
+      "faces": 230,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification W.003",
+      "vertices": 504,
+      "faces": 563,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.013",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.014",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 8.003",
+      "vertices": 3072,
+      "faces": 3460,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.006",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.007",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 6.003",
+      "vertices": 2408,
+      "faces": 2709,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 9.003",
+      "vertices": 2512,
+      "faces": 2824,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification -.003",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.015",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 2.003",
+      "vertices": 1568,
+      "faces": 1760,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel chrome edge.004",
+      "vertices": 2048,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Roundel domed black enamel.004",
+      "vertices": 8450,
+      "faces": 8704,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.008",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification J.004",
+      "vertices": 896,
+      "faces": 1004,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification x.004",
+      "vertices": 296,
+      "faces": 329,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.016",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 5.004",
+      "vertices": 1496,
+      "faces": 1679,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification I.004",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification S.004",
+      "vertices": 2896,
+      "faces": 3254,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 4.004",
+      "vertices": 112,
+      "faces": 122,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 7.009",
+      "vertices": 520,
+      "faces": 581,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification B.004",
+      "vertices": 2184,
+      "faces": 2461,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification M.004",
+      "vertices": 208,
+      "faces": 230,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification W.004",
+      "vertices": 504,
+      "faces": 563,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.017",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.018",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 8.004",
+      "vertices": 3072,
+      "faces": 3460,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.008",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 0.009",
+      "vertices": 1536,
+      "faces": 1728,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 6.004",
+      "vertices": 2408,
+      "faces": 2709,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 9.004",
+      "vertices": 2512,
+      "faces": 2824,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification -.004",
+      "vertices": 32,
+      "faces": 32,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 1.019",
+      "vertices": 424,
+      "faces": 473,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Cast identification 2.004",
+      "vertices": 1568,
+      "faces": 1760,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney rolled chrome",
+      "vertices": 2048,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney recessed black surround",
+      "vertices": 1536,
+      "faces": 1536,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 01",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 02",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 03",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 04",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 05",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 06",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 07",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 08",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 09",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 10",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 11",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney blade 12",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator core",
+      "vertices": 8,
+      "faces": 6,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 00",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 01",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 02",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 03",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 04",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 05",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 06",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 07",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 08",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 09",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 10",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 11",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 12",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 13",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 14",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 15",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 16",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 17",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 18",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 19",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 20",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 21",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 22",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 23",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator fin 24",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator tube 00",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator tube 01",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator tube 02",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator tube 03",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator tube 04",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney radiator tube 05",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right early kidney diagonal rear support",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney rolled chrome",
+      "vertices": 2048,
+      "faces": 2048,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney recessed black surround",
+      "vertices": 1536,
+      "faces": 1536,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 01",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 02",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 03",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 04",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 05",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 06",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 07",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 08",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 09",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 10",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 11",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney blade 12",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator core",
+      "vertices": 8,
+      "faces": 6,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 00",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 01",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 02",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 03",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 04",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 05",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 06",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 07",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 08",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 09",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 10",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 11",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 12",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 13",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 14",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 15",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 16",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 17",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 18",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 19",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 20",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 21",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 22",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 23",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator fin 24",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator tube 00",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator tube 01",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator tube 02",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator tube 03",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator tube 04",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney radiator tube 05",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left early kidney diagonal rear support",
+      "vertices": 152,
+      "faces": 150,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Owner STEP fog intake duct left",
+      "vertices": 69571,
+      "faces": 139142,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Owner STEP fog intake duct right",
+      "vertices": 69571,
+      "faces": 139142,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    }
+  ],
+  "allAngleBoundsPixels": [
+    72.13883846998215,
+    167.5384223461151,
+    1127.8119564056396,
+    586.8264943361282
+  ],
+  "crop": [
+    48,
+    130,
+    1104,
+    500
+  ],
+  "zeroAreaFaces": 0,
+  "nonFiniteVertices": 0
+}

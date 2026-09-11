@@ -1,0 +1,7 @@
+{
+  "triangles": 4917441,
+  "pairs": [],
+  "examples": [],
+  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "method": "Exact evaluated triangle coincidence after world-coordinate quantization to one micrometre; not a proof against every partial coplanar overlap."
+}

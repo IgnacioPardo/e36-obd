@@ -1,0 +1,528 @@
+{
+  "previousPitchDegrees": 16.69924423399362,
+  "newPitchDegrees": 0,
+  "objects": [
+    {
+      "name": "Right early kidney rolled chrome",
+      "vertices": 2048,
+      "maxOutlineDifferenceMetres": 0.0
+    },
+    {
+      "name": "Right early kidney recessed black surround",
+      "vertices": 1536,
+      "maxOutlineDifferenceMetres": 0.0
+    },
+    {
+      "name": "Right early kidney blade 01",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 02",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 03",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 04",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 05",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 06",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 07",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 08",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 09",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 10",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 11",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney blade 12",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 00",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 01",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 02",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 03",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 04",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 05",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 06",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 07",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 08",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 09",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 10",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 11",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 12",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 13",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 14",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 15",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 16",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 17",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 18",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 19",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 20",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 21",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 22",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 1.1920928955078125e-07
+    },
+    {
+      "name": "Right early kidney radiator fin 23",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator fin 24",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator tube 00",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator tube 01",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator tube 02",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator tube 03",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator tube 04",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney radiator tube 05",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Right early kidney diagonal rear support",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney rolled chrome",
+      "vertices": 2048,
+      "maxOutlineDifferenceMetres": 0.0
+    },
+    {
+      "name": "Left early kidney recessed black surround",
+      "vertices": 1536,
+      "maxOutlineDifferenceMetres": 0.0
+    },
+    {
+      "name": "Left early kidney blade 01",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 02",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 03",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 04",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 05",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 06",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 07",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 08",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 09",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 10",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 11",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney blade 12",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 00",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 01",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 02",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 03",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 04",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 05",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 06",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 07",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 08",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 09",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 10",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 11",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 12",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 13",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 14",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 15",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 16",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 17",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 18",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 19",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 20",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 21",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 22",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 1.1920928955078125e-07
+    },
+    {
+      "name": "Left early kidney radiator fin 23",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator fin 24",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator tube 00",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator tube 01",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator tube 02",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator tube 03",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator tube 04",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney radiator tube 05",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    },
+    {
+      "name": "Left early kidney diagonal rear support",
+      "vertices": 152,
+      "maxOutlineDifferenceMetres": 5.960464477539063e-08
+    }
+  ],
+  "panelSamples": [
+    {
+      "x": 0,
+      "z": 0.565,
+      "surface": "e36_limo_body_color",
+      "y": -2.149454116821289
+    },
+    {
+      "x": 0,
+      "z": 0.6,
+      "surface": "e36_limo_body_color",
+      "y": -2.1480765342712402
+    },
+    {
+      "x": 0,
+      "z": 0.637,
+      "surface": "e36_limo_body_color",
+      "y": -2.1441898345947266
+    },
+    {
+      "x": 0,
+      "z": 0.675,
+      "surface": "e36_limo_body_color",
+      "y": -2.137317657470703
+    },
+    {
+      "x": 0,
+      "z": 0.71,
+      "surface": "e36_limo_body_color",
+      "y": -2.1281275749206543
+    },
+    {
+      "x": 0.265,
+      "z": 0.565,
+      "surface": "e36_limo_body_color",
+      "y": -2.1255431175231934
+    },
+    {
+      "x": 0.265,
+      "z": 0.6,
+      "surface": "e36_limo_body_color",
+      "y": -2.1252801418304443
+    },
+    {
+      "x": 0.265,
+      "z": 0.637,
+      "surface": "e36_limo_body_color",
+      "y": -2.1222238540649414
+    },
+    {
+      "x": 0.265,
+      "z": 0.675,
+      "surface": "e36_limo_body_color",
+      "y": -2.1148154735565186
+    },
+    {
+      "x": 0.265,
+      "z": 0.71,
+      "surface": "e36_limo_body_color",
+      "y": -2.1038293838500977
+    }
+  ]
+}

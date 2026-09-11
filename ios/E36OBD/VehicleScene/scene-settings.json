@@ -1,0 +1,45 @@
+{
+  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "environmentSHA256": "9d7b3a1496d36dd88ffdefe240d89f5c1ac8f4d81b1cdfd2d4b8a6b6c7f80dc8",
+  "dimensions": [
+    4096,
+    2048
+  ],
+  "sourceEnvironment": "pine_picnic_4k.hdr",
+  "bakedRotationDegrees": 270.0,
+  "linearRGBMaximum": 374.0,
+  "nativePaint": {
+    "Base Color": [
+      0.11099773683426231,
+      0.142,
+      0.21230766353308947,
+      1
+    ],
+    "Metallic": 0.22,
+    "Roughness": 0.3,
+    "Coat Weight": 1.0,
+    "Coat Roughness": 0.055
+  },
+  "modelSHA256": "95f0c26d583d3aa118b6770c10986d945df826a25f5209addc1bbb011f3bc271",
+  "modelBytes": 161093104,
+  "compiledEnvironmentSHA256": "d7e05da4ec536ab289dc403f1b396c40dc3d30390c34c4d28b42088c302ce8c2",
+  "compiledEnvironmentBytes": 88642313,
+  "contactShadowSHA256": "1cc8ae822931ed636f67673497ecfbd07bb6fe6ba6e9c7c142946a8206e5d3bc",
+  "contactShadowBytes": 246533,
+  "runtime": {
+    "renderer": "RealityRenderer / Metal",
+    "environmentIntensityExponent": 0.65,
+    "antialiasing": "4x MSAA",
+    "diffuseEncoding": "sqrt(linear / 4)",
+    "contactShadowPlaneMetres": [
+      8,
+      8
+    ],
+    "continuousRendering": false,
+    "glass": "Smooth dielectric Fresnel; double-sided inward fluted lens; source-matched subpixel-filtered ribs",
+    "shadowFloorHazeRemovedAlpha": 0.047058823529411764
+  },
+  "paintName": "Samoablau",
+  "paintCalibrationSHA256": "56d36878be936e011e0b13e36ef44f171902c7b9350202ffb0898061bc9a1890",
+  "grilleAddedPitchDegrees": 0
+}

@@ -22,6 +22,12 @@ class BLEUpdateTests(unittest.TestCase):
         self.source.write_bytes((ROOT / 'firmware/mp/ble.py').read_bytes())
         self.original = b'# E36-OBD 6E400001-B5A3-F393-E0A9-E50E24DCCA9E\nOLD = True\n'
         self.remote = self.original
+        self.transport_source = self.source.with_name('kline.py')
+        self.transport_source.write_bytes((ROOT / 'firmware/mp/kline.py').read_bytes())
+        self.transport_original = b'# KWP71\nTX_PIN = 17\nRX_PIN = 18\nOLD = True\n'
+        self.remote_transport = self.transport_original
+        self.bundle = False
+        self.corrupt_file = None
         self.corrupt_once = False
         self.device_platform = 'esp32'
         self.writes = self.resets = 0
@@ -36,21 +42,29 @@ class BLEUpdateTests(unittest.TestCase):
             return SimpleNamespace(stdout='')
         self.assertEqual(args[3:5], ['fs', 'cp'])
         source, destination = args[5:7]
-        if source == ':ble.py':
-            Path(destination).write_bytes(self.remote)
+        if source.startswith(':'):
+            Path(destination).write_bytes(self.remote if source == ':ble.py' else self.remote_transport)
         else:
             # The original must already be backed up before any write to the device.
             backups = list((self.root / '.context/firmware-backups').glob('*/ble.py'))
             self.assertEqual(len(backups), 1)
             self.assertEqual(backups[0].read_bytes(), self.original)
+            if self.bundle:
+                self.assertEqual(backups[0].with_name('kline.py').read_bytes(), self.transport_original)
             self.writes += 1
-            self.remote = Path(source).read_bytes()
-            if self.corrupt_once:
-                self.remote += b'\n# corrupted transfer'; self.corrupt_once = False
+            data = Path(source).read_bytes()
+            if self.corrupt_once or destination == self.corrupt_file:
+                data += b'\n# corrupted transfer'
+                self.corrupt_once = False
+                self.corrupt_file = None
+            if destination == ':ble.py':
+                self.remote = data
+            else:
+                self.remote_transport = data
         return SimpleNamespace(stdout='')
 
-    def invoke(self):
-        with patch.object(updater, 'ROOT', self.root), patch('sys.argv', ['update_ble']), \
+    def invoke(self, *arguments):
+        with patch.object(updater, 'ROOT', self.root), patch('sys.argv', ['update_ble', *arguments]), \
              patch.object(updater.shutil, 'which', return_value='mpremote'), \
              patch.object(updater.subprocess, 'run', side_effect=self.command):
             updater.main()
@@ -78,6 +92,39 @@ class BLEUpdateTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'no corresponde'):
             self.invoke()
         self.assertEqual((self.writes, self.resets), (0, 0))
+
+    def test_transport_bundle_backs_up_both_before_first_write(self):
+        self.bundle = True
+        self.invoke('--include-kline')
+        self.assertEqual(self.remote, self.source.read_bytes())
+        self.assertEqual(self.remote_transport, self.transport_source.read_bytes())
+        self.assertEqual((self.writes, self.resets), (2, 1))
+
+    def test_bundle_failure_in_second_file_restores_both(self):
+        self.bundle = True
+        self.corrupt_file = ':ble.py'
+        with self.assertRaisesRegex(RuntimeError, 'verificación'):
+            self.invoke('--include-kline')
+        self.assertEqual(self.remote, self.original)
+        self.assertEqual(self.remote_transport, self.transport_original)
+        self.assertEqual((self.writes, self.resets), (4, 1))
+
+    def test_unrelated_transport_is_not_replaced(self):
+        self.remote_transport = self.transport_original = b'# another transport\n'
+        with self.assertRaisesRegex(RuntimeError, 'no corresponde'):
+            self.invoke('--include-kline')
+        self.assertEqual((self.writes, self.resets), (0, 0))
+
+    def test_restore_directory_restores_the_complete_pair(self):
+        restore = self.root / 'saved'
+        restore.mkdir()
+        (restore / 'ble.py').write_bytes(self.original)
+        (restore / 'kline.py').write_bytes(self.transport_original)
+        self.bundle = True
+        self.invoke('--restore', str(restore))
+        self.assertEqual(self.remote, self.original)
+        self.assertEqual(self.remote_transport, self.transport_original)
+        self.assertEqual((self.writes, self.resets), (2, 1))
 
 
 if __name__ == '__main__':

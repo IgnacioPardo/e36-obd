@@ -1,0 +1,7 @@
+{
+  "referenceTriangles": 4739251,
+  "runtimeTriangles": 4739251,
+  "maximumPositionDeviationMetres": 2.457562462940628e-07,
+  "positionsWithinTwoMicrometres": true,
+  "losslessCornerReindexing": true
+}

@@ -42,15 +42,15 @@ for name, folder, product_type, extension in [
     ('E36OBDUITests', 'E36OBDUITests', 'com.apple.product-type.bundle.ui-testing', 'xctest'),
 ]:
     files, sources, resources, frameworks, products = [], [], [], [], []
-    for path in sorted((ROOT / folder).glob('*.swift')):
-        ref = add(str(path.relative_to(ROOT)), dict(isa='PBXFileReference', lastKnownFileType='sourcecode.swift', path=path.name, sourceTree='<group>'))
+    for path in sorted(p for p in (ROOT / folder).iterdir() if p.suffix in ['.swift', '.metal']):
+        ref = add(str(path.relative_to(ROOT)), dict(isa='PBXFileReference', lastKnownFileType='sourcecode.metal' if path.suffix == '.metal' else 'sourcecode.swift', path=path.name, sourceTree='<group>'))
         files.append(ref)
         sources.append(add(str(path.relative_to(ROOT)) + ':build', dict(isa='PBXBuildFile', fileRef=ref)))
     if name in ['E36OBD', 'E36OBDWidgets']:
         sources.extend(add(name + ':shared:' + ref, dict(isa='PBXBuildFile', fileRef=ref)) for ref in shared_files)
         files.append(add(name + ':entitlements', dict(isa='PBXFileReference', lastKnownFileType='text.plist.entitlements', path=name + '.entitlements', sourceTree='<group>')))
     if name == 'E36OBD':
-        for filename, kind in [('Assets.xcassets', 'folder.assetcatalog'), ('alert.wav', 'audio.wav'), ('Info.plist', 'text.plist.xml')]:
+        for filename, kind in [('Assets.xcassets', 'folder.assetcatalog'), ('VehicleScene', 'folder'), ('alert.wav', 'audio.wav'), ('Info.plist', 'text.plist.xml')]:
             ref = add(filename, dict(isa='PBXFileReference', lastKnownFileType=kind, path=filename, sourceTree='<group>'))
             files.append(ref)
             if filename != 'Info.plist':

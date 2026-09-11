@@ -7,6 +7,7 @@ struct InstrumentDial: View {
     var stale = false
     var compact = false
     var warning = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     private nonisolated var auxiliary: Bool { sensor == .coolant || sensor == .battery }
     private nonisolated var scale: (min: Double, max: Double, major: Double, minor: Double) {
         switch sensor {
@@ -16,6 +17,12 @@ struct InstrumentDial: View {
         case .battery: (8, 16, 4, 2)
         case .intake: (0, 100, 25, 5)
         }
+    }
+    private var needleAngle: Double {
+        let sweep: Double = auxiliary ? 116 : 232
+        let limit: Double = sensor == .rpm ? 2550 : scale.max
+        let reading = min(max(value ?? scale.min, scale.min), limit)
+        return -sweep / 2 + sweep * (reading - scale.min) / (scale.max - scale.min)
     }
     var body: some View {
         Canvas { context, size in
@@ -42,6 +49,17 @@ struct InstrumentDial: View {
                     path.addLine(to: point(radius - thickness, from + (to - from) * Double(i) / Double(steps)))
                 }
                 path.closeSubpath(); context.fill(path, with: .color(color))
+            }
+            if !auxiliary {
+                let face = CGRect(x: center.x - radius * 1.04, y: center.y - radius * 1.04,
+                                  width: radius * 2.08, height: radius * 2.08)
+                context.fill(Path(ellipseIn: face), with: .radialGradient(
+                    Gradient(colors: [Color(white: 0.060), Color(white: 0.025)]),
+                    center: center, startRadius: 0, endRadius: radius * 1.04))
+                context.stroke(Path(ellipseIn: face), with: .color(Color.white.opacity(0.045)), lineWidth: 0.7)
+                var highlight = Path()
+                highlight.addArc(center: center, radius: radius * 1.035, startAngle: .degrees(207), endAngle: .degrees(292), clockwise: false)
+                context.stroke(highlight, with: .color(Color.white.opacity(0.07)), lineWidth: 0.5)
             }
             // The tachometer's original red blocks remain in the unavailable sector.
             // They are a face marking, not a new alert threshold or a fabricated reading.
@@ -78,19 +96,6 @@ struct InstrumentDial: View {
                 context.draw(Text(Image(systemName: symbol)).font(.system(size: max(13, side * 0.13))).foregroundStyle(ClusterTheme.scale),
                              at: .init(x: center.x, y: center.y - side * 0.20))
             }
-            if let value {
-                let a = angle(min(max(value, scale.min), sensor == .rpm ? 2550 : scale.max))
-                let radians = a * .pi / 180, ux = sin(radians), uy = -cos(radians)
-                let tip = point(radius * 0.985, a), half = side * (auxiliary ? 0.018 : 0.014)
-                var hand = Path()
-                hand.move(to: .init(x: center.x - uy * half, y: center.y + ux * half))
-                hand.addLine(to: .init(x: tip.x - uy * half * 0.55, y: tip.y + ux * half * 0.55))
-                hand.addLine(to: .init(x: tip.x + uy * half * 0.55, y: tip.y - ux * half * 0.55))
-                hand.addLine(to: .init(x: center.x + uy * half, y: center.y - ux * half)); hand.closeSubpath()
-                var lit = context
-                lit.addFilter(.shadow(color: ClusterTheme.needle.opacity(stale ? 0 : 0.16), radius: 1.5))
-                lit.fill(hand, with: .color(ClusterTheme.needle.opacity(stale ? 0.3 : 1)))
-            }
             let hubRadius = side * (auxiliary ? 0.045 : 0.070)
             let hub = CGRect(x: center.x - hubRadius, y: center.y - hubRadius, width: hubRadius * 2, height: hubRadius * 2)
             context.fill(Path(ellipseIn: hub), with: .color(Color(white: 0.045)))
@@ -100,7 +105,8 @@ struct InstrumentDial: View {
 
             let window = CGRect(x: side * (auxiliary ? 0.15 : 0.25), y: side * 0.81,
                                 width: side * (auxiliary ? 0.70 : 0.50), height: max(23, side * 0.105))
-            context.fill(Path(roundedRect: window, cornerRadius: 1), with: .color(.black.opacity(0.7)))
+            context.fill(Path(roundedRect: window, cornerRadius: 2), with: .color(.black.opacity(0.75)))
+            context.stroke(Path(roundedRect: window, cornerRadius: 2), with: .color(ClusterTheme.lcd.opacity(0.09)), lineWidth: 0.5)
             let numberHeight = min(window.height - 8, max(13, side * 0.062))
             let unitWidth = max(18, side * 0.075)
             let number = CGRect(x: window.minX + 5, y: window.midY - numberHeight / 2, width: window.width - unitWidth - 10, height: numberHeight)
@@ -109,8 +115,53 @@ struct InstrumentDial: View {
             label(sensor.unit, at: .init(x: window.maxX - unitWidth / 2 - 2, y: window.midY + 1),
                   size: max(8, side * 0.030), color: ClusterTheme.lcd.opacity(stale ? 0.3 : 0.8))
         }
+        .overlay {
+            AnimatedDialNeedle(angle: needleAngle, auxiliary: auxiliary, visible: value != nil, stale: stale)
+                .animation(reduceMotion ? nil : .easeOut(duration: 0.28), value: needleAngle)
+                .allowsHitTesting(false).accessibilityHidden(true)
+        }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(sensor.title), \(sensor.formatted(value)) \(sensor.unit)\(stale ? ", dato desactualizado" : "")")
         .accessibilityIdentifier("gauge-\(sensor.rawValue)")
+    }
+}
+
+/// Only the hand interpolates. The numeric readout always shows the received value.
+private nonisolated struct AnimatedDialNeedle: View, Animatable {
+    var angle: Double
+    let auxiliary: Bool
+    let visible: Bool
+    let stale: Bool
+    var animatableData: Double {
+        get { angle }
+        set { angle = newValue }
+    }
+    var body: some View {
+        Canvas { context, size in
+            let side = min(size.width, size.height)
+            let radius = side * (auxiliary ? 0.43 : 0.46)
+            let center = CGPoint(x: size.width / 2, y: side * (auxiliary ? 0.64 : 0.48))
+            let radians = angle * .pi / 180, ux = sin(radians), uy = -cos(radians)
+            let tip = CGPoint(x: center.x + radius * 0.985 * ux, y: center.y + radius * 0.985 * uy)
+            let half = side * (auxiliary ? 0.018 : 0.014)
+            if visible {
+                var hand = Path()
+                hand.move(to: .init(x: center.x - uy * half, y: center.y + ux * half))
+                hand.addLine(to: .init(x: tip.x - uy * half * 0.42, y: tip.y + ux * half * 0.42))
+                hand.addLine(to: .init(x: tip.x + uy * half * 0.42, y: tip.y - ux * half * 0.42))
+                hand.addLine(to: .init(x: center.x + uy * half, y: center.y - ux * half)); hand.closeSubpath()
+                var lit = context
+                lit.addFilter(.shadow(color: .black.opacity(0.7), radius: 2, x: 1, y: 3))
+                lit.fill(hand, with: .color(ClusterTheme.needle.opacity(stale ? 0.3 : 1)))
+                var edge = Path(); edge.move(to: center); edge.addLine(to: tip)
+                context.stroke(edge, with: .color(Color(red: 1, green: 0.7, blue: 0.43).opacity(stale ? 0.1 : 0.5)), lineWidth: 0.6)
+            }
+            let hubRadius = side * (auxiliary ? 0.045 : 0.070)
+            let hub = CGRect(x: center.x - hubRadius, y: center.y - hubRadius, width: hubRadius * 2, height: hubRadius * 2)
+            context.fill(Path(ellipseIn: hub), with: .linearGradient(
+                Gradient(colors: [Color(white: 0.09), Color(white: 0.025)]),
+                startPoint: .init(x: hub.minX, y: hub.minY), endPoint: .init(x: hub.maxX, y: hub.maxY)))
+            context.stroke(Path(ellipseIn: hub), with: .color(Color.white.opacity(0.045)), lineWidth: 0.5)
+        }
     }
 }

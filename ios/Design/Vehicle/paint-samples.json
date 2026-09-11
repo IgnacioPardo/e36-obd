@@ -1,0 +1,139 @@
+{
+  "reference": ".context/attachments/bn4A5W/IMG_2577.DNG",
+  "decodedProfile": "Display P3",
+  "sampleColorSpace": "sRGB, linearized for material comparison",
+  "samples": [
+    {
+      "label": "bumper broad face",
+      "boxNormalized": [
+        0.29,
+        0.596,
+        0.39,
+        0.619
+      ],
+      "medianSRGB8": [
+        107,
+        123,
+        148
+      ],
+      "linearMedian": [
+        0.14702726649759498,
+        0.19806931955994886,
+        0.2961382707983211
+      ],
+      "linearRatiosToGreen": [
+        0.7423020729522667,
+        1.0,
+        1.495124391078095
+      ]
+    },
+    {
+      "label": "bumper lower corner",
+      "boxNormalized": [
+        0.367,
+        0.663,
+        0.404,
+        0.678
+      ],
+      "medianSRGB8": [
+        97,
+        109,
+        132
+      ],
+      "linearMedian": [
+        0.11953842798834562,
+        0.15292615199615017,
+        0.23074004852434915
+      ],
+      "linearRatiosToGreen": [
+        0.7816742030581854,
+        1.0,
+        1.5088331558238508
+      ]
+    },
+    {
+      "label": "fender lower face",
+      "boxNormalized": [
+        0.879,
+        0.472,
+        0.927,
+        0.495
+      ],
+      "medianSRGB8": [
+        101,
+        110,
+        128
+      ],
+      "linearMedian": [
+        0.1301364766903643,
+        0.1559264637078274,
+        0.21586050011389926
+      ],
+      "linearRatiosToGreen": [
+        0.8346016038317396,
+        1.0,
+        1.384373729647171
+      ]
+    },
+    {
+      "label": "fender reflected sky",
+      "boxNormalized": [
+        0.67,
+        0.347,
+        0.76,
+        0.375
+      ],
+      "medianSRGB8": [
+        177,
+        201,
+        228
+      ],
+      "linearMedian": [
+        0.4396571738409188,
+        0.5840784178911641,
+        0.7758222183174236
+      ],
+      "linearRatiosToGreen": [
+        0.7527365510753105,
+        1.0,
+        1.3282843442812993
+      ]
+    },
+    {
+      "label": "hood soft reflection",
+      "boxNormalized": [
+        0.27,
+        0.275,
+        0.38,
+        0.31
+      ],
+      "medianSRGB8": [
+        119,
+        143,
+        188
+      ],
+      "linearMedian": [
+        0.184474994500441,
+        0.27467731206038465,
+        0.5028864580325687
+      ],
+      "linearRatiosToGreen": [
+        0.6716062317512641,
+        1.0,
+        1.8308263404078124
+      ]
+    }
+  ],
+  "note": "Observed panel colors include illumination. Ratios and a matched render guide the pigment; these are not claimed spectrophotometer measurements.",
+  "sourceSHA256": "318d918ac04c3a381bf1d2836f6893a08bcced3372bef2989a9bbc323ec2af18",
+  "rawDecode": "macOS sips image pipeline, embedded Display P3 profile preserved",
+  "originalRasterSize": [
+    4032,
+    3024
+  ],
+  "exifOrientationApplied": 8,
+  "orientedRasterSize": [
+    3024,
+    4032
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "sourceSHA256": "696ebbdb83782ce6e5167c52d2aea7bd967ecc5db48ad3b43083f0dc95ec574d",
+  "occlusionSamples": 96,
+  "diffuseSamples": 192,
+  "type": "diffuse_radiance_RGB_ambient_visibility_A",
+  "diffuseEncoding": "sqrt(linear / 4)",
+  "environmentIntensityExponent": 0.65,
+  "environmentSHA256": "9d7b3a1496d36dd88ffdefe240d89f5c1ac8f4d81b1cdfd2d4b8a6b6c7f80dc8",
+  "meshes": [
+    {
+      "name": "E36 baked opaque surfaces",
+      "vertices": 2388026,
+      "minimum": 0.0,
+      "mean": 0.0844496637582779,
+      "maximum": 0.6425783038139343
+    }
+  ],
+  "outputSHA256": "d01d3eadcaebba37fa466cba2f49325e34cbdc528e0bf670d328800f8371c624",
+  "outputBytes": 713183287,
+  "seconds": 549.3218640840496,
+  "runtimeSHA256": "95f0c26d583d3aa118b6770c10986d945df826a25f5209addc1bbb011f3bc271",
+  "runtimeBytes": 161093104,
+  "packedVertices": 2567667,
+  "corners": 14055042,
+  "reindexPreservesPositionsNormalsUVs": true
+}

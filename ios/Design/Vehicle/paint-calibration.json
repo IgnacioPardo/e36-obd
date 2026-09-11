@@ -1,0 +1,35 @@
+{
+  "materialName": "Samoablau",
+  "reference": ".context/attachments/bn4A5W/IMG_2577.DNG",
+  "selectedSamples": [
+    "bumper broad face",
+    "bumper lower corner",
+    "fender lower face"
+  ],
+  "medianLinearRatios": [
+    0.7816742030581854,
+    1.0,
+    1.495124391078095
+  ],
+  "settings": {
+    "Base Color": [
+      0.11099773683426231,
+      0.142,
+      0.21230766353308947,
+      1
+    ],
+    "Metallic": 0.22,
+    "Roughness": 0.3,
+    "Coat Weight": 1.0,
+    "Coat Roughness": 0.055
+  },
+  "materials": [
+    "car_body",
+    "Body colour painted fog intake duct",
+    "Body paint with factory dark sill",
+    "Rear paint and factory charcoal apron"
+  ],
+  "method": "Median linear RGB ratios from three low-glare body panels, neutral scale 0.142, validated visually under daylight. Pixel colors are illumination-dependent; not a measured paint formula.",
+  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "sampleReportSHA256": "348e9477e03c5b8ecc7ecd6637c5783edb6afdb392869cf8c1ffdd95a11b7426"
+}

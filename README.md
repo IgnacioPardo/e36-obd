@@ -23,7 +23,9 @@ Hardware assumed:
 
 El proyecto **`ios/E36OBD.xcodeproj`** implementa el tablero por BLE, sin servidor ni internet. Requiere iOS 18 o posterior. Tiene instrumentos BMW de los 90 en vertical y horizontal, cinco sensores, lectura de fallas del DME, grabación automática, SQLite local, historial con gráficos y exportación de sensores/eventos a CSV.
 
-El tablero mantiene las esferas fijas dentro de cada orientación. Los avisos ocupan una franja reservada; conexión, fallas, sesiones y ajustes abren paneles superpuestos. Las escalas naranja rojizo, agujas anchas, centros negros e indicadores auxiliares en abanico siguen el cuadro E36 fotografiado. Los valores usan pequeños displays ámbar segmentados. En horizontal, admisión y estado de grabación se integran en la barra inferior. La crítica y las decisiones de diseño están en [`ios/DESIGN.md`](ios/DESIGN.md).
+**Auto** reúne la imagen del E36 del usuario, el estado real del lector, las últimas lecturas y los accesos al diagnóstico e historial. **Instrumentos** abre el cuadro clásico; En vivo también lo abre e inicia la captura. Cambiar entre ambas vistas no detiene ni crea otra sesión.
+
+El tablero mantiene las esferas fijas dentro de cada orientación. Los avisos ocupan una franja reservada; conexión, fallas, sesiones y ajustes abren paneles superpuestos. Las escalas naranja rojizo, agujas anchas, centros negros e indicadores auxiliares en abanico siguen el cuadro E36 fotografiado. Las agujas acompañan cada lectura con una transición breve, sin modificar los valores numéricos ni interpolar muestras guardadas. En horizontal, avisos, admisión y estado de grabación se integran en la barra inferior. La crítica y las decisiones de diseño están en [`ios/DESIGN.md`](ios/DESIGN.md).
 
 ### Abrir y probar
 
@@ -62,6 +64,12 @@ La app incluye **Instrumento E36**, un widget pequeño configurable para cualqui
 
 Muestra la última lectura con su antigüedad; WidgetKit controla cuándo se actualiza. La flecha vuelve a leer los datos compartidos por la app. El ESP32 continúa conectado exclusivamente a la app, que conserva la adquisición y las alertas. Los datos DEMO usan un origen separado. Consultar [`ios/WIDGETS.md`](ios/WIDGETS.md) para configuración, firma, actualización y pruebas.
 
+### Auto en 3D
+
+**Auto** renderiza el modelo 3D local del E36 en Samoablau con RealityKit y Metal. Arrastrar gira la cámara, pellizcar acerca o aleja, y arrastrar con dos dedos cambia la altura; un doble toque restablece la vista. La pintura, los vidrios y los reflejos se calculan en el iPhone. La sombra de contacto proviene del mismo modelo. El ángulo y la captura se conservan al cambiar a **Instrumentos** o girar el teléfono. El modelo no representa estados de puertas, luces ni funciones remotas.
+
+Escena editable, estudios con las cámaras de referencia, exportaciones GLB/USDZ y créditos: [`ios/Design/Vehicle/`](ios/Design/Vehicle/). El render funciona sin conexión y no anima continuamente.
+
 ### Uso y captura
 
 1. Energizar el ESP32 y liberar cualquier conexión BLE de otra computadora o teléfono.
@@ -89,17 +97,24 @@ D 930 0.70 63.1 13.48 341 23.7
 
 `firmware/mp/ble.py` agrega admisión al final usando la misma lectura de RAM. Mantiene CRLF y trozos de hasta 20 bytes con 12 ms entre notificaciones. La app acepta firmware anterior sin admisión; la PWA existente ignora el campo adicional. El resto de las líneas se guarda como texto. Para reconocer el fin de Fallas, la app encola `?` solo después de recibir el inicio de esa operación y espera la última línea de ayuda.
 
-### Actualizar o restaurar solamente BLE en el ESP32
+El panel cierra explícitamente la sesión KWP71 con `DISCONNECT` al terminar Fallas o una captura, incluso si se pierde BLE. Todo acceso K-line ocurre en el hilo de adquisición. Si falla una lectura, aplica la recuperación de `LiveReader` del cliente de escritorio: intenta despedirse, libera UART, deja TX alto y abre una sesión nueva antes de volver a consultar. Hay hasta cinco reintentos consecutivos, cancelables con Detener, Fallas o Desconectar. La línea `recuperando DME (N/5): motivo` mantiene el enlace BLE; el iPhone marca el hueco, suspende alertas y continúa en la misma grabación cuando regresan muestras. Solo una recuperación agotada o sin progreso activa el restablecimiento de BLE. Una lectura fallida de Fallas se muestra como error, sin afirmar que hay cero fallas.
 
-Usar el conector USB **COM** y realizar la actualización con la adquisición detenida. El puerto se descubre cada vez. El script comprueba que sea un ESP32 con el BLE de E36-OBD, respalda `ble.py`, copia la versión nueva, la vuelve a leer para comprobar sus bytes y reinicia el ESP32. Si falla la copia o verificación, intenta restaurar y verificar el respaldo antes del reinicio. No reflashea MicroPython ni cambia K-line.
+El transporte conserva una lectura contigua de once bytes para los cinco sensores. En DME reconoce los bytes después de 2 ms, como el cliente de escritorio, y deja 50 ms al cambiar de turno. Entre consultas realiza intercambios NOP completos; comienza consultas RAM separadas por al menos 750 ms (hasta aproximadamente 1,3 Hz). El límite regula las consultas, sin demorar cada acuse ni dejar la sesión en silencio. Los `consulta_ms` excluyen esa espera. Detener, Fallas y Desconectar cancelan la espera entre intercambios.
+
+UART usa buffers reutilizables y lecturas no bloqueantes con un único plazo de hasta 2 s; no vacía RX antes de transmitir. La despedida tiene un presupuesto total de 300 ms. La identificación debe terminar correctamente antes de consultar. La temporización y los NOP se basan en el cliente de escritorio y referencias BMW, con sus límites documentados en [notas de protocolo](docs/PROTOCOL_NOTES.md#ciclo-de-consulta-del-esp--9-de-septiembre-de-2026). **El cambio de ritmo está probado localmente; todavía no se ha comprobado que elimine los cortes al acelerar en este vehículo.** Reconstruir KWP71 sigue requiriendo varios segundos de reposo e inicialización cuando se pierde un intercambio.
+
+### Actualizar o restaurar el firmware del ESP32
+
+Usar el conector USB **COM** y realizar la actualización con la adquisición detenida. El puerto se descubre cada vez. Sin opciones, el script reemplaza solamente `ble.py`. Para instalar también la corrección de recuperación del transporte, usar `--include-kline`: comprueba el ESP32 y la identidad de ambos módulos, respalda **los dos antes de escribir**, los reemplaza y verifica por lectura antes de reiniciar. Si falla cualquiera de las copias, restaura y verifica ambos respaldos. No reflashea MicroPython ni modifica `main.py`.
 
 ```sh
 uv tool install mpremote
 python3 ios/tools/update_ble.py --list
-python3 ios/tools/update_ble.py
+python3 ios/tools/update_ble.py --include-kline
 # Si hay varios puertos USB, agregar --port con uno de los enumerados.
 # Para restaurar, usar la ruta de respaldo que imprimió el script:
-python3 ios/tools/update_ble.py --restore .context/firmware-backups/FECHA/ble.py
+python3 ios/tools/update_ble.py --restore .context/firmware-backups/FECHA
+# Para un respaldo antiguo de solo BLE, indicar FECHA/ble.py.
 ```
 
 ## Setup
