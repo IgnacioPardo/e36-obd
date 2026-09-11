@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "e36obd")(type "KiCad")(uri "${KIPRJMOD}/e36obd.pretty")(options "")(descr "Ficha OBD2 macho acodada"))
+)

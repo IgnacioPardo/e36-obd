@@ -1,5 +1,10 @@
 # Front-end K-Line E36 — placa
 
+> **Superada por `onboard/`** (2026-09-11): la placa única con el ESP32-S3-WROOM-1, el buck
+> discreto y la ficha OBD2 montada está en [`onboard/README.md`](onboard/README.md). Este
+> documento describe el front-end anterior, que dejaba el MCU afuera. Ojo: en aquel netlist el
+> TVS D1 quedó con el ánodo a +12 V; en la placa nueva la banda va a +12 V.
+
 **DRC limpio: 0 violaciones, 0 desconectados** (KiCad 10.0.5). Placa en
 `kline-frontend.kicad_pcb`, generada por `gen_board.py` desde el netlist.
 Queda 1 aviso menor: la serigrafía de J1 toca el borde.

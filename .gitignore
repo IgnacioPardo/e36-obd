@@ -12,3 +12,13 @@ venv/
 *.blend1
 *.blend2
 *.blend@
+
+# hardware/onboard: intermedios del autoruteo y plots PDF
+hardware/onboard/*.dsn
+hardware/onboard/*.ses
+hardware/onboard/fab/*.pdf
+hardware/onboard/fab/pos-kicad.csv
+hardware/onboard/*-backups/
+hardware/onboard/case/_*.stl
+hardware/onboard/case/board.glb
+hardware/onboard/case/preview.svg
