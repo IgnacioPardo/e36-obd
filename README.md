@@ -145,7 +145,7 @@ One 90 × 50 mm two‑layer PCB for JLCPCB SMD assembly: **ESP32‑S3‑WROOM‑
 </tr>
 </table>
 
-`case.py` generates a three‑piece printed enclosure (96.8 × 56 × 27 mm) with a separate **silver =BMW= badge** that seats flush in the lid — the M50 valve‑cover look: black field, silver ribs and letters. See [`hardware/onboard/README.md`](hardware/onboard/README.md) for the full BOM, the schematic, the pinout and the pre‑fab checklist. ([schematic](hardware/onboard/fab/schematic.png))
+`case.py` generates a three‑piece printed enclosure (96.8 × 56 × 27 mm): black base and lid with R6 corners, 45° chamfers and a shadow line at the seam, plus a separate **=BMW= badge** copied from the M50 valve cover — black field, 13 fine silver ribs running the length of the lid, the "BMW" plaque set toward the plug and cutting only the middle ribs (one filament change at 1.6 mm, or two colours via AMS). The OBD2 plug's neck is clamped in the end wall, the USB‑C shell passes through a shell‑shaped opening flush with a bezel, LEDs come out through Ø3 mm light pipes, RESET/BOOT are clip holes, and four M3 × 12 screws from below thread into brass heat‑set inserts — nothing visible on the outside. `CASE_PIGTAIL=1` builds the variant without the OBD2 plug for a direct 20‑pin pigtail. See [`hardware/onboard/README.md`](hardware/onboard/README.md) for the full BOM, the schematic, the pinout, the print list and the pre‑fab checklist. ([schematic](hardware/onboard/fab/schematic.png))
 
 ### ELM backpack — rev E (`hardware/elm-backpack/`)
 

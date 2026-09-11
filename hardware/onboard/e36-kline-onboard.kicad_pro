@@ -373,15 +373,7 @@
     "netclass_patterns": [
       {
         "netclass": "Power",
-        "pattern": "VIN"
-      },
-      {
-        "netclass": "Power",
         "pattern": "SW"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "+3V3"
       },
       {
         "netclass": "Power",
@@ -389,7 +381,15 @@
       },
       {
         "netclass": "Power",
+        "pattern": "VIN"
+      },
+      {
+        "netclass": "Power",
         "pattern": "VBAT_F"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+3V3"
       },
       {
         "netclass": "KLine",
@@ -401,7 +401,7 @@
       },
       {
         "netclass": "USB",
-        "pattern": "CC2"
+        "pattern": "USB_DN"
       },
       {
         "netclass": "USB",
@@ -409,7 +409,7 @@
       },
       {
         "netclass": "USB",
-        "pattern": "USB_DN"
+        "pattern": "CC2"
       },
       {
         "netclass": "USB",

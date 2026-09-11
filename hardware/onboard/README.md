@@ -16,7 +16,7 @@ DevKitC-1 + módulo buck" y a la placa `../kline-frontend.kicad_pcb` (que dejaba
 | `case.py` → `case/` | Caja de dos piezas (STL listos para imprimir, STEP, ensamble con referencias). |
 | `render_case.py` → `case/render-*.png` | Renders en Blender de la caja con la placa real (GLB exportado por kicad-cli) adentro. |
 
-Estado: **DRC 0 errores, 0 desconexiones** (KiCad 10.0.5). Quedan ~50 avisos de serigrafía
+Estado: **DRC 0 errores, 0 desconexiones** (KiCad 10.0.5). Quedan solo avisos de serigrafía
 (referencias de 0603 que pisan pads); JLC los recorta solos.
 
 ![Esquema](fab/schematic.png)
@@ -149,8 +149,9 @@ caería en el pad 9 (sin conectar) y la placa simplemente no encendería. Nada s
 ## La caja
 
 `case.py` (build123d, `~/Desktop/E36_OBD/.cadenv/bin/python hardware/onboard/case.py`) genera
-en `case/` una caja de dos piezas para **esta** placa, con las mismas coordenadas de
-`gen_board.py`. La `../elm-backpack` no sirve: era para las placas sueltas.
+en `case/` una caja de **tres piezas** para **esta** placa, con las mismas coordenadas de
+`gen_board.py`: base y tapa en negro y el **emblema =BMW= aparte, en plata**, que encaja a ras
+en un cajeado de la tapa. La `../elm-backpack` no sirve: era para las placas sueltas.
 
 ![Caja cerrada](case/render-assembled.png)
 
@@ -158,21 +159,26 @@ en `case/` una caja de dos piezas para **esta** placa, con las mismas coordenada
 
 | | |
 |---|---|
-| Exterior | **96,8 × 56,0 × 26,4 mm**, prisma liso, más los 16 mm del conector |
-| Paredes / piso / tapa | 2,4 mm; la pared del conector 1,5 mm |
+| Exterior | **96,8 × 56,0 × 27,0 mm**, prisma liso, más los 16 mm del conector |
+| Forma | esquinas verticales R6, chaflán de 45° de 2 mm en el borde de la tapa y de 1,5 mm en el del piso, línea de sombra de 0,5 mm en la junta; tapa lisa |
+| Paredes / piso / tapa | 2,4 / 2,4 / 3,0 mm; la pared del conector 1,5 mm |
 | Interior sobre la placa | 17 mm — lo fija la brida del conector (15,6 mm), no la electrónica (máx. 5 mm) |
-| Sujeción | 4 × **M3 × 16** desde abajo, cabeza embutida; pasan por los separadores (3 mm) y la placa y roscan en los postes de la tapa (piloto 2,6 mm) |
+| Sujeción | 4 × **M3 × 12** desde abajo, cabeza embutida; pasan por los separadores (3 mm) y la placa y roscan en **insertos M3 termofijados** (latón, Ø4,6 × 4,6; agujero impreso Ø4,0 × 5,5) en los postes Ø7,5 de la tapa. Sin tornillos a la vista |
 | Variante | `CASE_PIGTAIL=1`: sin muesca para la ficha OBD2, pared izquierda cerrada con pasacable Ø7 para la cola al conector de 20 (`base-pigtail.stl`, `lid-pigtail.stl`) |
 | Conector OBD2 | la pared entra en el **cuello de 2 mm** del conector: la brida queda adentro, el cuerpo afuera. La muesca está abierta hacia arriba para bajar la placa; la lengüeta de la tapa la cierra |
 | USB-C | **la ficha atraviesa la pared**: sobresale 1,6 mm del borde de la placa y pasa por una abertura con la forma de su blindaje (estadio 9,4 × 3,6, 0,22 de juego por lado) en una pared local de 1,3 mm; la boca queda a ras del fondo de un bisel de 18 × 10 donde entra el sobremoldeado del cable. Una repisa de 1,2 mm bajo el borde de la placa toma el empuje del enchufe |
 | Antena | queda dentro, contra la pared trasera: esa pared no puede ser metálica ni con carga de carbono |
-| Botones / LEDs | agujeros Ø6 sobre RESET y BOOT (quedan 12 mm abajo: se pulsan con un lápiz) y Ø2,2 sobre los dos LEDs |
-| Tapa | campo rebajado 0,5 mm de 68 × 22 mm con **nueve nervios y el "BMW"** a ras, como la tapa de válvulas M50 (=BMW=); "E36 K-LINE" grabado chico al frente. Opcional: pintar de plata solo el lomo de los nervios y las letras |
-| Otros | 8 respiraderos por lado (2 × 8 mm), dos ranuras 3 × 12 en el piso para un precinto |
+| Botones | agujeros Ø2 sobre RESET y BOOT: se pulsan con un clip, no hay botones a la vista (BOOT se movió en la placa a (77,5, 39) para dejar libre la banda del emblema) |
+| LEDs | dos **guías de luz**: varilla acrílica Ø3 × 16 mm pegada desde adentro en un agujero Ø3,1 con tope a 0,5 mm de la cara (se ve un punto de Ø2,4) |
+| Emblema | pieza aparte `badge.stl`, **85 × 22 × 1,6 mm**, copiada de la tapa M50: campo negro, **13 nervios finos** (0,8 mm de ancho, paso 1,6) que corren a lo largo, y la placa "BMW" **corrida hacia la ficha**, de 12 mm de alto: interrumpe solo los siete nervios del medio; los tres de arriba y los tres de abajo siguen enteros a lo largo, como en el motor. Nervios y letras en relieve de 0,8 mm en plata: se imprime relieve arriba con un **cambio de filamento en la capa de 1,6 mm** (negro → plata) o en dos colores con el AMS. Entra a ras en el cajeado de la tapa con 0,15 de juego por lado; se pega con cianoacrilato |
+| Piso | grabado "E36 K-LINE rev B" y el pinout OBD2 |
+| Otros | 7 respiraderos por lado (2 × 8 mm), dos ranuras 3 × 12 en el piso para un precinto |
 
-Archivos: `base.stl` (piso abajo), `lid.stl` (**ya dada vuelta**, cara exterior abajo), `base.step`,
-`lid.step` (en coordenadas de montaje) y `assembly.step` con la placa, el módulo, el conector y
-los volúmenes de los componentes más altos como referencia. Renders: `render_case.py` (Blender 4.5,
+Archivos: `base.stl` (piso abajo), `lid.stl` (**ya dada vuelta**, cara exterior abajo), `badge.stl`
+(relieve arriba), `base.step`, `lid.step` (en coordenadas de montaje) y `assembly.step` con la placa,
+el módulo, el conector (cuerpo en D real) y los volúmenes de los componentes más altos como referencia.
+Los renders (`render_case.py`, Blender EEVEE con tres soles y piso) muestran la ficha OBD2 con su
+forma en D. Renders: `render_case.py` (Blender 4.5,
 Workbench) mete el GLB de la placa (`kicad-cli pcb export glb --drill-origin`) en la caja y saca
 `render-assembled/open/board/rear/connector-end.png`. El conector se dibuja como bloque: no hay
 modelo 3D libre del CCBDM20 en KiCad.
@@ -180,12 +186,15 @@ modelo 3D libre del CCBDM20 en KiCad.
 Verificado por el script: cada pieza es un sólido válido y ninguna interfiere con la placa, el
 módulo, la brida/cuello/cuerpo del conector, el USB-C, los botones, el inductor, el TVS ni los
 pads de la ficha (la muesca del conector pasa la prueba con 0,15 mm hacia el cuerpo y 0,35 hacia la
-brida). El campo rebajado se imprime cara abajo: los puentes entre nervios son de 1,25 mm. **No verificado**: el juego real del cuello contra un conector medido, la tolerancia de tu
+brida), y el emblema no toca la tapa. Los chaflanes de 45° se imprimen sin soporte en las dos
+piezas (cara exterior contra la cama en la tapa). **No verificado**: el juego real del cuello contra un conector medido, la tolerancia de tu
 impresora en los pilotos de 2,6 mm y en el labio de 0,3 mm, y la temperatura en vano motor (ASA).
 
 Imprimir: 0,4 mm, 0,2 mm de capa, 4 paredes; base piso abajo, tapa cara exterior abajo (los
-grabados quedan contra la cama, como en la elm-backpack). Sin soportes salvo, si hace falta, el
-techo de la ventana USB.
+grabados quedan contra la cama, como en la elm-backpack), emblema como viene (relieve arriba, en
+plata; con 0,12 mm de capa queda más fino). Sin soportes salvo, si hace falta, el techo de la
+abertura USB. Después: cuatro insertos M3 con el soldador en los postes de la tapa, dos varillas
+acrílicas Ø3 cortadas a 16 mm en los agujeros de los LEDs, y el emblema pegado en su cajeado.
 
 ## Lo que no se verificó
 
