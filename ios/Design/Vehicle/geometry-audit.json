@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "sourceSHA256": "ba57bc12456f4852581ff9deebc00073902d87d6262c228c0bfd8f1b91c3c738",
   "objects": [
     {
       "name": "e36_headlights_box_black",
@@ -248,8 +248,8 @@
     },
     {
       "name": "e36_limo_body_color",
-      "vertices": 9547,
-      "faces": 17744,
+      "vertices": 215709,
+      "faces": 212928,
       "nonFiniteVertices": 0,
       "zeroAreaFaces": 0
     },
@@ -2699,7 +2699,7 @@
   ],
   "allAngleBoundsPixels": [
     72.13883846998215,
-    167.5384223461151,
+    167.5750970840454,
     1127.8119564056396,
     586.8264943361282
   ],
