@@ -16,11 +16,14 @@ The body badges and 18-spoke wheel caps use the owner's supplied BMW SVG letter 
 
 ## Lighting and surfaces
 
+- **AgX display transform**, based on Troy Sobotka's AgX and the Blender configuration developed by Zijun Eary Zhou, Mark Faderbauer and Sakari Kapanen. The app LUT is compiled from Blender 4.5.1's [OCIO configuration](https://github.com/blender/blender/blob/v4.5.1/release/datafiles/colormanagement/config.ocio). The configuration's referenced [OCIO license text](https://github.com/blender/blender/blob/1f46da922a98c6badf6e2de13304358b3b0b7576/release/text/ocio-license.txt) is bundled as `VehicleScene/AgX-LICENSE.txt`. OCIO is an authoring dependency only.
+
 - **Pine Picnic**, Greg Zaal / Jenelle van Heerden, [Poly Haven](https://polyhaven.com/a/pine_picnic), CC0.
+- **Park Parking**, Andreas Mischok, [Poly Haven](https://polyhaven.com/a/park_parking), CC0. The app environment is normalized to the previous probe's spherical mean luminance; the original HDR dynamic range is retained.
 - **Studio Small 09**, Sergej Majboroda, [Poly Haven](https://polyhaven.com/a/studio_small_09), CC0.
 - **Asphalt 02**, Rob Tuytel, [Poly Haven](https://polyhaven.com/a/asphalt_02), CC0.
 
-The native Blender studio combines Pine Picnic with softened Studio Small 09 lighting. Its HD previews render reflections and shadows together in Cycles. The live app daylight environment uses Pine Picnic, rotated 270 degrees, with its radiance range preserved. Fixed-environment diffuse illumination and ambient visibility are baked from the actual geometry; Metal evaluates the view-dependent specular, clearcoat and glass reflections. A separate transparent contact-shadow texture contains no car pixels. The app does not use an offline car-image sequence.
+The original reference-model studio combines Pine Picnic with softened Studio Small 09 lighting. Its HD previews render reflections and shadows together in Cycles. The app scene uses Park Parking daylight, with its radiance range preserved, to provide blue sky and pavement rather than overcast lawn reflections. Ambient visibility is baked from the actual geometry; Metal evaluates diffuse, specular, clearcoat and glass together from the live environment. The runtime prefilter input includes the verified 90° equirectangular convention correction so it agrees with the native scene. A separate transparent ground-shadow texture contains no car pixels. The app does not use an offline car-image sequence.
 
 The separate photo studies use Pine Picnic, reconstructed sun/camera settings and a background crop of the owner's trees. The tree crop contains no car pixels. The depicted car is rendered geometry. These studies approximate the photographs' perspective and daylight; the original camera calibration and measured lighting environment are unavailable.
 

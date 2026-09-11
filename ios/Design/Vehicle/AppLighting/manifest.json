@@ -1,0 +1,13 @@
+{
+  "modelSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "environmentSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
+  "renderer": "Blender Cycles offline app-stance lighting comparison, not app screenshots",
+  "appFrontDropMillimetres": 20,
+  "appRearDropMillimetres": 10,
+  "runtimeStanceSHA256": "d3ae9443f65eb239130d1545e11e0ae3df0324bab5a97c9f1bb72ce1b50e3137",
+  "views": {
+    "front": "3a8bfe46d2cd43459fd422dc7d9ece74db8f7a317a8b501c1157a588f454d392",
+    "rear": "e004e3731fd8a34fbe590556bdb24c8bef1515150965c65ae56d105b5599b20c"
+  },
+  "sceneSHA256": "f83396d8b7493aa0bea5d045c355e6f233d86f8827cb78f27050da33855554cc"
+}

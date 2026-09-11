@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
   "samples": 256,
   "dimensions": [
     2400,
@@ -8,11 +8,11 @@
   "views": {
     "front": {
       "azimuthRadians": 0.58,
-      "sha256": "5e28a5387a629f648171946eb619f7b00db036684275e0e720132c86fdd37137"
+      "sha256": "8733f2094496600622ef2e0a852b439bc5ab8fb3ec0546a1fc3103f31f2952a5"
     },
     "rear": {
       "azimuthRadians": 3.641592653589793,
-      "sha256": "200707a5be6be91f281f93436017bdd144ff9e12962d2e253c9df553dcaf99d8"
+      "sha256": "27c9ec96cf93a75c8bd211c763a9e52b64d411658b9a280ff9aeebc93622eccb"
     }
   }
 }

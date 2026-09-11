@@ -2,6 +2,34 @@
 #include <RealityKit/RealityKit.h>
 using namespace metal;
 
+struct E36DisplayVertex { float4 position [[position]]; float2 uv; };
+
+vertex E36DisplayVertex e36DisplayVertex(uint id [[vertex_id]]) {
+    float2 uv = float2((id << 1) & 2, id & 2);
+    return {float4(uv * float2(2, -2) + float2(-1, 1), 0, 1), uv};
+}
+
+fragment half4 e36PhotographicDisplay(E36DisplayVertex in [[stage_in]],
+    texture2d<half> hdr [[texture(0)]], texture3d<half> display [[texture(1)]]) {
+    constexpr sampler linearSampler(coord::normalized, address::clamp_to_edge, filter::linear);
+    // Resolve radiance before the nonlinear display transform. Four taps
+    // suppress subpixel specular breakup without temporal trails.
+    float2 pixel = 0.375f / float2(hdr.get_width(), hdr.get_height());
+    half4 scene = (hdr.sample(linearSampler, in.uv + pixel) +
+                  hdr.sample(linearSampler, in.uv - pixel) +
+                  hdr.sample(linearSampler, in.uv + pixel * float2(1,-1)) +
+                  hdr.sample(linearSampler, in.uv + pixel * float2(-1,1))) * 0.25h;
+    float alpha = saturate(float(scene.a));
+    float3 radiance = max(float3(scene.rgb) / max(alpha, 0.0001f), 0.0f);
+    float3 logColor = saturate((log2(max(radiance, 0.00000274658f) / 0.18f) + 16.0f) / 32.0f);
+    float3 uvw = (logColor * 63.0f + 0.5f) / 64.0f;
+    half3 color = display.sample(linearSampler, uvw).rgb;
+    // Composite after AgX so the dashboard black never receives a film curve.
+    // This is display-linear #0c0d0e, not a light source in the 3D scene.
+    half3 background = half3(0.003677h, 0.004025h, 0.004391h);
+    return half4(mix(background, color, half(alpha)), 1);
+}
+
 // Carry the authored smooth normal into world space. A derivative cross
 // product gives a separate flat normal per triangle, making curved glazing
 // break into facets as reflected trees and sky cross the mesh.
@@ -25,32 +53,12 @@ static float pigmentNoise(float3 p) {
                mix(mix(b.x, b.y, f.x), mix(b.z, b.w, f.x), f.y), f.z);
 }
 
-static half3 bakedDiffuse(realitykit::surface_parameters params) {
-    // The square-root encoding preserves dark cabin detail even when the
-    // asset loader stores vertex colors at normalized fixed precision.
-    half3 encoded = half3(params.geometry().color().rgb);
-    return 4.0h * encoded * encoded;
-}
-
-[[visible]]
-void e36MetallicPaint(realitykit::surface_parameters params) {
-    auto surface = params.surface();
-    auto constants = params.material_constants();
-    float3 p = params.geometry().world_position() * 1800.0f;
-    float footprint = max(length(dfdx(p)), length(dfdy(p)));
-    float resolved = 1.0f - smoothstep(0.35f, 1.5f, footprint);
-    half pigment = half((pigmentNoise(p) - 0.5f) * resolved);
-    half3 albedo = half3(constants.base_color_tint()) * (1.0h + pigment * 0.025h);
-    surface.set_base_color(mix(half3(0.04h), albedo, half(constants.metallic_scale())));
-    surface.set_metallic(1.0h);
-    surface.set_ambient_occlusion(half(params.geometry().color().a));
-    surface.set_emissive_color(bakedDiffuse(params));
-    surface.set_roughness(half(clamp(constants.roughness_scale() + float(pigment) * 0.025f, 0.18f, 0.40f)));
-    surface.set_specular(0.5h);
-    surface.set_clearcoat(1.0h);
-    surface.set_clearcoat_roughness(half(constants.clearcoat_roughness_scale()));
-    surface.set_clearcoat_normal(half3(0, 0, 1));
-    surface.set_opacity(1.0h);
+// Integrate unresolved normal variance into the microfacet lobe. MSAA only
+// filters coverage; it cannot prevent a tiny curved chrome edge sparkling.
+static half filteredRoughness(float roughness, float3 normal) {
+    float3 dx = dfdx(normal), dy = dfdy(normal);
+    float variance = min(0.5f * (dot(dx, dx) + dot(dy, dy)), 0.12f);
+    return half(sqrt(saturate(roughness * roughness + variance)));
 }
 
 // A dielectric interface: reflect F of the environment and transmit 1-F of
@@ -60,7 +68,9 @@ void e36MetallicPaint(realitykit::surface_parameters params) {
 void e36OpticalGlass(realitykit::surface_parameters params) {
     float3 n = normalize(params.geometry().custom_attribute().xyz);
     float4 controls = params.uniforms().custom_parameter();
-    if (controls.z > 0.5f) {
+    if (controls.y < -0.5f) { params.surface().set_opacity(0); return; }
+    float3 geometricNormal = n;
+    if (controls.z > 0.5f && controls.z < 1.5f) {
         // The inner headlamp glass has a real fluting normal map. Preserve
         // its refraction-scale detail instead of replacing it with flat glass.
         float2 uv = params.geometry().uv0();
@@ -91,23 +101,76 @@ void e36OpticalGlass(realitykit::surface_parameters params) {
     }
     float3 v = normalize(params.geometry().view_direction());
     if (dot(n, v) < 0.0f) { n = -n; }
+    if (dot(geometricNormal, v) < 0.0f) { geometricNormal = -geometricNormal; }
     float ndv = abs(dot(n, v));
     float fresnel = 0.0426f + 0.9574f * pow(1.0f - saturate(ndv), 5.0f);
     // Sample the renderer's own prefiltered environment so glass and paint
     // agree on sky/tree directions, exposure and filtering.
     half3 reflection = params.lighting().environment_radiance(
         half3(1), half(controls.w), 1.0h, 0.0h, n).specular;
+    if (controls.y > 0.5f) {
+        // Refract the current frame's actual reflector image through the
+        // moulded lens normal. This is a screen-space optical approximation:
+        // off-screen geometry and internal multiple bounces are not traced.
+        auto background = params.textures().custom();
+        constexpr sampler opticsSampler(coord::normalized, address::clamp_to_edge, filter::linear);
+        float2 dimensions = float2(background.get_width(), background.get_height());
+        float4x4 worldToView = params.uniforms().world_to_view();
+        float4x4 projection = params.uniforms().view_to_projection();
+        // Air -> smooth front glass -> moulded rear glass -> air. Project
+        // the exiting ray onto the reflector region, roughly 40 mm behind
+        // the authored lens. A flat parallel plate produces no angular bend.
+        float3 inside = refract(-v, geometricNormal, 1.0f / 1.52f);
+        float3 outgoing = refract(inside, n, 1.52f);
+        if (dot(outgoing, outgoing) < 0.001f) {
+            params.surface().set_emissive_color(reflection);
+            params.surface().set_opacity(1);
+            return;
+        }
+        float path = 0.040f / max(dot(outgoing, -geometricNormal), 0.15f);
+        float3 hit = params.geometry().world_position() + outgoing * path;
+        float4 projected = projection * worldToView * float4(hit, 1);
+        float2 uv = projected.xy / projected.w * float2(0.5f, -0.5f) + 0.5f;
+        float2 spread = float2(0.65f) / dimensions;
+        half3 transmitted = background.sample(opticsSampler, uv).rgb * 0.4h;
+        transmitted += (background.sample(opticsSampler, uv + float2(spread.x, 0)).rgb +
+                        background.sample(opticsSampler, uv - float2(spread.x, 0)).rgb +
+                        background.sample(opticsSampler, uv + float2(0, spread.y)).rgb +
+                        background.sample(opticsSampler, uv - float2(0, spread.y)).rgb) * 0.15h;
+        params.surface().set_emissive_color(transmitted * half(0.988f * (1-fresnel)) + reflection * half(fresnel));
+        params.surface().set_opacity(1);
+        return;
+    }
     float opacity = fresnel + controls.x * (1.0f - fresnel);
     params.surface().set_emissive_color(reflection * half(fresnel / opacity));
     params.surface().set_opacity(half(opacity));
 }
 
-// Diffuse radiance is ray traced into the mesh. The native renderer still
-// evaluates the view-dependent microfacet BRDF, using the material's actual F0.
-// Metallic=1 suppresses the duplicate runtime diffuse term; the specular base
-// colour is the equivalent dielectric/conductor F0, not the diffuse albedo.
+// Evaluate diffuse and specular together from the same live environment.
+// The vertex alpha retains only geometry-dependent ambient visibility.
 [[visible]]
-void e36BakedSurface(realitykit::surface_parameters params) {
+void e36MetallicPaint(realitykit::surface_parameters params) {
+    auto surface = params.surface();
+    auto constants = params.material_constants();
+    float3 p = params.geometry().world_position() * 1800.0f;
+    float footprint = max(length(dfdx(p)), length(dfdy(p)));
+    float resolved = 1.0f - smoothstep(0.35f, 1.5f, footprint);
+    half pigment = half((pigmentNoise(p) - 0.5f) * resolved);
+    half3 albedo = half3(constants.base_color_tint()) * (1.0h + pigment * 0.025h);
+    surface.set_base_color(albedo);
+    surface.set_metallic(half(constants.metallic_scale()));
+    surface.set_ambient_occlusion(half(params.geometry().color().a));
+    surface.set_emissive_color(half3(0));
+    surface.set_roughness(filteredRoughness(clamp(constants.roughness_scale() + float(pigment) * 0.025f, 0.18f, 0.40f), params.geometry().normal()));
+    surface.set_specular(0.5h);
+    surface.set_clearcoat(1.0h);
+    surface.set_clearcoat_roughness(filteredRoughness(constants.clearcoat_roughness_scale(), params.geometry().normal()));
+    surface.set_clearcoat_normal(half3(0, 0, 1));
+    surface.set_opacity(1.0h);
+}
+
+[[visible]]
+void e36VehicleSurface(realitykit::surface_parameters params) {
     constexpr sampler materialSampler(coord::normalized, address::repeat,
                                        filter::linear, mip_filter::linear);
     float2 uv = params.geometry().uv0();
@@ -117,12 +180,18 @@ void e36BakedSurface(realitykit::surface_parameters params) {
     auto surface = params.surface();
     half3 albedo = textures.base_color().sample(materialSampler, uv).rgb * half3(constants.base_color_tint());
     half metal = textures.metallic().sample(materialSampler, uv).r * constants.metallic_scale();
-    surface.set_base_color(mix(half3(0.04h), albedo, metal));
-    surface.set_metallic(1.0h);
-    surface.set_roughness(textures.roughness().sample(materialSampler, uv).r * constants.roughness_scale());
+    surface.set_base_color(albedo);
+    surface.set_metallic(metal);
+    float roughness = textures.roughness().sample(materialSampler, uv).r * constants.roughness_scale();
+    surface.set_roughness(filteredRoughness(roughness, params.geometry().normal()));
     surface.set_normal(float3(realitykit::unpack_normal(textures.normal().sample(materialSampler, uv).rgb)));
-    surface.set_specular(constants.specular_scale());
+    surface.set_specular(half(constants.specular_scale()));
+    // Imported clearcoat parameters must be applied explicitly in a custom
+    // shader. Preserve the lacquer on lamp covers, badges and painted wheels.
+    surface.set_clearcoat(textures.clearcoat().sample(materialSampler, uv).r * half(constants.clearcoat_scale()));
+    surface.set_clearcoat_roughness(textures.clearcoat_roughness().sample(materialSampler, uv).r * half(constants.clearcoat_roughness_scale()));
+    surface.set_clearcoat_normal(half3(realitykit::unpack_normal(textures.clearcoat_normal().sample(materialSampler, uv).rgb)));
     surface.set_ambient_occlusion(half(params.geometry().color().a));
-    surface.set_emissive_color(bakedDiffuse(params));
+    surface.set_emissive_color(half3(0));
     surface.set_opacity(1.0h);
 }

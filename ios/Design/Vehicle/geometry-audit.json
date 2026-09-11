@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "ba57bc12456f4852581ff9deebc00073902d87d6262c228c0bfd8f1b91c3c738",
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
   "objects": [
     {
       "name": "e36_headlights_box_black",
@@ -248,8 +248,8 @@
     },
     {
       "name": "e36_limo_body_color",
-      "vertices": 215709,
-      "faces": 212928,
+      "vertices": 9547,
+      "faces": 17744,
       "nonFiniteVertices": 0,
       "zeroAreaFaces": 0
     },
@@ -920,8 +920,8 @@
     },
     {
       "name": "Grey cloth seats",
-      "vertices": 7538,
-      "faces": 5399,
+      "vertices": 7000,
+      "faces": 4975,
       "nonFiniteVertices": 0,
       "zeroAreaFaces": 0
     },
@@ -1172,8 +1172,8 @@
     },
     {
       "name": "Bonnet Roundel rolled ring.004",
-      "vertices": 960,
-      "faces": 866,
+      "vertices": 2048,
+      "faces": 2048,
       "nonFiniteVertices": 0,
       "zeroAreaFaces": 0
     },
@@ -1186,8 +1186,8 @@
     },
     {
       "name": "Boot Roundel rolled ring.004",
-      "vertices": 960,
-      "faces": 866,
+      "vertices": 2048,
+      "faces": 2048,
       "nonFiniteVertices": 0,
       "zeroAreaFaces": 0
     },
@@ -2695,11 +2695,25 @@
       "faces": 139142,
       "nonFiniteVertices": 0,
       "zeroAreaFaces": 0
+    },
+    {
+      "name": "Right kidney painted mounting return",
+      "vertices": 768,
+      "faces": 512,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
+    },
+    {
+      "name": "Left kidney painted mounting return",
+      "vertices": 768,
+      "faces": 512,
+      "nonFiniteVertices": 0,
+      "zeroAreaFaces": 0
     }
   ],
   "allAngleBoundsPixels": [
     72.13883846998215,
-    167.5750970840454,
+    167.5384223461151,
     1127.8119564056396,
     586.8264943361282
   ],

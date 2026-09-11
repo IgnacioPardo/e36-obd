@@ -1,0 +1,181 @@
+{
+  "method": "RGB direction-gradient environment, six world axes; native Cycles diffuse and live RealityKit fixed reflection directions at three camera angles",
+  "unadjusted": [
+    {
+      "positiveDirection": [
+        1,
+        0,
+        0
+      ],
+      "negativeDirection": [
+        -1,
+        0,
+        0
+      ],
+      "expectedColorChannel": 0,
+      "differenceRGB": [
+        0.27888997395833337,
+        1.5168838500976562,
+        0.11336263020833337
+      ],
+      "passed": false
+    },
+    {
+      "positiveDirection": [
+        0,
+        0,
+        1
+      ],
+      "negativeDirection": [
+        0,
+        0,
+        -1
+      ],
+      "expectedColorChannel": 1,
+      "differenceRGB": [
+        -1.290283203125,
+        -0.05159505208333337,
+        -0.0264892578125
+      ],
+      "passed": false
+    },
+    {
+      "positiveDirection": [
+        0,
+        1,
+        0
+      ],
+      "negativeDirection": [
+        0,
+        -1,
+        0
+      ],
+      "expectedColorChannel": 2,
+      "differenceRGB": [
+        -0.0006510416666666297,
+        -0.0006510416666666297,
+        1.2333272298177083
+      ],
+      "passed": true
+    }
+  ],
+  "blender": [
+    {
+      "positiveDirection": [
+        1,
+        0,
+        0
+      ],
+      "negativeDirection": [
+        -1,
+        0,
+        0
+      ],
+      "expectedColorChannel": 0,
+      "differenceRGB": [
+        1.0416629984974861,
+        0.006458982825279236,
+        -0.001772657036781311
+      ],
+      "passed": true
+    },
+    {
+      "positiveDirection": [
+        0,
+        0,
+        1
+      ],
+      "negativeDirection": [
+        0,
+        0,
+        -1
+      ],
+      "expectedColorChannel": 1,
+      "differenceRGB": [
+        -0.009187847375869751,
+        1.0355181470513344,
+        -0.008926615118980408
+      ],
+      "passed": true
+    },
+    {
+      "positiveDirection": [
+        0,
+        1,
+        0
+      ],
+      "negativeDirection": [
+        0,
+        -1,
+        0
+      ],
+      "expectedColorChannel": 2,
+      "differenceRGB": [
+        -0.0006485730409622192,
+        -0.00354728102684021,
+        1.0414209812879562
+      ],
+      "passed": true
+    }
+  ],
+  "alignedRealityKit": [
+    {
+      "positiveDirection": [
+        1,
+        0,
+        0
+      ],
+      "negativeDirection": [
+        -1,
+        0,
+        0
+      ],
+      "expectedColorChannel": 0,
+      "differenceRGB": [
+        1.290313720703125,
+        0.05192057291666663,
+        0.02652994791666663
+      ],
+      "passed": true
+    },
+    {
+      "positiveDirection": [
+        0,
+        0,
+        1
+      ],
+      "negativeDirection": [
+        0,
+        0,
+        -1
+      ],
+      "expectedColorChannel": 1,
+      "differenceRGB": [
+        0.27913411458333326,
+        1.5169016520182292,
+        0.11376953125
+      ],
+      "passed": true
+    },
+    {
+      "positiveDirection": [
+        0,
+        1,
+        0
+      ],
+      "negativeDirection": [
+        0,
+        -1,
+        0
+      ],
+      "expectedColorChannel": 2,
+      "differenceRGB": [
+        -0.0006103515625,
+        -0.0003662109375,
+        1.2333984375
+      ],
+      "passed": true
+    }
+  ],
+  "correction": "Rightward 90 degree longitude shift before realitytool prefiltering, no mirror"
+}

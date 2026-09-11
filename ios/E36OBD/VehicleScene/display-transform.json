@@ -1,0 +1,19 @@
+{
+  "size": 64,
+  "encoding": "RGBA16Float little endian, red fastest",
+  "input": "Linear Rec.709",
+  "display": "sRGB",
+  "view": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "log2Range": [
+    -16.0,
+    16.0
+  ],
+  "middleGrey": 0.18,
+  "ocioVersion": "2.5.2",
+  "configSHA256": "aa4142b29b5a472aa5cb895020aa8cb673c95a31660eeee451f8a820694d3b16",
+  "lutSHA256": "fd1f8d8d7635a845c95e38b7c9b6a15a0453db5051ca0a787be2f876981cd28b",
+  "validationSamples": 20000,
+  "displayError99th": 0.010796311311423779,
+  "displayErrorMaximum": 0.0751197412610054
+}

@@ -26,6 +26,12 @@ import XCTest
         waitForExpectations(timeout: timeout)
     }
     private func closePanel(_ app: XCUIApplication) { app.buttons["closePanelButton"].tap() }
+    private func orbitToRear(_ car: XCUIElement) {
+        // swipeLeft's distance varies with the viewport and can stop at the
+        // side. Use a measured drag to test the intended rear camera state.
+        car.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5))
+            .press(forDuration: 0.05, thenDragTo: car.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.5)))
+    }
     private func frames(_ app: XCUIApplication) -> [String: CGRect] {
         let sensors = ["rpm", "load", "coolant"] + (app.otherElements["gauge-battery"].exists ? ["battery"] : [])
         return Dictionary(uniqueKeysWithValues: sensors.map { ($0, app.otherElements["gauge-\($0)"].frame) })
@@ -72,7 +78,7 @@ import XCTest
         car.pinch(withScale: 1.2, velocity: 1)
         capture("Vehicle · native 3D zoom")
         car.doubleTap()
-        car.swipeLeft()
+        orbitToRear(car)
         expectation(for: NSPredicate(format: "value == %@", "Vista trasera"), evaluatedWith: car)
         waitForExpectations(timeout: 5)
         capture("Vehicle · orbit")
@@ -91,7 +97,7 @@ import XCTest
         XCTAssertEqual(live.label, "Detener")
         capture("Vehicle · live overview")
         let liveCar = element("vehicle3D", in: app)
-        liveCar.swipeLeft()
+        orbitToRear(liveCar)
         expectation(for: NSPredicate(format: "value == %@", "Vista trasera"), evaluatedWith: liveCar)
         waitForExpectations(timeout: 5)
         XCUIDevice.shared.orientation = .landscapeLeft

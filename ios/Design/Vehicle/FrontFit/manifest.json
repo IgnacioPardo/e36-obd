@@ -1,0 +1,23 @@
+{
+  "sourceSHA256": "670cb2600c34f8ee677806311afcfc44d68201eba347841d00281beaf3f8aa9f",
+  "renderer": "Cycles / Metal compute",
+  "samples": 48,
+  "dimensions": [
+    1400,
+    850
+  ],
+  "views": {
+    "grille": {
+      "sha256": "8c50b3fe305de809124a0a769df1c4d2a4dc78ead2efb10fc03dcd5118dade55"
+    },
+    "grille-side": {
+      "sha256": "67753925d66408e9c0cabfc9cc8d9d46fc790ff33b2a7a887a101666cbfce278"
+    },
+    "duct": {
+      "sha256": "83555d751c629444e4e944104ff31014d5b3b12703a219e0a83108ac6a94a67c"
+    },
+    "lip": {
+      "sha256": "6ba7efbe96a6d8d99c620bd05ac440a46819f48330d1679447d1fe0d2ea13b08"
+    }
+  }
+}

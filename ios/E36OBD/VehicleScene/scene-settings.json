@@ -1,13 +1,13 @@
 {
-  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
-  "environmentSHA256": "9d7b3a1496d36dd88ffdefe240d89f5c1ac8f4d81b1cdfd2d4b8a6b6c7f80dc8",
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "environmentSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
   "dimensions": [
     4096,
     2048
   ],
-  "sourceEnvironment": "pine_picnic_4k.hdr",
-  "bakedRotationDegrees": 270.0,
-  "linearRGBMaximum": 374.0,
+  "sourceEnvironment": "park_parking_4k.hdr",
+  "bakedRotationDegrees": 0,
+  "linearRGBMaximum": 80386.859375,
   "nativePaint": {
     "Base Color": [
       0.11099773683426231,
@@ -20,26 +20,73 @@
     "Coat Weight": 1.0,
     "Coat Roughness": 0.055
   },
-  "modelSHA256": "95f0c26d583d3aa118b6770c10986d945df826a25f5209addc1bbb011f3bc271",
-  "modelBytes": 161093104,
-  "compiledEnvironmentSHA256": "d7e05da4ec536ab289dc403f1b396c40dc3d30390c34c4d28b42088c302ce8c2",
-  "compiledEnvironmentBytes": 88642313,
-  "contactShadowSHA256": "1cc8ae822931ed636f67673497ecfbd07bb6fe6ba6e9c7c142946a8206e5d3bc",
-  "contactShadowBytes": 246533,
+  "modelSHA256": "338b0354dd8470e7a731eb5233b58b282cb23f88a993e60576c5b0d929ea7976",
+  "modelBytes": 161409131,
+  "compiledEnvironmentSHA256": "3be76a66a693e8f8e40ee9717b6b452563f22063833d51c529510fcfa831c899",
+  "compiledEnvironmentBytes": 87933705,
+  "contactShadowSHA256": "b185008d911ac9165718e7219aecb8a62466acce335183cb3212c87f9a938684",
+  "contactShadowBytes": 245794,
   "runtime": {
     "renderer": "RealityRenderer / Metal",
     "environmentIntensityExponent": 0.65,
     "antialiasing": "4x MSAA",
-    "diffuseEncoding": "sqrt(linear / 4)",
     "contactShadowPlaneMetres": [
       8,
       8
     ],
     "continuousRendering": false,
-    "glass": "Smooth dielectric Fresnel; double-sided inward fluted lens; source-matched subpixel-filtered ribs",
-    "shadowFloorHazeRemovedAlpha": 0.047058823529411764
+    "glass": "Dielectric Fresnel for glazing and taillight covers; current-frame fluted headlamp refraction",
+    "shadowFloorHazeRemovedAlpha": 0.0,
+    "displayTransform": "Scene-linear RGBA16Float -> AgX Medium High Contrast -> sRGB",
+    "runtimeClearcoatRoughness": 0.075,
+    "optics": "Two-pass current-frame Snell refraction through fluted glass; IOR 1.52; approximate reflector depth 40mm; no offscreen/internal multi-bounce tracing",
+    "supersampling": {
+      "scale": 1.5,
+      "maximumLongEdge": 2560,
+      "coverageSamples": 4,
+      "resolveTaps": 4
+    },
+    "displayLUTSHA256": "fd1f8d8d7635a845c95e38b7c9b6a15a0453db5051ca0a787be2f876981cd28b",
+    "shadow": "Directional and contact shadow from final lowered asset under the same parking HDR",
+    "lampPlastic": "Live PBR, single dielectric reflection layer, roughness .24",
+    "diffuseLighting": "Live RealityKit PBR from the same aligned HDR as specular and glass",
+    "ambientVisibility": "Geometry-baked vertex alpha; legacy baked RGB retained in USDZ but not sampled"
   },
   "paintName": "Samoablau",
-  "paintCalibrationSHA256": "56d36878be936e011e0b13e36ef44f171902c7b9350202ffb0898061bc9a1890",
-  "grilleAddedPitchDegrees": 0
+  "paintCalibrationSHA256": "61e971278595159b4d279a941dad047e28e4c4200677da4229abe06255c83102",
+  "grilleAddedPitchDegrees": 0,
+  "frontFitValidationSHA256": "83fcab925fb776c64d325e944f4f90cce8ad0ad0ea4b6a8efad8296376da3518",
+  "environmentNormalization": {
+    "source": "park_parking_4k.hdr",
+    "rotationDegrees": 0,
+    "normalization": 0.7969826756807273,
+    "sphericalMeanLuminance": 0.5797032145292829,
+    "previousSphericalMeanLuminance": 0.5797032359157643
+  },
+  "appStance": {
+    "referenceSHA256": "a316a5e257e03a00dd3f5fd3274ebe85eba1bde4ce3a89219179567164efe5b6",
+    "outputSHA256": "d3ae9443f65eb239130d1545e11e0ae3df0324bab5a97c9f1bb72ce1b50e3137",
+    "frontDropMillimetres": 20,
+    "rearDropMillimetres": 10,
+    "bodyPitchDegrees": 0.21189315902062583,
+    "wheelTransformsUnchanged": true,
+    "meshNormalsAndUVsUnchanged": true,
+    "minimumBodyGroundClearanceMetres": 0.12904073414071554
+  },
+  "appSceneSHA256": "f83396d8b7493aa0bea5d045c355e6f233d86f8827cb78f27050da33855554cc",
+  "environmentConventionCorrection": {
+    "sourceSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
+    "outputSHA256": "bedf38f8598eafbf0ed869d4434b014714e7d710c8a3b276b1b456d972af93a9",
+    "sourceCoordinates": "Blender equirectangular, Z-up authoring",
+    "outputCoordinates": "RealityKit/realitytool equirectangular input",
+    "rightwardColumnShift": 1024,
+    "yawCorrectionDegrees": 90,
+    "dimensions": [
+      4096,
+      2048
+    ],
+    "radiancePermutationIsLossless": true,
+    "linearRGBMaximum": 80386.859375
+  },
+  "environmentOrientationValidationSHA256": "a16f19afbba7c3c8785063c448037bf2f8a535c1bd6c693594d9cf27824d2e0f"
 }

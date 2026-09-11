@@ -96,14 +96,14 @@ private final class VehicleSceneAssets {
                 component.materials = try component.materials.map { material in
                     let name = material.name ?? ""
                     let key = name.lowercased().replacingOccurrences(of: " ", with: "_")
-                    if key == "wcwindow" || key == "material__58" || key.contains("pressed_halogen") {
+                    if key == "wcwindow" || key == "material__58" || key == "_03___default" || key.contains("pressed_halogen") {
                         var glass = try CustomMaterial(surfaceShader: glassShader, geometryModifier: opticalGeometry, lightingModel: .unlit)
                         glass.blending = .transparent(opacity: .init(scale: 1))
                         // The fluted interface is the inward-facing back of the
                         // closed lens; culling it discards the moulded optics.
                         glass.faceCulling = .none
                         glass.custom.value.x = key == "wcwindow" ? 0.10 : 0.012
-                        glass.custom.value.z = key.contains("fluted_inner") ? 1 : 0
+                        glass.custom.value.z = key.contains("fluted_inner") ? 1 : (key.contains("pressed_halogen") ? 2 : 0)
                         glass.custom.value.w = key == "wcwindow" ? 0.035 : 0.025
                         if let imported = material as? PhysicallyBasedMaterial,
                            let normalTexture = imported.normal.texture {
@@ -114,8 +114,21 @@ private final class VehicleSceneAssets {
                     if key.contains("glass") || key == "material__58" || key == "_03___default" { return material }
                     guard let imported = material as? PhysicallyBasedMaterial else { return material }
                     guard key == "car_body" || key.contains("painted_fog_intake_duct") else {
-                        var finish = try CustomMaterial(from: imported, surfaceShader: .init(named: "e36BakedSurface", in: library))
+                        var finish = try CustomMaterial(from: imported, surfaceShader: .init(named: "e36VehicleSurface", in: library))
+                        if key == "interior_dash_plastic" {
+                            finish.baseColor.tint = UIColor(red: 0.1718, green: 0.1897, blue: 0.2098, alpha: 1)
+                        }
                         finish.blending = .opaque
+                        // USD Preview Surface drops Blender's zero specular
+                        // control on the ink beneath this clear resin coat.
+                        if key.contains("domed_body_badge_enamel") { finish.specular = .init(scale: 0) }
+                        // Coloured lamp plastic has one dielectric interface,
+                        // not automotive paint's extra clear lacquer layer.
+                        // A second lobe bleaches the red/amber moulded lenses.
+                        if key == "bmw_m3_e36_lights" || key == "pisca" {
+                            finish.clearcoat = .init(scale: 0)
+                            finish.roughness = .init(scale: 0.24)
+                        }
                         return finish
                     }
                     var paint = try CustomMaterial(surfaceShader: shader, lightingModel: .clearcoat)
@@ -123,7 +136,7 @@ private final class VehicleSceneAssets {
                     paint.metallic = .init(scale: imported.metallic.scale)
                     paint.roughness = .init(scale: imported.roughness.scale)
                     paint.clearcoat = 1.0
-                    paint.clearcoatRoughness = 0.055
+                    paint.clearcoatRoughness = 0.075
                     painted += 1
                     return paint
                 }
@@ -166,7 +179,7 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
         super.init(frame: frame)
         backgroundColor = .clear
         isOpaque = false
-        renderer.engine?.cameraSettings.colorBackground = .color(UIColor(ClusterTheme.background).cgColor)
+        renderer.engine?.cameraSettings.colorBackground = .color(UIColor.clear.cgColor)
         addSubview(renderer)
         spinner.color = .lightGray
         spinner.hidesWhenStopped = true
@@ -178,8 +191,8 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
         retry.addTarget(self, action: #selector(loadScene), for: .touchUpInside)
         addSubview(retry)
 
-        lens.camera.near = 0.05
-        lens.camera.far = 40
+        lens.camera.near = 0.3
+        lens.camera.far = 30
         lens.camera.fieldOfViewInDegrees = 34
         lens.camera.fieldOfViewOrientation = .horizontal
         anchor.addChild(lens)
@@ -241,17 +254,40 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
                 guard let engine = self.renderer.engine else { throw CocoaError(.fileReadUnknown) }
                 let vehicle = assets.vehicle.clone(recursive: true)
                 self.anchor.addChild(vehicle)
+                var opticalEntities: [Entity] = []
+                @MainActor func collectOptics(_ entity: Entity) {
+                    if let model = entity.components[ModelComponent.self],
+                       model.materials.contains(where: { (($0 as? CustomMaterial)?.custom.value.z ?? 0) > 0.5 }) {
+                        opticalEntities.append(entity)
+                    }
+                    entity.children.forEach(collectOptics)
+                }
+                collectOptics(vehicle)
+                self.renderer.configureOptics = { resource, visible in
+                    for entity in opticalEntities {
+                        guard var component = entity.components[ModelComponent.self] else { continue }
+                        component.materials = component.materials.map { material in
+                            guard var glass = material as? CustomMaterial,
+                                  glass.custom.value.z > 0.5 else { return material }
+                            let inner = glass.custom.value.z < 1.5
+                            glass.custom.value.y = visible ? (inner && resource != nil ? 1 : 0) : -1
+                            if inner, let resource { glass.custom.texture = .init(resource) }
+                            return glass
+                        }
+                        entity.components.set(component)
+                    }
+                }
                 engine.lighting.resource = assets.environment
                 engine.lighting.intensityExponent = 0.65
 
-                // Precomputed ambient contact shadow from this exact car mesh.
+                // Precomputed contact and directional shadow from this exact car mesh.
                 // The car, highlights, glass and camera still render live in Metal.
                 var floor = UnlitMaterial(color: .white, applyPostProcessToneMap: false)
                 floor.color.texture = .init(assets.contactShadow)
                 floor.blending = .transparent(opacity: .init(scale: 1))
                 let ground = ModelEntity(mesh: .generatePlane(width: 8, depth: 8), materials: [floor])
                 ground.position.y = -0.003
-                ground.name = "Baked ambient contact shadow"
+                ground.name = "Ground contact and directional shadow"
                 self.anchor.addChild(ground)
                 self.loaded = true
                 self.renderer.onNextPresentation = { [weak self] in
@@ -324,6 +360,7 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
                 * simd_quatf(angle: rotation.y, axis: [0, 1, 0])
                 * simd_quatf(angle: rotation.x, axis: [1, 0, 0])
             lens.camera.fieldOfViewInDegrees = 2 * atan(18 / focalLength) * 180 / .pi
+            renderer.refractionIsVisible = lens.position.z > 1.9
             if loaded {
                 if presented { accessibilityValue = "Referencia \(preset)" }
                 renderer.refresh()
@@ -338,6 +375,9 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
         let target = SIMD3<Float>(0, 0.64, 0)
         let position = target + SIMD3<Float>(sin(pose.azimuth) * cos(pose.elevation), sin(pose.elevation), cos(pose.azimuth) * cos(pose.elevation)) * radius
         lens.look(at: target, from: position, relativeTo: nil)
+        // The headlamp faces sit at the front of this fixed vehicle, +Z.
+        // Rear/side views need no hidden reflector capture pass.
+        renderer.refractionIsVisible = lens.position.z > 1.9
         guard loaded else { return }
         renderer.refresh()
         guard presented else { return }

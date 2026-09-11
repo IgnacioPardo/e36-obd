@@ -1,26 +1,26 @@
 {
-  "sourceSHA256": "696ebbdb83782ce6e5167c52d2aea7bd967ecc5db48ad3b43083f0dc95ec574d",
+  "sourceSHA256": "d3ae9443f65eb239130d1545e11e0ae3df0324bab5a97c9f1bb72ce1b50e3137",
   "occlusionSamples": 96,
   "diffuseSamples": 192,
   "type": "diffuse_radiance_RGB_ambient_visibility_A",
   "diffuseEncoding": "sqrt(linear / 4)",
   "environmentIntensityExponent": 0.65,
-  "environmentSHA256": "9d7b3a1496d36dd88ffdefe240d89f5c1ac8f4d81b1cdfd2d4b8a6b6c7f80dc8",
+  "environmentSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
   "meshes": [
     {
       "name": "E36 baked opaque surfaces",
-      "vertices": 2388026,
+      "vertices": 2391200,
       "minimum": 0.0,
-      "mean": 0.0844496637582779,
-      "maximum": 0.6425783038139343
+      "mean": 0.07211672514677048,
+      "maximum": 0.6943919658660889
     }
   ],
-  "outputSHA256": "d01d3eadcaebba37fa466cba2f49325e34cbdc528e0bf670d328800f8371c624",
-  "outputBytes": 713183287,
-  "seconds": 549.3218640840496,
-  "runtimeSHA256": "95f0c26d583d3aa118b6770c10986d945df826a25f5209addc1bbb011f3bc271",
-  "runtimeBytes": 161093104,
-  "packedVertices": 2567667,
-  "corners": 14055042,
+  "outputSHA256": "d8fee303d644b1567da4212189ddcc92fc83c2903b57f97b4c9c8048bc629d59",
+  "outputBytes": 714244185,
+  "seconds": 324.37190345900035,
+  "runtimeSHA256": "338b0354dd8470e7a731eb5233b58b282cb23f88a993e60576c5b0d929ea7976",
+  "runtimeBytes": 161409131,
+  "packedVertices": 2570194,
+  "corners": 14072994,
   "reindexPreservesPositionsNormalsUVs": true
 }

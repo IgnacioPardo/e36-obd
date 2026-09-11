@@ -1,6 +1,5 @@
 {
   "changes": {
-    "grillePanel": "Original connected carrier faired across its full width, with the aperture return seated beneath the chrome rear wall. All 94 grille objects remain exactly unchanged.",
     "ducts": {
       "rearwardTranslationMM": 4.5,
       "shapeScale": 1
@@ -42,15 +41,46 @@
       ]
     }
   },
-  "unchangedGrilleObjects": 94,
-  "grilleAddedPitchDegrees": 0,
-  "candidateSHA256": "26d60849495827930b511133637fc1033fed2d77485fd7aa535ff7a7bb7a6780",
-  "inputSourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
-  "sourceSHA256": "ba57bc12456f4852581ff9deebc00073902d87d6262c228c0bfd8f1b91c3c738",
-  "reviews": [
+  "grilleFit": {
+    "maxOutlineDeviationM": 1.7881393432617188e-07,
+    "profileDepthScale": 0.65,
+    "bodyModified": false,
+    "addedObjectRotation": false,
+    "objectsAdjusted": 94,
+    "skinSamplesPerSide": {
+      "Right": 128,
+      "Left": 128
+    },
+    "maximumDepthAdjustmentMM": 38.613516555538126,
+    "mountingReturns": 2
+  },
+  "bodyVerticesUnchanged": 9547,
+  "candidateSHA256": "b0e3c3cdaa9c1b82d9d4f4fe7a348a8d66a35379372ed5d20e72e27e669a03d3",
+  "baselineSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "alignmentValidation": {
+    "baselineSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+    "candidateSHA256": "85c52870885172a80cb28b78ec8ace8605a292c1d65c7d359b81102183d134f9",
+    "originalEvaluatedBodyVerticesIdentical": true,
+    "bodyVertexCount": 215709,
+    "bodyModifiersUnchanged": true,
+    "upperBumperSeamIdentical": true,
+    "upperBumperVerticesChecked": 14628,
+    "addedMountingReturns": [
+      "Left kidney painted mounting return",
+      "Right kidney painted mounting return"
+    ],
+    "maximumBodyDeviationM": 0.0,
+    "hoodFrontSeamMaximumDeviationM": 4.2593843264790776e-05,
+    "trunkOuterSeamMaximumDeviationM": 0.0,
+    "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1"
+  },
+  "reviewedCameras": [
     "grille",
     "grille-side",
     "duct",
     "lip"
-  ]
+  ],
+  "grilleAddedPitchDegrees": 0,
+  "acceptedAlignmentSourceSHA256": "670cb2600c34f8ee677806311afcfc44d68201eba347841d00281beaf3f8aa9f"
 }

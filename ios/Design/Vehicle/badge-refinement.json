@@ -1,0 +1,89 @@
+{
+  "baselineSHA256": "670cb2600c34f8ee677806311afcfc44d68201eba347841d00281beaf3f8aa9f",
+  "badges": {
+    "Bonnet": {
+      "outsideDiameterMM": 82.5,
+      "faceDomeRiseMM": 2.4,
+      "faceEdgeAboveSkinMM": 0.95,
+      "centerAboveSkinMM": 3.3500000000000196,
+      "previousDomeRiseMM": 0.3960000124753816,
+      "seatFitMaximumResidualMM": 0.2310045154314674,
+      "seatSurfaceCoefficients": [
+        -3.2936251647786e-05,
+        -2.685173924937053e-06,
+        0.0007041466203334842,
+        -0.00041216412166845544,
+        6.651759211956589e-07,
+        -0.0011965334255091204
+      ],
+      "seating": "Quadratic continuation of original panel around badge recess; outer panel seams untouched"
+    },
+    "Boot": {
+      "outsideDiameterMM": 74.0,
+      "faceDomeRiseMM": 1.9,
+      "faceEdgeAboveSkinMM": 0.95,
+      "centerAboveSkinMM": 2.850000000000019,
+      "previousDomeRiseMM": 0.3119999821756918,
+      "seatFitMaximumResidualMM": 0.17758643401166552,
+      "seatSurfaceCoefficients": [
+        -6.3195355146343e-05,
+        3.899974487186544e-06,
+        3.5964910580256294e-05,
+        -0.00037052845606821316,
+        -6.062623574640164e-07,
+        -0.0002559437980026171
+      ],
+      "seating": "Quadratic continuation of original panel around badge recess; outer panel seams untouched"
+    }
+  },
+  "pocketRepairs": {
+    "Bonnet": {
+      "panel": "e36_bonnet_SUB0",
+      "changedVertices": 144,
+      "maximumRadiusM": 0.05597141446124053,
+      "maximumVertexMovementM": 0.0035043958469732953,
+      "outsideRegionExactlyUnchanged": true,
+      "badgeCenterTranslationUVmm": [
+        0.1723829612352879,
+        -4.245019326287522
+      ]
+    },
+    "Boot": {
+      "panel": "e36_trunk_SUB0",
+      "changedVertices": 2825,
+      "maximumRadiusM": 0.046445847187309784,
+      "maximumVertexMovementM": 0.0012731452609026936,
+      "outsideRegionExactlyUnchanged": true,
+      "badgeCenterTranslationUVmm": [
+        -0.0023427784517551582,
+        -0.6760401840534106
+      ]
+    }
+  },
+  "rearHeadrests": {
+    "removedVertices": 538,
+    "removedIslands": 15,
+    "frontSeatsAndBenchUnmodified": true
+  },
+  "candidateSHA256": "85c52870885172a80cb28b78ec8ace8605a292c1d65c7d359b81102183d134f9",
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "reviewedViews": [
+    "hood-badge",
+    "hood-profile",
+    "trunk-badge",
+    "owner-angle",
+    "rear-seat"
+  ],
+  "metalReliefMicrometres": 70,
+  "notes": [
+    "White quadrants are dielectric enamel; only lettering and separators use the metallic mask.",
+    "Rear badge diameter reconstructed against the donor recess and reference proportions; not a verified OEM part assignment.",
+    "Painted overlay rings were rejected; the native local recess meshes were fitted instead."
+  ],
+  "textures": {
+    "badge-artwork.png": "40aecdfae1eeb608da76fe18d1b42169edfbd9ef2f139075052dff140b5876f9",
+    "badge-metallic.png": "b5f14a05262a5e62c3b4cd4fb41041e030e70b6ba32ac23e616c1bdd379964f3",
+    "badge-relief-normal.png": "b85efa9769b36f8d2ebe05f6d32c06498392615d0c7c84406d3672df13202ac4",
+    "badge-roughness.png": "7cdb0aba3cec1aae41400fb8c01c05a0da1b7dac3403068f4c148dc8d53d0d63"
+  }
+}

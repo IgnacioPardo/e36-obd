@@ -1,0 +1,11 @@
+{
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "renderer": "Blender Cycles / Metal; offline detail review",
+  "views": {
+    "hood-badge": "3d6b221985549400b9ee4786292c4d9137dbddbd190b27d97079a44d66231e9f",
+    "hood-profile": "9b48f67d2835e3d0d9cf870149920d30ee3f07455a1535aa69de5c926e739999",
+    "trunk-badge": "0e2d6d987b86b45aa42ac5872dc54e5f63a32514929b45346e7aefd2a794e59b",
+    "owner-angle": "8a798b367acf8135260d4cc94645d71c1e2c6e06b143094c1a98c8b3b18332cf",
+    "rear-seat": "8de394fd2aa1799235eeadd18dfbdca4449aabf233793e4e4167ac932ec8d930"
+  }
+}

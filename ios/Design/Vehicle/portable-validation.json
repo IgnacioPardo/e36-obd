@@ -1,7 +1,7 @@
 {
-  "sourceSHA256": "ba57bc12456f4852581ff9deebc00073902d87d6262c228c0bfd8f1b91c3c738",
+  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
   "glb": {
-    "meshes": 385,
+    "meshes": 387,
     "bounds": [
       [
         -0.9605199694633484,
@@ -16,11 +16,11 @@
         1.3933478593826294
       ]
     ],
-    "bytes": 75846936,
-    "SHA256": "c34326cb0259ccd2c737e504402f36431ccc42870db5623f7f2d15c7693684df"
+    "bytes": 76510708,
+    "SHA256": "fb71c42637205f1949c4adcdbc6a05e8cc1c17b67ca4f3e8ead17aada97b6198"
   },
   "usdz": {
-    "meshes": 385,
+    "meshes": 387,
     "bounds": [
       [
         -0.9605199694633484,
@@ -35,7 +35,7 @@
         1.3933478593826294
       ]
     ],
-    "bytes": 131608873,
-    "SHA256": "0bf1d4ca403aa61c29cf75c6df1b0973ac6c0f6815f9e46865cd51724a79da7e"
+    "bytes": 134489729,
+    "SHA256": "a316a5e257e03a00dd3f5fd3274ebe85eba1bde4ce3a89219179567164efe5b6"
   }
 }
