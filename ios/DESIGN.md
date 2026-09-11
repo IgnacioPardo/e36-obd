@@ -53,7 +53,7 @@ Landscape places the car and telemetry side by side. Warnings stay in the lower 
 
 ### Vehicle model and lighting
 
-The overview renders the actual USDZ geometry through RealityKit's `RealityRenderer` in a Metal view. The traced early kidney outline is retained; the erroneous extra 16.7-degree mounting pitch is removed in the source geometry. The M bumper now contains hollow ducts tessellated from the owner's STEP model at its original dimensions, with a mirrored opposite side. The retained wheel casting remains an approximation of the reference.
+The overview renders the actual USDZ geometry through RealityKit's `RealityRenderer` in a Metal view. The traced early kidney outline is retained; the erroneous extra 16.7-degree mounting pitch is removed in the source geometry. Its connected carrier panel seats against the chrome without moving any grille piece. The M bumper contains hollow ducts tessellated from the owner's STEP model at its original dimensions, recessed into their seats, and a rounded lower return matching the softer edge in the photograph. The retained wheel casting remains an approximation of the reference.
 
 The runtime combines baked diffuse illumination with live Metal specular, clearcoat and glass reflections. A daylight HDR gives the paint the sky and tree reflections visible in the reference photographs. Cycles traces the fixed-environment diffuse radiance and ambient visibility into vertex attributes; square-root RGB encoding retains detail in dark recesses. Runtime shaders decode that lighting without adding a second diffuse term. Glass uses smooth, transformed vertex normals rather than a flat derivative normal for every triangle. Its view-dependent dielectric reflection remains live.
 

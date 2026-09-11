@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "5506bc4b8965b08d6fbede123c9e6cfa262a97dcead20e0e4f56d811dba988e4",
+  "sourceSHA256": "ba57bc12456f4852581ff9deebc00073902d87d6262c228c0bfd8f1b91c3c738",
   "glb": {
     "meshes": 385,
     "bounds": [
@@ -16,13 +16,26 @@
         1.3933478593826294
       ]
     ],
-    "bytes": 75852428,
-    "SHA256": "4e77a2dddbe887afe9ed959e19a9954eec3f91f43ac2bb20be824a0359117bff"
+    "bytes": 75846936,
+    "SHA256": "c34326cb0259ccd2c737e504402f36431ccc42870db5623f7f2d15c7693684df"
   },
   "usdz": {
-    "bytes": 131609525,
-    "SHA256": "696ebbdb83782ce6e5167c52d2aea7bd967ecc5db48ad3b43083f0dc95ec574d",
-    "zipIntegrity": true,
-    "geometryValidation": "The lighting bake imports this file; geometry equivalence is recorded with the packed runtime."
+    "meshes": 385,
+    "bounds": [
+      [
+        -0.9605199694633484,
+        0.9605199694633484
+      ],
+      [
+        -2.2298786640167236,
+        2.213468074798584
+      ],
+      [
+        0.0,
+        1.3933478593826294
+      ]
+    ],
+    "bytes": 131608873,
+    "SHA256": "0bf1d4ca403aa61c29cf75c6df1b0973ac6c0f6815f9e46865cd51724a79da7e"
   }
 }
