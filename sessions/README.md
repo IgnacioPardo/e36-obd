@@ -18,6 +18,12 @@ scan but was pruned from `~/.claude` before it could be archived.
 Five rollouts whose `cwd` was the `nassau` worktree (2026-09-07).
 The two large files are full sessions with inline tool output.
 
+### E36 app conversation, September 11 checkpoint
+
+[`codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-visible-2026-09-11.jsonl`](codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-visible-2026-09-11.jsonl) preserves the user messages and visible assistant replies from the ongoing iPhone/BLE/3D/Watch/widget conversation through the commit-preparation checkpoint. Export metadata records its timestamp, message count and credential redactions. It excludes internal runner instructions, private reasoning and tool payloads; attachment paths refer to the original workspace. Earlier raw snapshots remain historical archives.
+
+For continuation, start with the [current session handoff](../docs/sessions/2026-09-11-app-scene-companions.md), which records the latest accepted design, camera controls, widget fix, tests, device installation and remaining hardware checks.
+
 > These are raw transcripts and may contain paths or tokens surfaced by tool
 > output. Kept in a private repo. Scrub before making this repository public.
 

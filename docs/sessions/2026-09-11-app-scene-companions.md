@@ -2,6 +2,8 @@
 
 This is the continuation handoff for the long iPhone/vehicle-rendering conversation, including the latest free-camera and widget fixes. It preserves the user's decisions, implementation state, evidence and remaining checks. It is a working summary, not a verbatim chat transcript. Original attachments, build caches and raw device backups remain in the originating workspace's ignored `.context/` directory; the source assets and selected review evidence are versioned in this repository.
 
+The [visible conversation export](../../sessions/codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-visible-2026-09-11.jsonl) preserves the actual user/assistant messages through this checkpoint, with short credentials redacted. Its metadata identifies the export cutoff; internal instructions, private reasoning and tool payloads are not part of that export.
+
 ## Where to resume
 
 - Repository: `IgnacioPardo/e36-obd`; working branch at handoff: `IgnacioPardo/esp32-buck-case`; comparison/PR base: `origin/main`. Do not rename the branch implicitly.
@@ -91,6 +93,7 @@ There are Instrument, Garage (car image) and OBC widget variants. Garage/OBC hav
 ## Latest validation and installation evidence
 
 - Final camera/widget run: **11 selected tests passed, 0 failed**: seven camera-math tests, two widget-contract tests and two UI navigation/capture tests. After the last expanded-to-tab transition adjustment, the expanded-camera UI test passed again, including reset settling, leaving expansion via a tab and recovery of dashboard framing.
+- Commit preparation also reran `swift test --package-path ios/Core`: **22 tests passed across four suites**. This does not expand the physical-hardware validation claim.
 - Reviewed actual simulator close-up, landscape orbit, settled reset, restored dashboard and small/medium/large/compact-large widget screenshots. Also checked the image on three contrasting backgrounds. Camera evidence is in [ios/Design/Camera](../../ios/Design/Camera/); widget evidence is in [ios/Design/Widgets](../../ios/Design/Widgets/). Pixel geometry is not substituted by a retouched photo.
 - Simulator and signed iPhone builds succeeded; `codesign --verify --deep --strict` passed. The camera/widget work did not change the instrument layout, firmware or sensor values.
 - Last physical install: 11 September around 19:53 ART. CoreDevice accepted the app; launch returned `Locked`. All saved rows remained identical afterward. [Camera validation](../../ios/Design/Camera/validation.json) records this state.
@@ -125,3 +128,5 @@ For visual iteration: verify one concrete change in native screenshots, keep con
 ## Onboard hardware included in this checkpoint
 
 The user's “everything” request also covers the workspace's existing `hardware/onboard/` changes: updated KiCad PCB/project, OBD2 right-angle footprint, board generator, BOM, Gerbers/renderings, JLCPCB pricing script/report and PCBWay sample-order package/script. Keep those artifacts together; do not regenerate the PCB or reorder parts as part of an app-only task. The source-specific notes and current DRC report remain under `hardware/onboard/`. Pricing/availability documents are dated snapshots, not current quotes or proof of purchase. Committing their package is not authorization to place an order.
+
+During this checkpoint, the separate hardware session committed its work as `c003392a`. The app/context commit builds on that commit. Its stored DRC report has zero unconnected items and 60 warning-level violations; commit preparation did not rerun a hardware design review.
