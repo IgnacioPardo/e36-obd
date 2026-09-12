@@ -33,6 +33,21 @@ The two large files are full sessions with inline tool output.
 
 For continuation, start with the [current session handoff](../docs/sessions/2026-09-11-app-scene-companions.md), which records the latest accepted design, camera controls, widget fix, tests, device installation and remaining hardware checks.
 
+### E36 raw-format conversation and tool records
+
+The [compressed raw-format archive](codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.jsonl.gz) adds the original tool-call inputs, tool responses and embedded screenshots requested after the visible-message export. It preserves the JSONL record envelopes, timestamps, call IDs and public payload fields. It contains **6,743 message/tool records and 751 embedded images**, about **470 MiB compressed**. One tool call was still pending at the snapshot cutoff.
+
+This is not a byte-identical copy of the internal runner log: private reasoning, system/developer instructions, internal metadata and duplicate runtime events are excluded. Outputs from reads of internal session/instruction files are marked as excluded; known credentials are redacted. The [manifest](codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.manifest.json) records the exact cutoff, SHA-256, counts and exclusions. The archive was reopened to verify gzip integrity, every JSON record, call/output pairing and base64 image payloads.
+
+The local worktree may contain only an LFS pointer to conserve disk space. Materialize the archive before opening it (allow at least 470 MiB of free space):
+
+```sh
+git lfs pull --include="sessions/codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.jsonl.gz"
+gzip -dc sessions/codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.jsonl.gz | less
+```
+
+The standard-library [exporter](export_codex_records.py) accepts a local Codex rollout path and a destination `.jsonl.gz`. It builds in a temporary directory before publishing the file to avoid caching incomplete LFS objects while the archive grows. Source rollouts are read without modification. These archives use Git LFS.
+
 > These are raw transcripts and may contain paths or tokens surfaced by tool
 > output. Kept in a private repo. Scrub before making this repository public.
 

@@ -1,0 +1,49 @@
+{
+  "type": "archive_metadata",
+  "sessionID": "01a07e40-ac26-7072-b6db-2e6874e66e4d",
+  "exportedAtUTC": "2026-09-12T01:14:37.922651+00:00",
+  "sourceByteCutoff": 897115997,
+  "sourceLastRecordAt": "2026-09-12T01:14:35.908Z",
+  "format": "Original JSONL record envelope/payload fields for public messages and tool calls/results, gzip compressed",
+  "exclusions": "Private reasoning, system/developer messages, internal passthrough metadata, runtime state and duplicated event records. Reads of internal session/instruction files have their outputs redacted.",
+  "credentials": "Known short credential and common credential text patterns redacted; embedded images retained as recorded.",
+  "byteIdenticalRunnerCopy": false,
+  "archive": "01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.jsonl.gz",
+  "compressedBytes": 492666413,
+  "sha256": "cad7627b33fbdcdcbd1cc301e9a36733ce1500a1281f7b5fe0abf6d7e7730dfa",
+  "records": {
+    "user": 134,
+    "assistant": 516,
+    "custom_tool_call": 2734,
+    "custom_tool_call_output": 2733,
+    "function_call": 313,
+    "function_call_output": 313
+  },
+  "images": 751,
+  "omitted": {
+    "session_meta": 1,
+    "event_msg": 13235,
+    "internal_message": 8,
+    "world_state": 42,
+    "turn_context": 79,
+    "token_usage_record": 3119,
+    "reasoning": 3841,
+    "compacted": 36
+  },
+  "redactions": {
+    "short_credential": 6,
+    "internal_read_output": 94,
+    "internal_tool_documentation": 12,
+    "embedded_runtime_record": 1
+  },
+  "validation": {
+    "gzipCRC": "ok",
+    "sha256": "ok",
+    "jsonRecords": 6745,
+    "publicRecords": 6743,
+    "embeddedImages": 751,
+    "outputsWithoutCalls": 0,
+    "pendingAtCutoff": 1,
+    "syntheticPrivacyAndPreservationChecks": "passed"
+  }
+}

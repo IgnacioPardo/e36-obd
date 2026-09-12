@@ -4,6 +4,8 @@ This is the continuation handoff for the long iPhone/vehicle-rendering conversat
 
 The [visible conversation export](../../sessions/codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-visible-2026-09-11.jsonl) preserves the actual user/assistant messages through this checkpoint, with short credentials redacted. Its metadata identifies the export cutoff; internal instructions, private reasoning and tool payloads are not part of that export.
 
+At the user's subsequent request, a [raw-format message/tool archive](../../sessions/codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.jsonl.gz) was also added. It includes command inputs, tool responses and embedded images while retaining exclusions for private reasoning/instructions and credentials. See its [manifest](../../sessions/codex/01a07e40-ac26-7072-b6db-2e6874e66e4d-raw-records-2026-09-11.manifest.json) for the later cutoff and verification details.
+
 ## Where to resume
 
 - Repository: `IgnacioPardo/e36-obd`; working branch at handoff: `IgnacioPardo/esp32-buck-case`; comparison/PR base: `origin/main`. Do not rename the branch implicitly.
@@ -120,6 +122,8 @@ xcodebuild -project ios/E36OBD.xcodeproj -scheme E36OBD \
 ```
 
 Use `ios/Local.xcconfig` for the local signing team; `Signing.xcconfig` includes it optionally. Do not commit signing credentials/profiles. The original workspace's reusable build directories are `.context/watch-icons-sep11/build` and `.context/watch-sep11/device-signed`; disk space was low at handoff, so reuse them rather than creating another complete cache. All necessary SDKs, including watchOS, must be installed. Do not apply a global `-sdk iphonesimulator` to the multi-platform scheme.
+
+During the later transcript export, regenerable module/intermediate caches and the cached simulator/iPhone build products in those two build directories were removed to free space. Rebuild before expecting those products to exist. Installed apps, source assets and device/session data were preserved.
 
 **Never uninstall the physical app to fix an install problem. Never pass `--uitesting` or `--demo` to the physical iPhone/Watch.** UI-testing initialization can reset test storage. Before updating the phone, copy `Library/Application Support/E36` from its app container, including SQLite WAL/SHM; verify `sessions.ended IS NULL` is empty; preserve and compare full-row hashes after an in-place update. The user authorized installation and remote screenshots, but do not interrupt an active capture. Install normally using `devicectl device install app`, then launch without review arguments. Locked phones require the user to unlock them.
 
