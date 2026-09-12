@@ -12,7 +12,7 @@ A 1994 BMW E36 316i (M43B16, Bosch Motronic 1.7.2) predates OBD2. It speaks **KW
 ![deps](https://img.shields.io/badge/third--party_deps-none-2da44e?style=flat-square)
 ![verified](https://img.shields.io/badge/verified_on_car-2026--08--09-2da44e?style=flat-square)
 
-<img src="ios/Design/preview.jpg" alt="E36 OBD iOS app — Auto screen in portrait and landscape with the 3D Samoablau 316i and live instruments" width="900">
+<img src="ios/Design/Navigation/preview.jpg" alt="E36 OBD — Auto, Fallas, Sesiones and Ajustes share a persistent 3D car scene" width="900">
 
 </div>
 
@@ -53,7 +53,7 @@ This was **verified end‑to‑end on a 1994 E36 M43B16 automatic** (2026‑08�
 <table>
 <tr>
 <td width="60%"><img src="ios/Design/instruments-landscape.jpg" alt="E36 instrument cluster: load and tach dials, battery and coolant gauges, amber 7-segment readouts"></td>
-<td width="40%"><img src="ios/Design/overview-portrait.jpg" alt="Auto overview screen with the 3D E36 and live readings"></td>
+<td width="40%"><img src="ios/Design/Navigation/auto-portrait.jpg" alt="Auto overview screen with the 3D E36 and live readings"></td>
 </tr>
 <tr>
 <td align="center"><em>Instruments — the E36 cluster, rebuilt</em></td>
@@ -63,12 +63,15 @@ This was **verified end‑to‑end on a 1994 E36 M43B16 automatic** (2026‑08�
 
 **What it does**
 
+Latest development handoff: [session context, design decisions, validation and installation state](docs/sessions/2026-09-11-app-scene-companions.md).
+
 - **Instruments** — the classic 90s BMW cluster in portrait and landscape: load (ms) and tach dials with the red zone, battery/coolant gauges, amber 7‑segment readouts, fan‑out auxiliaries. Needles ease to each reading without interpolating stored samples. Saturated 2550 rpm and empty‑RAM reads are called out as **DME sin datos** rather than shown as real values.
-- **Auto** — a real‑time **3D render of the owner's 316i in Samoablau**, drawn on‑device with RealityKit + Metal (drag to orbit, pinch to zoom, two‑finger drag for height). Paint, glass and reflections are computed on the phone.
+- **Auto** — a real‑time **3D render of the owner's 316i in 295 Samoablau Metallic**, drawn on‑device with RealityKit + Metal. Normal tabs keep the whole car in frame. Expand the scene for free navigation: one finger orbits horizontally and vertically, two fingers pan the camera, and pinch moves from detail close-ups to distant views without auto-fit pushing back. Zoom and pan can be combined; the chosen distance and position survive device rotation. The reset button or double-tap restores the front view, and closing the scene restores protected dashboard framing. Paint, glass and reflections are computed on the phone; the sun button selects studio or outdoor surroundings.
+- **Navigation** — Auto, Fallas, Sesiones and Ajustes share one persistent scene, above their content in portrait and beside it in landscape. Each tab is the next quarter-turn around the car; moving back through the bar reverses that ordered orbit, including when tabs are skipped. The scene reaches the screen edge; text and controls retain readable insets. En vivo, Instrumentos and BLE stay at the top. Starting capture keeps the current tab; closing Instruments returns to it. Session selection and unsaved settings survive navigation.
 - **Faults** — reads the DME fault memory; pauses and resumes the same recording session around the read.
 - **Sessions** — every capture recorded to local SQLite (WAL, file‑protected), browsable with a shared cursor across all five channels and **CSV export** of sensors + events. Gaps are never bridged.
 - **Alerts** — configurable thresholds (low load, coolant, intake) with hysteresis, sound and haptics; every episode is logged even when sound is rate‑limited.
-- **Widgets · CarPlay · Watch · Live Activities** — an *Instrumento E36* widget for the Home Screen, StandBy and CarPlay; a watchOS companion with five full‑screen gauges and complications; and a Live Activity on the Lock Screen and Dynamic Island. The ESP32 keeps a single BLE link to the phone; everything else is fed from it.
+- **Widgets · CarPlay · Watch · Live Activities** — *Instrumento E36*, *Garage E36* (with the car render) and *OBC E36* widgets for the Home Screen, StandBy and CarPlay. Garage and OBC also have a large Home Screen size with all five readings; a watchOS companion with five full‑screen gauges and complications; and a Live Activity on the Lock Screen and Dynamic Island. The ESP32 keeps a single BLE link to the phone; everything else is fed from it.
 
 <table>
 <tr>

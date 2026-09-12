@@ -29,7 +29,7 @@ import E36Core
             }
         } else {
             let content = UNMutableNotificationContent()
-            content.title = (demo ? "DEMO · " : "") + (title ?? transition.rule.title)
+            content.title = title ?? transition.rule.title
             content.body = transition.message
             content.threadIdentifier = "e36-alerts"
             if settings.sound && transition.audible { content.sound = UNNotificationSound(named: UNNotificationSoundName("alert.wav")) }

@@ -1,0 +1,8 @@
+{
+  "candidate": "Native rotated probe 135 degrees +0.75 EV",
+  "production": "Baked equirectangular shift -0.255 turns, same common exposure",
+  "carPixels": 84296,
+  "meanAbsoluteRGBCodeDifference": 1.6886091866755244,
+  "explanation": "Minor prefilter differences; floor excluded because it is now lit by the probe. Exact scene geometry/camera preserved.",
+  "verifiedMeanErrorBelowThreeCodeValues": true
+}

@@ -1,15 +1,23 @@
 # Widget E36 para iPhone y CarPlay
 
-**Instrumento E36** es una extensión WidgetKit de tamaño pequeño (`systemSmall`). Se instala dentro de la app y permite elegir régimen, carga, refrigerante, batería o admisión. Mantiene fondo negro removible, marcas naranja rojizo, aguja plana y una lectura numérica grande con unidad y antigüedad.
+La extensión WidgetKit incluye tres diseños:
+
+| Widget | Tamaños | Contenido |
+|---|---|---|
+| **Instrumento E36** | Pequeño | Esfera, aguja y lectura del sensor elegido. |
+| **Garage E36** | Pequeño y mediano | Render del 316i en **295 · Samoablau Metallic**, junto a la última lectura. |
+| **OBC E36** | Pequeño y mediano | Los cinco canales, con el sensor elegido como lectura principal. |
+
+Todos conservan unidades, antigüedad y fondo removible. Los tres ofrecen `systemSmall` para StandBy y CarPlay. El render de Garage es una imagen con transparencia exportada del mismo pase Metal, materiales y geometría de la app; la extensión no carga el modelo 3D ni ejecuta el renderer. Tocar Garage en el iPhone abre Auto; Instrumento y OBC abren Instrumentos. [Soporte de StandBy y CarPlay](https://developer.apple.com/documentation/widgetkit/adding-standby-and-carplay-support-to-your-widget).
 
 ## Agregarlo
 
 1. Instalar la app completa y abrirla una vez. Iniciar una captura para compartir lecturas del ESP32.
-2. En iPhone: mantener pulsada la pantalla de inicio → Editar → Agregar widget → E36 OBD → Instrumento E36.
-3. En **CarPlay con iOS 26 o posterior**: Ajustes del iPhone → General → CarPlay → tu auto → Widgets → Agregar widgets → Instrumento E36.
-4. Editar la configuración del widget para elegir **Instrumento** y **Origen**. El origen predeterminado es ESP32. Para probar sin hardware, elegir **Demostración** y ejecutar la app con el esquema E36OBD Demo. Sus datos se identifican como DEMO y se guardan por separado.
+2. En iPhone: mantener pulsada la pantalla de inicio → Editar → Agregar widget → E36 OBD → elegir un diseño.
+3. En **CarPlay con iOS 26 o posterior**: Ajustes del iPhone → General → CarPlay → tu auto → Widgets → Agregar widgets → elegir un diseño.
+4. Editar la configuración del widget para elegir **Instrumento** y **Origen**. El origen predeterminado es ESP32. Para probar sin hardware, elegir **Simulación** y ejecutar la app con el esquema E36OBD Demo. Sus datos se guardan por separado; las superficies no llevan una insignia DEMO.
 
-La cantidad de columnas y pilas depende de la pantalla del vehículo. El widget funciona sin abrir una aplicación CarPlay propia. La flecha de actualización funciona en iPhone y en pantallas CarPlay táctiles; los vehículos sin pantalla táctil muestran información sin controles interactivos. Tocar el fondo no abre una app CarPlay de E36.
+La cantidad de columnas y pilas depende de la pantalla del vehículo. El widget funciona sin abrir una aplicación CarPlay propia. La flecha de actualización de Instrumento funciona en iPhone y en pantallas CarPlay táctiles; los vehículos sin pantalla táctil muestran información sin controles interactivos. Tocar el fondo no abre una app CarPlay de E36.
 
 Fuentes: [agregar widgets en CarPlay](https://support.apple.com/es-es/guide/iphone/iphb4d6a0bbb/ios), [soporte de StandBy y CarPlay](https://developer.apple.com/documentation/widgetkit/adding-standby-and-carplay-support-to-your-widget).
 

@@ -160,7 +160,7 @@ enum TransportEvent: Sendable {
         case .poweredOn: if connectRequested { beginConnection() }
         case .unauthorized: waitForBluetooth("Bluetooth sin permiso. Habilitalo en Ajustes.")
         case .poweredOff: waitForBluetooth("Bluetooth apagado")
-        case .unsupported: waitForBluetooth("Bluetooth no disponible. Usá el modo demo en el simulador.")
+        case .unsupported: waitForBluetooth("Bluetooth no disponible. Usá la simulación.")
         case .resetting: waitForBluetooth("Bluetooth se está reiniciando")
         case .unknown: onEvent?(.status("Preparando Bluetooth…"))
         @unknown default: waitForBluetooth("Estado Bluetooth desconocido")

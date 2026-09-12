@@ -1,12 +1,12 @@
 import SwiftUI
 import E36Core
 
-struct InspectorPanel: View {
+struct DashboardPage: View {
     @ObservedObject var model: AppModel
-    @Environment(\.verticalSizeClass) private var verticalSize
-    private var compact: Bool { verticalSize == .compact }
+    let section: AppSection
+    let horizontal: Bool
     private var title: String {
-        switch model.section {
+        switch section {
         case .connection: "Conexión"
         case .faults: "Fallas"
         case .sessions: "Sesiones"
@@ -15,45 +15,53 @@ struct InspectorPanel: View {
         }
     }
     var body: some View {
-        VStack(spacing: compact ? 10 : 18) {
-            HStack {
-                VStack(alignment: .leading, spacing: 6) {
-                    if !compact { Eyebrow(title: "E36 · \(subtitle)") }
-                    Text(title).font(.system(size: compact ? 23 : 30, weight: .light)).tracking(-0.8).foregroundStyle(ClusterTheme.ink)
-                }
-                Spacer()
-                Button { model.section = .dashboard } label: {
-                    Image(systemName: "xmark").font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(ClusterTheme.muted).frame(width: 44, height: 44)
-                        .background(Color.white.opacity(0.04), in: Circle())
-                }.buttonStyle(.plain).accessibilityLabel("Cerrar panel").accessibilityIdentifier("closePanelButton")
-            }
-            Rectangle().fill(ClusterTheme.line).frame(height: 0.5)
-            Group {
-                switch model.section {
-                case .connection: ConnectionPanel(model: model)
-                case .faults: FaultsView(model: model)
-                case .sessions: SessionsView(model: model)
-                case .settings: SettingsView(model: model)
-                case .dashboard: EmptyView()
-                }
+        VStack(alignment: .leading, spacing: 12) {
+            Text(title).font(.title2.weight(.light)).tracking(-0.5)
+                .foregroundStyle(ClusterTheme.ink).lineLimit(1).minimumScaleFactor(0.7)
+                .accessibilityAddTraits(.isHeader)
+            VStack(spacing: 12) {
+                GarageRule()
+                Group {
+                    switch section {
+                    case .faults: FaultsView(model: model)
+                    case .sessions: SessionsView(model: model)
+                    case .settings: SettingsView(model: model)
+                    case .connection, .dashboard: EmptyView()
+                    }
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding(compact ? 14 : 22)
-        .background(ClusterTheme.panel, in: RoundedRectangle(cornerRadius: 24))
-        .overlay(RoundedRectangle(cornerRadius: 24).strokeBorder(
-            LinearGradient(colors: [Color.white.opacity(0.15), Color.white.opacity(0.035)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 0.5))
-        .shadow(color: .black.opacity(0.4), radius: 18, x: -8, y: 0)
-        .accessibilityAction(.escape) { model.section = .dashboard }
+        .padding(.top, horizontal ? 4 : 12)
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("\(section.rawValue)Page")
     }
-    private var subtitle: String {
-        switch model.section {
-        case .connection: "Enlace"
-        case .faults: "Diagnóstico"
-        case .sessions: "Historial"
-        case .settings: "Preferencias"
-        case .dashboard: ""
+}
+
+struct ConnectionSheet: View {
+    @ObservedObject var model: AppModel
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
+        NavigationStack {
+            ConnectionPanel(model: model)
+                .padding(.horizontal, 22).padding(.top, 12)
+                .frame(maxWidth: 680)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .navigationTitle("Conexión").navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button { dismiss() } label: {
+                            Image(systemName: "xmark").font(.system(size: 13, weight: .semibold))
+                                .frame(width: 44, height: 44).contentShape(Rectangle())
+                        }.accessibilityLabel("Cerrar conexión").accessibilityIdentifier("closeConnectionButton")
+                    }
+                }
         }
+        .tint(ClusterTheme.ink)
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
+        .presentationCornerRadius(28)
+        .presentationBackground(ClusterTheme.panel)
+        .accessibilityIdentifier("connectionSheet")
     }
 }
 
@@ -133,11 +141,19 @@ struct FaultsView: View {
                         .accessibilityIdentifier("faultReadError")
                 }
                 if !model.faultCompleted && !model.phase.readingFaults && model.faultReport.error == nil {
-                    VStack(alignment: .leading, spacing: 13) {
-                        Image(systemName: "engine.combustion").font(.system(size: 32, weight: .ultraLight)).foregroundStyle(ClusterTheme.accent)
-                        Text("Motronic 1.7.2").font(.system(size: 19, weight: .light)).foregroundStyle(ClusterTheme.ink)
-                        Text("Consultá la memoria de tu DME.").font(.footnote).foregroundStyle(ClusterTheme.muted)
-                    }.frame(maxWidth: .infinity, alignment: .leading).padding(20).modifier(CockpitSurface())
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack {
+                            GarageCaption("BOSCH / DME")
+                            Spacer()
+                            Image(systemName: "engine.combustion").font(.system(size: 24, weight: .ultraLight)).foregroundStyle(ClusterTheme.muted)
+                        }
+                        Text("Motronic").font(.system(size: 30, weight: .light)).tracking(-0.8)
+                        HStack {
+                            Text("1.7.2").font(.system(.subheadline, design: .monospaced))
+                            Spacer()
+                            Text("Sin consultar").font(.footnote).foregroundStyle(ClusterTheme.muted)
+                        }
+                    }.foregroundStyle(ClusterTheme.ink).padding(.vertical, 20)
                 }
                 ForEach(model.faultReport.records) { fault in
                     HStack(alignment: .top) {
@@ -152,7 +168,10 @@ struct FaultsView: View {
                         }
                         Spacer()
                         Text("\(fault.occurrences) ocurr.").font(.caption).monospacedDigit().foregroundStyle(ClusterTheme.muted)
-                    }.padding(compact ? 10 : 18).modifier(CockpitSurface(radius: 16))
+                    }.padding(.vertical, compact ? 10 : 18)
+                        .padding(.leading, 16)
+                        .overlay(alignment: .leading) { Rectangle().fill(ClusterTheme.accent.opacity(0.6)).frame(width: 1) }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 DisclosureGroup("Registro") {
                     LazyVStack(alignment: .leading, spacing: 12) {

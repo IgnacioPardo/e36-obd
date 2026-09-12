@@ -5,14 +5,16 @@ import E36Core
 struct SessionsView: View {
     @ObservedObject var model: AppModel
     @Environment(\.dynamicTypeSize) private var textSize
+    @Environment(\.verticalSizeClass) private var verticalSize
     @State private var selected: DriveSession?
+    private var compact: Bool { verticalSize == .compact && !textSize.isAccessibilitySize }
     var body: some View {
         Group {
             if let selected {
                 SessionDetailView(session: selected, store: model.store) { self.selected = nil }
             } else {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: compact ? 8 : 16) {
                         HStack {
                             Text(model.sessions.isEmpty ? "Sin sesiones" : "\(model.sessions.count) \(model.sessions.count == 1 ? "captura" : "capturas")")
                                 .font(.footnote).foregroundStyle(ClusterTheme.muted).accessibilityIdentifier("sessionCount")
@@ -25,23 +27,42 @@ struct SessionsView: View {
                             VStack(alignment: .leading, spacing: 16) {
                                 Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
                                     .font(.system(size: 34, weight: .ultraLight)).foregroundStyle(ClusterTheme.accent)
-                                Text("Cada recorrido,\nun registro.").font(.system(size: 27, weight: .light)).tracking(-0.5)
+                                Text("Tu archivo\nde recorridos.").font(.system(size: 27, weight: .light)).tracking(-0.5)
                                 Text("Iniciá En vivo para grabar.").font(.footnote).foregroundStyle(ClusterTheme.muted)
-                            }.frame(maxWidth: .infinity, alignment: .leading).padding(22).modifier(CockpitSurface())
+                            }.frame(maxWidth: .infinity, alignment: .leading).padding(.vertical, 22)
                         }
                         ForEach(model.sessions) { session in
                             Button { selected = session } label: {
-                                VStack(alignment: .leading, spacing: 6) {
+                                VStack(alignment: .leading, spacing: compact ? 8 : 16) {
+                                    GarageRule()
                                     rowLayout {
-                                        Text(session.startedAt, format: .dateTime.day().month().hour().minute())
-                                        if !textSize.isAccessibilitySize { Spacer() }
-                                        if session.isDemo { Text("DEMO").font(.system(size: 9, weight: .semibold, design: .monospaced)).foregroundStyle(ClusterTheme.lcd) }
-                                    }.font(.headline)
-                                    Text("\(duration(session.elapsed)) · \(session.sampleCount) muestras · \(session.eventCount) eventos")
-                                        .font(.system(.caption, design: .monospaced))
-                                    Text(status(session)).font(.caption).foregroundStyle(session.status == .interrupted ? ClusterTheme.danger : ClusterTheme.muted)
-                                }.frame(maxWidth: .infinity, alignment: .leading).padding(18).modifier(CockpitSurface(radius: 16)).contentShape(Rectangle())
+                                        if !textSize.isAccessibilitySize {
+                                            VStack(spacing: 2) {
+                                                Text(session.startedAt, format: .dateTime.day()).font(.system(size: 32, weight: .light)).monospacedDigit()
+                                                Text(session.startedAt, format: .dateTime.month(.abbreviated)).textCase(.uppercase)
+                                                    .font(.system(size: 9, weight: .medium, design: .monospaced)).tracking(1)
+                                                    .foregroundStyle(ClusterTheme.muted)
+                                            }.frame(width: 48).accessibilityHidden(true)
+                                        }
+                                        VStack(alignment: .leading, spacing: compact ? 4 : 8) {
+                                            HStack {
+                                                Text(session.startedAt, format: textSize.isAccessibilitySize ? .dateTime.day().month().hour().minute() : .dateTime.hour().minute())
+                                                    .font(compact ? .subheadline : .headline).monospacedDigit()
+                                                Spacer(minLength: 0)
+                                                if compact { Text(duration(session.elapsed)).font(.system(.caption, design: .monospaced)) }
+                                            }
+                                            if !compact { Text(duration(session.elapsed)).font(.system(.subheadline, design: .monospaced)) }
+                                            Text("\(session.sampleCount) muestras · \(session.eventCount) eventos")
+                                                .font(.caption).foregroundStyle(ClusterTheme.muted)
+                                            HStack(spacing: 5) {
+                                                Circle().frame(width: 4, height: 4)
+                                                Text(status(session)).font(.caption)
+                                            }.foregroundStyle(session.status == .interrupted ? ClusterTheme.danger : ClusterTheme.muted)
+                                        }
+                                    }
+                                }.frame(maxWidth: .infinity, alignment: .leading).padding(.bottom, compact ? 4 : 12).contentShape(Rectangle())
                             }.buttonStyle(.plain).accessibilityIdentifier("sessionRow")
+                                .accessibilityLabel("\(session.startedAt.formatted(.dateTime.day().month().year().hour().minute())), \(duration(session.elapsed)), \(session.sampleCount) muestras, \(session.eventCount) eventos, \(status(session))")
                         }
                     }.padding(.vertical, 4)
                 }
@@ -49,7 +70,7 @@ struct SessionsView: View {
         }.foregroundStyle(ClusterTheme.ink).onAppear { model.refreshSessions() }
     }
     private var rowLayout: AnyLayout {
-        textSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout())
+        textSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: .top, spacing: 18))
     }
     private func status(_ session: DriveSession) -> String {
         switch session.status { case .recording: "Grabando"; case .completed: "Finalizada"; case .interrupted: "Interrumpida" }
@@ -91,7 +112,6 @@ struct SessionDetailView: View {
                     }.disabled(exporting || loading).accessibilityIdentifier("exportSessionButton").accessibilityLabel("Exportar CSV")
                 }.id("charts")
                 HStack {
-                    if session.isDemo { Text("DEMO").foregroundStyle(ClusterTheme.lcd) }
                     Text(cursor.map(duration) ?? duration(session.elapsed)).monospacedDigit()
                     Spacer()
                     Menu {

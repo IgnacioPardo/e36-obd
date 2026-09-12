@@ -1,0 +1,11 @@
+{
+  "source": ".context/vehicle-3d/sources/studio_small_09_2k.hdr",
+  "sourceSHA256": "36724313c0fc66dab126ff90f081b85a0b1ef47be65eda1417bd20b033f0573f",
+  "sphericalMeanBefore": 0.8540746575865368,
+  "sphericalMeanAfter": 0.756806773728343,
+  "commonExposureMultiplier": 0.8861131366044094,
+  "longitudeShiftTurns": -0.255,
+  "worldRotationDegrees": 135,
+  "exposureStops": 0.75,
+  "noPerChannelColourAdjustment": true
+}

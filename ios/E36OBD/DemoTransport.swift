@@ -46,7 +46,7 @@ enum DemoScenario: String, CaseIterable, Identifiable {
                     }
                     if self.scenario == .disconnect {
                         self.scenario = .normal; self.connected = false
-                        self.onEvent?(.disconnected("Desconexión de demostración")); return
+                        self.onEvent?(.disconnected("Desconexión simulada")); return
                     }
                     self.sampleCount += 1
                     let wobble = sin(Double(self.sampleCount) * 0.4)

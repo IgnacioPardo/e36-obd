@@ -1,0 +1,39 @@
+{
+  "device": "iPhone 17 Pro simulator, iOS 26.2",
+  "testsPassed": 11,
+  "testsFailed": 0,
+  "finalExpandedNavigationRerun": "Passed",
+  "validated": [
+    "Expanded pinch beyond normal fit in both directions",
+    "One-finger vertical orbit",
+    "Distance retained while orbiting and rotating the device",
+    "Animated reset of focus and distance",
+    "Safe dashboard framing on collapse or tab selection",
+    "Persistent renderer and uninterrupted simulated capture",
+    "Pan projection and zoom math",
+    "Widget extension image packaged and shared snapshot publication"
+  ],
+  "screenshots": "Native simulator captures; only EXIF orientation, size and JPEG encoding changed",
+  "hardwareBLETested": false,
+  "phoneInstallation": {
+    "sessions": {
+      "before": 10,
+      "after": 10,
+      "originalRowsPreserved": true
+    },
+    "samples": {
+      "before": 780,
+      "after": 780,
+      "originalRowsPreserved": true
+    },
+    "events": {
+      "before": 17998,
+      "after": 17998,
+      "originalRowsPreserved": true
+    },
+    "quickCheck": "ok",
+    "installed": true,
+    "opened": false,
+    "launchBlockedBy": "iPhone locked"
+  }
+}

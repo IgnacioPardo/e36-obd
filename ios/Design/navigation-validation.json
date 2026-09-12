@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-11",
+  "scope": "Consistent pages for the dock; native connection sheet; retained page state and accessible thresholds",
+  "simulator": "iPhone 16 Pro, iOS 18.6",
+  "passedWorkflows": {
+    "testCaptureBothOrientationsFaultsAndHistory": "review.log",
+    "testExteriorKeepsCaptureAndCameraAcrossNavigation": "review.log",
+    "testFailedFaultReadDoesNotClaimZeroFaults": "review.log",
+    "testInstrumentsStayAnchoredAcrossWarningsNavigationAndReconnection": "navigation-final.log",
+    "testPagesRetainStateAndConnectionDismissesToTheSelectedPage": "navigation-final.log"
+  },
+  "reviewBundles": [
+    ".context/navigation-sep11/Review.xcresult",
+    ".context/navigation-sep11/NavigationFinal.xcresult"
+  ],
+  "simulatorBuild": "passed",
+  "iphoneBuild": "passed",
+  "strictSignature": "passed",
+  "preserved": [
+    "BLE and firmware",
+    "Sensor calculations",
+    "Original instrument cluster",
+    "Vehicle geometry and shaders",
+    "Connection and fault-reading actions"
+  ],
+  "sourceFiles": {
+    "ios/E36OBD/RootView.swift": "6c79700366ec06f6af076718ac727f9b8593c9b8ed618671ed0cd80a89f16a00",
+    "ios/E36OBD/DashboardPage.swift": "f5beee5584c49e30f1480f9fcfa4c1ca002ffd6c3eece16f8d506c00ce7170e7",
+    "ios/E36OBD/SettingsView.swift": "063654e8b3c6bdaa5947791e3555dd1933013b091a6e53c46b7e1c8b01b63ff3"
+  },
+  "visuals": [
+    "navigation-comparison.jpg",
+    "navigation-pages.jpg",
+    "connection-portrait.jpg",
+    "connection-landscape.jpg"
+  ],
+  "iphoneInstallation": {
+    "installed": true,
+    "launchOutcome": "failed",
+    "launchReason": "iPhone locked",
+    "originalRowsPreserved": true,
+    "tables": {
+      "sessions": {
+        "before": 10,
+        "after": 10,
+        "missingOrModified": 0
+      },
+      "samples": {
+        "before": 780,
+        "after": 780,
+        "missingOrModified": 0
+      },
+      "events": {
+        "before": 17965,
+        "after": 17965,
+        "missingOrModified": 0
+      }
+    },
+    "verification": "PRAGMA quick_check and SHA-256 of every complete database row, compared before/after"
+  },
+  "hardwareBLEValidation": "No new hardware BLE test; acquisition sources were not modified"
+}

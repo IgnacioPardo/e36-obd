@@ -9,6 +9,18 @@
 			"isa" = "XCLocalSwiftPackageReference";
 			"relativePath" = "Core";
 		};
+		"FF75EBF26E21D47A681D0C89" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.xcconfig";
+			"path" = "Signing.xcconfig";
+			"sourceTree" = "<group>";
+		};
+		"A0C61EE759477CF80728A6EA" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36CollectionFace.swift";
+			"sourceTree" = "<group>";
+		};
 		"DA1C1DD2947E016C0BBC7853" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -19,6 +31,36 @@
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
 			"path" = "RefreshE36WidgetIntent.swift";
+			"sourceTree" = "<group>";
+		};
+		"84435218653B0319DF027A27" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "CompanionAppearance.swift";
+			"sourceTree" = "<group>";
+		};
+		"F2AD490BAD40396FD98FDB9F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36ActivityAttributes.swift";
+			"sourceTree" = "<group>";
+		};
+		"575337A94DD1C5779EBB3D6D" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36ActivityFace.swift";
+			"sourceTree" = "<group>";
+		};
+		"6EE2825C2C0D664E51F6974D" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchComplicationFace.swift";
+			"sourceTree" = "<group>";
+		};
+		"D80FB1084D54A9D6ED5D0259" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchInstrumentConfiguration.swift";
 			"sourceTree" = "<group>";
 		};
 		"CEB15B07029CB7A5299F72F2" = {
@@ -41,6 +83,46 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "643ECCBD65A2B8C00CA2D9AA";
 		};
+		"5FA58A37A3C9E8B8C72525AA" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "CompanionCoordinator.swift";
+			"sourceTree" = "<group>";
+		};
+		"D92BFC755A2EBD5478EFDDCF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "5FA58A37A3C9E8B8C72525AA";
+		};
+		"5A4408DC0CBCFC3094FE8B7A" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "CompanionReview.swift";
+			"sourceTree" = "<group>";
+		};
+		"8B900EAE934544740BECAFA1" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "5A4408DC0CBCFC3094FE8B7A";
+		};
+		"E8839770FED8C3D642A2693A" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "CompanionSettingsView.swift";
+			"sourceTree" = "<group>";
+		};
+		"FAC98193156ECFA3E4F27A05" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "E8839770FED8C3D642A2693A";
+		};
+		"0E46F3124B01882134FBCA41" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "DashboardPage.swift";
+			"sourceTree" = "<group>";
+		};
+		"3EBBC421724D06187D0760C5" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "0E46F3124B01882134FBCA41";
+		};
 		"868BB0C4BBD9BA26E3A66705" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -61,16 +143,6 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "BF03BED5C9677D9FE158B87A";
 		};
-		"ACB31738C2FCC6761FA823BD" = {
-			"isa" = "PBXFileReference";
-			"lastKnownFileType" = "sourcecode.swift";
-			"path" = "InspectorPanel.swift";
-			"sourceTree" = "<group>";
-		};
-		"2AE12DA2A071E8CDF9E52335" = {
-			"isa" = "PBXBuildFile";
-			"fileRef" = "ACB31738C2FCC6761FA823BD";
-		};
 		"7F7FC399D034961259282B43" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -90,6 +162,16 @@
 		"09D1193067984D70061B1E24" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "DA3B43A39B8C1FC241C2F794";
+		};
+		"F92FE908713E420A53CA77E6" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "PhoneWatchBridge.swift";
+			"sourceTree" = "<group>";
+		};
+		"8217C2BCBA1360E8100EC1D7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "F92FE908713E420A53CA77E6";
 		};
 		"8E080E53A35B7D2E8E616779" = {
 			"isa" = "PBXFileReference";
@@ -181,6 +263,16 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "CED4FCB7D7C7EF2E646E81B0";
 		};
+		"B22866538DC01B20E8EF956F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WidgetCollectionReview.swift";
+			"sourceTree" = "<group>";
+		};
+		"6D0B15554B253EC3F5232AF6" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B22866538DC01B20E8EF956F";
+		};
 		"92D3BB0BDFFD9750823A6B2C" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -191,6 +283,10 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "92D3BB0BDFFD9750823A6B2C";
 		};
+		"C736F20FD0491A29EC394607" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "A0C61EE759477CF80728A6EA";
+		};
 		"2F33FD2EA4C48F4A99F02E84" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "DA1C1DD2947E016C0BBC7853";
@@ -199,11 +295,41 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "3F162A4826E680FB5C5BFEA5";
 		};
+		"14E1158ADAFA85B0154F66F9" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder.assetcatalog";
+			"path" = "../WidgetShared/Assets.xcassets";
+			"sourceTree" = "<group>";
+		};
+		"A19A59B6ADDD71B9B06DF3F2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "14E1158ADAFA85B0154F66F9";
+		};
 		"D0D98C0CBA9F473A821118D1" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "text.plist.entitlements";
 			"path" = "E36OBD.entitlements";
 			"sourceTree" = "<group>";
+		};
+		"A6295E155DF5C0E07AB7C242" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "84435218653B0319DF027A27";
+		};
+		"DC28D71B9CA505E0EADD874F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "F2AD490BAD40396FD98FDB9F";
+		};
+		"48CE7A4B21DFBF79FE165945" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "575337A94DD1C5779EBB3D6D";
+		};
+		"2B012C4D82FF09998D732931" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6EE2825C2C0D664E51F6974D";
+		};
+		"00C6ACAE30D76BB547D64AE6" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D80FB1084D54A9D6ED5D0259";
 		};
 		"28AAD1477D5182D66D4B03B3" = {
 			"isa" = "PBXFileReference";
@@ -255,11 +381,15 @@
 			"children" = (
 				"CEB15B07029CB7A5299F72F2",
 				"643ECCBD65A2B8C00CA2D9AA",
+				"5FA58A37A3C9E8B8C72525AA",
+				"5A4408DC0CBCFC3094FE8B7A",
+				"E8839770FED8C3D642A2693A",
+				"0E46F3124B01882134FBCA41",
 				"868BB0C4BBD9BA26E3A66705",
 				"BF03BED5C9677D9FE158B87A",
-				"ACB31738C2FCC6761FA823BD",
 				"7F7FC399D034961259282B43",
 				"DA3B43A39B8C1FC241C2F794",
+				"F92FE908713E420A53CA77E6",
 				"8E080E53A35B7D2E8E616779",
 				"CE5A615CE7C06CE1D95FE78D",
 				"D77023D1311DFD72707A44F2",
@@ -269,7 +399,9 @@
 				"32BD764147F720DF6BF0D341",
 				"E96000FB7597447CABD21AE6",
 				"CED4FCB7D7C7EF2E646E81B0",
+				"B22866538DC01B20E8EF956F",
 				"92D3BB0BDFFD9750823A6B2C",
+				"14E1158ADAFA85B0154F66F9",
 				"D0D98C0CBA9F473A821118D1",
 				"28AAD1477D5182D66D4B03B3",
 				"583B3F9843D81654F95356AB",
@@ -292,11 +424,15 @@
 			"files" = (
 				"C240964BF9902D3CE4E81B4A",
 				"14B73FC62CA66DD9391A5CFD",
+				"D92BFC755A2EBD5478EFDDCF",
+				"8B900EAE934544740BECAFA1",
+				"FAC98193156ECFA3E4F27A05",
+				"3EBBC421724D06187D0760C5",
 				"BE0C58D275BDC66A2968D5FF",
 				"6080199A839DB666611FB91A",
-				"2AE12DA2A071E8CDF9E52335",
 				"92997F5AA4665FBC12B369F3",
 				"09D1193067984D70061B1E24",
+				"8217C2BCBA1360E8100EC1D7",
 				"8C55C2394838EA07945B44B7",
 				"8429BAF990C065CC74868FCE",
 				"0AE51DE36D0528E5B91295DA",
@@ -306,9 +442,16 @@
 				"DA6AE96615192104B74B1AB3",
 				"0A69836E8432BB87EBEEFA73",
 				"4B2B802654F7E24644F55063",
+				"6D0B15554B253EC3F5232AF6",
 				"CE3ED49E3E3C24981675988F",
+				"C736F20FD0491A29EC394607",
 				"2F33FD2EA4C48F4A99F02E84",
 				"C6D78D3146BC616AD71D8597",
+				"A6295E155DF5C0E07AB7C242",
+				"DC28D71B9CA505E0EADD874F",
+				"48CE7A4B21DFBF79FE165945",
+				"2B012C4D82FF09998D732931",
+				"00C6ACAE30D76BB547D64AE6",
 			);
 			"runOnlyForDeploymentPostprocessing" = "0";
 		};
@@ -324,6 +467,7 @@
 			"isa" = "PBXResourcesBuildPhase";
 			"buildActionMask" = "2147483647";
 			"files" = (
+				"A19A59B6ADDD71B9B06DF3F2",
 				"126120711FB37DF289D1F4F6",
 				"44FA1E696223DAB55329F330",
 				"38D3E06A2C2199E65C1E1539",
@@ -348,6 +492,26 @@
 				"1F6101B99DCFB6221CCBB538",
 			);
 			"name" = "Embed App Extensions";
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"F6EDEB1CE903A9B1960DE286" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B122444BBBCD43013B5EDD7D";
+			"settings" = {
+				"ATTRIBUTES" = (
+					"RemoveHeadersOnCopy",
+				);
+			};
+		};
+		"FFC8DD4EEC56573695496DC8" = {
+			"isa" = "PBXCopyFilesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"dstPath" = "$(CONTENTS_FOLDER_PATH)/Watch";
+			"dstSubfolderSpec" = "16";
+			"files" = (
+				"F6EDEB1CE903A9B1960DE286",
+			);
+			"name" = "Embed Watch Content";
 			"runOnlyForDeploymentPostprocessing" = "0";
 		};
 		"FD271C082E2820606A5BFFE2" = {
@@ -421,6 +585,18 @@
 			"target" = "69B582C17E390B9E4CE14726";
 			"targetProxy" = "D78E27401F9D7DB127D58CB5";
 		};
+		"8161ACDE6C374FD3F4EAC986" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+			"proxyType" = "1";
+			"remoteGlobalIDString" = "9393ED54D57538C7CB5B274E";
+			"remoteInfo" = "E36Watch";
+		};
+		"9BBD5E51A695CBEB9E61B904" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "9393ED54D57538C7CB5B274E";
+			"targetProxy" = "8161ACDE6C374FD3F4EAC986";
+		};
 		"4B174F23AFA9AA4C0916B453" = {
 			"isa" = "PBXNativeTarget";
 			"buildConfigurationList" = "C4F874803FFD1D167216436A";
@@ -429,11 +605,13 @@
 				"F2444DF1086412BD60AF7219",
 				"79AD834D84FE951918821682",
 				"369C8252B007961673CCD1FF",
+				"FFC8DD4EEC56573695496DC8",
 			);
 			"buildRules" = (
 			);
 			"dependencies" = (
 				"C5FBC3AE799F47DF7530EE14",
+				"9BBD5E51A695CBEB9E61B904",
 			);
 			"name" = "E36OBD";
 			"packageProductDependencies" = (
@@ -442,6 +620,16 @@
 			"productName" = "E36OBD";
 			"productReference" = "1B2F9EB89FB84E8839DE76DC";
 			"productType" = "com.apple.product-type.application";
+		};
+		"3E2D4EDDF300431F6EB432B7" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36CollectionWidgets.swift";
+			"sourceTree" = "<group>";
+		};
+		"5B55833B2FA21D9DB6E93303" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3E2D4EDDF300431F6EB432B7";
 		};
 		"D1790B1A36FD3420418C371F" = {
 			"isa" = "PBXFileReference";
@@ -453,6 +641,16 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "D1790B1A36FD3420418C371F";
 		};
+		"7E6BB7ABB242CCCE3E02CEFD" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36LiveActivity.swift";
+			"sourceTree" = "<group>";
+		};
+		"AA12091F3A3F5E48DCEBC6C6" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "7E6BB7ABB242CCCE3E02CEFD";
+		};
 		"3C45821788CD6D92C65BD5FA" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -463,6 +661,10 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "3C45821788CD6D92C65BD5FA";
 		};
+		"244666F62F7C3AB8FF7E22C3" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "A0C61EE759477CF80728A6EA";
+		};
 		"6E435083B11A052ED2C68316" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "DA1C1DD2947E016C0BBC7853";
@@ -471,11 +673,41 @@
 			"isa" = "PBXBuildFile";
 			"fileRef" = "3F162A4826E680FB5C5BFEA5";
 		};
+		"21EEC657B5D5CA20EDE7DF13" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder.assetcatalog";
+			"path" = "../WidgetShared/Assets.xcassets";
+			"sourceTree" = "<group>";
+		};
+		"CC0D65E50EAE8F2C6EB4B3F0" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "21EEC657B5D5CA20EDE7DF13";
+		};
 		"92AC94569B25CCF7E49F0B6B" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "text.plist.entitlements";
 			"path" = "E36OBDWidgets.entitlements";
 			"sourceTree" = "<group>";
+		};
+		"8FBC7313CD053B154A2CDEDF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "84435218653B0319DF027A27";
+		};
+		"B85F5FA915F8168872CCF1B2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "F2AD490BAD40396FD98FDB9F";
+		};
+		"83869597350197ED3E4CC754" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "575337A94DD1C5779EBB3D6D";
+		};
+		"845E40B15E12B8F2A3F858C2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6EE2825C2C0D664E51F6974D";
+		};
+		"A4E866E7E4D68761EB6798EE" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D80FB1084D54A9D6ED5D0259";
 		};
 		"1DE5000BF5F53C60A9A01EF0" = {
 			"isa" = "PBXFileReference";
@@ -495,8 +727,11 @@
 		"1A9DC2C608D27943F6E5BC34" = {
 			"isa" = "PBXGroup";
 			"children" = (
+				"3E2D4EDDF300431F6EB432B7",
 				"D1790B1A36FD3420418C371F",
+				"7E6BB7ABB242CCCE3E02CEFD",
 				"3C45821788CD6D92C65BD5FA",
+				"21EEC657B5D5CA20EDE7DF13",
 				"92AC94569B25CCF7E49F0B6B",
 				"1DE5000BF5F53C60A9A01EF0",
 			);
@@ -514,10 +749,18 @@
 			"isa" = "PBXSourcesBuildPhase";
 			"buildActionMask" = "2147483647";
 			"files" = (
+				"5B55833B2FA21D9DB6E93303",
 				"E8AECD1D8FB7C2EB206643E8",
+				"AA12091F3A3F5E48DCEBC6C6",
 				"E4846FCCA6CD6E9DD18EED4F",
+				"244666F62F7C3AB8FF7E22C3",
 				"6E435083B11A052ED2C68316",
 				"1C7C6F9DA2FB8FC23D56B774",
+				"8FBC7313CD053B154A2CDEDF",
+				"B85F5FA915F8168872CCF1B2",
+				"83869597350197ED3E4CC754",
+				"845E40B15E12B8F2A3F858C2",
+				"A4E866E7E4D68761EB6798EE",
 			);
 			"runOnlyForDeploymentPostprocessing" = "0";
 		};
@@ -533,6 +776,7 @@
 			"isa" = "PBXResourcesBuildPhase";
 			"buildActionMask" = "2147483647";
 			"files" = (
+				"CC0D65E50EAE8F2C6EB4B3F0",
 			);
 			"runOnlyForDeploymentPostprocessing" = "0";
 		};
@@ -611,6 +855,436 @@
 			"productReference" = "DADF20EC4D82887E7AAD87AF";
 			"productType" = "com.apple.product-type.app-extension";
 		};
+		"D17DCE448230EFD9F8A45931" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36WatchApp.swift";
+			"sourceTree" = "<group>";
+		};
+		"FDE579B3E90CBF1E93B424AA" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D17DCE448230EFD9F8A45931";
+		};
+		"F153D3FFFBEB36EB15554ED7" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchComplicationReview.swift";
+			"sourceTree" = "<group>";
+		};
+		"0767C65B3D071D9BAB32E857" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "F153D3FFFBEB36EB15554ED7";
+		};
+		"674A766BEB84CA4F6F7327FE" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchDashboard.swift";
+			"sourceTree" = "<group>";
+		};
+		"21B4EB681C85E170EE741D51" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "674A766BEB84CA4F6F7327FE";
+		};
+		"804D94B43CCB4E5DF230ED4C" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "WatchModel.swift";
+			"sourceTree" = "<group>";
+		};
+		"E2B34080CD1716D08733D004" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "804D94B43CCB4E5DF230ED4C";
+		};
+		"B28975F9123B032923CCDBA5" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "84435218653B0319DF027A27";
+		};
+		"7CE72BC6F3AB470A7B371441" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "F2AD490BAD40396FD98FDB9F";
+		};
+		"293493FC27FB58A61DD511BE" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "575337A94DD1C5779EBB3D6D";
+		};
+		"552143D75BE1F14D2931C905" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6EE2825C2C0D664E51F6974D";
+		};
+		"8D66B23445A5E8D428AAAFDE" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D80FB1084D54A9D6ED5D0259";
+		};
+		"4CCD7541BAB04AE0F09653F5" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.entitlements";
+			"path" = "E36Watch.entitlements";
+			"sourceTree" = "<group>";
+		};
+		"CEB17ABC8F2648FCAD8B6B3F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "folder.assetcatalog";
+			"path" = "Assets.xcassets";
+			"sourceTree" = "<group>";
+		};
+		"7D1DEA80CB1C64B5A7CA9F69" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "CEB17ABC8F2648FCAD8B6B3F";
+		};
+		"34413CA92B01185DCC783AB7" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"path" = "Info.plist";
+			"sourceTree" = "<group>";
+		};
+		"1D4B7E543DDDE2EEDFDE06C7" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = "B747EAD6A8D7189EE159E1E4";
+			"productName" = "E36Core";
+		};
+		"786269D4A18E57182BDCA73C" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = "1D4B7E543DDDE2EEDFDE06C7";
+		};
+		"0A441CF510245E512B5B1358" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"D17DCE448230EFD9F8A45931",
+				"F153D3FFFBEB36EB15554ED7",
+				"674A766BEB84CA4F6F7327FE",
+				"804D94B43CCB4E5DF230ED4C",
+				"4CCD7541BAB04AE0F09653F5",
+				"CEB17ABC8F2648FCAD8B6B3F",
+				"34413CA92B01185DCC783AB7",
+			);
+			"path" = "E36Watch";
+			"sourceTree" = "<group>";
+		};
+		"B122444BBBCD43013B5EDD7D" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"includeInIndex" = "0";
+			"path" = "E36Watch.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"842DD03194013CFF790F151C" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"FDE579B3E90CBF1E93B424AA",
+				"0767C65B3D071D9BAB32E857",
+				"21B4EB681C85E170EE741D51",
+				"E2B34080CD1716D08733D004",
+				"B28975F9123B032923CCDBA5",
+				"7CE72BC6F3AB470A7B371441",
+				"293493FC27FB58A61DD511BE",
+				"552143D75BE1F14D2931C905",
+				"8D66B23445A5E8D428AAAFDE",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"1571488153A623F26E9E2F3D" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"786269D4A18E57182BDCA73C",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"A22CDE5C4274295BA9C225EF" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"7D1DEA80CB1C64B5A7CA9F69",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"5C17F0304DC1A11B062C0D60" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "AD72ADF4DED24D2CEC9B66B2";
+			"settings" = {
+				"ATTRIBUTES" = (
+					"RemoveHeadersOnCopy",
+				);
+			};
+		};
+		"A4A85077C07F28D982EBE9FA" = {
+			"isa" = "PBXCopyFilesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"dstPath" = "";
+			"dstSubfolderSpec" = "13";
+			"files" = (
+				"5C17F0304DC1A11B062C0D60",
+			);
+			"name" = "Embed Watch Widgets";
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"3E8045E003FA5C6445EA2D67" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.ignaciopardo.e36obd.watchkitapp";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_VERSION" = "6.0";
+				"TARGETED_DEVICE_FAMILY" = "4";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"SDKROOT" = "watchos";
+				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
+				"WATCHOS_DEPLOYMENT_TARGET" = "11.0";
+				"INFOPLIST_FILE" = "E36Watch/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "E36Watch/E36Watch.entitlements";
+				"SKIP_INSTALL" = "YES";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"ENABLE_PREVIEWS" = "YES";
+			};
+			"name" = "Debug";
+		};
+		"4415CDDC505DA79F65BED8EF" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.ignaciopardo.e36obd.watchkitapp";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_VERSION" = "6.0";
+				"TARGETED_DEVICE_FAMILY" = "4";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"SDKROOT" = "watchos";
+				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
+				"WATCHOS_DEPLOYMENT_TARGET" = "11.0";
+				"INFOPLIST_FILE" = "E36Watch/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "E36Watch/E36Watch.entitlements";
+				"SKIP_INSTALL" = "YES";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"ENABLE_PREVIEWS" = "YES";
+			};
+			"name" = "Release";
+		};
+		"283F0A27D2144513514CDE12" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"3E8045E003FA5C6445EA2D67",
+				"4415CDDC505DA79F65BED8EF",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"F14AD163EA9A88F0F001F364" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+			"proxyType" = "1";
+			"remoteGlobalIDString" = "66E4FD6E5FEA12F45B429618";
+			"remoteInfo" = "E36WatchWidgets";
+		};
+		"EDCB1E9B16A741A94EEA056D" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "66E4FD6E5FEA12F45B429618";
+			"targetProxy" = "F14AD163EA9A88F0F001F364";
+		};
+		"9393ED54D57538C7CB5B274E" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "283F0A27D2144513514CDE12";
+			"buildPhases" = (
+				"842DD03194013CFF790F151C",
+				"1571488153A623F26E9E2F3D",
+				"A22CDE5C4274295BA9C225EF",
+				"A4A85077C07F28D982EBE9FA",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+				"EDCB1E9B16A741A94EEA056D",
+			);
+			"name" = "E36Watch";
+			"packageProductDependencies" = (
+				"1D4B7E543DDDE2EEDFDE06C7",
+			);
+			"productName" = "E36Watch";
+			"productReference" = "B122444BBBCD43013B5EDD7D";
+			"productType" = "com.apple.product-type.application";
+		};
+		"46F63A9B8CFB64E8B7F9B8C8" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "E36WatchWidget.swift";
+			"sourceTree" = "<group>";
+		};
+		"0C77CC57F061694EBE41F056" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "46F63A9B8CFB64E8B7F9B8C8";
+		};
+		"512BDDD2F8B028B1FC1C5D81" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "84435218653B0319DF027A27";
+		};
+		"D20D254F7992EF3528754436" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "F2AD490BAD40396FD98FDB9F";
+		};
+		"E2C84A4ED3CDE09B080CD851" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "575337A94DD1C5779EBB3D6D";
+		};
+		"96F02962E417E8373214F1BF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6EE2825C2C0D664E51F6974D";
+		};
+		"F31111F6C02B732DB3068FC1" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D80FB1084D54A9D6ED5D0259";
+		};
+		"3D51E0BA5A714C690F8AD8BF" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.entitlements";
+			"path" = "E36WatchWidgets.entitlements";
+			"sourceTree" = "<group>";
+		};
+		"685F6885D64B3AA232711902" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"path" = "Info.plist";
+			"sourceTree" = "<group>";
+		};
+		"C0C99EF97D99635E45B14849" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = "B747EAD6A8D7189EE159E1E4";
+			"productName" = "E36Core";
+		};
+		"4FC53F35B259356416189F54" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = "C0C99EF97D99635E45B14849";
+		};
+		"93C25AE877BFF9FC0C921A80" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"46F63A9B8CFB64E8B7F9B8C8",
+				"3D51E0BA5A714C690F8AD8BF",
+				"685F6885D64B3AA232711902",
+			);
+			"path" = "E36WatchWidgets";
+			"sourceTree" = "<group>";
+		};
+		"AD72ADF4DED24D2CEC9B66B2" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.app-extension";
+			"includeInIndex" = "0";
+			"path" = "E36WatchWidgets.appex";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"40ECC10717D611F303333F03" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"0C77CC57F061694EBE41F056",
+				"512BDDD2F8B028B1FC1C5D81",
+				"D20D254F7992EF3528754436",
+				"E2C84A4ED3CDE09B080CD851",
+				"96F02962E417E8373214F1BF",
+				"F31111F6C02B732DB3068FC1",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"D7D0771E7FBA20F1F654A8A9" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"4FC53F35B259356416189F54",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"74F7151B9FCCAB98767CDB8E" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"0E8A844FFCDFC2809818066F" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.ignaciopardo.e36obd.watchkitapp.widgets";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_VERSION" = "6.0";
+				"TARGETED_DEVICE_FAMILY" = "4";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				"SDKROOT" = "watchos";
+				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
+				"WATCHOS_DEPLOYMENT_TARGET" = "11.0";
+				"INFOPLIST_FILE" = "E36WatchWidgets/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "E36WatchWidgets/E36WatchWidgets.entitlements";
+				"SKIP_INSTALL" = "YES";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+			};
+			"name" = "Debug";
+		};
+		"127ED36EDBB9AD44D17E26C8" = {
+			"isa" = "XCBuildConfiguration";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.ignaciopardo.e36obd.watchkitapp.widgets";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"SWIFT_VERSION" = "6.0";
+				"TARGETED_DEVICE_FAMILY" = "4";
+				"GENERATE_INFOPLIST_FILE" = "NO";
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				"SDKROOT" = "watchos";
+				"SUPPORTED_PLATFORMS" = "watchos watchsimulator";
+				"WATCHOS_DEPLOYMENT_TARGET" = "11.0";
+				"INFOPLIST_FILE" = "E36WatchWidgets/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "E36WatchWidgets/E36WatchWidgets.entitlements";
+				"SKIP_INSTALL" = "YES";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+			};
+			"name" = "Release";
+		};
+		"AD71219E5BAF570F33ADDD2E" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"0E8A844FFCDFC2809818066F",
+				"127ED36EDBB9AD44D17E26C8",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"66E4FD6E5FEA12F45B429618" = {
+			"isa" = "PBXNativeTarget";
+			"buildConfigurationList" = "AD71219E5BAF570F33ADDD2E";
+			"buildPhases" = (
+				"40ECC10717D611F303333F03",
+				"D7D0771E7FBA20F1F654A8A9",
+				"74F7151B9FCCAB98767CDB8E",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+			);
+			"name" = "E36WatchWidgets";
+			"packageProductDependencies" = (
+				"C0C99EF97D99635E45B14849",
+			);
+			"productName" = "E36WatchWidgets";
+			"productReference" = "AD72ADF4DED24D2CEC9B66B2";
+			"productType" = "com.apple.product-type.app-extension";
+		};
 		"3075077D858CD9379054B2C5" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -620,6 +1294,26 @@
 		"593E865BFF0680761578D747" = {
 			"isa" = "PBXBuildFile";
 			"fileRef" = "3075077D858CD9379054B2C5";
+		};
+		"1B76F5674550F2283B09AF61" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "CompanionContractTests.swift";
+			"sourceTree" = "<group>";
+		};
+		"2393B53C9589CAC283ED4113" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "1B76F5674550F2283B09AF61";
+		};
+		"6EB7BC1379E594E4806F415C" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "VehicleCameraTests.swift";
+			"sourceTree" = "<group>";
+		};
+		"92C47279B50CA761677CD7AD" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "6EB7BC1379E594E4806F415C";
 		};
 		"BED9A13232AACAF4C6CEAFF0" = {
 			"isa" = "PBXFileReference";
@@ -644,6 +1338,8 @@
 			"isa" = "PBXGroup";
 			"children" = (
 				"3075077D858CD9379054B2C5",
+				"1B76F5674550F2283B09AF61",
+				"6EB7BC1379E594E4806F415C",
 				"BED9A13232AACAF4C6CEAFF0",
 			);
 			"path" = "E36OBDTests";
@@ -661,6 +1357,8 @@
 			"buildActionMask" = "2147483647";
 			"files" = (
 				"593E865BFF0680761578D747",
+				"2393B53C9589CAC283ED4113",
+				"92C47279B50CA761677CD7AD",
 				"04DFEC3981F2D3562ABE6B19",
 			);
 			"runOnlyForDeploymentPostprocessing" = "0";
@@ -888,9 +1586,22 @@
 			"productReference" = "9E96051C17286081577F6E63";
 			"productType" = "com.apple.product-type.bundle.ui-testing";
 		};
+		"24B5DD65BF4AF84F087B5750" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"84435218653B0319DF027A27",
+				"F2AD490BAD40396FD98FDB9F",
+				"575337A94DD1C5779EBB3D6D",
+				"6EE2825C2C0D664E51F6974D",
+				"D80FB1084D54A9D6ED5D0259",
+			);
+			"path" = "CompanionShared";
+			"sourceTree" = "<group>";
+		};
 		"B76D6BB2405CBB9EE4565D4A" = {
 			"isa" = "PBXGroup";
 			"children" = (
+				"A0C61EE759477CF80728A6EA",
 				"DA1C1DD2947E016C0BBC7853",
 				"3F162A4826E680FB5C5BFEA5",
 			);
@@ -902,6 +1613,8 @@
 			"children" = (
 				"1B2F9EB89FB84E8839DE76DC",
 				"DADF20EC4D82887E7AAD87AF",
+				"B122444BBBCD43013B5EDD7D",
+				"AD72ADF4DED24D2CEC9B66B2",
 				"82F18604FC7BFEFEA8918844",
 				"9E96051C17286081577F6E63",
 			);
@@ -911,10 +1624,14 @@
 		"870B3294C0CBD48AF6BBCC1B" = {
 			"isa" = "PBXGroup";
 			"children" = (
+				"FF75EBF26E21D47A681D0C89",
 				"CEEC93DB33F4A6C2BAE6F412",
 				"1A9DC2C608D27943F6E5BC34",
+				"0A441CF510245E512B5B1358",
+				"93C25AE877BFF9FC0C921A80",
 				"BA87AD41386678A655731552",
 				"B630CEF72E1DAB19B3CED0FD",
+				"24B5DD65BF4AF84F087B5750",
 				"B76D6BB2405CBB9EE4565D4A",
 				"615B463D1028E4E24B674CF7",
 			);
@@ -922,10 +1639,12 @@
 		};
 		"AB52CB08E0FDF02BF6C67C33" = {
 			"isa" = "XCBuildConfiguration";
+			"baseConfigurationReference" = "FF75EBF26E21D47A681D0C89";
 			"buildSettings" = {
 				"SDKROOT" = "iphoneos";
 				"CLANG_ENABLE_MODULES" = "YES";
 				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"ONLY_ACTIVE_ARCH" = "YES";
 				"SWIFT_STRICT_CONCURRENCY" = "complete";
 				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
 				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
@@ -941,10 +1660,12 @@
 		};
 		"5283471FF90C511CFE244FFF" = {
 			"isa" = "XCBuildConfiguration";
+			"baseConfigurationReference" = "FF75EBF26E21D47A681D0C89";
 			"buildSettings" = {
 				"SDKROOT" = "iphoneos";
 				"CLANG_ENABLE_MODULES" = "YES";
 				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"ONLY_ACTIVE_ARCH" = "NO";
 				"SWIFT_STRICT_CONCURRENCY" = "complete";
 				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
 				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
@@ -988,6 +1709,22 @@
 							};
 						};
 					};
+					"9393ED54D57538C7CB5B274E" = {
+						"CreatedOnToolsVersion" = "26.2";
+						"SystemCapabilities" = {
+							"com.apple.ApplicationGroups.iOS" = {
+								"enabled" = "1";
+							};
+						};
+					};
+					"66E4FD6E5FEA12F45B429618" = {
+						"CreatedOnToolsVersion" = "26.2";
+						"SystemCapabilities" = {
+							"com.apple.ApplicationGroups.iOS" = {
+								"enabled" = "1";
+							};
+						};
+					};
 				};
 			};
 			"buildConfigurationList" = "4BA304E783CFBB9FA6E56552";
@@ -1009,6 +1746,8 @@
 			"targets" = (
 				"4B174F23AFA9AA4C0916B453",
 				"69B582C17E390B9E4CE14726",
+				"9393ED54D57538C7CB5B274E",
+				"66E4FD6E5FEA12F45B429618",
 				"071F5F3C1BD58A3813F97194",
 				"981D9A3941E6D9A55E0ADF06",
 			);

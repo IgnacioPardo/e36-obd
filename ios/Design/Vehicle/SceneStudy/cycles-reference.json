@@ -1,0 +1,21 @@
+{
+  "renderer": "Blender Cycles Metal, 128 samples, denoised",
+  "role": "Offline lighting calibration, not a native app screenshot",
+  "sourceModel": "app stance derivative",
+  "camera": {
+    "positionYUp": [
+      4.9,
+      2.15,
+      7.2
+    ],
+    "targetYUp": [
+      0,
+      0.62,
+      0
+    ],
+    "horizontalFOV": 34
+  },
+  "environment": "Poly Haven Studio Small 09, matched final environment",
+  "display": "AgX Medium High Contrast",
+  "limitations": "Imported lamp optical materials differ from the app screen-space refraction; comparison is for body, geometry and illumination"
+}

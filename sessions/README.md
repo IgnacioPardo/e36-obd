@@ -20,3 +20,7 @@ The two large files are full sessions with inline tool output.
 
 > These are raw transcripts and may contain paths or tokens surfaced by tool
 > output. Kept in a private repo. Scrub before making this repository public.
+
+## Readable enclosure session and handoff
+
+The approved long ESP32/buck/ELM enclosure chat now has a [visible-conversation snapshot](../docs/sessions/2026-09-11-elm-backpack-transcript.md) and [continuation handoff](../docs/sessions/2026-09-11-elm-backpack.md), captured for the 2026-09-11 commit/push request. The [eight original reference images](../hardware/elm-backpack/references/README.md) are tracked alongside the enclosure. These readable records omit execution instructions, private reasoning and tool traffic.

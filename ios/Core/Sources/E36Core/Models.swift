@@ -22,7 +22,7 @@ public enum Sensor: String, CaseIterable, Codable, Sendable, Identifiable {
     }
 }
 
-public struct Telemetry: Codable, Equatable, Sendable {
+public struct Telemetry: Codable, Hashable, Sendable {
     public var rpm: Double
     public var load: Double
     public var coolant: Double

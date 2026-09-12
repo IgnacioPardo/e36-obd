@@ -1,0 +1,11 @@
+{
+  "shadowDimensions": [
+    1536,
+    1536
+  ],
+  "studioShadowWidthMetres": 20,
+  "maximumAlphaAtDistantTextureBoundary": 0,
+  "allShadowRGBIsBlack": false,
+  "modelSHA256": "02fffd0543ab1a3184ca6f33b2ee19e440995f8cfd5512e4418037f69efc74bb",
+  "shaderSHA256": "b776714130f6602c5d5bfe7af25744972e243a7ba64e96b3ab34806d2162f948"
+}

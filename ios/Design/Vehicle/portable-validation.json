@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "sourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
   "glb": {
     "meshes": 387,
     "bounds": [
@@ -16,8 +16,8 @@
         1.3933478593826294
       ]
     ],
-    "bytes": 76510708,
-    "SHA256": "fb71c42637205f1949c4adcdbc6a05e8cc1c17b67ca4f3e8ead17aada97b6198"
+    "bytes": 76511288,
+    "SHA256": "31fcba56ad216f30ebe9c25c503d9b409be3dfb029a78ce3bf49b8870485f216"
   },
   "usdz": {
     "meshes": 387,
@@ -35,7 +35,7 @@
         1.3933478593826294
       ]
     ],
-    "bytes": 134489729,
-    "SHA256": "a316a5e257e03a00dd3f5fd3274ebe85eba1bde4ce3a89219179567164efe5b6"
+    "bytes": 134492499,
+    "SHA256": "949d726cd48e88f9e2ace40a4ce8e3f9cebf51a3191f3978276e3c9fa289aec9"
   }
 }

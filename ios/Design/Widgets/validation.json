@@ -1,0 +1,67 @@
+{
+  "date": "2026-09-11",
+  "sourceSHA256": {
+    "ios/WidgetShared/E36CollectionFace.swift": "168660fc5fbaa86cd009ecaf5a1085f4222bbb77f3c4fd26372bfaa345a859bc",
+    "ios/E36OBD/VehicleSceneView.swift": "ad64cc13bac26403f2939e1f83ebda10bd7ea6dd2291b187d72e4e1e2c4c75ad",
+    "ios/E36OBD/VehicleMetalCanvas.swift": "1c34d86466d810a813518ca0197ef40fd5ca56970a68a99582fa04afb8673c11",
+    "ios/E36OBD/VehiclePaint.metal": "f1f84d5ebc5e3364b4f07c1b9cb4c20f2cc51c9c3f708364628ba004f227ea84",
+    "ios/E36Watch/WatchDashboard.swift": "57788f5a2ca3736b76814b1c062c8742e3834fabbbab3085d466f5c4ded1edae",
+    "ios/CompanionShared/WatchComplicationFace.swift": "40cbf5b4269d83c35030c6ec0b78b266e970f630fd899528a1d758a440f60795",
+    "ios/CompanionShared/E36ActivityFace.swift": "4cf90f390ee7807325d9e945db0f7fb90a3361df0dfc8a4f1238f981a5922538",
+    "ios/E36OBD/Assets.xcassets/AppIcon.appiconset/AppIcon.png": "4504bd6cc7bbe148d309ff79718c7712d895dfc1a9c56b855c72693738943843",
+    "ios/WidgetShared/Assets.xcassets/WidgetCar.imageset/car.png": "948f3a69b3a21a593ae0834d19551354155b581108743924d864dbd00e715818"
+  },
+  "builds": {
+    "iPhoneSimulator": "passed",
+    "watchSimulator": "passed",
+    "iPhoneSigned": "passed",
+    "WatchSigned": "passed"
+  },
+  "tests": {
+    "storage": 4,
+    "camera": 2,
+    "widgetContract": 2,
+    "captureAndExteriorNavigation": 1,
+    "failures": 0
+  },
+  "visualReview": [
+    "small and medium Garage/OBC",
+    "empty and stale observations",
+    "Watch RPM icon without DEMO",
+    "Live Activity without DEMO",
+    "headlamp close-up and whole vehicle render",
+    "portrait and landscape exterior with continuing session"
+  ],
+  "hardware": {
+    "iPhone": "Updated in place; launch deferred because phone is locked",
+    "storedRows": {
+      "sessions": 10,
+      "samples": 780,
+      "events": 17994
+    },
+    "allOriginalRowsPreserved": true,
+    "watch": "Signed build includes latest icons and roundel; direct install pending CoreDevice reconnection",
+    "realBLE": "Unchanged; not re-tested for this UI revision",
+    "CarPlay": "Small families supported; not exercised on physical CarPlay"
+  },
+  "notes": [
+    "An initial build/test attempt ran out of disk space. The successful rerun and final build logs are in .context/ui-craft-sep11.",
+    "Screenshots review native shared faces; they do not establish actual WidgetKit refresh scheduling."
+  ],
+  "transparentShadowRevision": {
+    "assetSHA256": "7e95e3e60976500b5e0b1248400f5e6a542f0fd4cac9aa2ff86ec499fb6717f3",
+    "edgeAlphaMaximum": 0,
+    "nativeViewsReviewed": [
+      "small",
+      "medium",
+      "large",
+      "large compact"
+    ],
+    "contrastBackgroundsReviewed": [
+      10,
+      38,
+      90
+    ],
+    "method": "Two native Metal exports, isolated shadow feather; no vehicle color retouch"
+  }
+}

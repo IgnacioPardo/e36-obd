@@ -12,6 +12,10 @@ final class WidgetContractTests: XCTestCase {
         XCTAssertEqual(extensionInfo["NSExtensionPointIdentifier"] as? String, "com.apple.widgetkit-extension")
         XCTAssertEqual(widget.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
                        app.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String)
+        let car = try XCTUnwrap(UIImage(named: "WidgetCar", in: widget, compatibleWith: nil))
+        XCTAssertGreaterThan(try XCTUnwrap(car.cgImage).width, 500)
+        XCTAssertNil(widget.url(forResource: "E36-316i", withExtension: "usdz", subdirectory: "VehicleScene"),
+                     "Widgets ship the bounded render, not the vehicle geometry")
     }
     func testPublisherWritesTheSharedAppGroup() async throws {
         let group = try XCTUnwrap(FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: WidgetSnapshotStore.appGroup))

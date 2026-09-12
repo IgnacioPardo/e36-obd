@@ -12,7 +12,7 @@ enum InstrumentChoice: String, AppEnum {
 enum SourceChoice: String, AppEnum {
     case reader, demo
     static let typeDisplayRepresentation = TypeDisplayRepresentation(name: "Origen")
-    static let caseDisplayRepresentations: [SourceChoice: DisplayRepresentation] = [.reader: "ESP32", .demo: "Demostración"]
+    static let caseDisplayRepresentations: [SourceChoice: DisplayRepresentation] = [.reader: "ESP32", .demo: "Simulación"]
     var source: WidgetSource { self == .reader ? .reader : .demo }
 }
 struct E36WidgetConfiguration: WidgetConfigurationIntent {

@@ -5,6 +5,7 @@ enum AppSection: String, CaseIterable { case dashboard, connection, faults, sess
 private enum AppAction: Sendable {
     case boot(Bool), transport(TransportEvent), connect, disconnect, start, stop, faults
     case tick, foreground(Bool), settings(AlertSettings), refreshSessions, permission, expired
+    case companion(CompanionRequest, CheckedContinuation<CompanionReply, Never>)
 }
 
 @MainActor final class AppModel: ObservableObject {
@@ -40,6 +41,9 @@ private enum AppAction: Sendable {
     private var rate = ReceptionRate()
     private let presenter = AlertPresenter()
     private let widgetPublisher = WidgetPublisher()
+    let companion = CompanionCoordinator()
+    private let companionStream = UUID().uuidString
+    private var companionSequence: UInt64 = 0
     private var continuation: AsyncStream<AppAction>.Continuation!
     private var consumer: Task<Void, Never>?
     private var ticker: Task<Void, Never>?
@@ -83,8 +87,42 @@ private enum AppAction: Sendable {
     var displayTelemetry: Telemetry? { telemetry?.validity == .populated ? telemetry : nil }
     var recordingElapsed: Double { recording == nil ? 0 : elapsedOffset + max(0, now - elapsedOrigin) }
 
+    private func currentCompanionSnapshot(observation: WidgetSnapshot? = nil) -> CompanionSnapshot {
+        let capture: WidgetCaptureState = storageError != nil ? .interrupted
+            : (recording == nil ? .stopped : (phase == .live && connected && !stale ? .recording : .paused))
+        let reading = observation ?? WidgetSnapshot(updatedAt: Date(), receivedAt: lastReceivedAt, telemetry: telemetry,
+            capture: capture, alerts: activeAlerts, source: isDemo ? .demo : .reader)
+        return CompanionSnapshot(streamID: companionStream, sequence: companionSequence, observation: reading,
+            sessionID: recording?.id, startedAt: recording?.startedAt, sampleCount: recording?.sampleCount ?? 0,
+            connected: connected, canStart: canStart, phase: phase.rawValue, primarySensor: companion.primarySensor)
+    }
+
     private func handle(_ action: AppAction) async {
         switch action {
+        case .companion(let request, let reply):
+            guard request.source == (isDemo ? .demo : .reader), request.isValid(at: .now) else {
+                reply.resume(returning: CompanionReply(snapshot: currentCompanionSnapshot(),
+                    message: "Abrí el mismo origen en E36 del iPhone", accepted: false))
+                return
+            }
+            if request.action == .start {
+                guard canStart else {
+                    reply.resume(returning: CompanionReply(snapshot: currentCompanionSnapshot(),
+                        message: storageError ?? (recording != nil ? "La captura ya está en curso" :
+                            (connected ? "Esperá a que termine la operación" : "Conectá el lector desde el iPhone")), accepted: false))
+                    return
+                }
+                await handle(.start)
+                if let storageError {
+                    reply.resume(returning: CompanionReply(snapshot: currentCompanionSnapshot(),
+                        message: storageError, accepted: false))
+                    return
+                }
+            } else if request.action == .stop {
+                await handle(.stop)
+            }
+            reply.resume(returning: CompanionReply(snapshot: currentCompanionSnapshot()))
+            return
         case .boot(let restoration): await initialize(restoration: restoration)
         case .transport(let event): await received(event)
         case .connect: transport?.connect(foreground: isForeground, delay: 0)
@@ -142,6 +180,8 @@ private enum AppAction: Sendable {
             : (recording == nil ? .stopped : (phase == .live && connected && !stale ? .recording : .paused))
         let snapshot = WidgetSnapshot(updatedAt: Date(), receivedAt: lastReceivedAt, telemetry: telemetry,
             capture: capture, alerts: activeAlerts, source: isDemo ? .demo : .reader)
+        companionSequence &+= 1
+        companion.publish(currentCompanionSnapshot(observation: snapshot), foreground: isForeground)
         do {
             try await widgetPublisher.publish(snapshot, foreground: isForeground)
             widgetError = nil
@@ -170,6 +210,12 @@ private enum AppAction: Sendable {
         } catch { await failedStorage(error) }
         transport = isDemo ? DemoTransport() : BluetoothTransport()
         transport?.onEvent = { [weak self] event in self?.continuation.yield(.transport(event)) }
+        companion.activate { [weak self] request in
+            guard let self else { return CompanionReply(snapshot: .empty(source: request.source), accepted: false) }
+            return await withCheckedContinuation { reply in
+                self.continuation.yield(.companion(request, reply))
+            }
+        }
         ticker = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .milliseconds(500))

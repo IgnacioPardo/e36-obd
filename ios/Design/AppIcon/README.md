@@ -1,0 +1,1 @@
+BMW roundel based on the owner-supplied `bmw-logo.svg`. The quartered center is blue and white; outlines and lettering retain the supplied paths. App icons are opaque 1024 × 1024 RGB PNGs, with one shared design for iPhone and Watch.

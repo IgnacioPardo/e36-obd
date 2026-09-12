@@ -48,7 +48,12 @@ struct E36InstrumentWidget: Widget {
     }
 }
 @main struct E36WidgetBundle: WidgetBundle {
-    var body: some Widget { E36InstrumentWidget() }
+    var body: some Widget {
+        E36InstrumentWidget()
+        E36GarageWidget()
+        E36OBCWidget()
+        E36LiveActivity()
+    }
 }
 
 #Preview(as: .systemSmall) {

@@ -1,0 +1,101 @@
+{
+  "source": "OpticsFinal.xcresult; iPhone 16 Pro simulator, iOS 18.6",
+  "referencePhoto": ".context/attachments/zZrYFU/image.png",
+  "issue": "The transparent rectangular cover occluded most of the circular optical shader, leaving bare mirror bowls visible. The front indicator had uniform opaque orange shading.",
+  "correction": [
+    "Explicit post-pass sorting: circular lenses before outer cover, glass depth writes disabled, opaque body depth test retained",
+    "Both air/glass/air interfaces evaluated on the visible front lens shell; rear shell hidden",
+    "Filtered 3.8 mm zoned ribs and rounded lens-edge relief",
+    "Snell ray projected onto the existing parabolic reflector profile",
+    "Amber prismatic internal return under the existing clear indicator cover; environment-lit, no emitted light",
+    "Refracted footprint filtering with uniform derivatives through total-internal-reflection boundaries"
+  ],
+  "unchanged": [
+    "vehicle geometry",
+    "Samoablau pigment and paint parameters",
+    "HDR intensity and orientation",
+    "BLE",
+    "firmware",
+    "instrument cluster",
+    "sensor values"
+  ],
+  "modelSHA256": "338b0354dd8470e7a731eb5233b58b282cb23f88a993e60576c5b0d929ea7976",
+  "shaderSHA256": "91e454c195f95b8c396d15140834245fb535f5ceb43069d76d4715ec56d5196d",
+  "hostSHA256": "bfec9de304f0d02e32d2e262de94da8ebd4799f566ba8c5604e4041fa4624be9",
+  "depthProbe": [
+    {
+      "lens": "Pressed_circular_headlamp_lens_002",
+      "cupFitResidual_mm": 0.08930201279255812,
+      "lensToReflectorGap_mm": [
+        7.721743292825822,
+        51.50084230071905
+      ],
+      "lensRadius": 0.061088622648799995,
+      "cupPolynomial": [
+        0.0006806116889255641,
+        -0.005463018032656698,
+        -12.247742537875576,
+        -1.9569703909882477
+      ]
+    },
+    {
+      "lens": "Pressed_circular_headlamp_lens_001",
+      "cupFitResidual_mm": 0.088873348099483,
+      "lensToReflectorGap_mm": [
+        7.721376557668691,
+        51.500414074288955
+      ],
+      "lensRadius": 0.061089203793713465,
+      "cupPolynomial": [
+        0.00024245776785045665,
+        -0.0031527713648680203,
+        -12.247510630816885,
+        -1.958299983090814
+      ]
+    },
+    {
+      "lens": "Pressed_circular_headlamp_lens_003",
+      "cupFitResidual_mm": 0.08940878956176235,
+      "lensToReflectorGap_mm": [
+        7.722106642912063,
+        51.50094864700216
+      ],
+      "lensRadius": 0.06115460779198023,
+      "cupPolynomial": [
+        4.193880620164626e-07,
+        -0.006634019420913507,
+        -12.221325412681088,
+        -1.998360950250877
+      ]
+    },
+    {
+      "lens": "Pressed_circular_headlamp_lens",
+      "cupFitResidual_mm": 0.08970607831493282,
+      "lensToReflectorGap_mm": [
+        7.722394989128745,
+        51.50138345143973
+      ],
+      "lensRadius": 0.06115407963835495,
+      "cupPolynomial": [
+        0.00019817531358257885,
+        -0.008969683693265272,
+        -12.221537586474991,
+        -1.9984208777170844
+      ]
+    }
+  ],
+  "reviewedVariants": [
+    "OpticsA",
+    "OpticsDebug (diagnostic colours only; not shipped)",
+    "OpticsB",
+    "OpticsC",
+    "OpticsD",
+    "OpticsE (refraction footprint filter)",
+    "OpticsFinal (selected; uniform derivatives at TIR)"
+  ],
+  "limits": "Screen-space refraction and approximate prismatic response, not a measured optical reconstruction or full internal ray tracing. Simulator captures do not validate physical-phone FPS or thermal load.",
+  "references": [
+    "https://developer.apple.com/documentation/realitykit/modelsortgroupcomponent",
+    "https://developer.apple.com/documentation/realitykit/custommaterial/writesdepth"
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "beforeSourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "coordinates": "Blender Z-up; front is -Y; vehicle left is +X",
+  "changed": [
+    {
+      "object": "e346int_ao_dash_plastic",
+      "components": {
+        "reflected cabin shell": 258,
+        "rigid cluster translation": 3
+      },
+      "vertices": 3904,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_badge_alpha_SUB1",
+      "components": {
+        "rigid cluster translation": 1
+      },
+      "vertices": 12,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_badge_alpha_SUB0",
+      "components": {
+        "readable decal relocation": 34,
+        "rigid cluster translation": 9
+      },
+      "vertices": 172,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_plastic",
+      "components": {
+        "reflected cabin shell": 2088,
+        "rigid cluster translation": 121
+      },
+      "vertices": 15431,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_solid",
+      "components": {
+        "reflected cabin shell": 16
+      },
+      "vertices": 165,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_leather_black",
+      "components": {
+        "reflected cabin shell": 62
+      },
+      "vertices": 622,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_needle_fuel",
+      "components": {
+        "rigid cluster translation": 12
+      },
+      "vertices": 116,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_needle_milleage",
+      "components": {
+        "rigid cluster translation": 6
+      },
+      "vertices": 24,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_needle_speed",
+      "components": {
+        "rigid cluster translation": 50
+      },
+      "vertices": 209,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_needle_tach",
+      "components": {
+        "rigid cluster translation": 50
+      },
+      "vertices": 209,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_needle_temp",
+      "components": {
+        "rigid cluster translation": 12
+      },
+      "vertices": 116,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_glass",
+      "components": {
+        "rigid cluster translation": 3
+      },
+      "vertices": 136,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_gauges",
+      "components": {
+        "rigid cluster translation": 14,
+        "readable decal relocation": 2
+      },
+      "vertices": 199,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_general",
+      "components": {
+        "rigid pedal translation": 21,
+        "reflected cabin shell": 22,
+        "rigid cluster translation": 3
+      },
+      "vertices": 531,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_badge_emissive",
+      "components": {
+        "readable decal relocation": 78
+      },
+      "vertices": 354,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_blinkers_button",
+      "components": {
+        "readable decal relocation": 1
+      },
+      "vertices": 4,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_displays",
+      "components": {
+        "rigid cluster translation": 1,
+        "readable decal relocation": 12
+      },
+      "vertices": 58,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_wood",
+      "components": {
+        "reflected cabin shell": 39
+      },
+      "vertices": 696,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_blinkers_left",
+      "components": {
+        "rigid cluster translation": 1
+      },
+      "vertices": 7,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_blinkers_right",
+      "components": {
+        "rigid cluster translation": 1
+      },
+      "vertices": 7,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "GEO_Steer_HR_SUB0",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "GEO_Steer_HR_SUB1_SUB1",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "GEO_Steer_HR_SUB1_SUB0",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "GEO_Steer_HR_SUB2",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "GEO_Steer_HR_SUB5_SUB0",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "GEO_Steer_HR_SUB5_SUB1",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "BMW_Emblem",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "e346int_nardi_SUB0",
+      "operation": "rigid steering assembly translation",
+      "translationMetres": [
+        0.7004488706588745,
+        0.0,
+        0.0
+      ],
+      "geometryUVsAndNormalsUnchanged": true
+    },
+    {
+      "object": "e346int_ao_dash_plastic_l",
+      "components": {
+        "reflected cabin shell": 120
+      },
+      "vertices": 1041,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_leather_white_l",
+      "components": {
+        "reflected cabin shell": 83
+      },
+      "vertices": 991,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_plastic_l",
+      "components": {
+        "reflected cabin shell": 59
+      },
+      "vertices": 534,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_speakers_l",
+      "components": {
+        "reflected cabin shell": 2
+      },
+      "vertices": 38,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_wood_l",
+      "components": {
+        "reflected cabin shell": 5
+      },
+      "vertices": 67,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_badge_alpha_l",
+      "components": {
+        "readable decal relocation": 1
+      },
+      "vertices": 4,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_dash_plastic_r",
+      "components": {
+        "reflected cabin shell": 114
+      },
+      "vertices": 995,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_leather_white_r",
+      "components": {
+        "reflected cabin shell": 85
+      },
+      "vertices": 993,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_plastic_r",
+      "components": {
+        "reflected cabin shell": 95
+      },
+      "vertices": 746,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_speakers_r",
+      "components": {
+        "reflected cabin shell": 2
+      },
+      "vertices": 38,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_ao_wood_r",
+      "components": {
+        "reflected cabin shell": 4
+      },
+      "vertices": 62,
+      "splitNormalsAndCornerUVsPreserved": true
+    },
+    {
+      "object": "e346int_badge_alpha_r",
+      "components": {
+        "readable decal relocation": 1
+      },
+      "vertices": 4,
+      "splitNormalsAndCornerUVsPreserved": true
+    }
+  ],
+  "untouchedObjects": 351,
+  "exteriorSeatsAndRearBenchUnchanged": true,
+  "steeringCenterBeforeMetres": [
+    -0.35022443532943726,
+    -0.3437536656856537,
+    0.9239484667778015
+  ],
+  "steeringCenterAfterMetres": [
+    0.35022443532943726,
+    -0.3437536656856537,
+    0.9239484667778015
+  ],
+  "candidateSHA256": "07481527d587d0ac4ab51e994e45347d4ab7b3bc69e330ad4de2e258423a6d87",
+  "sourceSHA256": "a320a9bac33acad47659266e5807a8230091fdb0d52deae4cd84d639b3347070",
+  "referenceSceneSHA256": "86c0fce1542f7cfd628dc0a42cb1629f86e3b1099eb844d27808a90b3bb29a87",
+  "appSceneSHA256": "cd100b0a27327d7dcd47c74a02d65921894fae8ac1cee6bccc3429c4d4430cc1",
+  "exteriorSeatsRearBenchTransformsNormalsUVsAndMaterialsUnchanged": true,
+  "steeringGeometryNormalsAndUVsUnchanged": true,
+  "positiveObjectTransforms": true,
+  "instrumentPodCenterMetres": [
+    0.35096150636672974,
+    -0.6064382195472717,
+    0.985720157623291
+  ],
+  "linkedScenesReopenedWithoutMissingData": true,
+  "runtimeSHA256": "c2bbc59d06b4f8d36a564648e558d447345dd3a2923cc8b40e134fba88eef9f4",
+  "portable": {
+    "sourceSHA256": "a320a9bac33acad47659266e5807a8230091fdb0d52deae4cd84d639b3347070",
+    "portableUSDZSHA256": "4fc32b7b85295fb9e9ff8c04be4736198315ecf96fc745b707cfe54b2f55796f",
+    "meshCount": 387,
+    "unchangedMeshesOutsideCabin": 347,
+    "outsideCabinPositionsTopologyNormalsAndUVsUnchanged": true,
+    "leftHandDrive": true
+  },
+  "geometry": {
+    "referenceTriangles": 4745235,
+    "runtimeTriangles": 4745235,
+    "maximumPositionDeviationMetres": 4.0265560556127995e-07,
+    "positionsWithinTwoMicrometres": true,
+    "losslessCornerReindexing": true
+  },
+  "drivingPosition": "left",
+  "contactShadowUnchanged": true,
+  "shaderSHA256": "91e454c195f95b8c396d15140834245fb535f5ceb43069d76d4715ec56d5196d",
+  "environmentSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
+  "simulatorCameraReview": "Five cameras reviewed; one XCTest passed with zero failures",
+  "metalReviewManifestSHA256": "541b50993dcf95492c307d71546d1b88992a5aa475e30ed9096dce7a263daad2"
+}

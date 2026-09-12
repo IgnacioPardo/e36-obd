@@ -1,0 +1,9 @@
+{
+  "method": "Sample the earlier live IBL mirror at 96 ground pixels; compare eight longitude conventions to direct HDR + AgX predictions",
+  "bestLongitudeSign": -1,
+  "bestLongitudeOffset": 0.5,
+  "bestMeanSquaredRGBError": 0.012619,
+  "wrongSignMeanSquaredRGBError": 0.14098,
+  "captureHeightM": 1.65,
+  "headlampAndPaintIBLUnchanged": true
+}

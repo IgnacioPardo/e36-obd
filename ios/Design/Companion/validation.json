@@ -1,0 +1,61 @@
+{
+  "captured": "2026-09-11",
+  "watch": "Series 8 simulator 41mm and 45mm / watchOS 26.2; local demo scenarios labelled DEMO",
+  "complications": "Exact complication view in a debug harness; system timeline scheduling not simulated",
+  "activity": "iPhone 17 Pro / iOS 26.2; exact face harness plus real SpringBoard Lock Screen and Dynamic Island",
+  "pairedTransport": {
+    "transport": "WatchConnectivity between paired simulators; iPhone demo acquisition",
+    "samplesBefore": 0,
+    "samplesAfter": 35,
+    "distinctSequences": 8,
+    "sessionCount": 1,
+    "firstReceipt": 810844918.368998,
+    "lastReceipt": 810844932.061445,
+    "physicalBLEValidated": false
+  },
+  "files": {
+    "island-expanded.png": "37071353e31fea669abbd031ada6bf630054a0ad443ed4853b51d28f12916f4a",
+    "activity-paused.png": "abb3c765da10fdd9f4881d41398c686973272d6dc405505118e3b723a1dd0a78",
+    "41-rpm-normal.png": "5d20da5ccfb0242f9283658de181b8dec43e53e1637bd2d71e546c89571fafdb",
+    "watch-preview.jpg": "e1a99931385388136fd55b83a0cfae1edea67851ac4e23f1ba6a4bb3d7279693",
+    "41-complication-rectangular.png": "d0f6999464062c2c4b3666b8aedb9f7aedb4f2adb96590e96ce9c1b33ec1b143",
+    "41-overview-normal.png": "087e9d65a3abad29d43e30874b49feb189bbf35f820767b7cfb2c80fa3ba8768",
+    "41-coolant-normal.png": "17d836465583409941c49b50c6b852853e2a69f1e984f87f123446c1356bd45a",
+    "45-complication-circular.png": "922a3f9f138bd967ce7cc18cff6f185ce0dad1cc155d8bdced300771cdf3278a",
+    "41-load-normal.png": "f4e59078d67c41073c63c7755a2f6414c01ec9627bf97aab0f370f60ecb07d28",
+    "activity-off.png": "6f64a5a7c6b0ec82198de6d528c782aed9424c28fe0e12ac6991ffb0bfef501a",
+    "lock-screen.png": "9694c097bef80be89d6c218b83d66d2cb50455fcd84fedf4b2f758b73447af2c",
+    "41-battery-normal.png": "645dbc873e65dc65fc37b837e5cdb08c66b8d118406defb29246da1308b08619",
+    "activity-full.png": "56428b0b333f21bdedb9abcc869e237a9d782228203893ad7e265f26db59340a",
+    "activity-stale.png": "fdd92c9d7c1083fd128c7034ab8d6744a43facb37a2e370d83b06831b2fefec6",
+    "island-compact.png": "5de1ccc613b61dbe33a1809196f4a48ab56f92bba375dfedca1f7fedcc3d38aa",
+    "45-rpm-off.png": "d493365214096201b8e2c9c9f32311464de250448a90b5ad68b72c6d6667bf0c",
+    "45-coolant-heat.png": "09376fe71ae19e2db3d7485b99da4dd0a31686dfff7333ca4cfb6d9868102816",
+    "41-intake-normal.png": "6884d7d315e0735300a45ff9e8c6eafcfa02092618af4ab4200d7c447bab403c",
+    "45-intake-stale.png": "2eadfe8014393e994bd33a024d14f0de103d882ce8362e7268ec5f786e463354",
+    "activity-small.png": "1027111ed9aba035ed9c675677f83bf7729e4e872eda2fd98a16d356df8c87c8",
+    "45-rpm-saturated.png": "786d5ff55c85a22676a0c1f6d17c4f111671e71f07c6c0cf33409becb19dfb97"
+  },
+  "sourceSHA256": {
+    "ios/E36Watch/WatchComplicationReview.swift": "7047ee12c0e059c7edb64467a63e11e8874d4022330d4d42fe1e92bbc96e5521",
+    "ios/E36Watch/WatchModel.swift": "4097d5179a63a8b3e4697181a8fd9a8d31f407c695ef57de4258bc6512a8db6b",
+    "ios/E36Watch/WatchDashboard.swift": "c4963ec43440a032e7db00efacf8555865d7ebee29c76ff6fb63edb006b787b2",
+    "ios/E36Watch/E36WatchApp.swift": "33a4000434532f742f181d8184aeca59a2d1b848bc4185599c9a516732a027fe",
+    "ios/CompanionShared/E36ActivityAttributes.swift": "5486766d1fb083b94ff22710186685c1db043ca292613800491093b4078ac5a1",
+    "ios/CompanionShared/WatchInstrumentConfiguration.swift": "d189e45e6339ecb739ac2c5a40e72dafbb5dd66edcfbc9a75e5708e3c26a1e4a",
+    "ios/CompanionShared/WatchComplicationFace.swift": "3395217b46fa9aeb16bce38ede32e2d9702a9054afe1102298a6b82ee46ea683",
+    "ios/CompanionShared/E36ActivityFace.swift": "2a472b8c4d2a1160ffc167c6be81de3b57a8f27ba8f65125dd53321357391efb",
+    "ios/CompanionShared/CompanionAppearance.swift": "abab5ed11a819e66a9a3e1ca5b34c3f44eda3062adf37517a22641f635730345",
+    "ios/E36OBD/PhoneWatchBridge.swift": "f77fc6ae52bb5647882a7d78e7a5894b2900dc9dca1831dd328a5620de81bf79",
+    "ios/E36OBD/CompanionCoordinator.swift": "3f0ebd61bcce3abd2096548887ad8d1282f4cc6557addb836bf97fa74fde7ebb"
+  },
+  "physicalDelivery": {
+    "phone": "Installed on iPhone 17 Pro / iOS 27 beta; launch blocked by locked screen",
+    "watch": "Installed and launched on Apple Watch Series 8 / watchOS 26.6",
+    "savedSessionsPreserved": 10,
+    "savedSamplesPreserved": 780,
+    "savedEventsPreserved": 17993,
+    "missingOrModifiedRows": 0,
+    "physicalBLEValidated": false
+  }
+}

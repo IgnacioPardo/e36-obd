@@ -1,0 +1,22 @@
+{
+  "Left_front_wheel": {
+    "tyreTopMetres": 0.6309999823570251,
+    "crownGapMetres": 0.03155891720846582,
+    "fenderSamples": 1024
+  },
+  "Left_rear_wheel": {
+    "tyreTopMetres": 0.6309999823570251,
+    "crownGapMetres": 0.05158664516261202,
+    "fenderSamples": 1490
+  },
+  "Right_front_wheel": {
+    "tyreTopMetres": 0.6309999823570251,
+    "crownGapMetres": 0.03155891720846582,
+    "fenderSamples": 1024
+  },
+  "Right_rear_wheel": {
+    "tyreTopMetres": 0.6309999823570251,
+    "crownGapMetres": 0.05158664516261202,
+    "fenderSamples": 1490
+  }
+}

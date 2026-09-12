@@ -11,6 +11,10 @@
     <key>CFBundleShortVersionString</key><string>1.0</string>
     <key>CFBundleVersion</key><string>1</string>
     <key>LSRequiresIPhoneOS</key><true/>
+    <key>NSSupportsLiveActivities</key><true/>
+    <key>CFBundleURLTypes</key><array><dict>
+        <key>CFBundleURLSchemes</key><array><string>e36</string></array>
+    </dict></array>
     <key>NSBluetoothAlwaysUsageDescription</key><string>Usamos Bluetooth para conectar el iPhone con tu lector E36-OBD y registrar los sensores del auto.</string>
     <key>UIBackgroundModes</key><array><string>bluetooth-central</string></array>
     <key>UILaunchScreen</key><dict/>

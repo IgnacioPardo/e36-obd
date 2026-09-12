@@ -32,12 +32,19 @@ def render(value, level=0):
 
 package = add('core-package', dict(isa='XCLocalSwiftPackageReference', relativePath='Core'))
 product_refs, groups, targets = [], [], []
+signing = add('local-signing', dict(isa='PBXFileReference', lastKnownFileType='text.xcconfig', path='Signing.xcconfig', sourceTree='<group>'))
+groups.append(signing)
 shared_files = []
 for path in sorted((ROOT / 'WidgetShared').glob('*.swift')):
     shared_files.append(add(str(path.relative_to(ROOT)), dict(isa='PBXFileReference', lastKnownFileType='sourcecode.swift', path=path.name, sourceTree='<group>')))
+companion_files = []
+for path in sorted((ROOT / 'CompanionShared').glob('*.swift')):
+    companion_files.append(add(str(path.relative_to(ROOT)), dict(isa='PBXFileReference', lastKnownFileType='sourcecode.swift', path=path.name, sourceTree='<group>')))
 for name, folder, product_type, extension in [
     ('E36OBD', 'E36OBD', 'com.apple.product-type.application', 'app'),
     ('E36OBDWidgets', 'E36OBDWidgets', 'com.apple.product-type.app-extension', 'appex'),
+    ('E36Watch', 'E36Watch', 'com.apple.product-type.application', 'app'),
+    ('E36WatchWidgets', 'E36WatchWidgets', 'com.apple.product-type.app-extension', 'appex'),
     ('E36OBDTests', 'E36OBDTests', 'com.apple.product-type.bundle.unit-test', 'xctest'),
     ('E36OBDUITests', 'E36OBDUITests', 'com.apple.product-type.bundle.ui-testing', 'xctest'),
 ]:
@@ -48,6 +55,13 @@ for name, folder, product_type, extension in [
         sources.append(add(str(path.relative_to(ROOT)) + ':build', dict(isa='PBXBuildFile', fileRef=ref)))
     if name in ['E36OBD', 'E36OBDWidgets']:
         sources.extend(add(name + ':shared:' + ref, dict(isa='PBXBuildFile', fileRef=ref)) for ref in shared_files)
+        ref = add(name + ':widget-assets', dict(isa='PBXFileReference', lastKnownFileType='folder.assetcatalog', path='../WidgetShared/Assets.xcassets', sourceTree='<group>'))
+        files.append(ref)
+        resources.append(add(name + ':widget-assets-build', dict(isa='PBXBuildFile', fileRef=ref)))
+        files.append(add(name + ':entitlements', dict(isa='PBXFileReference', lastKnownFileType='text.plist.entitlements', path=name + '.entitlements', sourceTree='<group>')))
+    if name in ['E36OBD', 'E36OBDWidgets', 'E36Watch', 'E36WatchWidgets']:
+        sources.extend(add(name + ':companion:' + ref, dict(isa='PBXBuildFile', fileRef=ref)) for ref in companion_files)
+    if name in ['E36Watch', 'E36WatchWidgets']:
         files.append(add(name + ':entitlements', dict(isa='PBXFileReference', lastKnownFileType='text.plist.entitlements', path=name + '.entitlements', sourceTree='<group>')))
     if name == 'E36OBD':
         for filename, kind in [('Assets.xcassets', 'folder.assetcatalog'), ('VehicleScene', 'folder'), ('alert.wav', 'audio.wav'), ('Info.plist', 'text.plist.xml')]:
@@ -55,7 +69,10 @@ for name, folder, product_type, extension in [
             files.append(ref)
             if filename != 'Info.plist':
                 resources.append(add(filename + ':build', dict(isa='PBXBuildFile', fileRef=ref)))
-    elif name == 'E36OBDWidgets':
+    elif name in ['E36OBDWidgets', 'E36Watch', 'E36WatchWidgets']:
+        if name == 'E36Watch':
+            ref = add(name + ':assets', dict(isa='PBXFileReference', lastKnownFileType='folder.assetcatalog', path='Assets.xcassets', sourceTree='<group>'))
+            files.append(ref); resources.append(add(name + ':assets-build', dict(isa='PBXBuildFile', fileRef=ref)))
         files.append(add(name + ':info', dict(isa='PBXFileReference', lastKnownFileType='text.plist.xml', path='Info.plist', sourceTree='<group>')))
     if name != 'E36OBDUITests':
         dependency = add(name + ':core', dict(isa='XCSwiftPackageProductDependency', package=package, productName='E36Core'))
@@ -71,6 +88,12 @@ for name, folder, product_type, extension in [
     if name == 'E36OBD':
         embedded = add('widget:embed', dict(isa='PBXBuildFile', fileRef=ident('E36OBDWidgets:product'), settings={'ATTRIBUTES': ['RemoveHeadersOnCopy']}))
         phases.append(add('widget:copy', dict(isa='PBXCopyFilesBuildPhase', buildActionMask='2147483647', dstPath='', dstSubfolderSpec='13', files=[embedded], name='Embed App Extensions', runOnlyForDeploymentPostprocessing='0')))
+    if name == 'E36Watch':
+        embedded = add('watch-widget:embed', dict(isa='PBXBuildFile', fileRef=ident('E36WatchWidgets:product'), settings={'ATTRIBUTES': ['RemoveHeadersOnCopy']}))
+        phases.append(add('watch-widget:copy', dict(isa='PBXCopyFilesBuildPhase', buildActionMask='2147483647', dstPath='', dstSubfolderSpec='13', files=[embedded], name='Embed Watch Widgets', runOnlyForDeploymentPostprocessing='0')))
+    if name == 'E36OBD':
+        embedded = add('watch:embed', dict(isa='PBXBuildFile', fileRef=ident('E36Watch:product'), settings={'ATTRIBUTES': ['RemoveHeadersOnCopy']}))
+        phases.append(add('watch:copy', dict(isa='PBXCopyFilesBuildPhase', buildActionMask='2147483647', dstPath='$(CONTENTS_FOLDER_PATH)/Watch', dstSubfolderSpec='16', files=[embedded], name='Embed Watch Content', runOnlyForDeploymentPostprocessing='0')))
     configurations = []
     for mode in ['Debug', 'Release']:
         settings = dict(PRODUCT_NAME='$(TARGET_NAME)', PRODUCT_BUNDLE_IDENTIFIER='com.ignaciopardo.' + name.lower(),
@@ -89,6 +112,15 @@ for name, folder, product_type, extension in [
                             CODE_SIGN_ENTITLEMENTS='E36OBDWidgets/E36OBDWidgets.entitlements',
                             APPLICATION_EXTENSION_API_ONLY='YES', SKIP_INSTALL='YES', ENABLE_PREVIEWS='YES',
                             LD_RUNPATH_SEARCH_PATHS=['$(inherited)', '@executable_path/Frameworks', '@executable_path/../../Frameworks'])
+        elif name in ['E36Watch', 'E36WatchWidgets']:
+            settings.pop('IPHONEOS_DEPLOYMENT_TARGET', None)
+            settings.update(SDKROOT='watchos', SUPPORTED_PLATFORMS='watchos watchsimulator', WATCHOS_DEPLOYMENT_TARGET='11.0', TARGETED_DEVICE_FAMILY='4',
+                            PRODUCT_BUNDLE_IDENTIFIER='com.ignaciopardo.e36obd.watchkitapp' + ('.widgets' if name == 'E36WatchWidgets' else ''),
+                            INFOPLIST_FILE=name + '/Info.plist', GENERATE_INFOPLIST_FILE='NO', CODE_SIGN_ENTITLEMENTS=name + '/' + name + '.entitlements', SKIP_INSTALL='YES')
+            if name == 'E36Watch':
+                settings.update(ASSETCATALOG_COMPILER_APPICON_NAME='AppIcon', ENABLE_PREVIEWS='YES')
+            else:
+                settings.update(APPLICATION_EXTENSION_API_ONLY='YES', LD_RUNPATH_SEARCH_PATHS=['$(inherited)', '@executable_path/Frameworks', '@executable_path/../../Frameworks'])
         elif name == 'E36OBDTests':
             settings.update(TEST_HOST='$(BUILT_PRODUCTS_DIR)/E36OBD.app/E36OBD', BUNDLE_LOADER='$(TEST_HOST)')
         else:
@@ -102,26 +134,31 @@ for name, folder, product_type, extension in [
     elif name == 'E36OBD':
         proxy = add('widget:proxy', dict(isa='PBXContainerItemProxy', containerPortal=ident('project'), proxyType='1', remoteGlobalIDString=ident('E36OBDWidgets:target'), remoteInfo='E36OBDWidgets'))
         dependencies.append(add('widget:dependency', dict(isa='PBXTargetDependency', target=ident('E36OBDWidgets:target'), targetProxy=proxy)))
+    for child in (['E36Watch'] if name == 'E36OBD' else (['E36WatchWidgets'] if name == 'E36Watch' else [])):
+        proxy = add(name + ':' + child + ':proxy', dict(isa='PBXContainerItemProxy', containerPortal=ident('project'), proxyType='1', remoteGlobalIDString=ident(child + ':target'), remoteInfo=child))
+        dependencies.append(add(name + ':' + child + ':dependency', dict(isa='PBXTargetDependency', target=ident(child + ':target'), targetProxy=proxy)))
     targets.append(add(name + ':target', dict(isa='PBXNativeTarget', buildConfigurationList=configuration_list, buildPhases=phases,
         buildRules=[], dependencies=dependencies, name=name, packageProductDependencies=products, productName=name,
         productReference=product, productType=product_type)))
 
+groups.append(add('companion-shared-group', dict(isa='PBXGroup', children=companion_files, path='CompanionShared', sourceTree='<group>')))
 groups.append(add('widget-shared-group', dict(isa='PBXGroup', children=shared_files, path='WidgetShared', sourceTree='<group>')))
 products_group = add('products-group', dict(isa='PBXGroup', children=product_refs, name='Products', sourceTree='<group>'))
 main_group = add('main-group', dict(isa='PBXGroup', children=groups + [products_group], sourceTree='<group>'))
 configs = []
 for mode in ['Debug', 'Release']:
     settings = dict(SDKROOT='iphoneos', CLANG_ENABLE_MODULES='YES', CLANG_ENABLE_OBJC_ARC='YES',
+                    ONLY_ACTIVE_ARCH='YES' if mode == 'Debug' else 'NO',
                     SWIFT_STRICT_CONCURRENCY='complete', ENABLE_USER_SCRIPT_SANDBOXING='YES',
                     SWIFT_OPTIMIZATION_LEVEL='-Onone' if mode == 'Debug' else '-O',
                     DEBUG_INFORMATION_FORMAT='dwarf' if mode == 'Debug' else 'dwarf-with-dsym',
                     SWIFT_ACTIVE_COMPILATION_CONDITIONS='DEBUG' if mode == 'Debug' else '',
                     ENABLE_TESTABILITY='YES' if mode == 'Debug' else 'NO',
                     GCC_PREPROCESSOR_DEFINITIONS=['DEBUG=1', '$(inherited)'] if mode == 'Debug' else ['$(inherited)'])
-    configs.append(add('project:' + mode, dict(isa='XCBuildConfiguration', buildSettings=settings, name=mode)))
+    configs.append(add('project:' + mode, dict(isa='XCBuildConfiguration', baseConfigurationReference=signing, buildSettings=settings, name=mode)))
 project_config = add('project:configs', dict(isa='XCConfigurationList', buildConfigurations=configs, defaultConfigurationIsVisible='0', defaultConfigurationName='Release'))
 add('project', dict(isa='PBXProject', attributes=dict(BuildIndependentTargetsInParallel='YES', LastUpgradeCheck='2620',
-    TargetAttributes={ident(name + ':target'): dict(CreatedOnToolsVersion='26.2', SystemCapabilities={'com.apple.ApplicationGroups.iOS': {'enabled': '1'}}) for name in ['E36OBD', 'E36OBDWidgets']}),
+    TargetAttributes={ident(name + ':target'): dict(CreatedOnToolsVersion='26.2', SystemCapabilities={'com.apple.ApplicationGroups.iOS': {'enabled': '1'}}) for name in ['E36OBD', 'E36OBDWidgets', 'E36Watch', 'E36WatchWidgets']}),
     buildConfigurationList=project_config, compatibilityVersion='Xcode 14.0', developmentRegion='es', hasScannedForEncodings='0',
     knownRegions=['es', 'en', 'Base'], mainGroup=main_group, packageReferences=[package], productRefGroup=products_group,
     projectDirPath='', projectRoot='', targets=targets))
@@ -158,3 +195,16 @@ for demo in [False, True]:
 '''
     (schemes / (name + '.xcscheme')).write_text(scheme)
 print(project)
+
+watch_scheme = f'''<?xml version="1.0" encoding="UTF-8"?>
+<Scheme LastUpgradeVersion="2620" version="1.3">
+ <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES"><BuildActionEntries>
+  <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">{reference('E36Watch','app')}</BuildActionEntry>
+ </BuildActionEntries></BuildAction>
+ <LaunchAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.IDEFoundation.Launcher.LLDB" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" allowLocationSimulation="NO">
+  <BuildableProductRunnable runnableDebuggingMode="0">{reference('E36Watch','app')}</BuildableProductRunnable>
+ </LaunchAction>
+ <ProfileAction buildConfiguration="Release" shouldUseLaunchSchemeArgsEnv="YES" savedToolIdentifier="" useCustomWorkingDirectory="NO" debugDocumentVersioning="YES"><BuildableProductRunnable runnableDebuggingMode="0">{reference('E36Watch','app')}</BuildableProductRunnable></ProfileAction>
+ <AnalyzeAction buildConfiguration="Debug"/><ArchiveAction buildConfiguration="Release" revealArchiveInOrganizer="YES"/>
+</Scheme>'''
+(schemes / 'E36Watch.xcscheme').write_text(watch_scheme)

@@ -1,5 +1,7 @@
 # Handoff — app iOS nativa para el panel del E36
 
+> **Documento histórico del 7 de septiembre de 2026.** La app y sus cinco canales, Watch, widgets y Live Activities ya están implementados. Para retomar el trabajo, leer primero el [contexto de sesión del 11 de septiembre](sessions/2026-09-11-app-scene-companions.md), el README actual y la validación fechada. El alcance mínimo y las conclusiones de plataforma de este handoff no representan el estado actual.
+
 Para quien retome esto: el hardware y el firmware **funcionan y están probados
 contra el auto**. Lo único que falta es la app. Este documento es el contrato
 que tiene que respetar y las trampas que ya pagamos.

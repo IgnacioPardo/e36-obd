@@ -4,7 +4,7 @@ public enum WidgetSource: String, Codable, Sendable, CaseIterable { case reader,
 public enum WidgetCaptureState: String, Codable, Sendable { case stopped, recording, paused, interrupted }
 
 /// A dated observation, never a second BLE owner or a claim of continuous widget updates.
-public struct WidgetSnapshot: Codable, Equatable, Sendable {
+public struct WidgetSnapshot: Codable, Hashable, Sendable {
     public var version = 1
     public var updatedAt: Date
     public var receivedAt: Date?

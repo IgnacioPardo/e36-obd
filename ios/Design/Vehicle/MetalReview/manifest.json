@@ -1,41 +1,57 @@
 {
-  "side": {
-    "sourceAttachment": "46208F0F-0583-45F0-B5EE-795F686748D7.png",
-    "timestamp": 1789096474.039,
+  "nose": {
+    "sourceAttachment": "metal-reference-nose.png",
     "dimensions": [
       1206,
       1608
     ],
-    "imageSHA256": "6a114698fcdf9f77e5ca779ce2357ebf06ee3dd020e321d91ddc8ae4d1c101d5"
+    "SHA256": "bab849b1bcb2c8168fce6f86d5c2ceaf26654b88f10627c62a1edaa494a4c0ac"
   },
   "rear": {
-    "sourceAttachment": "1E82D087-4B6D-4406-AB18-DF7DA1E4B900.png",
-    "timestamp": 1789096468.65,
+    "sourceAttachment": "metal-reference-rear.png",
     "dimensions": [
       1206,
       1608
     ],
-    "imageSHA256": "f01c0178b64eecf83ab23de52c28ed38a5860b10fcb499719ac194b231a92241"
+    "SHA256": "e0dab8760c24c2e4af5c0c5cbbb930979bca91acd70bbb7cb1eeb6ea2717e8aa"
   },
-  "nose": {
-    "sourceAttachment": "157F29EC-D685-4436-8165-975663B47F7D.png",
-    "timestamp": 1789096463.296,
+  "side": {
+    "sourceAttachment": "metal-reference-side.png",
     "dimensions": [
       1206,
       1608
     ],
-    "imageSHA256": "c18f95e9696b10cda87e335cab50ad5b4ff5174039b870646700be9607d01ff2"
+    "SHA256": "df037d0c7218ef2c2dd4227a2e1a7e6a713d8fb3b3c379e1f2cd96d28b0ff8d3"
   },
-  "modelSHA256": "338b0354dd8470e7a731eb5233b58b282cb23f88a993e60576c5b0d929ea7976",
-  "shaderSHA256": "b4b70ec9d965431757c0b09581588d4a91e859d0e3d123a95eb6701ade584766",
-  "source": "AlignedDelivery.xcresult, iPhone 16 Pro simulator / iOS 18.6",
-  "nativeSourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
-  "resources": {
-    "ios/E36OBD/VehicleMetalCanvas.swift": "40cedb9ff3431eff1f021dfa02b016bab2cd04320b4f892b917c4b921f80da10",
-    "ios/E36OBD/VehicleSceneView.swift": "b0209351e7a45ff48a4e0837de338f2eb8fc99042d25e0da7a0edd8b179fcbd1",
-    "ios/E36OBD/VehicleScene/AgXDisplay.rgba16f": "fd1f8d8d7635a845c95e38b7c9b6a15a0453db5051ca0a787be2f876981cd28b",
-    "ios/E36OBD/VehicleScene/StudioEnvironment.realityenv": "3be76a66a693e8f8e40ee9717b6b452563f22063833d51c529510fcfa831c899",
-    "ios/E36OBD/VehicleScene/stance-report.json": "b49a2d2180bd1d6a29d9189d0a76a42c257e6dba38aae76d3506116ed978aa63",
-    "ios/Design/Vehicle/environment-orientation-validation.json": "a16f19afbba7c3c8785063c448037bf2f8a535c1bd6c693594d9cf27824d2e0f"
-  }
+  "optics": {
+    "sourceAttachment": "metal-reference-optics.png",
+    "dimensions": [
+      1206,
+      1608
+    ],
+    "SHA256": "57fc7acec27b1fb5d445e18b688bf7df6c57e37fddf5c2f19b2640a598623a76"
+  },
+  "cabin": {
+    "sourceAttachment": "metal-reference-cabin.png",
+    "dimensions": [
+      1206,
+      1608
+    ],
+    "SHA256": "376a3228b54f63ae3606aabfd92827e9d0a814cfdb1d55da5e03816fff2b76e9"
+  },
+  "apron": {
+    "sourceAttachment": "metal-reference-apron.png",
+    "dimensions": [
+      1206,
+      1608
+    ],
+    "SHA256": "d36f571259e6d770c668989da42babc65e2c8108962d5d8e87317a687a858882"
+  },
+  "modelSHA256": "4260ecff861e3f2afd230daf2d48663073e05b941088556273018ef42a5383c7",
+  "nativeSourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
+  "shaderSHA256": "91e454c195f95b8c396d15140834245fb535f5ceb43069d76d4715ec56d5196d",
+  "hostSHA256": "b11459d162bface63dcb48696ee8143e9aca7a347783585e41bd720cd76a5c20",
+  "sceneSettingsSHA256": "a106f5abf7951b0ea0fc15f650116288011126eb7aba24db7ad1d3cc11e871ad",
+  "source": "watch-sep11/PhoneReview.xcresult; iPhone 17 Pro simulator / iOS 26.2; production renderer and vehicle resources in temporary phone-only build",
+  "review": "Left-hand-drive interior and flattened rear center apron; shaders, lighting and other geometry preserved."
 }

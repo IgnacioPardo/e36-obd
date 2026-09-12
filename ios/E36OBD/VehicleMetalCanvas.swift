@@ -1,6 +1,14 @@
 import MetalKit
 import RealityKit
 
+#if DEBUG
+/// This buffer is owned by one command buffer, then read once by its completion
+/// handler after the GPU finishes. No CPU or GPU writer retains it afterward.
+private struct WidgetCarReadback: @unchecked Sendable {
+    let buffer: any MTLBuffer
+}
+#endif
+
 /// RealityKit's PBR renderer inside an explicitly scheduled Metal view. The GPU
 /// renders camera changes and a bounded initial warm-up, then rests while idle.
 @MainActor
@@ -22,9 +30,13 @@ final class VehicleMetalCanvas: MTKView, MTKViewDelegate {
     private var capturedDrawable: (any CAMetalDrawable)?
     var configureOptics: ((TextureResource?, Bool) -> Void)?
     var refractionIsVisible = true
+    var stageBackdrop = SIMD3<Float>.zero
     var active = true
     var onFailure: ((Error) -> Void)?
     var onNextPresentation: (() -> Void)?
+#if DEBUG
+    private var exportedWidgetCar = false
+#endif
 
     init() {
         let gpu = MTLCreateSystemDefaultDevice()
@@ -179,8 +191,60 @@ final class VehicleMetalCanvas: MTKView, MTKViewDelegate {
             encoder.setRenderPipelineState(displayPipeline)
             encoder.setFragmentTexture(hdrTexture, index: 0)
             encoder.setFragmentTexture(displayLUT, index: 1)
+            var transparentExport: UInt32 = 0
+#if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("--widget-car-export") { transparentExport = 1 }
+#endif
+            encoder.setFragmentBytes(&transparentExport, length: MemoryLayout<UInt32>.size, index: 0)
+            var backdrop = SIMD4<Float>(stageBackdrop, 0)
+            encoder.setFragmentBytes(&backdrop, length: MemoryLayout<SIMD4<Float>>.stride, index: 1)
             encoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3)
             encoder.endEncoding()
+#if DEBUG
+            // Development export from the actual final Metal pass, including
+            // its alpha and contact shadow. WidgetKit receives a small bitmap,
+            // never the vehicle mesh, lighting maps, or a live GPU renderer.
+            if !exportedWidgetCar, warmupUntil > 0, CACurrentMediaTime() >= warmupUntil,
+               ProcessInfo.processInfo.arguments.contains("--widget-car-export") {
+                let texture = drawable.texture
+                let rowBytes = ((texture.width * 4 + 255) / 256) * 256
+                if let pixels = device?.makeBuffer(length: rowBytes * texture.height, options: .storageModeShared),
+                   let blit = present.makeBlitCommandEncoder() {
+                    blit.copy(from: texture, sourceSlice: 0, sourceLevel: 0, sourceOrigin: .init(),
+                        sourceSize: .init(width: texture.width, height: texture.height, depth: 1),
+                        to: pixels, destinationOffset: 0, destinationBytesPerRow: rowBytes,
+                        destinationBytesPerImage: rowBytes * texture.height)
+                    blit.endEncoding()
+                    exportedWidgetCar = true
+                    let width = texture.width, height = texture.height
+                    let readback = WidgetCarReadback(buffer: pixels)
+                    present.addCompletedHandler { command in
+                        guard command.status == .completed else { return }
+                        var data = Data(bytes: readback.buffer.contents(), count: rowBytes * height)
+                        // The sRGB drawable contains straight-alpha color. PNG
+                        // encoding through CoreGraphics expects premultiplied BGRA.
+                        data.withUnsafeMutableBytes { bytes in
+                            let pixels = bytes.bindMemory(to: UInt8.self)
+                            for y in 0..<height {
+                                for x in 0..<width {
+                                    let offset = y * rowBytes + x * 4
+                                    let alpha = UInt32(pixels[offset + 3])
+                                    for c in 0..<3 { pixels[offset + c] = UInt8((UInt32(pixels[offset + c]) * alpha + 127) / 255) }
+                                }
+                            }
+                        }
+                        guard let provider = CGDataProvider(data: data as CFData),
+                              let image = CGImage(width: width, height: height, bitsPerComponent: 8, bitsPerPixel: 32,
+                                  bytesPerRow: rowBytes, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                                  bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue).union(.byteOrder32Little),
+                                  provider: provider, decode: nil, shouldInterpolate: true, intent: .defaultIntent),
+                              let png = UIImage(cgImage: image).pngData() else { return }
+                        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("widget-car.png")
+                        try? png.write(to: url, options: .atomic)
+                    }
+                }
+            }
+#endif
             present.present(drawable)
             present.addCompletedHandler { [weak self] buffer in
                 let completed = buffer.status == .completed
@@ -196,6 +260,11 @@ final class VehicleMetalCanvas: MTKView, MTKViewDelegate {
                     self.onNextPresentation = nil
                     presented?()
                     if CACurrentMediaTime() < self.warmupUntil { self.requested = true }
+#if DEBUG
+                    if !self.exportedWidgetCar, ProcessInfo.processInfo.arguments.contains("--widget-car-export") {
+                        self.requested = true
+                    }
+#endif
                     if self.requested, self.active { self.setNeedsDisplay() }
                 }
             }

@@ -1,0 +1,61 @@
+{
+  "comparison": "ExposureOnly, MetallicFinish, BalancedPaint: three views each, real iOS simulator renders",
+  "selected": {
+    "environmentIntensityExponent": 0.15,
+    "metallic": 0.5,
+    "roughness": 0.22,
+    "clearcoatRoughness": 0.055,
+    "pigmentUnchanged": true
+  },
+  "before": {
+    "environmentIntensityExponent": 0.65,
+    "metallic": 0.22,
+    "roughness": 0.3,
+    "clearcoatRoughness": 0.075
+  },
+  "unchanged": [
+    "sampled pigment",
+    "geometry",
+    "HDR resource and orientation",
+    "contact shadow",
+    "AgX transform",
+    "microfacet antialiasing",
+    "BLE",
+    "instrument cluster",
+    "sensor calculations"
+  ],
+  "modelSHA256": "338b0354dd8470e7a731eb5233b58b282cb23f88a993e60576c5b0d929ea7976",
+  "shaderSHA256": "b4b70ec9d965431757c0b09581588d4a91e859d0e3d123a95eb6701ade584766",
+  "hostSHA256": "60468e4182f3cbf0939a4a947d57ac0f42b12bfc9728ff9f977363adceb388ff",
+  "materialImportProbe": {
+    "gpuBaseColor": [
+      0.11651611328125,
+      0.1409912109375,
+      0.2054443359375,
+      1
+    ],
+    "gpuMetalRoughCoat": [
+      0.219970703125,
+      0.300048828125,
+      0.07501220703125,
+      1
+    ],
+    "hasMetallicTexture": false,
+    "hasRoughnessTexture": false,
+    "linearTint": [
+      0.1109979972243309,
+      0.1420000046491623,
+      0.21230800449848175,
+      1
+    ],
+    "metallic": 0.2199999988079071,
+    "name": "car_body",
+    "roughness": 0.30000001192092896,
+    "tint": "sRGB IEC61966-2.1 Linear (extended) colorspace hdrm(1) 0.110998 0.142 0.212308 1"
+  },
+  "referencePhoto": "paint-samples.jpg from owner RAW; environment differs, so this is visual BRDF tuning rather than a measured reconstruction",
+  "references": [
+    "https://developer.apple.com/documentation/realitykit/realityrenderer/imagebasedlight/intensityexponent",
+    "https://dev.epicgames.com/documentation/unreal-engine/automotive-materials-pack-in-unreal-engine"
+  ]
+}

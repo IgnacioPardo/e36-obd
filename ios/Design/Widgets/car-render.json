@@ -1,0 +1,27 @@
+{
+  "renderer": "Native RealityRenderer / Metal, AgX final pass, two transparent exports",
+  "sourceDimensions": [
+    1990,
+    1206
+  ],
+  "crop": [
+    177,
+    239,
+    1626,
+    1070
+  ],
+  "dimensions": [
+    1024,
+    587
+  ],
+  "assetSHA256": "7e95e3e60976500b5e0b1248400f5e6a542f0fd4cac9aa2ff86ec499fb6717f3",
+  "sourceSHA256": "e101695c0397751597f7b4f47d1a40a7d91905e25cc61e822df08698a4bd37b7",
+  "vehicleSHA256": "277ee15f925026b456516ab9a5064120bfd48e86c2ae6e46ebf3b7736252f1ff",
+  "shadowFeatherPixels": 120,
+  "edgeAlphaMaximum": 0,
+  "noColorRetouch": true,
+  "cropPurpose": "Preserve the vehicle and contact shadow with fully transparent edges; no rectangular floor crop",
+  "scene": "Captured Studio Small 09 with traced diffuse, live specular/clearcoat/glass; 30/15 mm stance and tucked exhaust",
+  "modelSHA256": "02fffd0543ab1a3184ca6f33b2ee19e440995f8cfd5512e4418037f69efc74bb",
+  "shaderSHA256": "1d14dc5f44efb2caa0f4da90be5eb80106fb2876e8dd537c3761567482a8d067"
+}

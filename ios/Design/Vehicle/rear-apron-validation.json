@@ -1,0 +1,36 @@
+{
+  "beforeSourceSHA256": "a320a9bac33acad47659266e5807a8230091fdb0d52deae4cd84d639b3347070",
+  "changedObject": "e36_bumper_rear_stock_SUB3",
+  "verticesMoved": 4242,
+  "sideFloorMetres": 0.34608212947845457,
+  "centerBottomBeforeMetres": 0.3120735287666321,
+  "centerBottomAfterMetres": 0.3460547599583493,
+  "maximumMovementMetres": 0.03400860071182249,
+  "exhaustCutoutPreserved": true,
+  "allOtherObjectsUnchanged": true,
+  "topEdgeUnchanged": true,
+  "candidateSHA256": "0d48c4dbdb2bf0f7ebc39ce7b5ae1e123d1420b9f067a8a8eb6981095edd40b8",
+  "sourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
+  "leftHandDrivePreserved": true,
+  "ReferenceLighting.blendSHA256": "c59c29152fd0c215b5ecd3ed24d828206df40e25f8341b39ae6853204ac57b77",
+  "AppLighting.blendSHA256": "9b6536fa56761a06a052d1564b7fdfef217ebabcff061c2866cfb394312788ca",
+  "runtimeSHA256": "4260ecff861e3f2afd230daf2d48663073e05b941088556273018ef42a5383c7",
+  "portable": {
+    "sourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
+    "portableUSDZSHA256": "949d726cd48e88f9e2ace40a4ce8e3f9cebf51a3191f3978276e3c9fa289aec9",
+    "meshCount": 387,
+    "unchangedMeshesOutsideRearApron": 386,
+    "outsideRearApronPositionsTopologyNormalsAndUVsUnchanged": true,
+    "leftHandDrive": true
+  },
+  "geometry": {
+    "referenceTriangles": 4745251,
+    "runtimeTriangles": 4745251,
+    "maximumPositionDeviationMetres": 4.0265560556127995e-07,
+    "positionsWithinTwoMicrometres": true,
+    "losslessCornerReindexing": true
+  },
+  "contactShadowSHA256": "ae203bc810259ec0d00c669225d34d6c9589c119e7d9a8d883a3055d1b4d7701",
+  "shaderSHA256": "91e454c195f95b8c396d15140834245fb535f5ceb43069d76d4715ec56d5196d",
+  "environmentSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617"
+}

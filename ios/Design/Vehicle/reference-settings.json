@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "sourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
   "nose": {
     "location": [
       1.5981098413467407,
@@ -60,5 +60,6 @@
     "sensor_fit": "HORIZONTAL",
     "exposure": 0.6499999761581421,
     "lighting": "Reconstructed daylight and Pine Picnic; approximate photographic match, not a measured light probe"
-  }
+  },
+  "drivingPosition": "left"
 }

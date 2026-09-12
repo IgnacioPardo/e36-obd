@@ -9,5 +9,12 @@
     "front": "3a8bfe46d2cd43459fd422dc7d9ece74db8f7a317a8b501c1157a588f454d392",
     "rear": "e004e3731fd8a34fbe590556bdb24c8bef1515150965c65ae56d105b5599b20c"
   },
-  "sceneSHA256": "f83396d8b7493aa0bea5d045c355e6f233d86f8827cb78f27050da33855554cc"
+  "sceneSHA256": "f83396d8b7493aa0bea5d045c355e6f233d86f8827cb78f27050da33855554cc",
+  "currentEditableScene": {
+    "sourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
+    "sceneSHA256": "9b6536fa56761a06a052d1564b7fdfef217ebabcff061c2866cfb394312788ca",
+    "drivingPosition": "left",
+    "rearApron": "Lower central edge level with bumper sides",
+    "note": "Offline previews retain their original render hashes. The editable scene now links the corrected cabin and rear apron."
+  }
 }

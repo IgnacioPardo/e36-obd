@@ -8,7 +8,7 @@ struct RefreshE36WidgetIntent: AppIntent {
     static let openAppWhenRun = false
     static let isDiscoverable = false
     func perform() async throws -> some IntentResult {
-        WidgetCenter.shared.reloadTimelines(ofKind: WidgetSnapshotStore.kind)
+        E36WidgetKinds.reload()
         return .result()
     }
 }

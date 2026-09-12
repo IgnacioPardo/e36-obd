@@ -1,0 +1,19 @@
+{
+  "signedBuild": "E36OBD Debug iphoneos; Xcode 26.2",
+  "bundledSceneFilesMatchSource": true,
+  "targetedTestsPassed": 5,
+  "physicalInstall": "Installed and launched on iPhone 17 Pro and Watch Series 8 on 2026-09-11; in-place updates",
+  "widgetFamiliesAdded": [
+    "Garage systemLarge",
+    "OBC systemLarge"
+  ],
+  "sceneModelSHA256": "02fffd0543ab1a3184ca6f33b2ee19e440995f8cfd5512e4418037f69efc74bb",
+  "savedPhoneData": {
+    "sessions": 10,
+    "samples": 780,
+    "eventsBefore": 17995,
+    "eventsAfter": 17996,
+    "allOriginalRowsPreserved": true
+  },
+  "physicalEvidence": ".context/studio-direction-sep11/"
+}

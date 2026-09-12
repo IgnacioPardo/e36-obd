@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Build all targets and run XCTest on an explicitly selected installed simulator."""
+"""Build and test the phone scheme, including its watchOS companion products."""
 import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 import platform
-import plistlib
 import subprocess
 
 IOS = Path(__file__).resolve().parents[1]
@@ -16,46 +15,28 @@ def run(*arguments):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--device', required=True, help='Simulator UUID from xcrun simctl list devices available')
-    parser.add_argument('--without-icon', action='store_true', help='Skip ONLY the icon catalog when actool requires a missing SDK-matched runtime')
+    parser.add_argument('--device', required=True, help='iPhone simulator UUID from simctl list devices available')
+    parser.add_argument('--without-icon', action='store_true', help='Skip icon catalogs for a diagnostic build; does not replace installing watchOS in Xcode')
     args = parser.parse_args()
     output = IOS / 'TestResults' / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     output.mkdir(parents=True)
-    build = ['xcodebuild', '-project', IOS / 'E36OBD.xcodeproj', '-alltargets', '-configuration', 'Debug',
-             '-sdk', 'iphonesimulator', 'CODE_SIGNING_ALLOWED=YES', 'CODE_SIGN_IDENTITY=-', 'ARCHS=' + platform.machine(),
-             'SYMROOT=' + str(output / 'Build')]
+    destination = 'platform=iOS Simulator,id=' + args.device + ',arch=' + platform.machine()
+    # A global -sdk iphonesimulator overrides the Watch target's SDK too.
+    # The scheme lets Xcode build each embedded product for its own platform.
+    build = ['xcodebuild', '-project', IOS / 'E36OBD.xcodeproj', '-scheme', 'E36OBD',
+             '-configuration', 'Debug', '-destination', destination,
+             '-derivedDataPath', output / 'Build', 'CODE_SIGNING_ALLOWED=YES', 'CODE_SIGN_IDENTITY=-']
     if args.without_icon:
-        print('Test build omits the app icon. This does not validate asset compilation.', flush=True)
+        print('Diagnostic build omits icon catalogs; asset compilation is not validated.', flush=True)
         build.append('EXCLUDED_SOURCE_FILE_NAMES=Assets.xcassets')
-    run(*build, 'build')
-    products = output / 'Build/Debug-iphonesimulator'
-    app, runner = products / 'E36OBD.app', products / 'E36OBDUITests-Runner.app'
-    runner_id = plistlib.loads((runner / 'Info.plist').read_bytes())['CFBundleIdentifier']
-    targets = [
-        dict(BlueprintName='E36OBDTests', ProductModuleName='E36OBDTests',
-             TestBundlePath=str(app / 'PlugIns/E36OBDTests.xctest'), TestHostPath=str(app),
-             IsAppHostedTestBundle=True, TestHostBundleIdentifier='com.ignaciopardo.e36obd',
-             CommandLineArguments=['--demo', '--uitesting'], ParallelizationEnabled=False,
-             TestingEnvironmentVariables={'DYLD_INSERT_LIBRARIES': '__PLATFORMS__/iPhoneSimulator.platform/Developer/usr/lib/libXCTestBundleInject.dylib'},
-             DependentProductPaths=[str(app)]),
-        dict(BlueprintName='E36OBDUITests', ProductModuleName='E36OBDUITests',
-             TestBundlePath=str(runner / 'PlugIns/E36OBDUITests.xctest'), TestHostPath=str(runner),
-             UITargetAppPath=str(app), IsUITestBundle=True, IsAppHostedTestBundle=False,
-             TestHostBundleIdentifier=runner_id, UITargetAppBundleIdentifier='com.ignaciopardo.e36obd',
-             DependentProductPaths=[str(app), str(runner)], ParallelizationEnabled=False,
-             SystemAttachmentLifetime='keepAlways', UserAttachmentLifetime='keepAlways'),
-    ]
-    for target in targets:
-        if not Path(target['TestBundlePath']).is_dir():
-            raise RuntimeError('Missing test product: ' + target['TestBundlePath'])
-    configuration = {'__xctestrun_metadata__': {'FormatVersion': 2}, 'TestConfigurations': [
-        dict(Name='Local simulator', IsEnabled=True, TestTargets=targets)]}
-    test_run = output / 'E36OBD.xctestrun'
-    test_run.write_bytes(plistlib.dumps(configuration))
+    run(*build, 'build-for-testing')
+    test_runs = list((output / 'Build/Build/Products').glob('*.xctestrun'))
+    if len(test_runs) != 1:
+        raise RuntimeError('Expected one generated xctestrun; found ' + str(test_runs))
     run('xcrun', 'simctl', 'bootstatus', args.device, '-b')
-    run('xcodebuild', 'test-without-building', '-xctestrun', test_run,
-        '-destination', 'platform=iOS Simulator,id=' + args.device + ',arch=' + platform.machine(),
-        '-parallel-testing-enabled', 'NO', '-resultBundlePath', output / 'Tests.xcresult')
+    run('xcodebuild', 'test-without-building', '-xctestrun', test_runs[0],
+        '-destination', destination, '-parallel-testing-enabled', 'NO',
+        '-resultBundlePath', output / 'Tests.xcresult')
     print('Results and screenshots:', output / 'Tests.xcresult')
 
 

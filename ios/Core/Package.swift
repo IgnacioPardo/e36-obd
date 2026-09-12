@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "E36Core",
-    platforms: [.iOS(.v18), .macOS(.v14)],
+    platforms: [.iOS(.v18), .watchOS(.v11), .macOS(.v14)],
     products: [.library(name: "E36Core", targets: ["E36Core"])],
     targets: [
         .systemLibrary(name: "CSQLite"),

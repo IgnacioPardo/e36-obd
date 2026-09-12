@@ -236,8 +236,8 @@ public actor SessionStore {
     /// Streams every stored row to disk; chart reduction is never involved in an export.
     public func export(sessionID: String, to directory: URL) throws -> [URL] {
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
-        guard let session = try sessions().first(where: { $0.id == sessionID }) else { throw StoreError(message: "Sesión no encontrada") }
-        let prefix = (session.isDemo ? "DEMO-e36-" : "e36-") + sessionID
+        guard try sessions().contains(where: { $0.id == sessionID }) else { throw StoreError(message: "Sesión no encontrada") }
+        let prefix = "e36-" + sessionID
         let sensors = directory.appendingPathComponent(prefix + "-sensores.csv")
         let eventsURL = directory.appendingPathComponent(prefix + "-eventos.csv")
         FileManager.default.createFile(atPath: sensors.path, contents: nil)

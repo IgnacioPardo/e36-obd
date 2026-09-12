@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-11",
+  "devices": "Series 8 41mm and 45mm simulators / watchOS 26.2",
+  "change": "Large sensor icons in each dial and in overview; existing size, scale, readings and BLE retained",
+  "review": "Five dials and overview at 41mm; coolant at 45mm. The missing coolant symbol was corrected and both coolant views plus overview recaptured.",
+  "files": {
+    "preview.jpg": "913eb5eba62654a67019bbf644574bb08172e39c537d0d4d1dc6b27a63b16d9a",
+    "41-coolant.png": "b33510ef33af922c3e6e09e52a6681fc692a06c2dc263ea3e2af6d315d6e5892",
+    "41-battery.png": "53a71a27d7c13bd6fb14fa9fa4ba69ad65a84a20ad1927b25f7d84b5df93fa67",
+    "41-overview.png": "444af4330fc673fb35e626ce06e54db7000a54e3fc67eb028eb98a59fb6e3742",
+    "41-intake.png": "9df96cad8b48587f56b67814e02c42304e75d4aa11183e238a2ab167d515c711",
+    "45-coolant.png": "ef3e1c2c7b6aba69eb21787ff681588012f605ed07e0e4b2b160609cd4c47406",
+    "41-rpm.png": "37f33be62e155c723b46c0dcf59a6cd30e9f32da2a7c26112729207cea87e999",
+    "41-load.png": "a3bf099b9aacf0a6671187bc0a296d722be3cf0883b210ff13092ac45cf084ee"
+  },
+  "sources": {
+    "ios/E36Watch/WatchDashboard.swift": "c5204801bf8a28c76a3042873616341570416ee3611f69bd9eb118bd69bad5cb",
+    "ios/CompanionShared/CompanionAppearance.swift": "b3f7bfc3180fa1f8c7cdc1a028ec650bc6df5e272eb549d150afba10b1b08a87"
+  },
+  "deviceDelivery": {
+    "status": "pending",
+    "reason": "Xcode reports Watch disconnected and requires it unlocked near the Mac; install transfer and retry lost their connection."
+  }
+}

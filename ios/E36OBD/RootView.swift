@@ -1,43 +1,41 @@
 import SwiftUI
 import E36Core
 
-private enum DashboardSurface: String, CaseIterable { case vehicle = "Auto", instruments = "Instrumentos" }
-
 struct RootView: View {
     @ObservedObject var model: AppModel
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var surface: DashboardSurface = .vehicle
+    @Environment(\.dynamicTypeSize) private var textSize
+    @State private var showingInstruments = false
+    @State private var expandedVehicle = false
+    @State private var vehicleCamera = VehicleCameraPose()
+    @State private var visitedSections: Set<AppSection> = []
+    @State private var connectionPresented = false
+
     var body: some View {
         GeometryReader { geometry in
             let horizontal = geometry.size.width > geometry.size.height
             VStack(spacing: horizontal ? 4 : 12) {
-                header(horizontal: horizontal)
-                if !horizontal && surface == .instruments {
-                    AnnunciatorStrip(model: model).frame(height: 24)
-                }
+                header(horizontal: horizontal).padding(.horizontal, horizontal ? 10 : 22)
                 GeometryReader { bay in
-                    ZStack(alignment: .trailing) {
-                        Group {
-                            if surface == .vehicle {
-                                VehicleOverview(model: model, horizontal: horizontal) { showInstruments() }
-                            } else {
-                                cockpit(size: bay.size)
+                    ZStack {
+                        garage(size: bay.size, horizontal: horizontal)
+                            .opacity(showingInstruments ? 0 : 1)
+                            .allowsHitTesting(!showingInstruments)
+                            .accessibilityHidden(showingInstruments)
+                        if showingInstruments {
+                            VStack(spacing: horizontal ? 4 : 12) {
+                                if !horizontal { AnnunciatorStrip(model: model).frame(height: 24) }
+                                GeometryReader { instruments in cockpit(size: instruments.size) }
                             }
+                            .padding(.horizontal, horizontal ? 10 : 22)
+                            .frame(width: geometry.size.width)
                         }
-                        .opacity(model.section == .dashboard ? 1 : 0.18)
-                        .allowsHitTesting(model.section == .dashboard)
-                        .accessibilityHidden(model.section != .dashboard)
-                        if model.section != .dashboard {
-                            Color.clear.contentShape(Rectangle()).onTapGesture { model.section = .dashboard }
-                                .accessibilityHidden(true)
-                            InspectorPanel(model: model)
-                                .frame(width: horizontal ? min(440, bay.size.width * 0.62) : bay.size.width)
-                                .frame(maxHeight: .infinity)
-                                .transition(.opacity)
-                        }
-                    }
+                    }.frame(width: bay.size.width, height: bay.size.height)
                 }
+                // Only the scene bay extends through the horizontal safe areas.
+                // Header, gauges and navigation keep their own readable insets.
+                .ignoresSafeArea(.container, edges: .horizontal)
                 VStack(spacing: 4) {
                     if horizontal {
                         HStack(spacing: 12) {
@@ -46,21 +44,74 @@ struct RootView: View {
                             connectionTiming
                         }.frame(height: 20)
                     }
-                    controls(horizontal: horizontal)
-                }
+                    tabs(horizontal: horizontal)
+                }.padding(.horizontal, horizontal ? 10 : 22)
             }
-            .padding(.horizontal, horizontal ? 10 : 22)
             .padding(.top, horizontal ? 0 : 3).padding(.bottom, 8)
         }
         .background(ClusterTheme.background.ignoresSafeArea())
         .preferredColorScheme(.dark).tint(ClusterTheme.lcd)
-        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: model.section)
+        .sheet(isPresented: $connectionPresented) { ConnectionSheet(model: model) }
+        .onOpenURL { url in
+            guard url.scheme == "e36" else { return }
+            if url.host == "dashboard" {
+                connectionPresented = false
+                showingInstruments = true
+            } else if url.host == "vehicle" {
+                connectionPresented = false
+                select(.dashboard)
+            }
+        }
         .onChange(of: scenePhase, initial: true) { _, phase in model.setForeground(phase == .active); updateIdleTimer() }
         .onChange(of: model.wantsLive) { updateIdleTimer() }
-        .onChange(of: model.section) { updateIdleTimer() }
-        .onChange(of: surface) { updateIdleTimer() }
+        .onChange(of: connectionPresented) { updateIdleTimer() }
         .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
     }
+
+    private func garage(size: CGSize, horizontal: Bool) -> some View {
+        let layout = horizontal ? AnyLayout(HStackLayout(spacing: expandedVehicle ? 0 : 12)) : AnyLayout(VStackLayout(spacing: 0))
+        let stageHeight = expandedVehicle ? size.height : min(size.height * (textSize.isAccessibilitySize ? 0.34 : 0.49), 370)
+        let stageWidth = expandedVehicle ? size.width : size.width * 0.48
+        return layout {
+            // One UIView/Metal scene survives tabs, orientation and expansion.
+            VehiclePresentation(camera: $vehicleCamera, expanded: $expandedVehicle,
+                horizontal: horizontal, isVisible: !showingInstruments && !connectionPresented)
+                .frame(width: horizontal ? stageWidth : size.width,
+                       height: horizontal ? size.height : stageHeight)
+            ZStack {
+                VehicleOverview(model: model, horizontal: horizontal) { showingInstruments = true }
+                    .zIndex(model.section == .dashboard ? 1 : 0)
+                    .opacity(model.section == .dashboard ? 1 : 0)
+                    .allowsHitTesting(model.section == .dashboard)
+                    .accessibilityHidden(model.section != .dashboard)
+                    .transaction { transaction in
+                        if showingInstruments || model.section != .dashboard {
+                            transaction.animation = nil
+                            transaction.disablesAnimations = true
+                        }
+                    }
+                ForEach([AppSection.faults, .sessions, .settings], id: \.self) { section in
+                    if visitedSections.contains(section) {
+                        DashboardPage(model: model, section: section, horizontal: horizontal)
+                            .zIndex(model.section == section ? 1 : 0)
+                            .opacity(model.section == section ? 1 : 0)
+                            .allowsHitTesting(model.section == section)
+                            .accessibilityHidden(model.section != section)
+                    }
+                }
+            }
+            .padding(.horizontal, horizontal ? 16 : 22)
+            .padding(.trailing, horizontal ? 18 : 0)
+            .frame(width: horizontal ? max(0, size.width - stageWidth - (expandedVehicle ? 0 : 12)) : size.width,
+                   height: horizontal ? size.height : max(0, size.height - stageHeight))
+            .opacity(expandedVehicle ? 0 : 1)
+            .allowsHitTesting(!expandedVehicle)
+            .accessibilityHidden(expandedVehicle)
+            .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: model.section)
+            .clipped()
+        }
+    }
+
     private func cockpit(size: CGSize) -> some View {
         let layout = CockpitLayout(size: size)
         return ZStack {
@@ -86,34 +137,40 @@ struct RootView: View {
         }
     }
     private func updateIdleTimer() {
-        UIApplication.shared.isIdleTimerDisabled = scenePhase == .active && model.section == .dashboard && model.wantsLive
+        UIApplication.shared.isIdleTimerDisabled = scenePhase == .active && !connectionPresented && model.wantsLive
     }
-    private func showInstruments() {
-        surface = .instruments
-        model.section = .dashboard
-    }
+
     private func header(horizontal: Bool) -> some View {
-        HStack(spacing: horizontal ? 18 : 8) {
+        HStack(spacing: horizontal ? 14 : 6) {
             if horizontal {
                 Text("E36").font(.system(size: 21, weight: .medium).width(.expanded)).tracking(1)
                     .foregroundStyle(ClusterTheme.ink)
             }
-            HStack(spacing: 0) {
-                ForEach(DashboardSurface.allCases, id: \.self) { item in
-                    Button {
-                        surface = item
-                        model.section = .dashboard
-                    } label: {
-                        VStack(spacing: 8) {
-                            Text(item.rawValue).font(.system(size: 12, weight: surface == item ? .semibold : .regular))
-                                .foregroundStyle(surface == item ? ClusterTheme.ink : ClusterTheme.muted)
-                            Capsule().fill(surface == item ? ClusterTheme.accent : .clear).frame(width: 16, height: 2)
-                        }.frame(width: item == .vehicle ? 58 : 104, height: 44).contentShape(Rectangle())
-                    }.buttonStyle(.plain)
-                        .accessibilityIdentifier(item == .vehicle ? "vehicleTab" : "instrumentsTab")
-                        .accessibilityAddTraits(surface == item ? .isSelected : [])
+            Button {
+                if model.wantsLive { model.stop() } else { model.start() }
+            } label: {
+                HStack(spacing: 8) {
+                    Image(systemName: model.wantsLive ? "stop.fill" : "play.fill")
+                        .font(.system(size: 10, weight: .bold))
+                    Text(model.wantsLive ? "Detener" : "En vivo").font(.system(size: 12, weight: .semibold))
                 }
-            }
+                .frame(width: 92, height: 44)
+                .foregroundStyle(model.wantsLive ? ClusterTheme.ink : ClusterTheme.background)
+                .background(model.wantsLive ? Color.white.opacity(0.08) : ClusterTheme.ink, in: Capsule())
+                .opacity(!model.wantsLive && !model.canStart ? 0.35 : 1)
+            }.buttonStyle(.plain).disabled(!model.wantsLive && !model.canStart).accessibilityIdentifier("liveButton")
+            Button { showingInstruments.toggle() } label: {
+                HStack(spacing: 7) {
+                    Image(systemName: "gauge.with.dots.needle.50percent").font(.system(size: 15, weight: .light))
+                    Text("Instrumentos").font(.system(size: 12, weight: showingInstruments ? .semibold : .regular))
+                }
+                .frame(minWidth: 116, minHeight: 44).contentShape(Rectangle())
+                .foregroundStyle(showingInstruments ? ClusterTheme.ink : ClusterTheme.muted)
+                .overlay(alignment: .bottom) {
+                    Capsule().fill(showingInstruments ? ClusterTheme.accent : .clear).frame(width: 16, height: 2)
+                }
+            }.buttonStyle(.plain).accessibilityIdentifier("instrumentsTab")
+                .accessibilityAddTraits(showingInstruments ? .isSelected : [])
             Spacer(minLength: 0)
             if model.isDemo {
                 Menu {
@@ -121,53 +178,33 @@ struct RootView: View {
                         ForEach(DemoScenario.allCases) { Text($0.rawValue).tag($0) }
                     }
                 } label: {
-                    Text("DEMO").font(.system(size: 8, weight: .semibold, design: .monospaced)).tracking(1)
-                        .padding(.horizontal, 7).padding(.vertical, 6)
-                        .background(ClusterTheme.accent.opacity(0.07), in: Capsule())
-                        .overlay(Capsule().strokeBorder(ClusterTheme.accent.opacity(0.25), lineWidth: 0.5))
-                        .frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
-                }.foregroundStyle(ClusterTheme.accent)
-                    .accessibilityIdentifier("demoScenario").accessibilityLabel("Demostración").accessibilityValue(model.demoScenario.rawValue)
+                    Image(systemName: "slider.horizontal.3").font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(ClusterTheme.accent).frame(width: 44, height: 44).contentShape(Rectangle())
+                }.accessibilityIdentifier("demoScenario").accessibilityLabel("Escenario").accessibilityValue(model.demoScenario.rawValue)
             }
-            Button { toggle(.connection) } label: {
+            Button { connectionPresented = true } label: {
                 HStack(spacing: 6) {
                     Circle().fill(model.connected ? (model.stale ? ClusterTheme.accent : ClusterTheme.ready) : ClusterTheme.muted)
                         .frame(width: 4, height: 4)
                     Image(systemName: "antenna.radiowaves.left.and.right").font(.system(size: 16, weight: .light))
-                }.foregroundStyle(ClusterTheme.ink).frame(width: 48, height: 44)
-                    .background(Color.white.opacity(0.035), in: RoundedRectangle(cornerRadius: 14))
-                    .contentShape(Rectangle())
+                }.foregroundStyle(ClusterTheme.ink).frame(width: 50, height: 44)
+                    .background(Color.white.opacity(0.035), in: Capsule()).contentShape(Rectangle())
             }.buttonStyle(.plain).accessibilityIdentifier("connectButton").accessibilityLabel("Conexión, \(model.status)")
         }.frame(height: 44)
     }
     private var connectionTiming: some View {
         HStack(spacing: 12) {
-            if let data = model.telemetry {
-                Text("ECU \(data.ecuMS) ms")
-            }
+            if let data = model.telemetry { Text("ECU \(data.ecuMS) ms") }
             if let hz = model.hz { Text(String(format: "RX %.1f Hz", hz)) }
         }.font(.system(size: 9, weight: .medium, design: .monospaced)).foregroundStyle(ClusterTheme.muted)
     }
-    private func controls(horizontal: Bool) -> some View {
-        HStack(spacing: horizontal ? 10 : 5) {
-            if horizontal {
+    private func tabs(horizontal: Bool) -> some View {
+        HStack(spacing: horizontal ? 10 : 4) {
+            if horizontal && showingInstruments {
                 OBCDisplay(model: model, horizontal: true).frame(width: 215, height: 44)
                 Rectangle().fill(ClusterTheme.line).frame(width: 0.5, height: 30)
             }
-            Button {
-                if model.wantsLive { model.stop() }
-                else { showInstruments(); model.start() }
-            } label: {
-                HStack(spacing: 8) {
-                    Image(systemName: model.wantsLive ? "stop.fill" : "play.fill").font(.system(size: 10, weight: .bold))
-                    Text(model.wantsLive ? "Detener" : "En vivo").font(.system(size: 13, weight: .semibold))
-                }
-                .frame(maxWidth: .infinity).frame(height: 48)
-                .foregroundStyle(model.wantsLive ? ClusterTheme.ink : ClusterTheme.background)
-                .background(model.wantsLive ? Color.white.opacity(0.08) : ClusterTheme.ink, in: RoundedRectangle(cornerRadius: 13))
-                .overlay(RoundedRectangle(cornerRadius: 13).strokeBorder(model.wantsLive ? ClusterTheme.line : .clear, lineWidth: 0.5))
-                .opacity(!model.wantsLive && !model.canStart ? 0.35 : 1)
-            }.buttonStyle(.plain).disabled(!model.wantsLive && !model.canStart).accessibilityIdentifier("liveButton")
+            dockButton(.dashboard, symbol: "car.side", title: "Auto", identifier: "vehicleTab")
             dockButton(.faults, symbol: "engine.combustion", title: "Fallas", identifier: "faultsTab")
             dockButton(.sessions, symbol: "clock.arrow.circlepath", title: "Sesiones", identifier: "sessionsTab")
             dockButton(.settings, symbol: "slider.horizontal.3", title: "Ajustes", identifier: "settingsTab")
@@ -176,19 +213,29 @@ struct RootView: View {
         .frame(maxWidth: horizontal ? 760 : .infinity).frame(height: 60)
     }
     private func dockButton(_ section: AppSection, symbol: String, title: String, identifier: String) -> some View {
-        Button { toggle(section) } label: {
+        let selected = model.section == section && !showingInstruments
+        return Button { select(section) } label: {
             VStack(spacing: 6) {
                 Image(systemName: symbol).font(.system(size: 17, weight: .light))
                 Text(title).font(.system(size: 9, weight: .medium))
-            }.frame(width: 52, height: 48).contentShape(Rectangle())
-                .foregroundStyle(model.section == section ? ClusterTheme.lcd : ClusterTheme.muted)
-                .background(model.section == section ? ClusterTheme.accent.opacity(0.07) : .clear, in: RoundedRectangle(cornerRadius: 12))
+            }.frame(maxWidth: .infinity).frame(height: 48).contentShape(Rectangle())
+                .foregroundStyle(selected ? ClusterTheme.lcd : ClusterTheme.muted)
+                .background(selected ? ClusterTheme.accent.opacity(0.07) : .clear, in: RoundedRectangle(cornerRadius: 12))
         }.buttonStyle(.plain).accessibilityIdentifier(identifier).accessibilityLabel(title)
-            .accessibilityAddTraits(model.section == section ? .isSelected : [])
+            .accessibilityAddTraits(selected ? .isSelected : [])
     }
-    private func toggle(_ section: AppSection) {
-        model.section = model.section == section ? .dashboard : section
-        if model.section == .sessions { model.refreshSessions() }
+    private func select(_ section: AppSection) {
+        let changed = model.section != section
+        visitedSections.insert(section)
+        showingInstruments = false
+        if changed {
+            expandedVehicle = false
+            let order: [AppSection] = [.dashboard, .faults, .sessions, .settings]
+            vehicleCamera = .tab(order.firstIndex(of: section) ?? 0,
+                from: order.firstIndex(of: model.section) ?? 0)
+        }
+        model.section = section
+        if section == .sessions { model.refreshSessions() }
     }
 }
 struct AnnunciatorStrip: View {

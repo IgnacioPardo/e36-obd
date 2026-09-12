@@ -25,9 +25,6 @@ struct E36WidgetFace: View {
             VStack(spacing: 2) {
                 HStack(spacing: 4) {
                     Text("E36").font(.system(size: 15, weight: .bold).width(.condensed)).tracking(0.5)
-                    if snapshot.source == .demo {
-                        Text("DEMO").font(.system(size: 8, weight: .bold)).foregroundStyle(accent)
-                    }
                     Spacer(minLength: 0)
                     Button(intent: RefreshE36WidgetIntent()) {
                         Image(systemName: "arrow.clockwise").font(.system(size: 13, weight: .semibold))
@@ -58,13 +55,14 @@ struct E36WidgetFace: View {
                     .font(.system(size: 10)).foregroundStyle(secondaryColor).lineLimit(1).minimumScaleFactor(0.8)
                     .accessibilityLabel("Lectura recibida \(receivedAt.formatted(date: .abbreviated, time: .standard))")
                 } else {
-                    Text(snapshot.source == .demo ? "Iniciá la demo en E36" : "Conectá el lector en E36")
+                    Text(snapshot.source == .demo ? "Iniciá una simulación en E36" : "Conectá el lector en E36")
                         .font(.system(size: 10)).foregroundStyle(secondaryColor).lineLimit(1).minimumScaleFactor(0.8)
                 }
             }
         }
         .foregroundStyle(renderingMode == .fullColor ? Color(white: 0.89) : .primary)
         .padding(showsBackground ? 12 : 8)
+        .widgetURL(URL(string: "e36://dashboard"))
     }
 }
 

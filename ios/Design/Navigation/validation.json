@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-11",
+  "renderer": "Native RealityKit + Metal in iOS simulator",
+  "screenshots": {
+    "source": ".context/navigation-scene-sep11/OrderedOrbit.xcresult",
+    "exifOrientationNormalized": true,
+    "retouched": false
+  },
+  "physicalInstall": {
+    "iPhone17Pro": true,
+    "launchedNormally": true,
+    "allOriginalSessionRowsPreserved": true,
+    "sessions": 10,
+    "samples": 780,
+    "eventsBefore": 17997,
+    "eventsAfter": 17998,
+    "evidence": ".context/navigation-scene-sep11/phone-orbit-preservation.json"
+  },
+  "scope": {
+    "bleAndCaptureLogicChanged": false,
+    "instrumentDrawingChanged": false,
+    "vehicleGeometryChanged": false,
+    "paintAndOpticsChanged": false,
+    "groundChange": "Removed horizontal edge fade"
+  },
+  "testEvidence": [
+    ".context/navigation-scene-sep11/Review-02.xcresult (capture/export and exterior checks)",
+    ".context/navigation-scene-sep11/Final.xcresult (destination state retention passed)",
+    ".context/navigation-scene-sep11/OrderedOrbit.xcresult (six checks passed)"
+  ],
+  "rotation": "Quarter-turn per tab position; signed, unwrapped travel; continuous retargeting from the current frame",
+  "uniqueTargetedChecksPassed": 9,
+  "limitations": "No new physical BLE, long capture, CarPlay or on-device rendering-performance validation.",
+  "sources": {
+    "ios/E36OBD/RootView.swift": "513814cb8c9eac2f4eaae047d94b1e7d43e7373a980057399a8e65a713a9f839",
+    "ios/E36OBD/VehicleOverview.swift": "c6f3606468ee3c300f8754b76c28e12bc89507c0ed28faa29f47a1b8f8e9ca66",
+    "ios/E36OBD/DashboardPage.swift": "8855fbffbd11226adf911a0b8ea6f11ffb0fbdf2cb6ec24eaf8a503863913043",
+    "ios/E36OBD/VehicleSceneView.swift": "938fda550684d31c4481c40d57531bb5d673267d4f6ec15b3f092a5622d74fe9",
+    "ios/E36OBD/VehiclePaint.metal": "1d14dc5f44efb2caa0f4da90be5eb80106fb2876e8dd537c3761567482a8d067"
+  }
+}

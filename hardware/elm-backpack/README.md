@@ -106,3 +106,7 @@ Regenerate after the main CAD export:
 /Applications/Blender.app/Contents/MacOS/Blender -b --factory-startup -t 6 --python hardware/elm-backpack/render_exploded.py
 PYTHONDONTWRITEBYTECODE=1 ./.cadenv/bin/python hardware/elm-backpack/build_exploded_gallery.py
 ```
+
+## Session history
+
+The approved design decisions, remaining physical checks and reproduction commands are preserved in the [session handoff](../../docs/sessions/2026-09-11-elm-backpack.md). The [readable conversation](../../docs/sessions/2026-09-11-elm-backpack-transcript.md) and [original eight reference photos](references/README.md) are included in the repository.

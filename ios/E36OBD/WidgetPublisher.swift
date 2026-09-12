@@ -29,7 +29,7 @@ actor WidgetPublisher {
         try store.write(snapshot)
         policy = next
         previous = snapshot
-        if decision.reload { WidgetCenter.shared.reloadTimelines(ofKind: WidgetSnapshotStore.kind) }
+        if decision.reload { E36WidgetKinds.reload() }
     }
     enum PublisherError: LocalizedError {
         case missingAppGroup

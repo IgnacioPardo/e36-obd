@@ -1,5 +1,5 @@
 {
-  "sourceSHA256": "37a7e957ae2db757d6856c60e33441521c57c4b66d224afcbf81300c9eb9d4e1",
+  "sourceSHA256": "3e857aea381c348c4114624fa1aa44a486fb5b7046fdf216dc70e85494de7d2d",
   "environmentSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
   "dimensions": [
     4096,
@@ -20,15 +20,15 @@
     "Coat Weight": 1.0,
     "Coat Roughness": 0.055
   },
-  "modelSHA256": "338b0354dd8470e7a731eb5233b58b282cb23f88a993e60576c5b0d929ea7976",
-  "modelBytes": 161409131,
+  "modelSHA256": "02fffd0543ab1a3184ca6f33b2ee19e440995f8cfd5512e4418037f69efc74bb",
+  "modelBytes": 161411400,
   "compiledEnvironmentSHA256": "3be76a66a693e8f8e40ee9717b6b452563f22063833d51c529510fcfa831c899",
   "compiledEnvironmentBytes": 87933705,
-  "contactShadowSHA256": "b185008d911ac9165718e7219aecb8a62466acce335183cb3212c87f9a938684",
-  "contactShadowBytes": 245794,
+  "contactShadowSHA256": "377cb5ace22bb61c7148eb394b6662ca0a77f7804baa462f38eb9781fb5131da",
+  "contactShadowBytes": 362813,
   "runtime": {
     "renderer": "RealityRenderer / Metal",
-    "environmentIntensityExponent": 0.65,
+    "environmentIntensityExponent": 0.15,
     "antialiasing": "4x MSAA",
     "contactShadowPlaneMetres": [
       8,
@@ -38,8 +38,8 @@
     "glass": "Dielectric Fresnel for glazing and taillight covers; current-frame fluted headlamp refraction",
     "shadowFloorHazeRemovedAlpha": 0.0,
     "displayTransform": "Scene-linear RGBA16Float -> AgX Medium High Contrast -> sRGB",
-    "runtimeClearcoatRoughness": 0.075,
-    "optics": "Two-pass current-frame Snell refraction through fluted glass; IOR 1.52; approximate reflector depth 40mm; no offscreen/internal multi-bounce tracing",
+    "runtimeClearcoatRoughness": 0.055,
+    "optics": "Two synchronized scene passes; air/glass/air Snell refraction on the front lens shell, projected onto the authored parabolic reflector; no prior-frame history or internal multi-bounce tracing",
     "supersampling": {
       "scale": 1.5,
       "maximumLongEdge": 2560,
@@ -47,10 +47,87 @@
       "resolveTaps": 4
     },
     "displayLUTSHA256": "fd1f8d8d7635a845c95e38b7c9b6a15a0453db5051ca0a787be2f876981cd28b",
-    "shadow": "Directional and contact shadow from final lowered asset under the same parking HDR",
+    "shadow": "Per-environment shadow from the final 30/15 mm lowered asset with tucked exhaust",
     "lampPlastic": "Live PBR, single dielectric reflection layer, roughness .24",
-    "diffuseLighting": "Live RealityKit PBR from the same aligned HDR as specular and glass",
-    "ambientVisibility": "Geometry-baked vertex alpha; legacy baked RGB retained in USDZ but not sampled"
+    "diffuseLighting": "Studio: matched ray-traced direct and indirect vertex radiance; daylight: full live PBR",
+    "ambientVisibility": "Geometry-baked vertex alpha; RGB sqrt(linear/4) contains studio diffuse",
+    "paint": {
+      "metallic": 0.5,
+      "roughness": 0.22,
+      "clearcoat": 1.0,
+      "clearcoatRoughness": 0.055,
+      "preservesImportedPigment": true,
+      "calibration": "Runtime PBR response reviewed against prior app frames and owner photographs; not a measured paint formula"
+    },
+    "headlampLayers": {
+      "order": "circular refracting lenses, then rectangular clear cover",
+      "depthPass": "postPass",
+      "glassWritesDepth": false,
+      "bodyDepthTestRetained": true,
+      "hiddenRearShell": true
+    },
+    "headlampLens": {
+      "ribPitchMM": 3.8,
+      "rim": "filtered rounded moulding relief",
+      "reflectorRadiusMM": 59.3,
+      "reflectorDepthMM": 43,
+      "reflectorLipGapMM": 8,
+      "ior": 1.52,
+      "calibration": "Optical zones and relief inferred visually from owner photos; cup dimensions follow the existing asset",
+      "transmissionFiltering": "Four samples over the refracted pixel footprint; finite rays through TIR boundaries"
+    },
+    "signalOptics": {
+      "layers": "clear cover over amber prismatic reflector response",
+      "prismPitchMM": [
+        4,
+        3
+      ],
+      "relativeAbsorptionRGB": [
+        0.55,
+        1.8,
+        5.1
+      ],
+      "emitsLight": false,
+      "calibration": "Appearance approximation, not measured transmission or a lamp-state indication"
+    },
+    "stageOptions": {
+      "default": "graphite",
+      "graphite": "Photographed Studio Small 09 with matched ray-traced diffuse, live Metal specular/clearcoat/glass, lit matte floor",
+      "limestone": "World-fixed ground-projected Park Parking HDR background, same source as the IBL"
+    },
+    "additionalStanceDropMM": {
+      "front": 10,
+      "rear": 5
+    },
+    "framing": "Perspective fit of actual model bounds at every orbit, elevation and viewport aspect; zoom cannot crop the car",
+    "softboxEnvironmentSHA256": "f68ddea5c6de97f59a8d48e65aa382eeb6f870e95f2777a03003da1b9c29b8ab",
+    "softboxShadowSHA256": "862fb7825c5b34235712523b297bd6211db6ec3274604946ebda6640385528a0",
+    "backdrop": {
+      "source": "StudioEnvironment.exr",
+      "encodedRadianceScale": 16,
+      "captureHeightM": 1.65,
+      "longitude": "-atan2(-worldZ, worldX) / tau + 0.5",
+      "textureSHA256": "7e8cf33b11cf2c0e9ba87bf6bce9fd14debe376c29b2c36ae221de3cbfd5fb52",
+      "finiteHalfFloatMax": 5116,
+      "decodedEmissionCeiling": 60000
+    },
+    "studioShadowPlaneMetres": [
+      20,
+      20
+    ],
+    "studio": {
+      "source": ".context/vehicle-3d/sources/studio_small_09_2k.hdr",
+      "sourceSHA256": "36724313c0fc66dab126ff90f081b85a0b1ef47be65eda1417bd20b033f0573f",
+      "sphericalMeanBefore": 0.8540746575865368,
+      "sphericalMeanAfter": 0.756806773728343,
+      "commonExposureMultiplier": 0.8861131366044094,
+      "longitudeShiftTurns": -0.255,
+      "worldRotationDegrees": 135,
+      "exposureStops": 0.75,
+      "noPerChannelColourAdjustment": true,
+      "sourceEXRSHA256": "90cd7457322535f3cdf28d1acbe539af17d9e77bbbe869c5b1b884843773a4ca",
+      "ground": "Matte albedo (0.12, 0.13, 0.15), illuminated by the same probe; matched 20 m shadow with distant edge fade"
+    }
   },
   "paintName": "Samoablau",
   "paintCalibrationSHA256": "61e971278595159b4d279a941dad047e28e4c4200677da4229abe06255c83102",
@@ -64,16 +141,16 @@
     "previousSphericalMeanLuminance": 0.5797032359157643
   },
   "appStance": {
-    "referenceSHA256": "a316a5e257e03a00dd3f5fd3274ebe85eba1bde4ce3a89219179567164efe5b6",
-    "outputSHA256": "d3ae9443f65eb239130d1545e11e0ae3df0324bab5a97c9f1bb72ce1b50e3137",
-    "frontDropMillimetres": 20,
-    "rearDropMillimetres": 10,
+    "referenceSHA256": "949d726cd48e88f9e2ace40a4ce8e3f9cebf51a3191f3978276e3c9fa289aec9",
+    "outputSHA256": "68ea69ce2a5dd592f5cda6074de348a83969aca5551dfb6afd667947e9c4814b",
+    "frontDropMillimetres": 20.0,
+    "rearDropMillimetres": 10.0,
     "bodyPitchDegrees": 0.21189315902062583,
     "wheelTransformsUnchanged": true,
     "meshNormalsAndUVsUnchanged": true,
     "minimumBodyGroundClearanceMetres": 0.12904073414071554
   },
-  "appSceneSHA256": "f83396d8b7493aa0bea5d045c355e6f233d86f8827cb78f27050da33855554cc",
+  "appSceneSHA256": "9b6536fa56761a06a052d1564b7fdfef217ebabcff061c2866cfb394312788ca",
   "environmentConventionCorrection": {
     "sourceSHA256": "89b1c6b72cd525fad67f3e75805a3513518e608cbf3e77664950873270734617",
     "outputSHA256": "bedf38f8598eafbf0ed869d4434b014714e7d710c8a3b276b1b456d972af93a9",
@@ -88,5 +165,20 @@
     "radiancePermutationIsLossless": true,
     "linearRGBMaximum": 80386.859375
   },
-  "environmentOrientationValidationSHA256": "a16f19afbba7c3c8785063c448037bf2f8a535c1bd6c693594d9cf27824d2e0f"
+  "environmentOrientationValidationSHA256": "a16f19afbba7c3c8785063c448037bf2f8a535c1bd6c693594d9cf27824d2e0f",
+  "drivingPosition": "left",
+  "cabinCorrection": {
+    "steeringSide": "left",
+    "instrumentPodSide": "left",
+    "gloveboxSide": "right",
+    "sourceGeometryUnchangedOutsideCabin": true,
+    "ambientVisibilityRebaked": true
+  },
+  "rearApronCorrection": {
+    "bottomAlignedWithBumperSides": true,
+    "centerRaisedMillimetres": 34.00860071182249,
+    "exhaustCutoutPreserved": true,
+    "paintBoundariesUnchanged": true,
+    "contactShadowRegenerated": true
+  }
 }
