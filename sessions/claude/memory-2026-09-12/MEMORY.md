@@ -1,0 +1,5 @@
+- [E36 OBD1 K-line project](e36-obd1-kline-project.md) — 1994 E36 M43B16, native macOS KWP71 client instead of INPA; why BREAK-based slow init
+- [E36 K-line diagnostic state](e36-kline-diagnostic-state.md) — SOLVED: DME 0x10@9600 y EGS caja 0x6C@4800; puente de línea L, mapa de sensores, cableado y fallas reales
+- [E36 dashboard](e36-dashboard.md) — panel web local: arquitectura de un solo hilo serie, qué se niega a hacer, y cómo correrlo
+- [E36 se apaga al soltar](e36-corte-retencion-stall.md) — medido: corte de combustible que no reanuda, 0,70 ms a 930 rpm; la prueba que decide es el TPS viejo
+- [E36 placa única rev A](e36-onboard-pcb.md) — ESP32-S3-WROOM-1 + L9637D + AP63203 + ficha OBD2 en 90x48, gen_board.py + Freerouting; qué verificar antes de fabricar

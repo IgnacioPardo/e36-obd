@@ -14,6 +14,15 @@ Snapshots taken 2026-09-08 (and 2026-09-12 for `c5212502`); conversations may ha
 A third Desktop session (`9db594c5-…`, ~124 KB, 2026-08-09) existed at first
 scan but was pruned from `~/.claude` before it could be archived.
 
+### Raw material of session `c5212502` (2026-09-12)
+| file | what |
+|------|------|
+| `claude/c5212502-tasks-2026-09-12.zip` | outputs of the background tasks and the Explore sub-agent spawned by that session (Freerouting logs, renders, DRC runs, the session-mining agent report) |
+| `claude/c5212502-subagents/`, `claude/17cce4e9-subagents/` | full JSONL transcripts of the sub-agents each session spawned |
+| `claude/memory-2026-09-12/` | snapshot of Claude's project memory notes (`MEMORY.md` index + one file per topic) as they stood at the end of the session |
+
+`17cce4e9-….jsonl` was also refreshed to its 2026-09-11 state (it had grown since the first snapshot).
+
 ## codex/  — Codex CLI rollouts (JSONL)
 Five rollouts whose `cwd` was the `nassau` worktree (2026-09-07).
 The two large files are full sessions with inline tool output.
