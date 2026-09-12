@@ -13,6 +13,8 @@ DevKitC-1 + módulo buck" y a la placa `../kline-frontend.kicad_pcb` (que dejaba
 | `e36obd.pretty/OBD2_Male_RightAngle_16P.kicad_mod` + `fp-lib-table` | Footprint propio de la ficha OBD2. |
 | `gen_schematic.py` → `schematic.svg`, `e36-kline-onboard.net` | Esquema y netlist, generados de **las mismas redes** que la placa y verificados contra ellas. |
 | `export.py` → `fab/` | DRC, gerbers (`e36-kline-onboard-gerbers.zip`), `bom-jlcpcb.csv`, `cpl-jlcpcb.csv`, renders. |
+| `pricing.py` → `fab/pricing-jlcpcb.md` | Estimación de precio JLCPCB (API de partes + tarifas publicadas): partes, fijos, totales por cantidad. |
+| `pcbway.py` → `fab/pcbway/`, `fab/pcbway-sample-order.zip` | Paquete de pedido PCBWay para 1 muestra ensamblada: BOM en su formato con MPN, centroides, dibujo de armado, notas y parámetros del formulario. |
 | `case.py` → `case/` | Caja de dos piezas (STL listos para imprimir, STEP, ensamble con referencias). |
 | `render_case.py` → `case/render-*.png` | Renders en Blender de la caja con la placa real (GLB exportado por kicad-cli) adentro. |
 
@@ -125,6 +127,15 @@ conector que compraste está espejado respecto del CCBDM20, el error es **benign
 caería en el pad 9 (sin conectar) y la placa simplemente no encendería. Nada se quema.
 
 ## Antes de mandar a fabricar
+
+**Precio** (estimado con `pricing.py`, 2026-09-11, ensamblado económico, sin envío): unas **97 USD por 5 placas
+(≈19 c/u)** o **140 USD por 10 (≈14 c/u)**; los fijos son 43 USD (setup 8,18 + stencil 1,53 + 11 partes
+extendidas × 3,07) y las partes ≈10 USD por placa, de los cuales el módulo son 5. Detalle en
+[`fab/pricing-jlcpcb.md`](fab/pricing-jlcpcb.md). La ficha OBD2 va aparte (sin stock en JLC). Para **una sola muestra
+con la ficha soldada por la fábrica**, PCBWay: paquete listo en `fab/pcbway/` (`ORDER-NOTES.md` tiene los valores del
+formulario y el texto de instrucciones). **Cotización oficial** del motor de PCBWay (`fab/pcbway/quote-official.md`):
+PCB 5 pcs 6,50 USD + ensamblado 1 placa 88,00 USD (tarifa plana) + envío FedEx 48,87 / DHL 72,73; componentes
+aparte (≈15–25 USD): ≈160–170 USD la muestra.
 
 1. **Números LCSC.** Los marcados `verificar` o `C?` en `fab/bom-jlcpcb.csv` hay que
    confirmarlos en la librería de JLC al momento de pedir: L9637D (C130489), módulo

@@ -1,0 +1,32 @@
+Item #,Designator,Qty,Manufacturer,Mfg Part #,Description / Value,Package/Footprint,Type,Your Instructions / Notes,LCSC # (hint)
+1,J1,1,Macchina (or equivalent J1962 male right-angle PCB plug),CCBDM20,"OBD2 16-pin male right-angle PCB connector, 4.00 mm pin pitch, rows 3.00 mm apart",TH-16P,THT,"CRITICAL: verify footprint against connector before soldering (pitch 4.00 mm, rows 3.00 mm, rows at 2.25/5.25 mm from flange). Body overhangs board edge. Source: macchina.cc 5-pack, or customer-consigned.",C9900166046
+2,F1,1,Nanjing Sart,S1206-S-1.0A,Fuse 1 A 32 V fast,1206,SMD,,C183160
+3,D1,1,Littelfuse / Bourns / SMC (any),SMBJ24A,TVS unidirectional 24 V standoff 600 W,SMB (DO-214AA),SMD,Cathode band = pad 1 = +12 V rail. Polarity critical.,C123819
+4,"D2, D3",2,MDD,SS34,Schottky 3 A 40 V,SMA (DO-214AC),SMD,Cathode band = pad 1.,C8678
+5,R1,1,Ever Ohms (or any 2010 0.75 W),CR2010F510RE04Z,Resistor 510 R 1% 0.75 W,2010,SMD,,C175041
+6,U1,1,STMicroelectronics,E-L9637D013TR,ISO 9141 K-line transceiver,SOIC-8,SMD,Pin 1 orientation critical.,C153038
+7,"C1, C3, C13, C6",4,Yageo,CC0603KRX7R9BB104,MLCC 100 nF 50 V X7R,0603,SMD,,C14663
+8,R2,1,UNI-ROYAL,0603WAF1003T5E,Resistor 100 k 1% 0.1 W,0603,SMD,,C25803
+9,R3,1,UNI-ROYAL,0603WAF2202T5E,Resistor 22 k 1% 0.1 W,0603,SMD,,C31850
+10,U2,1,Diodes Incorporated,AP63203WU-7,"Buck 3.3 V fixed, 2 A, 3.8-32 V in",TSOT-26,SMD,,C780769
+11,"C10, C11",2,Any (Samsung/Murata/Yageo),CC1210X7R50V106MN,MLCC 10 uF 50 V X7R,1210,SMD,50 V rating required.,C53084458
+12,C12,1,Yageo,CC0603KRX7R9BB104,MLCC 100 nF 50 V X7R,0603,SMD,,C14663
+13,L1,1,Sunlord,SWPA6045S4R7MT,Power inductor 4.7 uH 3.3 A shielded,6.0x6.0x4.5 mm,SMD,,C78804
+14,"C14, C15",2,Samsung,CL21A226MAQNNNE,MLCC 22 uF 25 V X5R,0805,SMD,,C45783
+15,J3,1,Korean Hroparts Elec,TYPE-C-31-M-12,"USB-C receptacle 16P, 5A",SMD + 4 THT shell legs,SMD,Shell legs are through-hole: solder them too.,C165948
+16,"R5, R6",2,UNI-ROYAL,0603WAF5101T5E,Resistor 5 k1 1% 0.1 W,0603,SMD,,C23186
+17,U3,1,Espressif,ESP32-S3-WROOM-1-N16R8,"Wi-Fi/BLE module, 16 MB flash, 8 MB octal PSRAM",WROOM-1 (18x25.5 mm),SMD,Do NOT substitute N16 without R8 (octal PSRAM required). Antenna end at board edge; no fixture contact there.,C2913202
+18,C5,1,Samsung,CL21A106KAYNNNE,MLCC 10 uF 25 V X5R,0805,SMD,,C15850
+19,"R4, R9",2,UNI-ROYAL,0603WAF1002T5E,Resistor 10 k 1% 0.1 W,0603,SMD,,C25804
+20,C7,1,Samsung,CL10A105KB8NNNC,MLCC 1 uF 50 V X5R,0603,SMD,,C15849
+21,SW1,1,XKB,TS-1187A-B-A-B,Tactile switch 6x6 mm SMD,6x6 mm 4-pad,SMD,,C318884
+22,SW2,1,XKB,TS-1187A-B-A-B,Tactile switch 6x6 mm SMD,6x6 mm 4-pad,SMD,,C318884
+23,LED1,1,Hubei KENTO,KT-0603W,LED white,0603,SMD,Cathode = pad 1 (green mark on silk).,C2290
+24,R7,1,UNI-ROYAL,0603WAF2201T5E,Resistor 2 k2 1% 0.1 W,0603,SMD,,C4190
+25,LED2,1,Hubei KENTO,KT-0603R,LED red,0603,SMD,Cathode = pad 1.,C2286
+26,R8,1,UNI-ROYAL,0603WAF1001T5E,Resistor 1 k 1% 0.1 W,0603,SMD,,C21190
+27,R10,1,UNI-ROYAL,0603WAF3602T5E,Resistor 36 k 1% 0.1 W,0603,SMD,,C23147
+28,R11,1,UNI-ROYAL,0603WAF3741T5E,Resistor 3 k74 1% 0.1 W,0603,SMD,,C23016
+29,R12,1,UNI-ROYAL,0603WAF4701T5E,Resistor 4 k7 1% 0.1 W,0603,SMD,,C23162
+30,J4,1,JST,B3B-XH-A(LF)(SN),Wire-to-board header XH 2.5 mm 3P vertical,XH 3P,THT,Optional pigtail header; assemble.,C144394
+31,J2,1,,DNP,1x6 2.54 mm header - DO NOT POPULATE,PinHeader 1x06,THT,DNP,

@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-09-11T15:45:50",
+    "date": "2026-09-11T16:07:08",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -43,7 +43,7 @@
                         "x": 110.0,
                         "y": 20.0
                     },
-                    "uuid": "7e614828-589f-4604-ab50-48cd925716da"
+                    "uuid": "4c82aa01-bd93-45c2-aee1-e96e9af06e4b"
                 },
                 {
                     "description": "PCB text 'J2: EN IO0 TX0 RX0 GND 3V3' on F.Silkscreen",
@@ -51,53 +51,7 @@
                         "x": 101.5,
                         "y": 68.6
                     },
-                    "uuid": "0b2c9584-096f-4742-80c0-d5d54f31bc99"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_edge_clearance"
-        },
-        {
-            "description": "Silkscreen clipped by board edge",
-            "items": [
-                {
-                    "description": "Segment on Edge.Cuts",
-                    "pos": {
-                        "x": 20.0,
-                        "y": 70.0
-                    },
-                    "uuid": "ae20b8f8-d451-454b-a05e-e2064ace1c7c"
-                },
-                {
-                    "description": "Reference field of J1",
-                    "pos": {
-                        "x": 20.0,
-                        "y": 44.0
-                    },
-                    "uuid": "27481b9c-5ef1-4209-a0a0-aaf281f11a61"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_edge_clearance"
-        },
-        {
-            "description": "Silkscreen clipped by board edge",
-            "items": [
-                {
-                    "description": "Segment on Edge.Cuts",
-                    "pos": {
-                        "x": 20.0,
-                        "y": 70.0
-                    },
-                    "uuid": "ae20b8f8-d451-454b-a05e-e2064ace1c7c"
-                },
-                {
-                    "description": "Footprint text of J1 (16=+12V 7+15=K 4/5=GND)",
-                    "pos": {
-                        "x": 28.5,
-                        "y": 26.6
-                    },
-                    "uuid": "351c16ad-9b6d-477a-aeea-86f598c577fb"
+                    "uuid": "0434b876-c725-4e88-b2ec-08f396900452"
                 }
             ],
             "severity": "warning",
@@ -112,30 +66,7 @@
                         "x": 20.0,
                         "y": 20.0
                     },
-                    "uuid": "eb8711df-6ef0-433d-8515-a62ebf2c3378"
-                },
-                {
-                    "description": "Reference field of SW1",
-                    "pos": {
-                        "x": 67.5,
-                        "y": 19.95
-                    },
-                    "uuid": "aec6ee44-65b0-4ce3-8a99-446ede88619d"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_edge_clearance"
-        },
-        {
-            "description": "Silkscreen clipped by board edge",
-            "items": [
-                {
-                    "description": "Segment on Edge.Cuts",
-                    "pos": {
-                        "x": 20.0,
-                        "y": 20.0
-                    },
-                    "uuid": "eb8711df-6ef0-433d-8515-a62ebf2c3378"
+                    "uuid": "55cab81a-9d3d-4d1b-ad00-0313c85547bf"
                 },
                 {
                     "description": "Reference field of H1",
@@ -143,7 +74,7 @@
                         "x": 30.0,
                         "y": 19.85
                     },
-                    "uuid": "60c08678-1f5b-4021-9059-7b2f9e99024b"
+                    "uuid": "3aec8131-84e6-49af-8aca-da940ff6f1c8"
                 }
             ],
             "severity": "warning",
@@ -158,7 +89,7 @@
                         "x": 110.0,
                         "y": 70.0
                     },
-                    "uuid": "416bcc5d-97d8-4f2d-9ec0-50037099f856"
+                    "uuid": "91f7f8ba-19d5-4416-b3e5-f0246349f832"
                 },
                 {
                     "description": "Segment of J3 on F.Silkscreen",
@@ -166,7 +97,7 @@
                         "x": 81.8,
                         "y": 69.9
                     },
-                    "uuid": "2d456a04-497b-45ff-95b6-fed7e9df733d"
+                    "uuid": "804575b3-1757-4f30-8387-dd3e825da85d"
                 }
             ],
             "severity": "warning",
@@ -181,7 +112,7 @@
                         "x": 110.0,
                         "y": 70.0
                     },
-                    "uuid": "416bcc5d-97d8-4f2d-9ec0-50037099f856"
+                    "uuid": "91f7f8ba-19d5-4416-b3e5-f0246349f832"
                 },
                 {
                     "description": "Segment of J3 on F.Silkscreen",
@@ -189,7 +120,76 @@
                         "x": 91.2,
                         "y": 69.9
                     },
-                    "uuid": "3a88bbd9-7b34-47e9-a879-ff0ab1bdf356"
+                    "uuid": "62d13b13-5b43-4266-ba37-e4c9f5336385"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "uuid": "55cab81a-9d3d-4d1b-ad00-0313c85547bf"
+                },
+                {
+                    "description": "Reference field of SW1",
+                    "pos": {
+                        "x": 67.5,
+                        "y": 19.95
+                    },
+                    "uuid": "c89934e2-78b8-4ef9-966c-c66fea5c5ea1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 20.0,
+                        "y": 70.0
+                    },
+                    "uuid": "03f6942a-da6f-4d5d-9eb4-7c956cd92e7a"
+                },
+                {
+                    "description": "Reference field of J1",
+                    "pos": {
+                        "x": 20.0,
+                        "y": 44.0
+                    },
+                    "uuid": "1a1bc086-106e-47f5-8f80-1e05a28ca9ec"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 20.0,
+                        "y": 70.0
+                    },
+                    "uuid": "03f6942a-da6f-4d5d-9eb4-7c956cd92e7a"
+                },
+                {
+                    "description": "Footprint text of J1 (16=+12V 7+15=K 4/5=GND)",
+                    "pos": {
+                        "x": 28.5,
+                        "y": 26.6
+                    },
+                    "uuid": "4fd86ae0-1a79-47a0-ad86-a90b65d8b8d0"
                 }
             ],
             "severity": "warning",
@@ -204,7 +204,7 @@
                         "x": 30.0,
                         "y": 44.2
                     },
-                    "uuid": "ee7169d2-8300-4112-b4f5-fe09a75444f1"
+                    "uuid": "a5719b4a-1f36-4928-a0e7-56cb60683b0b"
                 }
             ],
             "severity": "warning",
@@ -214,342 +214,89 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
-                    "description": "Reference field of F1",
+                    "description": "Rectangle of J1 on F.Silkscreen",
                     "pos": {
-                        "x": 30.6,
-                        "y": 60.17
+                        "x": 20.6,
+                        "y": 27.600001
                     },
-                    "uuid": "833c70dd-5790-4496-8148-28073874f2ec"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
                 },
+                {
+                    "description": "Footprint text of J1 (14)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 50.0
+                    },
+                    "uuid": "b67b7426-9d54-4cd9-8cfd-301ee6ae6779"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Reference field of R1",
+                    "pos": {
+                        "x": 26.72,
+                        "y": 52.5
+                    },
+                    "uuid": "4b9f050f-89c4-48cf-a04a-f0642fb443d6"
+                },
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Footprint text of J1 (15)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 54.0
+                    },
+                    "uuid": "f7e03e97-a25a-47cc-bd16-79bd8d9a0d68"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
                 {
                     "description": "PCB text '12V IN' on F.Silkscreen",
                     "pos": {
                         "x": 32.0,
                         "y": 59.6
                     },
-                    "uuid": "f9fd94e8-bf2d-4118-83c1-ab789b09e528"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of R3",
-                    "pos": {
-                        "x": 35.5,
-                        "y": 45.57
-                    },
-                    "uuid": "75eaf038-d5e1-42c7-adc1-e4939151590d"
+                    "uuid": "85fb8fe4-61e3-425f-a80a-f343ec60bfc9"
                 },
                 {
-                    "description": "Segment of C3 on F.Silkscreen",
+                    "description": "Reference field of F1",
                     "pos": {
-                        "x": 35.35942,
-                        "y": 45.31
+                        "x": 30.6,
+                        "y": 60.17
                     },
-                    "uuid": "99889c6f-c1a0-478a-bdee-2525e5b8bae6"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of R12",
-                    "pos": {
-                        "x": 49.5,
-                        "y": 56.77
-                    },
-                    "uuid": "566a595b-b981-41a5-8baf-b624d264fe9d"
-                },
-                {
-                    "description": "Segment of R10 on F.Silkscreen",
-                    "pos": {
-                        "x": 49.262742,
-                        "y": 56.5225
-                    },
-                    "uuid": "d72d67bb-c4da-408d-b1ab-2c4e1f099665"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of C11 on F.Silkscreen",
-                    "pos": {
-                        "x": 49.24,
-                        "y": 62.488748
-                    },
-                    "uuid": "82b2041c-acc4-4ca8-a0ab-8ca7656352a8"
-                },
-                {
-                    "description": "Reference field of C10",
-                    "pos": {
-                        "x": 49.6,
-                        "y": 63.2
-                    },
-                    "uuid": "854340d0-3365-42b4-8135-ea9b2b1e3067"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of C15 on F.Silkscreen",
-                    "pos": {
-                        "x": 66.765,
-                        "y": 61.738748
-                    },
-                    "uuid": "150c8bfe-fbe1-408d-b7c2-c43b2372396c"
-                },
-                {
-                    "description": "Reference field of C14",
-                    "pos": {
-                        "x": 67.18,
-                        "y": 62.0
-                    },
-                    "uuid": "8e449c8a-4b7f-44f0-877b-b303852c2c04"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C11",
-                    "pos": {
-                        "x": 52.9,
-                        "y": 63.2
-                    },
-                    "uuid": "2e20eda0-2cbb-471d-a653-faa18cf0f009"
-                },
-                {
-                    "description": "Segment of C12 on F.Silkscreen",
-                    "pos": {
-                        "x": 53.09,
-                        "y": 63.55942
-                    },
-                    "uuid": "b3b04020-937c-437f-bd5c-8efbb612aab6"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of C5 on F.Silkscreen",
-                    "pos": {
-                        "x": 84.738748,
-                        "y": 30.235
-                    },
-                    "uuid": "c2ed4a9f-aa85-4f01-975a-7d49db52d212"
-                },
-                {
-                    "description": "Reference field of R4",
-                    "pos": {
-                        "x": 84.5,
-                        "y": 30.57
-                    },
-                    "uuid": "fd1f8cb6-7e2b-4b59-b19a-9e73ace41015"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J4 on F.Silkscreen",
-                    "pos": {
-                        "x": 27.54,
-                        "y": 39.56
-                    },
-                    "uuid": "87d580be-2adc-4ff8-bf0f-172213d66a10"
-                },
-                {
-                    "description": "Footprint text of J1 (11)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 38.0
-                    },
-                    "uuid": "bbfe5e4b-ae9e-48d3-8329-dbc3757bdecf"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (10)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 34.0
-                    },
-                    "uuid": "1f750022-2e22-441b-bf92-fa4dc84b44a8"
-                },
-                {
-                    "description": "Rectangle of J4 on F.Silkscreen",
-                    "pos": {
-                        "x": 27.54,
-                        "y": 39.56
-                    },
-                    "uuid": "87d580be-2adc-4ff8-bf0f-172213d66a10"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (10)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 34.0
-                    },
-                    "uuid": "1f750022-2e22-441b-bf92-fa4dc84b44a8"
-                },
-                {
-                    "description": "Rectangle of J4 on F.Silkscreen",
-                    "pos": {
-                        "x": 27.55,
-                        "y": 36.25
-                    },
-                    "uuid": "d9a39bf2-fff8-4748-8cbc-48cc107fcd1c"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Segment of LED1 on F.Silkscreen",
-                    "pos": {
-                        "x": 42.515,
-                        "y": 30.735
-                    },
-                    "uuid": "55c9e110-16c3-427b-85cd-01c6769446b9"
-                },
-                {
-                    "description": "Reference field of R7",
-                    "pos": {
-                        "x": 44.0,
-                        "y": 31.07
-                    },
-                    "uuid": "d1a47ab0-dcf4-48b0-b85b-01f8bd3fde74"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (1)",
-                    "pos": {
-                        "x": 20.649999,
-                        "y": 30.0
-                    },
-                    "uuid": "692bcebe-9ade-42c5-8d55-e4fc12b6ea89"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (9)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 30.0
-                    },
-                    "uuid": "78aff292-b375-44bd-9775-b393ccb95fe9"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (16)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 58.0
-                    },
-                    "uuid": "15feaca9-c0c5-4e2c-8dc6-ec2bae9632db"
-                },
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (8)",
-                    "pos": {
-                        "x": 20.649999,
-                        "y": 58.0
-                    },
-                    "uuid": "7a442751-a371-4706-802a-e30f56d51972"
+                    "uuid": "b7e2c856-44b1-455d-b747-ba607a84756d"
                 }
             ],
             "severity": "warning",
@@ -564,7 +311,7 @@
                         "x": 20.649999,
                         "y": 50.0
                     },
-                    "uuid": "2c3f54f4-f16f-49da-a26b-6bdd3c56415c"
+                    "uuid": "5b627b57-ee79-433c-8998-62ca48aac6c0"
                 },
                 {
                     "description": "Rectangle of J1 on F.Silkscreen",
@@ -572,7 +319,7 @@
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
                 }
             ],
             "severity": "warning",
@@ -582,12 +329,12 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
-                    "description": "Footprint text of J1 (7)",
+                    "description": "Footprint text of J1 (8)",
                     "pos": {
                         "x": 20.649999,
-                        "y": 54.0
+                        "y": 58.0
                     },
-                    "uuid": "12133ecf-175f-4358-83c0-d1be005e15c4"
+                    "uuid": "241b0aca-fadd-4557-a450-7cf8bcee6b89"
                 },
                 {
                     "description": "Rectangle of J1 on F.Silkscreen",
@@ -595,7 +342,122 @@
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (16)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 58.0
+                    },
+                    "uuid": "5c8f59ed-ab50-47f8-89e5-c0a880d6cf34"
+                },
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Reference field of R7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 31.07
+                    },
+                    "uuid": "164cd835-aad4-42f2-a8f7-4bfea23ff037"
+                },
+                {
+                    "description": "Segment of LED1 on F.Silkscreen",
+                    "pos": {
+                        "x": 42.515,
+                        "y": 30.735
+                    },
+                    "uuid": "b5038b92-2604-422c-9285-4e4cf99af7e1"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J4 on F.Silkscreen",
+                    "pos": {
+                        "x": 27.54,
+                        "y": 39.56
+                    },
+                    "uuid": "e9009c58-be11-40fe-850c-0133c901838f"
+                },
+                {
+                    "description": "Footprint text of J1 (10)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 34.0
+                    },
+                    "uuid": "f4495a24-5365-4648-a8d3-5d7ad36273d0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (11)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 38.0
+                    },
+                    "uuid": "d4f07a07-cbf9-4817-accd-43449e45036e"
+                },
+                {
+                    "description": "Rectangle of J4 on F.Silkscreen",
+                    "pos": {
+                        "x": 27.54,
+                        "y": 39.56
+                    },
+                    "uuid": "e9009c58-be11-40fe-850c-0133c901838f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J4 on F.Silkscreen",
+                    "pos": {
+                        "x": 27.55,
+                        "y": 36.25
+                    },
+                    "uuid": "35a26190-2da6-4ac8-b007-c2e9f16dfe76"
+                },
+                {
+                    "description": "Footprint text of J1 (10)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 34.0
+                    },
+                    "uuid": "f4495a24-5365-4648-a8d3-5d7ad36273d0"
                 }
             ],
             "severity": "warning",
@@ -610,7 +472,30 @@
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Footprint text of J1 (1)",
+                    "pos": {
+                        "x": 20.649999,
+                        "y": 30.0
+                    },
+                    "uuid": "bc674b35-d4ba-4906-96b6-b7166eca1bf4"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
                 },
                 {
                     "description": "Footprint text of J1 (2)",
@@ -618,7 +503,7 @@
                         "x": 20.649999,
                         "y": 34.0
                     },
-                    "uuid": "c4058cbe-e2c9-4908-8535-a8a3836e50b3"
+                    "uuid": "dddc346d-fab0-47ef-85ac-bd8d2aaaf7c8"
                 }
             ],
             "severity": "warning",
@@ -633,7 +518,7 @@
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
                 },
                 {
                     "description": "Footprint text of J1 (3)",
@@ -641,7 +526,122 @@
                         "x": 20.649999,
                         "y": 38.0
                     },
-                    "uuid": "dff19e8f-16ad-4c38-8604-cfb6aede53b6"
+                    "uuid": "a9a69d71-d752-491c-8f62-cf5ecfa3afcd"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Footprint text of J1 (9)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 30.0
+                    },
+                    "uuid": "d101a215-8ed3-40a6-a5f5-fb8fdf2f33fa"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment of C11 on F.Silkscreen",
+                    "pos": {
+                        "x": 49.24,
+                        "y": 62.488748
+                    },
+                    "uuid": "64c37cd0-92ac-4ec9-8fce-eab428e26609"
+                },
+                {
+                    "description": "Reference field of C10",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 63.2
+                    },
+                    "uuid": "7fb9dcd6-9e02-453d-a7cd-1d5ea72a7faf"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Reference field of C11",
+                    "pos": {
+                        "x": 52.9,
+                        "y": 63.2
+                    },
+                    "uuid": "463314e4-8e09-4e0e-ae9c-f0d5ebc38a67"
+                },
+                {
+                    "description": "Segment of C12 on F.Silkscreen",
+                    "pos": {
+                        "x": 53.09,
+                        "y": 63.55942
+                    },
+                    "uuid": "bc555526-d7c9-45ef-89de-2e05394943ff"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (13)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 46.0
+                    },
+                    "uuid": "5435fcaa-d89b-4a8b-ac7e-f425a434a487"
+                },
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment of C3 on F.Silkscreen",
+                    "pos": {
+                        "x": 35.35942,
+                        "y": 45.31
+                    },
+                    "uuid": "3a741947-38d6-44d1-8865-5a40f4da2703"
+                },
+                {
+                    "description": "Reference field of R3",
+                    "pos": {
+                        "x": 35.5,
+                        "y": 45.57
+                    },
+                    "uuid": "67c8744c-3edb-4fc1-8088-b5197ec62053"
                 }
             ],
             "severity": "warning",
@@ -656,7 +656,7 @@
                         "x": 20.0,
                         "y": 44.0
                     },
-                    "uuid": "27481b9c-5ef1-4209-a0a0-aaf281f11a61"
+                    "uuid": "1a1bc086-106e-47f5-8f80-1e05a28ca9ec"
                 },
                 {
                     "description": "Rectangle of J1 on F.Silkscreen",
@@ -664,7 +664,7 @@
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
                 }
             ],
             "severity": "warning",
@@ -679,30 +679,7 @@
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (4)",
-                    "pos": {
-                        "x": 20.649999,
-                        "y": 42.0
-                    },
-                    "uuid": "7cf3f1af-ad18-4912-9c32-19c252151343"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
                 },
                 {
                     "description": "Footprint text of J1 (5)",
@@ -710,7 +687,7 @@
                         "x": 20.649999,
                         "y": 46.0
                     },
-                    "uuid": "ae3ee5be-d592-4c15-ad31-b607948d2190"
+                    "uuid": "a71f20bb-c8cf-4906-8680-948933ad7055"
                 }
             ],
             "severity": "warning",
@@ -720,20 +697,20 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
-                    "description": "Footprint text of J1 (14)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 50.0
-                    },
-                    "uuid": "164e61da-4ed4-47df-8b48-1fc176747eb5"
-                },
-                {
                     "description": "Rectangle of J1 on F.Silkscreen",
                     "pos": {
                         "x": 20.6,
                         "y": 27.600001
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Reference field of J4",
+                    "pos": {
+                        "x": 26.45,
+                        "y": 34.5
+                    },
+                    "uuid": "ff55d8a0-9575-4650-a121-9df79cc5e748"
                 }
             ],
             "severity": "warning",
@@ -741,6 +718,236 @@
         },
         {
             "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (10)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 34.0
+                    },
+                    "uuid": "f4495a24-5365-4648-a8d3-5d7ad36273d0"
+                },
+                {
+                    "description": "Reference field of J4",
+                    "pos": {
+                        "x": 26.45,
+                        "y": 34.5
+                    },
+                    "uuid": "ff55d8a0-9575-4650-a121-9df79cc5e748"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Footprint text of J1 (10)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 34.0
+                    },
+                    "uuid": "f4495a24-5365-4648-a8d3-5d7ad36273d0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J4 on F.Silkscreen",
+                    "pos": {
+                        "x": 27.55,
+                        "y": 39.55
+                    },
+                    "uuid": "43bd7fdc-9355-45df-a36a-0c711fe9f212"
+                },
+                {
+                    "description": "Footprint text of J1 (11)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 38.0
+                    },
+                    "uuid": "d4f07a07-cbf9-4817-accd-43449e45036e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Footprint text of J1 (11)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 38.0
+                    },
+                    "uuid": "d4f07a07-cbf9-4817-accd-43449e45036e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (12)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 42.0
+                    },
+                    "uuid": "438b31b5-8c70-4bea-ab7d-08972e9c2a3a"
+                },
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (4)",
+                    "pos": {
+                        "x": 20.649999,
+                        "y": 42.0
+                    },
+                    "uuid": "50b25f9b-9e71-4fdb-9492-6e2d9c19a6f7"
+                },
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "pos": {
+                        "x": 20.6,
+                        "y": 27.600001
+                    },
+                    "uuid": "6dc96c10-be65-469f-887c-f873acefe507"
+                },
+                {
+                    "description": "Footprint text of J1 (7)",
+                    "pos": {
+                        "x": 20.649999,
+                        "y": 54.0
+                    },
+                    "uuid": "c04eaa9c-cf88-4898-aeeb-74cd4c672b57"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Reference field of R12",
+                    "pos": {
+                        "x": 49.5,
+                        "y": 56.77
+                    },
+                    "uuid": "489375ca-bac4-4f28-bff0-58a5778448d6"
+                },
+                {
+                    "description": "Segment of R10 on F.Silkscreen",
+                    "pos": {
+                        "x": 49.262742,
+                        "y": 56.5225
+                    },
+                    "uuid": "80609660-541c-42bd-b632-ada2bda427d7"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Reference field of C14",
+                    "pos": {
+                        "x": 67.18,
+                        "y": 62.0
+                    },
+                    "uuid": "470c3e91-2299-4138-ab11-804cc2f5b854"
+                },
+                {
+                    "description": "Segment of C15 on F.Silkscreen",
+                    "pos": {
+                        "x": 66.765,
+                        "y": 61.738748
+                    },
+                    "uuid": "bf0ffcc4-1e04-4284-bfbe-3ee165eceaa2"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
+                    "description": "Segment of C5 on F.Silkscreen",
+                    "pos": {
+                        "x": 84.738748,
+                        "y": 30.235
+                    },
+                    "uuid": "3f8ab441-5ad5-4559-bcc5-490c3d64f7df"
+                },
+                {
+                    "description": "Reference field of R4",
+                    "pos": {
+                        "x": 84.5,
+                        "y": 30.57
+                    },
+                    "uuid": "f0759e6c-5a20-4ead-a0fb-b74cd964c61f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
                     "description": "Footprint text of J1 (15)",
@@ -748,475 +955,38 @@
                         "x": 26.85,
                         "y": 54.0
                     },
-                    "uuid": "3024b1af-a47c-4600-943d-7eb3fad0e832"
+                    "uuid": "f7e03e97-a25a-47cc-bd16-79bd8d9a0d68"
                 },
                 {
-                    "description": "Rectangle of J1 on F.Silkscreen",
+                    "description": "PTH pad 15 [K_LINE] of J1",
                     "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
+                        "x": 25.25,
+                        "y": 54.0
                     },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "9876095a-91fa-4291-855a-8ba6d4e85a33"
                 }
             ],
             "severity": "warning",
-            "type": "silk_overlap"
+            "type": "silk_over_copper"
         },
         {
-            "description": "Silkscreen clearance",
+            "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Reference field of R1",
-                    "pos": {
-                        "x": 26.72,
-                        "y": 52.5
-                    },
-                    "uuid": "d118bebc-58d1-4bec-8943-349c0deddcea"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (12)",
+                    "description": "Footprint text of J1 (14)",
                     "pos": {
                         "x": 26.85,
-                        "y": 42.0
+                        "y": 50.0
                     },
-                    "uuid": "db8dfcba-560f-4359-b41a-a9a9168f4ff0"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
+                    "uuid": "b67b7426-9d54-4cd9-8cfd-301ee6ae6779"
                 },
                 {
-                    "description": "Reference field of J4",
+                    "description": "PTH pad 14 [<no net>] of J1",
                     "pos": {
-                        "x": 26.45,
-                        "y": 34.5
+                        "x": 25.25,
+                        "y": 50.0
                     },
-                    "uuid": "e964d33d-6ff1-4e38-a3e4-e1a94d6b4685"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (11)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 38.0
-                    },
-                    "uuid": "bbfe5e4b-ae9e-48d3-8329-dbc3757bdecf"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (10)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 34.0
-                    },
-                    "uuid": "1f750022-2e22-441b-bf92-fa4dc84b44a8"
-                },
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Rectangle of J1 on F.Silkscreen",
-                    "pos": {
-                        "x": 20.6,
-                        "y": 27.600001
-                    },
-                    "uuid": "683e8796-efac-4bb1-be28-f40c9c67ddd7"
-                },
-                {
-                    "description": "Footprint text of J1 (13)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 46.0
-                    },
-                    "uuid": "d19d1522-e37d-42de-b0d1-141c6e2c339d"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (11)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 38.0
-                    },
-                    "uuid": "bbfe5e4b-ae9e-48d3-8329-dbc3757bdecf"
-                },
-                {
-                    "description": "Rectangle of J4 on F.Silkscreen",
-                    "pos": {
-                        "x": 27.55,
-                        "y": 39.55
-                    },
-                    "uuid": "fd7f42f6-7555-4f07-90fd-89d23ff1b396"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (10)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 34.0
-                    },
-                    "uuid": "1f750022-2e22-441b-bf92-fa4dc84b44a8"
-                },
-                {
-                    "description": "Reference field of J4",
-                    "pos": {
-                        "x": 26.45,
-                        "y": 34.5
-                    },
-                    "uuid": "e964d33d-6ff1-4e38-a3e4-e1a94d6b4685"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of D1",
-                    "pos": {
-                        "x": 38.5,
-                        "y": 63.8
-                    },
-                    "uuid": "7cd921d4-74f4-4d0c-a388-efdd6140c477"
-                },
-                {
-                    "description": "Pad 2 [VBAT_F] of D2 on F.Cu",
-                    "pos": {
-                        "x": 39.7,
-                        "y": 62.5
-                    },
-                    "uuid": "91b8e675-b1af-4773-9417-6e5098367e5b"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R3",
-                    "pos": {
-                        "x": 35.5,
-                        "y": 45.57
-                    },
-                    "uuid": "75eaf038-d5e1-42c7-adc1-e4939151590d"
-                },
-                {
-                    "description": "Pad 1 [V_SENSE] of C3 on F.Cu",
-                    "pos": {
-                        "x": 34.725,
-                        "y": 44.8
-                    },
-                    "uuid": "1cf4ceb4-32d4-4abd-b805-39add1a265f3"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R3",
-                    "pos": {
-                        "x": 35.5,
-                        "y": 45.57
-                    },
-                    "uuid": "75eaf038-d5e1-42c7-adc1-e4939151590d"
-                },
-                {
-                    "description": "Pad 2 [GND] of C3 on F.Cu",
-                    "pos": {
-                        "x": 36.275,
-                        "y": 44.8
-                    },
-                    "uuid": "05e76f87-3b57-4166-9447-a96010f377cb"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R12",
-                    "pos": {
-                        "x": 49.5,
-                        "y": 56.77
-                    },
-                    "uuid": "566a595b-b981-41a5-8baf-b624d264fe9d"
-                },
-                {
-                    "description": "Pad 1 [VBAT_F] of R10 on F.Cu",
-                    "pos": {
-                        "x": 48.675,
-                        "y": 56.0
-                    },
-                    "uuid": "e9b26539-23dc-43fe-af7f-06d9692c1583"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C10",
-                    "pos": {
-                        "x": 49.6,
-                        "y": 63.2
-                    },
-                    "uuid": "854340d0-3365-42b4-8135-ea9b2b1e3067"
-                },
-                {
-                    "description": "Pad 1 [VIN] of C11 on F.Cu",
-                    "pos": {
-                        "x": 50.6,
-                        "y": 61.725
-                    },
-                    "uuid": "e1c2629e-6e47-46e3-9ec5-032fbafab4e5"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C14",
-                    "pos": {
-                        "x": 67.18,
-                        "y": 62.0
-                    },
-                    "uuid": "8e449c8a-4b7f-44f0-877b-b303852c2c04"
-                },
-                {
-                    "description": "Pad 2 [GND] of C15 on F.Cu",
-                    "pos": {
-                        "x": 67.5,
-                        "y": 62.95
-                    },
-                    "uuid": "dba1b66f-d5f9-483a-a24c-e0cdf396e740"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C14",
-                    "pos": {
-                        "x": 67.18,
-                        "y": 62.0
-                    },
-                    "uuid": "8e449c8a-4b7f-44f0-877b-b303852c2c04"
-                },
-                {
-                    "description": "Pad 1 [+3V3] of C15 on F.Cu",
-                    "pos": {
-                        "x": 67.5,
-                        "y": 61.05
-                    },
-                    "uuid": "6f218b3b-b246-4831-a079-32f51a1a60ce"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C11",
-                    "pos": {
-                        "x": 52.9,
-                        "y": 63.2
-                    },
-                    "uuid": "2e20eda0-2cbb-471d-a653-faa18cf0f009"
-                },
-                {
-                    "description": "Pad 2 [GND] of C12 on F.Cu",
-                    "pos": {
-                        "x": 53.6,
-                        "y": 64.475
-                    },
-                    "uuid": "453db951-bc1d-4403-8237-f765581d23e9"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C11",
-                    "pos": {
-                        "x": 52.9,
-                        "y": 63.2
-                    },
-                    "uuid": "2e20eda0-2cbb-471d-a653-faa18cf0f009"
-                },
-                {
-                    "description": "Pad 1 [VIN] of C12 on F.Cu",
-                    "pos": {
-                        "x": 53.6,
-                        "y": 62.925
-                    },
-                    "uuid": "6fb49133-019f-4c75-a746-7fb632ad742b"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of C10",
-                    "pos": {
-                        "x": 49.6,
-                        "y": 63.2
-                    },
-                    "uuid": "854340d0-3365-42b4-8135-ea9b2b1e3067"
-                },
-                {
-                    "description": "Pad 2 [GND] of C11 on F.Cu",
-                    "pos": {
-                        "x": 50.6,
-                        "y": 64.675
-                    },
-                    "uuid": "8cda8462-d4ea-4d3d-834c-8d7864988b86"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R12",
-                    "pos": {
-                        "x": 49.5,
-                        "y": 56.77
-                    },
-                    "uuid": "566a595b-b981-41a5-8baf-b624d264fe9d"
-                },
-                {
-                    "description": "Pad 2 [EN_BUCK] of R10 on F.Cu",
-                    "pos": {
-                        "x": 50.325,
-                        "y": 56.0
-                    },
-                    "uuid": "2edb96aa-84ce-4b92-8410-4f35a091d310"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of R4",
-                    "pos": {
-                        "x": 84.5,
-                        "y": 30.57
-                    },
-                    "uuid": "fd1f8cb6-7e2b-4b59-b19a-9e73ace41015"
-                },
-                {
-                    "description": "Pad 1 [GND] of C5 on F.Cu",
-                    "pos": {
-                        "x": 84.05,
-                        "y": 29.5
-                    },
-                    "uuid": "9bc4095d-c9d2-4788-b639-4e11e44e0b54"
+                    "uuid": "d144cc2e-6a31-48f7-8d0d-1ed860ba1db8"
                 }
             ],
             "severity": "warning",
@@ -1231,7 +1001,7 @@
                         "x": 26.85,
                         "y": 58.0
                     },
-                    "uuid": "15feaca9-c0c5-4e2c-8dc6-ec2bae9632db"
+                    "uuid": "5c8f59ed-ab50-47f8-89e5-c0a880d6cf34"
                 },
                 {
                     "description": "PTH pad 16 [VBAT_RAW] of J1",
@@ -1239,122 +1009,7 @@
                         "x": 25.25,
                         "y": 58.0
                     },
-                    "uuid": "d2b3ee76-5ae1-4e93-8bf8-2450af346938"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (14)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 50.0
-                    },
-                    "uuid": "164e61da-4ed4-47df-8b48-1fc176747eb5"
-                },
-                {
-                    "description": "PTH pad 14 [<no net>] of J1",
-                    "pos": {
-                        "x": 25.25,
-                        "y": 50.0
-                    },
-                    "uuid": "ec3be545-0a1c-43e2-aba5-e5d58fa4b8a9"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (15)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 54.0
-                    },
-                    "uuid": "3024b1af-a47c-4600-943d-7eb3fad0e832"
-                },
-                {
-                    "description": "PTH pad 15 [K_LINE] of J1",
-                    "pos": {
-                        "x": 25.25,
-                        "y": 54.0
-                    },
-                    "uuid": "63db2594-9517-42c4-888e-47a79428e202"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (12)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 42.0
-                    },
-                    "uuid": "db8dfcba-560f-4359-b41a-a9a9168f4ff0"
-                },
-                {
-                    "description": "PTH pad 12 [<no net>] of J1",
-                    "pos": {
-                        "x": 25.25,
-                        "y": 42.0
-                    },
-                    "uuid": "5d92a2f8-e091-4343-820f-ca00d9da25b0"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Footprint text of J1 (11)",
-                    "pos": {
-                        "x": 26.85,
-                        "y": 38.0
-                    },
-                    "uuid": "bbfe5e4b-ae9e-48d3-8329-dbc3757bdecf"
-                },
-                {
-                    "description": "PTH pad 11 [<no net>] of J1",
-                    "pos": {
-                        "x": 25.25,
-                        "y": 38.0
-                    },
-                    "uuid": "30c084d2-0b14-4b57-8d8c-e9e9646cd18c"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_over_copper"
-        },
-        {
-            "description": "Silkscreen clipped by solder mask",
-            "items": [
-                {
-                    "description": "Reference field of J4",
-                    "pos": {
-                        "x": 26.45,
-                        "y": 34.5
-                    },
-                    "uuid": "e964d33d-6ff1-4e38-a3e4-e1a94d6b4685"
-                },
-                {
-                    "description": "PTH pad 10 [<no net>] of J1",
-                    "pos": {
-                        "x": 25.25,
-                        "y": 34.0
-                    },
-                    "uuid": "471ee0ac-2f3c-45ec-95de-fcbe2e76d15a"
+                    "uuid": "aded528a-6ee5-4eb3-a006-b9e6729cd572"
                 }
             ],
             "severity": "warning",
@@ -1369,7 +1024,7 @@
                         "x": 26.85,
                         "y": 34.0
                     },
-                    "uuid": "1f750022-2e22-441b-bf92-fa4dc84b44a8"
+                    "uuid": "f4495a24-5365-4648-a8d3-5d7ad36273d0"
                 },
                 {
                     "description": "PTH pad 10 [<no net>] of J1",
@@ -1377,7 +1032,99 @@
                         "x": 25.25,
                         "y": 34.0
                     },
-                    "uuid": "471ee0ac-2f3c-45ec-95de-fcbe2e76d15a"
+                    "uuid": "1d3fe0dc-fc77-4511-8ba8-56c346dc08dc"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of C10",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 63.2
+                    },
+                    "uuid": "7fb9dcd6-9e02-453d-a7cd-1d5ea72a7faf"
+                },
+                {
+                    "description": "Pad 2 [GND] of C11 on F.Cu",
+                    "pos": {
+                        "x": 50.6,
+                        "y": 64.675
+                    },
+                    "uuid": "e52abe9d-242a-4d4e-94db-2101891e4d87"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of C10",
+                    "pos": {
+                        "x": 49.6,
+                        "y": 63.2
+                    },
+                    "uuid": "7fb9dcd6-9e02-453d-a7cd-1d5ea72a7faf"
+                },
+                {
+                    "description": "Pad 1 [VIN] of C11 on F.Cu",
+                    "pos": {
+                        "x": 50.6,
+                        "y": 61.725
+                    },
+                    "uuid": "c794521a-acf1-4f57-bdd8-f6cfb6ee38a4"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of C11",
+                    "pos": {
+                        "x": 52.9,
+                        "y": 63.2
+                    },
+                    "uuid": "463314e4-8e09-4e0e-ae9c-f0d5ebc38a67"
+                },
+                {
+                    "description": "Pad 1 [VIN] of C12 on F.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 62.925
+                    },
+                    "uuid": "fed1f096-02cc-45c2-a3ca-5d3bbe5fb01e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of C11",
+                    "pos": {
+                        "x": 52.9,
+                        "y": 63.2
+                    },
+                    "uuid": "463314e4-8e09-4e0e-ae9c-f0d5ebc38a67"
+                },
+                {
+                    "description": "Pad 2 [GND] of C12 on F.Cu",
+                    "pos": {
+                        "x": 53.6,
+                        "y": 64.475
+                    },
+                    "uuid": "198c955c-f045-4f4e-b177-7d6f2ad9701a"
                 }
             ],
             "severity": "warning",
@@ -1392,7 +1139,7 @@
                         "x": 26.85,
                         "y": 46.0
                     },
-                    "uuid": "d19d1522-e37d-42de-b0d1-141c6e2c339d"
+                    "uuid": "5435fcaa-d89b-4a8b-ac7e-f425a434a487"
                 },
                 {
                     "description": "PTH pad 13 [<no net>] of J1",
@@ -1400,7 +1147,260 @@
                         "x": 25.25,
                         "y": 46.0
                     },
-                    "uuid": "afd258f4-067a-4f92-8bed-1a58c0abccc8"
+                    "uuid": "350923f2-9625-437d-882a-53b84c3c19c4"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of R3",
+                    "pos": {
+                        "x": 35.5,
+                        "y": 45.57
+                    },
+                    "uuid": "67c8744c-3edb-4fc1-8088-b5197ec62053"
+                },
+                {
+                    "description": "Pad 1 [V_SENSE] of C3 on F.Cu",
+                    "pos": {
+                        "x": 34.725,
+                        "y": 44.8
+                    },
+                    "uuid": "d263ea6a-ff5e-4d70-8611-5db453c27f65"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of R3",
+                    "pos": {
+                        "x": 35.5,
+                        "y": 45.57
+                    },
+                    "uuid": "67c8744c-3edb-4fc1-8088-b5197ec62053"
+                },
+                {
+                    "description": "Pad 2 [GND] of C3 on F.Cu",
+                    "pos": {
+                        "x": 36.275,
+                        "y": 44.8
+                    },
+                    "uuid": "5570d47c-98f0-4051-8395-bc9f81f74c4c"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of J4",
+                    "pos": {
+                        "x": 26.45,
+                        "y": 34.5
+                    },
+                    "uuid": "ff55d8a0-9575-4650-a121-9df79cc5e748"
+                },
+                {
+                    "description": "PTH pad 10 [<no net>] of J1",
+                    "pos": {
+                        "x": 25.25,
+                        "y": 34.0
+                    },
+                    "uuid": "1d3fe0dc-fc77-4511-8ba8-56c346dc08dc"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (11)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 38.0
+                    },
+                    "uuid": "d4f07a07-cbf9-4817-accd-43449e45036e"
+                },
+                {
+                    "description": "PTH pad 11 [<no net>] of J1",
+                    "pos": {
+                        "x": 25.25,
+                        "y": 38.0
+                    },
+                    "uuid": "e54cb48f-3d54-44d2-98eb-7004e97aea81"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (12)",
+                    "pos": {
+                        "x": 26.85,
+                        "y": 42.0
+                    },
+                    "uuid": "438b31b5-8c70-4bea-ab7d-08972e9c2a3a"
+                },
+                {
+                    "description": "PTH pad 12 [<no net>] of J1",
+                    "pos": {
+                        "x": 25.25,
+                        "y": 42.0
+                    },
+                    "uuid": "3623d57d-877c-419b-9f22-bc384578e883"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of D1",
+                    "pos": {
+                        "x": 38.5,
+                        "y": 63.8
+                    },
+                    "uuid": "8c116bfd-043d-489a-865c-21e391c1e58c"
+                },
+                {
+                    "description": "Pad 2 [VBAT_F] of D2 on F.Cu",
+                    "pos": {
+                        "x": 39.7,
+                        "y": 62.5
+                    },
+                    "uuid": "94ca6fc9-ad18-43d7-b1e7-411fbc711de8"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of R12",
+                    "pos": {
+                        "x": 49.5,
+                        "y": 56.77
+                    },
+                    "uuid": "489375ca-bac4-4f28-bff0-58a5778448d6"
+                },
+                {
+                    "description": "Pad 1 [VBAT_F] of R10 on F.Cu",
+                    "pos": {
+                        "x": 48.675,
+                        "y": 56.0
+                    },
+                    "uuid": "931d5729-22be-4bc0-b035-9f9be7a3d67f"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of C14",
+                    "pos": {
+                        "x": 67.18,
+                        "y": 62.0
+                    },
+                    "uuid": "470c3e91-2299-4138-ab11-804cc2f5b854"
+                },
+                {
+                    "description": "Pad 2 [GND] of C15 on F.Cu",
+                    "pos": {
+                        "x": 67.5,
+                        "y": 62.95
+                    },
+                    "uuid": "84811dba-fa78-4e96-963f-275d8e08d130"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of C14",
+                    "pos": {
+                        "x": 67.18,
+                        "y": 62.0
+                    },
+                    "uuid": "470c3e91-2299-4138-ab11-804cc2f5b854"
+                },
+                {
+                    "description": "Pad 1 [+3V3] of C15 on F.Cu",
+                    "pos": {
+                        "x": 67.5,
+                        "y": 61.05
+                    },
+                    "uuid": "8c88064b-3bfe-4cc5-9ec7-ea66a0a1d1f0"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of R12",
+                    "pos": {
+                        "x": 49.5,
+                        "y": 56.77
+                    },
+                    "uuid": "489375ca-bac4-4f28-bff0-58a5778448d6"
+                },
+                {
+                    "description": "Pad 2 [EN_BUCK] of R10 on F.Cu",
+                    "pos": {
+                        "x": 50.325,
+                        "y": 56.0
+                    },
+                    "uuid": "567ccafa-e6c9-49cc-85fb-cc2b6b698636"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Reference field of R4",
+                    "pos": {
+                        "x": 84.5,
+                        "y": 30.57
+                    },
+                    "uuid": "f0759e6c-5a20-4ead-a0fb-b74cd964c61f"
+                },
+                {
+                    "description": "Pad 1 [GND] of C5 on F.Cu",
+                    "pos": {
+                        "x": 84.05,
+                        "y": 29.5
+                    },
+                    "uuid": "1313e16d-2156-4864-acee-0351b970ba61"
                 }
             ],
             "severity": "warning",
