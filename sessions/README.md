@@ -39,3 +39,15 @@ For continuation, start with the [current session handoff](../docs/sessions/2026
 ## Readable enclosure session and handoff
 
 The approved long ESP32/buck/ELM enclosure chat now has a [visible-conversation snapshot](../docs/sessions/2026-09-11-elm-backpack-transcript.md) and [continuation handoff](../docs/sessions/2026-09-11-elm-backpack.md), captured for the 2026-09-11 commit/push request. The [eight original reference images](../hardware/elm-backpack/references/README.md) are tracked alongside the enclosure. These readable records omit execution instructions, private reasoning and tool traffic.
+
+### Enclosure raw-format records, September 11 checkpoint
+
+The [compressed JSONL archive](codex/01a07e53-ae96-7b91-8f25-bf9802ad1c1f-raw-records-2026-09-11.jsonl.gz) retains the original record fields and timestamps for 64 public messages, 419 tool call/result records, and 45 embedded images. Its [manifest](codex/01a07e53-ae96-7b91-8f25-bf9802ad1c1f-raw-records-2026-09-11.manifest.json) records the exact snapshot cutoff, counts, exclusions, redactions and SHA-256 checksum. The checkpoint includes the request for raw transcripts; conversation after that cutoff is not included.
+
+This is a filtered raw-format export, not a byte-identical runner backup: system/developer instructions, private reasoning, runtime state and duplicate events are excluded; outputs that read internal instruction/session files are redacted. Tool activity and images are retained, unlike the readable transcript. The archive uses Git LFS. After fetching LFS objects, decode it with:
+
+```sh
+gzip -dc sessions/codex/01a07e53-ae96-7b91-8f25-bf9802ad1c1f-raw-records-2026-09-11.jsonl.gz > enclosure-transcript.jsonl
+```
+
+The [export script](export_codex_records.py) accepts a local source JSONL path and destination `.jsonl.gz` path and writes a companion manifest.

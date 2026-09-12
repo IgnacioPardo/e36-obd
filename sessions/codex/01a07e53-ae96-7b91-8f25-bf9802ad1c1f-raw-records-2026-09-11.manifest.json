@@ -1,0 +1,37 @@
+{
+  "type": "archive_metadata",
+  "sessionID": "01a07e53-ae96-7b91-8f25-bf9802ad1c1f",
+  "exportedAtUTC": "2026-09-12T01:17:23.524928+00:00",
+  "sourceByteCutoff": 57737521,
+  "sourceLastRecordAt": "2026-09-12T01:17:23.365Z",
+  "format": "Original JSONL record envelope/payload fields for public messages and tool calls/results, gzip compressed",
+  "exclusions": "Private reasoning, system/developer messages, internal passthrough metadata, runtime state and duplicated event records. Reads of internal session/instruction files have their outputs redacted.",
+  "credentials": "Known short credential and common credential text patterns redacted; embedded images retained as recorded.",
+  "byteIdenticalRunnerCopy": false,
+  "archive": "01a07e53-ae96-7b91-8f25-bf9802ad1c1f-raw-records-2026-09-11.jsonl.gz",
+  "compressedBytes": 28474770,
+  "sha256": "4a9878b2e27ced745eeedc7cca28e8b9b9794d864ed93f05cff25ea3665ab55c",
+  "records": {
+    "user": 14,
+    "assistant": 50,
+    "custom_tool_call": 146,
+    "custom_tool_call_output": 145,
+    "function_call": 64,
+    "function_call_output": 64
+  },
+  "images": 45,
+  "omitted": {
+    "session_meta": 1,
+    "event_msg": 970,
+    "internal_message": 3,
+    "world_state": 4,
+    "turn_context": 11,
+    "token_usage_record": 220,
+    "reasoning": 293,
+    "compacted": 2
+  },
+  "redactions": {
+    "internal_read_output": 14,
+    "internal_tool_documentation": 5
+  }
+}
