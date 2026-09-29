@@ -49,8 +49,10 @@ void e36PresentationGround(realitykit::surface_parameters params) {
     params.surface().set_emissive_color(matte * half(1.0f + mottling));
     float4 clip = params.uniforms().view_to_projection() * params.uniforms().world_to_view() * float4(params.geometry().world_position(), 1);
     float2 ndc = abs(clip.xy / clip.w);
-    // Keep the ground continuous to both screen edges, with no side vignette.
-    float edge = 1.0f - smoothstep(0.82f, 1.0f, ndc.y);
+    // The car bay ends just below the tires. Let the matte floor dissolve
+    // across its lower half instead of leaving a narrow horizontal edge there.
+    // Keep full width coverage so the fade reads as depth, not a spotlight.
+    float edge = 1.0f - smoothstep(0.45f, 1.0f, ndc.y);
     params.surface().set_opacity(half(falloff * 0.52f * edge));
 }
 

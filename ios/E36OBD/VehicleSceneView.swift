@@ -583,7 +583,10 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
         if let shadedVehicle { updateDiffuse(shadedVehicle) }
         if var component = shadowGround?.model, var material = component.materials.first as? UnlitMaterial {
             material.color.texture = .init(selected == .graphite && !baseline ? assets.softboxShadow : assets.contactShadow)
-            material.blending = .transparent(opacity: .init(scale: selected == .graphite ? 1 : 0.65))
+            // The wide softbox shadow compresses into a band in the low profile
+            // view; keep enough contact under the tires without a dark seam.
+            let shadowStrength: Float = selected == .graphite && !baseline ? 0.5 : selected == .graphite ? 1 : 0.65
+            material.blending = .transparent(opacity: .init(scale: shadowStrength))
             let extent: Float = selected == .graphite && !baseline ? 20 : 8
             component.mesh = .generatePlane(width: extent, depth: extent)
             component.materials = [material]
