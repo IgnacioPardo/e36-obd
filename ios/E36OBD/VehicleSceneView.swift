@@ -34,6 +34,9 @@ struct VehicleCameraPose: Equatable {
     /// Nil retains the protected framing used by the dashboard and presets.
     var distance: Float?
 
+    /// A level side-on view with the E36's front (+Z) pointing right on screen.
+    static let rightProfile = Self(azimuth: -.pi / 2, elevation: 0.035, zoom: 1.1)
+
     var dashboardPose: Self {
         Self(azimuth: azimuth, elevation: min(0.70, max(0.035, elevation)))
     }
@@ -839,13 +842,14 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
     }
     @objc private func tapView() { if !allowsFreeNavigation { nextView() } }
     @objc @discardableResult private func nextView() -> Bool {
-        let angles: [Float] = [0.58, .pi / 2, .pi - 0.58]
+        let angles: [Float] = [0.58, VehicleCameraPose.rightProfile.azimuth, .pi - 0.58]
         let nearest = angles.indices.min { a, b in
             abs(atan2(sin(requestedPose.azimuth - angles[a]), cos(requestedPose.azimuth - angles[a]))) <
             abs(atan2(sin(requestedPose.azimuth - angles[b]), cos(requestedPose.azimuth - angles[b])))
         } ?? 0
-        var camera = requestedPose
-        camera.azimuth = angles[(nearest + 1) % angles.count]
+        let next = (nearest + 1) % angles.count
+        var camera = next == 1 ? VehicleCameraPose.rightProfile : requestedPose
+        camera.azimuth = angles[next]
         selectCamera(camera)
         return true
     }

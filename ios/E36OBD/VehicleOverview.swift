@@ -134,9 +134,9 @@ struct VehiclePresentation: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             HStack(spacing: 4) {
                 if expanded {
-                    cameraButton("Frente", azimuth: 0.58, identifier: "vehicleFrontButton")
-                    cameraButton("Perfil", azimuth: .pi / 2, identifier: "vehicleSideButton")
-                    cameraButton("Atrás", azimuth: .pi - 0.58, identifier: "vehicleRearButton")
+                    cameraButton("Frente", pose: VehicleCameraPose(azimuth: 0.58), identifier: "vehicleFrontButton")
+                    cameraButton("Perfil", pose: .rightProfile, identifier: "vehicleSideButton")
+                    cameraButton("Atrás", pose: VehicleCameraPose(azimuth: .pi - 0.58), identifier: "vehicleRearButton")
                     Button { expandedCamera = VehicleCameraPose() } label: {
                         Image(systemName: "arrow.counterclockwise").font(.system(size: 14, weight: .light))
                             .foregroundStyle(ClusterTheme.ink).frame(width: 44, height: 44).contentShape(Rectangle())
@@ -150,7 +150,7 @@ struct VehiclePresentation: View {
                     Text("295 · Samoablau Metallic").font(.system(size: 10)).foregroundStyle(ClusterTheme.muted)
                     Spacer(minLength: 0)
                 }
-                stageMenu
+                stageToggle
                 Button {
                     if expanded { camera = expandedCamera.dashboardPose }
                     else { expandedCamera = camera.dashboardPose }
@@ -166,19 +166,22 @@ struct VehiclePresentation: View {
         }
         .accessibilityElement(children: .contain).accessibilityIdentifier("vehiclePresentation")
     }
-    private var stageMenu: some View {
-        Menu {
-            Picker("Ambiente", selection: $stage) {
-                ForEach(VehicleStage.allCases) { Text($0.title).tag($0.rawValue) }
-            }
+    private var stageToggle: some View {
+        let selected = VehicleStage(rawValue: stage) ?? .graphite
+        return Button {
+            stage = ((VehicleStage(rawValue: stage) ?? .graphite) == .graphite ? VehicleStage.limestone : .graphite).rawValue
         } label: {
-            Image(systemName: "sun.max").font(.system(size: 15, weight: .light)).foregroundStyle(ClusterTheme.muted)
+            Image(systemName: selected == .graphite ? "sun.max" : "moon.stars")
+                .font(.system(size: 15, weight: .light)).foregroundStyle(ClusterTheme.muted)
                 .frame(width: 44, height: 44).contentShape(Rectangle())
-        }.accessibilityLabel("Ambiente del auto").accessibilityIdentifier("vehicleStageMenu")
+        }.buttonStyle(.plain)
+            .accessibilityLabel(selected == .graphite ? "Activar luz natural" : "Activar fondo grafito")
+            .accessibilityValue(selected.title)
+            .accessibilityIdentifier("vehicleStageToggle")
     }
-    private func cameraButton(_ title: String, azimuth: Float, identifier: String) -> some View {
-        let selected = abs(atan2(sin(sceneCamera.wrappedValue.azimuth - azimuth), cos(sceneCamera.wrappedValue.azimuth - azimuth))) < 0.12
-        return Button { sceneCamera.wrappedValue = VehicleCameraPose(azimuth: azimuth) } label: {
+    private func cameraButton(_ title: String, pose: VehicleCameraPose, identifier: String) -> some View {
+        let selected = abs(atan2(sin(sceneCamera.wrappedValue.azimuth - pose.azimuth), cos(sceneCamera.wrappedValue.azimuth - pose.azimuth))) < 0.12
+        return Button { sceneCamera.wrappedValue = pose } label: {
             Text(title).font(.system(size: 11, weight: selected ? .semibold : .regular))
                 .foregroundStyle(selected ? ClusterTheme.ink : ClusterTheme.muted)
                 .frame(maxWidth: .infinity).frame(height: 44).contentShape(Rectangle())
