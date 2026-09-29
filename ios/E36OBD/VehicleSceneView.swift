@@ -11,7 +11,10 @@ struct VehicleReferenceReview: View {
             .split(separator: "=").last.map(String.init)
     }
     static var requested: Bool { preset != nil }
-    @State private var camera = VehicleCameraPose()
+    @State private var camera: VehicleCameraPose
+    init() {
+        _camera = State(initialValue: Self.preset == "profile" ? .rightProfile : VehicleCameraPose())
+    }
     var body: some View {
         VehicleSceneView(camera: $camera)
             .aspectRatio(Self.preset == "widget" ? 1.65 : 0.75, contentMode: .fit)
@@ -52,10 +55,10 @@ enum VehicleStage: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var title: String { self == .graphite ? "Grafito" : "Luz natural" }
     var floorColor: SIMD3<Float> {
-        self == .graphite ? [0.12, 0.13, 0.15] : [0.27, 0.255, 0.23]
+        self == .graphite ? [0.075, 0.080, 0.090] : [0.27, 0.255, 0.23]
     }
     var backdrop: SIMD3<Float> {
-        self == .graphite ? [0.018, 0.020, 0.024] : [0.082, 0.080, 0.074]
+        self == .graphite ? [0.012, 0.014, 0.017] : [0.082, 0.080, 0.074]
     }
 }
 
@@ -555,7 +558,7 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
         export = ProcessInfo.processInfo.arguments.contains("--widget-car-export")
 #endif
         renderer.engine?.lighting.resource = selected == .graphite && !baseline ? assets.studioEnvironment : assets.environment
-        renderer.engine?.lighting.intensityExponent = selected == .graphite && !baseline ? 0 : 0.15
+        renderer.engine?.lighting.intensityExponent = baseline ? 0.15 : selected == .graphite ? 0 : 0.5
         renderer.stageBackdrop = baseline || selected == .limestone ? .zero : selected.backdrop
         presentationGround?.isEnabled = !baseline && !export && selected == .graphite
         outdoorBackdrop?.isEnabled = !baseline && !export && selected == .limestone
@@ -674,7 +677,7 @@ final class VehicleSceneHost: UIView, UIGestureRecognizerDelegate {
 
     private func updateCamera() {
 #if DEBUG
-        if let preset = VehicleReferenceReview.preset {
+        if let preset = VehicleReferenceReview.preset, preset != "profile" {
             if preset == "widget" {
                 lens.look(at: [0, 0.62, 0], from: [4.9, 2.15, 7.2], relativeTo: nil)
                 lens.camera.fieldOfViewInDegrees = 34

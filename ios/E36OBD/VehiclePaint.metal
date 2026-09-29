@@ -42,7 +42,7 @@ fragment half4 e36PhotographicDisplay(E36DisplayVertex in [[stage_in]],
 [[visible]]
 void e36PresentationGround(realitykit::surface_parameters params) {
     float2 p = params.geometry().world_position().xz;
-    float falloff = 1.0f - smoothstep(3.2f, 9.0f, length(p));
+    float falloff = 1.0f - smoothstep(2.8f, 8.0f, length(p));
     float mottling = sin(p.x * 1.31f + sin(p.y * 0.73f)) * sin(p.y * 1.77f) * 0.015f;
     half3 matte = params.lighting().environment_radiance(
         half3(params.uniforms().custom_parameter().rgb), 1.0h, 0.0h, 0.0h, float3(0, 1, 0)).diffuse;
@@ -51,7 +51,7 @@ void e36PresentationGround(realitykit::surface_parameters params) {
     float2 ndc = abs(clip.xy / clip.w);
     // Keep the ground continuous to both screen edges, with no side vignette.
     float edge = 1.0f - smoothstep(0.82f, 1.0f, ndc.y);
-    params.surface().set_opacity(half(falloff * 0.82f * edge));
+    params.surface().set_opacity(half(falloff * 0.52f * edge));
 }
 
 // Same source radiance and world orientation as the paint/glass IBL. Direct
@@ -63,7 +63,7 @@ void e36OutdoorBackdrop(realitykit::surface_parameters params) {
     float3 direction = normalize(p - float3(0, 1.65f, 0));
     float2 uv = float2(-atan2(-direction.z, direction.x) / 6.2831853f + 0.5f, acos(clamp(direction.y, -1.0f, 1.0f)) / 3.14159265f);
     constexpr sampler panoramaSampler(coord::normalized, s_address::repeat, t_address::clamp_to_edge, filter::linear, mip_filter::linear);
-    float3 radiance = float3(params.textures().custom().sample(panoramaSampler, uv).rgb) * (16.0f * exp2(0.15f));
+    float3 radiance = float3(params.textures().custom().sample(panoramaSampler, uv).rgb) * (16.0f * exp2(-0.2f));
     // Finite RGBA16Float render target. This limit is far above display white.
     params.surface().set_emissive_color(half3(min(radiance, 60000.0f)));
     float4 clip = params.uniforms().view_to_projection() * params.uniforms().world_to_view() * float4(p, 1);
