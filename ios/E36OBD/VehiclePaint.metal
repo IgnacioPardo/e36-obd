@@ -264,7 +264,11 @@ void e36MetallicPaint(realitykit::surface_parameters params) {
     surface.set_metallic(studioDiffuse ? 1.0h : metallic);
     surface.set_ambient_occlusion(half(params.geometry().color().a));
     half3 encoded = half3(params.geometry().color().rgb);
-    surface.set_emissive_color(studioDiffuse ? 4.0h * encoded * encoded : half3(0));
+    // A broad white-card bounce on the -X flank keeps the right-facing profile
+    // legible without lifting the roof or the opposite side's highlights.
+    float3 smoothNormal = normalize(params.geometry().normal());
+    half sideFill = half(0.38f * smoothstep(0.1f, 0.85f, -smoothNormal.x));
+    surface.set_emissive_color((studioDiffuse ? 4.0h * encoded * encoded : half3(0)) + albedo * sideFill);
     surface.set_roughness(filteredRoughness(clamp(constants.roughness_scale() + float(pigment) * 0.025f, 0.18f, 0.40f), params.geometry().normal()));
     surface.set_specular(0.5h);
     surface.set_clearcoat(1.0h);
